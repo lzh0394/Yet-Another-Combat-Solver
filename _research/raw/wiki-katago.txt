@@ -1,0 +1,81 @@
+KataGo is a free and open-source computer Go program, capable of defeating top-level human players. First released on 27 February 2019, it is developed by David Wu, who also developed the Arimaa playing program bot_Sharp which defeated three top human players to win the Arimaa AI Challenge in 2015.
+KataGo's first release was trained by David Wu using resources provided by his employer Jane Street Capital, but it is now trained by a distributed effort. Members of the computer Go community provide computing resources by running the client, which generates self-play games and rating games, and submits them to a server. The self-play games are used to train newer networks and the rating games to evaluate the networks' relative strengths.
+KataGo supports the Go Text Protocol, with various extensions, thus making it compatible with popular GUIs such as Lizzie. As an alternative, it also implements a custom "analysis engine" protocol, which is used by the KaTrain GUI, among others. KataGo is widely used by strong human go players, including the South Korean national team, for training purposes. KataGo is also used as the default analysis engine in the online Go website AI Sensei, as well as OGS (the Online Go Server).
+
+
+== Technology ==
+Based on techniques used by DeepMind's AlphaGo Zero, KataGo implements Monte Carlo tree search with a convolutional neural network providing position evaluation and policy guidance. Compared to AlphaGo, KataGo introduces many refinements that enable it to learn faster and play more strongly.
+Notable features of KataGo that are absent in many other Go-playing programs include score estimation; support for small boards, rectangular boards, and large boards; arbitrary values of komi and handicaps; and the ability to use various Go rulesets and adjust its play and evaluation for the small differences between them.
+
+
+=== Network ===
+The network used in KataGo are ResNets with pre-activation.
+While AlphaGo Zero has only game board history as input features (as it was designed as a general architecture for board games, subsequently becoming AlphaZero), the input to the network contains additional features designed by hand specifically for playing Go. These features include liberties, komi parity, pass-alive, and ladders.
+The trunk is essentially the same as in AlphaGo Zero, but with global pooling layers added to allow the network to be conditioned on global context such as ko fights. This is similar to the Squeeze-and-Excitation Network.
+The network has two heads: a policy head and a value head. The policy and value heads are mostly the same as in AlphaGo Zero, but both heads have auxiliary subheads to provide auxiliary loss signal for faster training:
+
+Policy head: predicts policy for the current player's move this turn, and the opponent player's move in the next turn. A policy Each is a logit array of size 
+  
+    
+      
+        19
+        ×
+        19
+        +
+        1
+      
+    
+    {\displaystyle 19\times 19+1}
+  
+, representing the logit of making a move in one of the points, plus the logit of passing.
+Value head: predicts game outcome, expected score difference, expected board ownership, etc.
+The network is described in detail in Appendix A of the report.
+The code base switched from using TensorFlow to PyTorch in version 1.12.
+
+
+=== Training ===
+Let its trunk have 
+  
+    
+      
+        b
+      
+    
+    {\displaystyle b}
+  
+ residual blocks and 
+  
+    
+      
+        c
+      
+    
+    {\displaystyle c}
+  
+ channels. During its first training run, multiple networks were trained with increasing 
+  
+    
+      
+        (
+        b
+        ,
+        c
+        )
+      
+    
+    {\displaystyle (b,c)}
+  
+. It took 19 days using a maximum of 28 Nvidia V100 GPUs at 4.2 million games.
+After the first training run, training became a distributed project run by volunteers, with increasing network sizes. As of August 2024, it has reached b28c512 (28 blocks, 512 channels).
+
+
+== Adversarial attacks ==
+In 2022, KataGo was used as the target for adversarial attack research, designed to demonstrate the "surprising failure modes" of AI systems. The researchers were able to trick KataGo into ending the game prematurely.
+Adversarial training improves defense against adversarial attacks, though not perfectly.
+
+
+== References ==
+
+
+== External links ==
+KataGo on GitHub

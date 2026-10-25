@@ -1,0 +1,880 @@
+=== https://github.com/Torch1230/CombatSolver  ===
+(# 环境说明：本会话 web_search / web_fetch 返回 HTTP 401，全程改用本地 fetch.ps1（Invoke-WebRequest）。api.github.com 403 未使用。)
+抓取方式：& _research/fetch.ps1 -Url / -Wiki；实际使用 Invoke-WebRequest + User-Agent。
+下表记录：成功抓取的 URL 与正文节选；失败项单列在文件末尾。
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&titles=Libratus ===
+(# Wikipedia 文章 Libratus（extract 纯文本）)
+### Libratus
+Libratus is an artificial intelligence computer program designed to play poker, specifically heads up no-limit Texas hold 'em. Libratus' creators intend for it to be generalisable to other, non-poker-specific applications. It was developed at Carnegie Mellon University, Pittsburgh.
+
+
+## Background ==
+While Libratus was written from scratch, it is the nominal successor of Claudico. Like its predecessor, its name is a Latin expression and means 'balanced'.
+Libratus was built with more than 15 million core hours of computation as compared to 2-3 million for Claudico. The computations were carried out on the new 'Bridges' supercomputer at the Pittsburgh Supercomputing Center. According to one of Libratus' creators, Professor Tuomas Sandholm, Libratus does not have a fixed built-in strategy, but an algorithm that computes the strategy. The technique involved is a new variant of counterfactual regret minimization, namely the CFR+ method introduced in 2014 by Oskari Tammelin. On top of CFR+, Libratus used a new technique that Sandholm and his PhD student, Noam Brown, developed for the problem of endgame solving. Their new method gets rid of the prior de facto standard in Poker programming, called "action mapping".
+Concurrently with Libratus's development, an international team from Charles University, Czech Technical University, and the University of Alberta developed DeepStack, which in December 2016 became the first computer program to defeat professional poker players in heads-up no-limit Texas hold 'em. While both systems used counterfactual regret minimization, they differed in their approaches: DeepStack employed neural networks for evaluating game states, whereas Libratus did not use neural networks for leaf evaluation.
+As Libratus plays only against one other human or computer player, the special 'heads up' rules for two-player Texas hold 'em are enforced.
+
+
+## 2017 humans versus AI match ==
+From January 11 to 31, 2017, Libratus was in a tournament ("Brains vs. Artificial Intelligence: Upping the Ante challenge") against four top-class human poker players, namely Jason Les, Dong Kim, Daniel McAulay and Jimmy Chou. In order to gain results of more statistical significance, 120,000 hands were to be played, a 50% increase compared to the previous tournament that Claudico played in 2015. To manage the extra volume, the duration of the tournament was increased from 13 to 20 days.
+The four players were grouped into two subteams of two players each. One of the subteams was playing in the open, while the other subteam was located in a separate room nicknamed 'The Dungeon' where no mobile phones or other external communications were allowed. The Dungeon subteam got the same sequence of cards as was being dealt in the open, except that the sides were switched: The Dungeon humans got the cards that the AI got in the open and vice versa. This setup was intended to nullify the effect of card luck.
+The prize money of $200,000 was shared exclusively between the human players. Each player received a minimum of $20,000, with the rest distributed in relation to their success playing against the AI. As written in the tournament rules in advance, the AI itself did not receive prize money even though it won the tournament against the human team.
+During the tournament, Libratus was competing against the players during the days. Overnight it was perfecting its strategy on its own by analysing the prior gameplay and results of the day, particularly its losses. Therefore, it was able to continuously straighten out the imperfections that the human team had discovered in their extensive analysis, resulting in a permanent arms race between the humans and Libratus. It used another 4 million core hours on the Bridges supercomputer for the competition's purposes.
+During the tournament, there was an active betting market among poker players about who would win the tournament. It started with 4:1 against the bot, but on the 8th day it became a betting market on which human would lose the least..
+
+
+## Strength of the AI ===
+Libratus had been leading against the human players from day one of the tournament. The player Dong Kim was quoted on the AI's strength as follows: "I didn’t realize how good it was until today. I felt like I was playing against someone who was cheating, like it could see my cards. I’m not accusing it of cheating. It was just that good."
+At the 16th day of the competition, Libratus broke through the $1,000,000 barrier for the first time. At the end of that day, it was ahead $1,194,402 in chips against the human team. At the end of the competition, Libratus was ahead $1,766,250 in chips and thus won resoundingly. As the big blind in the matches was set to $100, Libratus' winrate is equivalent to 14.7 big blinds per 100 hands. This is considered an exceptionally high winrate in poker and is highly statistically significant.
+For comparison, DeepStack achieved a winrate of 49 big blinds per 100 hands in its study against 11 professionals over 44,000 hands, though the different testing conditions (number of hands, opponent skill levels, and tournament format) make direct comparisons difficult.
+Of the human 
+... [截断]
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&titles=DeepStack ===
+(# Wikipedia 文章 DeepStack（extract 纯文本）)
+### DeepStack
+DeepStack is an artificial intelligence computer program designed to play two-player poker, specifically heads up no-limit Texas hold 'em. It is the first computer program to outplay human professionals in this game.
+
+
+## Background ==
+Poker is a key benchmark game in academic community and substantial amount of research was done to find optimal strategies against worst case adversaries.
+While human professionals have been outplayed in large perfect information games, such as Chess, decades before, imperfect information games require much more complex recursive reasoning.
+Prior popular approaches relied mainly on simplification of the game by using abstractions. However, abstractions in imperfect-information games often result in highly-exploitable strategies.
+Instead, DeepStack uses several algorithmic innovations, such as the use of neural networks and continual resolving.
+The program was developed by an international team from Charles University, Czech Technical University and University of Alberta.
+
+
+## Algorithm ==
+At the core of the program is the use of neural networks for determining the value of specific card combinations. 
+The networks are trained only on a small number of games states and are used to generalize to situations not seen during training.
+The program uses search with the neural networks and continual resolving to ensure strategy found at each step is consistent with the strategy used in previous steps. 
+The search procedure uses counterfactual regret minimization to iteratively update strategy in its lookahead tree, and the neural networks are used for leaf evaluation. The leaf evaluation avoids reasoning about the entire remainder of the game by substituting the computation beyond a certain depth with a fast approximate estimate.
+
+
+## 2016 tournament with professional players ==
+In a study completed December 2016, DeepStack defeated 11 professional poker players by playing 44,000 hands of poker. Over all games played, DeepStack won 49 big blinds/100 (always folding would only lose 75 bb/100), over four standard deviations from zero, making it the first computer program to beat professional poker players in heads-up no-limit Texas hold'em poker.
+
+
+## Competing approaches ==
+Concurrently with DeepStack, a competing approach from Carnegie Mellon University research group was published, called Libratus. On January 11 to 31, 2017, Libratus was pitted in a tournament against four top-class human poker players. The algorithm was also published in Science. Libratus does not use neural networks for leaf evaluation. Experts argue that using learning with neural networks (as done by DeepStack) is more general and it has been indeed used in subsequent works that generalize to other games with imperfect information
+
+
+## Reception by the poker community ==
+Dara O'Kearney, an Irish poker professional who completed 456 hands, claimed that DeepStack played in a style similar to one used by some human players, based on game theory.
+
+
+## See also ==
+Computer poker players
+Cepheus (poker bot)
+Libratus
+Pluribus (poker bot)
+
+
+## References ==
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&titles=Pluribus_(poker_bot) ===
+(# Wikipedia 文章 Pluribus (poker bot)（extract 纯文本）)
+### Pluribus (poker bot)
+Pluribus is a computer poker player using artificial intelligence built by Facebook's AI Lab and Carnegie Mellon University. Pluribus plays the poker variation no-limit Texas hold 'em and is "the first bot to beat humans in a complex multiplayer competition". The developers of the bot published their results in 2019.
+According to the Pluribus creators, "Developing a superhuman AI for multiplayer poker was the widely recognized main remaining milestone" in computer poker prior to Pluribus. Pluribus relies on offline self-play to build a base strategy, but then continues to learn in real-time during its online play. The base strategy was computed in eight days, and at market rates would cost about $144 to produce, much smaller than contemporary superhuman game-playing milestones such as AlphaZero. In AI, two-player zero-sum games (such as heads-up hold'em) are usually won by approximating a Nash equilibrium strategy; however, this approach does not work for games with three or more players. Pluribus instead uses an approach which lacks strong theoretical guarantees, but nevertheless appears to work well empirically at defeating human players. Across the competitions, Pluribus won an average of over 30 milli big blinds per game. Pluribus' self-learned play style avoids "limping" (calling the big blind), and engages in "donk betting" (ending a round with a call and starting the next round by betting) more often than human experts do.
+Among expert poker players, Jason Les stated he felt "very hopeless. You don't feel like there’s anything you can do to win." Chris Ferguson stated "Pluribus is a very hard opponent to play against. It's really hard to pin him down on any kind of hand." Jimmy Chou stated "Whenever playing the bot, I feel like I pick up something new to incorporate into my game." In The Wall Street Journal, science editor Daniela Hernandez characterized Pluribus as "advanced at a key human skill — deception".
+Playing No-Limit Hold'em against five professional poker players, Pluribus won an average of $5 per hand with winnings of $1,000 per hour, which Facebook described as a "decisive margin of victory."
+Following the victory, the developers declined to release the source code, out of fear it would be misused to surreptitiously cheat against human poker players in online matches.
+
+
+## References ==
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&titles=Computer_poker_players ===
+(# Wikipedia 文章 Computer poker player 中与 CFR+/求解器/规模相关的段落)
+These bots or computer programs are used often in online poker situations as either legitimate opponents for humans players or a form of cheating.  As of 2020, all use of Real-Time Assistance (RTA) or automated bots is considered cheating by all online poker sites, although the level of enforcement from site operators varies considerably. 
+Use of player bots or computer assistance while playing online poker is prohibited by most, if not all, online sites. Actions taken for breaches are a permanent ban and confiscation of winnings.  One kind of bot can interface with the poker client (in other words, play by itself as an auto player) without the help of its human operator. Real-Time Assistance (RTA) is another method of using computer programs. RTA is when a human player uses program called a "solver" such as PioSOLVER or PokerSnowie, running on a different computer, to make their decisions.
+While the terms and conditions of poker sites generally forbid the use of bots, the level of enforcement depends on the site operator.  Some will seek out and ban bot users through the utilization of a variety of software tools.  The poker client can be programmed to try to detect bots although this is controversial in its own right as it might be seen as tantamount to embedding spyware in the client software.  Another method is to use CAPTCHAs at random intervals during play to catch automated bots, although isn't effective against Real-Time Assistance.
+Like in the games of chess, Go (game), and many other games, artificial intelligence systems beat even the best humans at poker. Poker is a game of imperfect information (because some cards in play are concealed) thus making it harder for anyone (including a computer) to deduce the final outcome of the hand. Because of this lack of information, the computer's programmers used to have to implement systems based on the Bayes' theorem, Nash equilibrium, Monte Carlo simulation or neural networks, all of which are imperfect techniques. Pluribus, however, perfected poker by only looking ahead a few moves to determine what action to take, rather than attempting to evaluate all moves until the end of the game.
+AI broke through to superhuman performance in poker during the 2010s, with the following timeline. In 2015, computers solved heads-up limit hold'em via Cepheus. The breakthrough was achieved using the CFR+ (Counterfactual Regret Minimization Plus) algorithm, which analyzed 3.19×10^14 decision points to effectively solve the game. CFR+ works by iteratively playing against itself and analyzing counterfactual regret - the difference between the expected value of an action taken and the best possible action that could have been taken. In 2017, Libratus, developed at Carnegie Mellon University by Tuomas Sandholm and Noam Brown, demonstrated superhuman ability in heads-up no-limit hold'em, defeating four professional players in the "Brains vs. Artificial Intelligence" competition at Rivers Casino in Pittsburgh. That same year, DeepStack, developed at the University of Alberta, reached expert-level play in heads-up no-limit hold'em, a result published in Science. In 2019, Pluribus (a newer version of Libratus) demonstrated superhuman ability at six-player no-limit hold'em, the most commonly played single variety of poker in the world.
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&format=json&redirects=1&titles=Noam_Brown ===
+(# Wikipedia 文章 Noam Brown：Libratus/Pluribus/ReBeL 的论文出处与对局规模)
+Noam Brown is a computer scientist and artificial intelligence researcher whose work has focused on strategic reasoning, imperfect-information games, reinforcement learning, and reasoning in large language models. He developed Libratus (2017) and Pluribus (2019) with Thomas Sandholm, the first artificial intelligence systems to defeat top human professionals in heads-up and multiplayer no-limit Texas hold 'em, respectively. He later helped develop CICERO (2022), an AI system that achieved human-level performance in the strategy game Diplomacy.
+Brown attended Rutgers University, where he earned a Bachelor of Arts in mathematics and computer science in 2008, graduating summa cum laude as a member of the Rutgers College Honors Program.
+In 2012, Brown enrolled at Carnegie Mellon University, earning a master's degree in robotics in 2014 under the supervision of Sandholm, before continuing into the doctoral program in computer science. He completed his PhD in 2020 with the dissertation Equilibrium Finding for Large Adversarial Imperfect-Information Games, also supervised by Sandholm, which built on the algorithms he had developed for Libratus and Pluribus. The dissertation received the Carnegie Mellon School of Computer Science Distinguished Dissertation Award, the AAAI/ACM SIGAI Dissertation Award, and the International Foundation for Autonomous Agents and Multiagent Systems (IFAAMAS) Victor Lesser Distinguished Dissertation Award, all in 2020. He spent part of his graduate studies as a research intern at DeepMind in London in 2017.
+## Carnegie Mellon University: Libratus and Pluribus ===
+As a graduate student in Sandholm's research group, Brown worked on computational game theory and equilibrium-finding algorithms for large adversarial games, building on the group's earlier poker programs, including Tartanian7 and Claudico. In January 2017, Libratus became the first computer program to defeat top professional players in heads-up no-limit Texas hold 'em, beating four professionals—Dong Kim, Jason Les, Jimmy Chou, and Daniel McAulay—over 120,000 hands in a 20-day competition at Rivers Casino in Pittsburgh, "Brains vs. Artificial Intelligence: Upping the Ante," and winning by more than $1.76 million in chips. A paper describing Libratus, co-authored by Brown and Sandholm, was published in Science in 2018. A related paper, "Safe and Nested Subgame Solving for Imperfect-Information Games," describing a core technique behind Libratus, received a Best Paper Award at NeurIPS 2017.
+In July 2019, while completing his PhD and concurrently working as a research scientist at Facebook AI Research, Brown and Sandholm unveiled Pluribus, an AI that defeated elite professionals at six-player no-limit Texas hold 'em. Unlike heads-up poker, six-player poker is not a two-player zero-sum game, so many of the theoretical guarantees available for two-player games do not directly apply. In one experiment, professionals Darren Elias and Chris Ferguson each played 5,000 hands as the sole human against five independent copies of Pluribus; in another, one copy of Pluribus played 10,000 hands against five professionals at a time, drawn from a pool of thirteen. Pluribus was profitable in both settings. The result was published as the cover article of Science and was named one of nine runners-up for the journal's Breakthrough of the Year for 2019.
+Brown joined Facebook AI Research (FAIR) in 2018, initially continuing his poker research. At FAIR he later worked on systems combining strategic planning with natural-language interaction. In November 2022, Brown was part of the Meta FAIR Diplomacy team that introduced CICERO, described in its Science publication as the first AI agent to achieve human-level performance in Diplomacy, a seven-player strategy game that requires natural-language negotiation and tactical coordination between cooperation and competition. CICERO integrated a language model with planning and reinforcement-learning components that inferred other players' beliefs and intentions from their conversations and generated dialogue in pursuit of its plans. Playing anonymously against humans on the online platform webDiplomacy.net across 40 games, it achieved more than double the average score of human participants and ranked in the top 10 percent of players who had played more than one game.
+Brown has argued that increasing computation at inference ("test") time can produce substantial performance gains without proportionally increasing model size or training compute. In an October 2024 talk at the TEDAI conference in San Francisco, he cited an earlier poker experiment in which extending a bot's "thinking" time by roughly 20 seconds produced a performance improvement that he compared to scaling model size and training compute by a factor of about 100,000.
+Marvin Minsky Medal for Outstanding Achievements in AI, International Joint Conference on Artificial Intelligence (2019), shared with Tuomas Sandholm, for the development of Libratus
+Carnegie Mellon School of Computer Science Distinguished Dissertation Award (2020)
+Brown, Noam; Sandholm, Tuomas (2018). "Superhuman AI for heads-up no-limit poker: Libratus beats top professionals." Science 359 (6374): 418–424.
+Brown, Noam; Sandholm, Tuomas (2019). "Superhuman AI for multiplayer poker." Science 365 (6456): 885–890.
+Brown, Noam; Bakhtin, Anton; Lerer, Adam; Gong, Qucheng (2020). "Combining Deep Reinforcement Learning and Search for Imperfect-Information Games." Advances in Neural Information Processing Systems 33 (NeurIPS).
+Meta Fundamental AI Research Diplomacy Team (FAIR); Bakhtin, Anton; Brown, Noam; et al. (2022). "Human-level play in the game of Diplomacy by combining language models with strategic reasoning." Science 378 (6624): 1067–1074.
+
+=== https://raw.githubusercontent.com/facebookresearch/ReBeL/main/README.md ===
+(# ReBeL 官方开源实现 README（仅 Liar's Dice）)
+# ReBeL
+
+Implementation of [ReBeL](https://arxiv.org/abs/2007.13544), an algorithm that generalizes the paradigm of self-play reinforcement learning and search to imperfect-information games.
+This repository contains implementation only for [Liar's Dice](https://en.wikipedia.org/wiki/Liar%27s_dice) game.
+
+## Installation
+
+The recommended way to install ReBeL is via conda env.
+
+First, clone and create the conda env:
+
+```bash
+git clone --recursive https://github.com/facebookresearch/rebel.git
+cd rebel
+conda create --yes -n rebel python=3.7
+source activate rebel
+```
+
+Then, install dependencies:
+
+```bash
+pip install -r requirements.txt
+conda install cmake
+```
+
+Finally, compile the C++ part:
+
+```bash
+make
+```
+
+## Training a value net
+
+Use the following command to train a value net with data generation placed on CPU:
+
+```
+python run.py --adhoc --cfg conf/c02_selfplay/liars_sp.yaml \
+    env.num_dice=1 \
+    env.num_faces=4 \
+    env.subgame_params.use_cfr=true \
+    selfplay.cpu_gen_threads=60
+```
+
+As CFR requires evaluation of the value function for several nodes at each iteration, the code above will be pretty slow. If you have multiple GPUs on your machine, use these flags instead. First GPU will be used for training and the others will be used for data generation with 8 CPU threads per each GPU:
+
+```
+python run.py --adhoc --cfg conf/c02_selfplay/liars_sp.yaml \
+    env.num_dice=1 \
+    env.num_faces=4 \
+    env.subgame_params.use_cfr=true \
+    selfplay.cpu_gen_threads=0  \
+    selfplay.threads_per_gpu=8
+```
+
+Check the config [conf/c02_selfplay/liars_sp.yaml](conf/c02_selfplay/liars_sp.yaml) for all possible parameters. If use use Slurm to manage the cluster, add `launcher=slurm_8gpus launcher.num_gpus=NUM_GPUS` to run the job on the cluster. If you specify `NUM_GPUS > 8`, the code will assume that you are launching on several machines with 8 GPUs each.
+
+
+## Evaluating a value net
+
+The trainer saves checkpoints every 10 epochs as state dictionaries and as TorchScript modules. You can use the latter to compute exploitability of strategy produced with such a model using the following command:
+
+```
+build/recursive_eval \
+    --net path/to/model.torchscript \
+    --mdp_depth 2 \
+    --num_faces 4 \
+    --num_dice 1 \
+    --subgame_iters 1024 \
+    --num_repeats 4097 \
+    --num_threads 10 \
+    --cfr
+```
+
+Setting `--num_repeats` to a positive value enables evaluation of a sampled policy, i.e., when we use a randomly selected iteration of the underlying subgame algorithm for the subgame. Computing the exact full policy produced by such a process is intractable. Therefore, we average `num_repeats` such policies to get an upper bound for the exploitability.
+
+The script reports exploitability for both full tree solving and recursive solving.
+
+
+## Pretrained checkpoints
+
+We release checkpoints of value function for games 1x4f, 1x5f, 1x6f, and 2x3f. We report the average exploitability of these checkpoints in the paper. Use [eval_all.py](https://github.com/facebookresearch/rebel/blob/master/scripts/eval_all.py) script to download and evaluate all the models.
+
+## Code structure
+
+The training loop is implemented in Python and located in [cfvpy/selfplay.py](cfvpy/selfplay.py). The actual data generation part happens in C++ and could be found in [csrc/liarc_dice](csrc/liars_dice).
+
+## License
+Rebel is released under the Apache license. See [LICENSE](LICENSE) for additional details.
+
+
+
+=== https://raw.githubusercontent.com/bupticybee/TexasSolver/master/README.md ===
+(# TexasSolver（bupticybee，C++ 版）README：speed benchmark 与 piosolver 对比)
+
+# :rotating_light: This project still works but a more than 20x faster new GPU version is available here: [TexasSolverGPU](https://bupticybee.github.io/texassolver_gpu_page)
+
+# CPP Texas Solver
+
+[![release](https://img.shields.io/github/v/release/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/releases)
+[![license](https://img.shields.io/github/license/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/blob/master/LICENSE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/TexasSolver/TexasSolver)
+
+README [English](README.md) | [中文](README.zh-CN.md)
+
+## Introduction 
+A open sourced, extremely efficient Texas Hold'em and short deck solver. See this [Introduction video](https://youtu.be/IsSJNz7sRmQ) for more. Supports Windows,MacOs and Linux.
+
+![](imgs/solver_example.gif)
+
+Features:
+
+- In a tree with 1~2bets + allin, it's speed exceeds piosolver on flop
+- Support Mac, Linux and Windows
+- Support texas holdem and shortdeck
+- Support cross language calls
+- Result aliged with piosolver
+- Support dump strategy to json file
+- It's the c++ version of [TexasHoldemSolverJava](https://github.com/bupticybee/TexasHoldemSolverJava) with a ton of optimization, it's 5x faster than the java version and takes less than 1/3 memory.
+
+Feel free to mess with a toy solver [in google colab](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
+
+
+## Install
+
+Download package according to your OS in [release package](https://github.com/bupticybee/TexasSolver/releases), unzip it, and install is done. It's that simple.
+
+## GUI version Usage
+
+After install the solver, double click the application binary (TexasSolverGui.exe in windows or TexasSolverGui.app in MacOS) to run TexasSolver.
+
+## Console version Usage
+
+Please check [console version document](https://github.com/bupticybee/TexasSolver/tree/console#usage) for more.
+
+## Speed benchmark with piosolver
+
+Piosolver and my TexasSolver(console version) run use the same settings (spr=10,flop game) and their result are aligned.
+
+|                                | Input config                                              | log                                                          | thread number | memory usage | accuracy | converge time |
+| ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ | ------------- | ------------ | -------- | ------------- |
+| piosolver 1.0                  | [config_piosolver](benchmark/benchmark_piosolver.txt)     | [log_piosolver](benchmark/benchmark_outputs/piosolver_log.txt) | 6             | 492Mb        | 0.29%    | 242s          |
+| TexasSolver 0.1.0 (Our solver) | [config_texassolver](benchmark/benchmark_texassolver.txt) | [log_texassolver](benchmark/benchmark_outputs/texassolver_log.txt) | 6             | 1600Mb       | 0.275%   | 172s          |
+
+The compare image of their results is  [here](benchmark/benchmark_outputs/result_compair.png). As you can see their result are very close.
+
+# License
+
+[GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.en.html)
+
+This software is licensed to person/business here: 
+ [licensed_list](licensed_list.txt)
+
+# Email
+
+icybee@yeah.net
+
+# Q & As
+
+1. Q: Is the solver really free?
+   - A: Yes, for personal users, the solver is completely opensourced and free.
+
+2. Q: Can I upload it to other websites or forums? Can I share it with my friend?
+   - A: No, you can only put the link of this project to other website, not the binary, this project is under AGPL-V3 license, and these kind of actions violates this license.
+
+3. Q: Can I integrate it to my software?
+   - A: If you integrate the release package (binary) into your software, Yes, you can do that. If you want to integrate the code of the solver into your software or provide service through internet, then you need to contact me for a commercial license, which is also the main profit-making method of this project.
+
+4. Q: What framework do you use to write the ui?
+   - A: I use QT 5.1.0 (opensourced edition) to build the GUI version. For the console version, I use Mingw + CMake.
+
+
+=== https://raw.githubusercontent.com/bupticybee/TexasSolver/console/README.md ===
+(# TexasSolver console 分支 README：命令行用法、迭代日志（exploitability）、输入配置)
+# CPP Texas Solver
+
+[![release](https://img.shields.io/github/v/release/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/releases)
+[![license](https://img.shields.io/github/license/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/blob/master/LICENSE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/master/TexasSolverTechDemo.ipynb)
+
+README [English](README.md) | [中文](README.zh-CN.md)
+
+## Introduction 
+A open sourced, extremely efficient Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more.
+
+Features:
+- In a tree with 1~2bets + allin, it's speed exceeds piosolver on flop
+- Support Mac, Linux and Windows
+- Support texas holdem and shortdeck
+- Support cross language calls
+- Result aliged with piosolver
+- Support dump strategy to json file
+- It's the c++ version of [TexasHoldemSolverJava](https://github.com/bupticybee/TexasHoldemSolverJava) with a ton of optimization, it's 5x faster than the jave version and takes less than 1/3 memory.
+
+Feel free to mess with a toy solver [in google colab](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/master/TexasSolverTechDemo.ipynb)
+
+
+## Speed benchmark with piosolver
+
+Piosolver and my TexasSolver run use the same settings (spr=10,flop game) and their result are aligned.
+
+|                   | Input config                                            | log                                                                | thread number | memory usage | accuracy | converge time |
+| ----------------- | ------------------------------------------------------- | ------------------------------------------------------------------ | ------------- | ------------ | -------- | ------------- |
+| piosolver 1.0     | [config_piosolver](benchmark/benchmark_piosolver.txt)   | [log_piosolver](benchmark/benchmark_outputs/piosolver_log.txt)     | 6             | 492Mb        | 0.29%    | 242s          |
+| TexasSolver 0.1.0 (Our solver) | [config_texassolver](benchmark/benchmark_texassolver.txt) | [log_texassolver](benchmark/benchmark_outputs/texassolver_log.txt) | 6             | 1600Mb       | 0.275%   | 172s          |
+
+The compare image of their results is  [here](benchmark/benchmark_outputs/result_compair.png). As you can see their result are very close.
+
+
+## Install
+
+Download the [release package](https://github.com/bupticybee/TexasSolver/releases), unzip it, you will get a folder look like this:
+
+```text
+--- Solver
+ |- resources
+ |- console_solver.exe
+```
+
+If you download MacOs version, ```console_solver.exe``` should be replaced by a ```console_solver``` executable file.
+
+Put the folder wherever you like, and the installation is done! It's that simple.
+
+If you are using Linux system or the release didn't work on your computer, you should [Compile the release package](#compile-from-source) first.
+
+## Usage
+
+### command line solver
+
+You can easily call the solver using command line tools from Windows(cmd), Linux(bash), and mac(terminal).
+
+For example, if you are using Windows, enter windows cmd terminal (press windows button, input cmd, press enter), go to the install directory, and you can run an example by a simple command:
+
+```text
+console_solver.exe -i resources/text/commandline_sample_input.txt 
+```
+
+And MacOs and Linux users should use this command:
+
+```text
+./console_solver -i resources/text/commandline_sample_input.txt 
+```
+
+![solving](imgs/solving.gif)
+
+You will see something like the following log:
+
+```text
+EXEC FROM FILE
+[##################################################] 100%
+<<<START SOLVING>>>
+Using 8 threads
+Iter: 0
+player 0 exploitability 43.637302
+player 1 exploitability 27.916748
+Total exploitability 71.55405 precent
+-------------------
+Iter: 11
+player 0 exploitability 15.374577
+player 1 exploitability 2.400461
+Total exploitability 17.775038 precent
+time used: 6.871
+-------------------
+....
+```
+
+and after the solving process is done, a ```output_result.json``` file should be generated. It contains the optimal strategy that was calculated.
+
+The input file, above mentioned ```resources/text/commandline_sample_input.txt``` contains parameters controls the tree building and solving process. A typical such file look like this:
+
+```text
+set_pot 50
+set_effective_stack 200
+set_board Qs,Jh,2h
+set_range_ip AA,KK,QQ,JJ,TT,99:0.75,88:0.75,77:0.5,66:0.25,55:0.25,AK,AQs,AQo:0.75,AJs,AJo:0.5,ATs:0.75,A6s:0.25,A5s:0.75,A4s:0.75,A3s:0.5,A2s:0.5,KQs,KQo:0.5,KJs,KTs:0.75,K5s:0.25,K4s:0.25,QJs:0.75,QTs:0.75,Q9s:0.5,JTs:0.75,J9s:0.75,J8s:0.75,T9s:0.75,T8s:0.75,T7s:0.75,98s:0.75,97s:0.75,96s:0.5,87s:0.75,86s:0.5,85s:0.5,76s:0.75,75s:0.5,65s:0.75,64s:0.5,54s:0.75,53s:0.5,43s:0.5
+set_range_oop QQ:0.5,JJ:0.75,TT,99,88,77,66,55,44,33,22,AKo:0.25,AQs,AQo:0.75,AJs,AJo:0.75,ATs,ATo:0.75,A9s,A8s,A7s,A6s,A5s,A4s,A3s,A2s,KQ,KJ,KTs,KTo:0.5,K9s,K8s,K7s,K6s,K5s,K4s:0.5,K3s:0.5,K2s:0.5,QJ,QTs,Q9s,Q8s,Q7s,JTs,JTo:0.5,J9s,J8s,T9s,T8s,T7s,98s,97s,96s,87s,86s,76s,75s,65s,64s,54s,53s,43s
+set_bet_sizes oop,flop,bet,50
+set_bet_sizes oop,flop,raise,60
+set_bet_sizes oop,flop,allin
+set_bet_sizes ip,flop,bet,50
+set_bet_sizes ip,flop,raise,60
+set_bet_sizes ip,flop,allin
+set_bet_sizes oop,turn,bet,50
+set_bet_sizes oop,turn,raise,60
+set_bet_sizes oop,turn,allin
+set_bet_sizes ip,turn,bet,50
+set_bet_sizes ip,turn,raise,60
+set_bet_sizes ip,turn,allin
+set_bet_sizes oop,river,bet,50
+set_bet_sizes oop,river,donk,50
+set_bet_sizes oop,river,raise,60,100
+set_bet_sizes oop,river,allin
+set_bet_sizes ip,river,bet,50
+set_bet_sizes ip,river,raise,60,100
+set_bet_sizes ip,river,allin
+set_allin_threshold 0.67
+build_tree
+set_thread_num 8
+set_accuracy 0.5
+set_max_iteration 200
+set_print_interval 10
+set_use_isomorphism 1
+start_solve
+set_dump_rounds 2
+dump_result output_result.json
+```
+
+Modify the file to control the game tree details and parallelism, etc. By default the input file contains a flop situation where game tree is constructed using 1bet/raise+allin in flop and turn, using 2bet/raise+allin in river.
+
+
+=== https://raw.githubusercontent.com/bupticybee/TexasSolver/master/benchmark/benchmark_piosolver.txt ===
+(# benchmark 中使用的 PioSOLVER 1.0 输入配置（树构建/下注尺度集合）)
+#TreeBuilding#V2
+#Range0#AA,KK,QQ,JJ,TT,99:0.75,88:0.75,77:0.5,66:0.25,55:0.25,AK,AQs,AQo:0.75,AJs,AJo:0.5,ATs:0.75,A6s:0.25,A5s:0.75,A4s:0.75,A3s:0.5,A2s:0.5,KQs,KQo:0.5,KJs,KTs:0.75,K5s:0.25,K4s:0.25,QJs:0.75,QTs:0.75,Q9s:0.5,JTs:0.75,J9s:0.75,J8s:0.75,T9s:0.75,T8s:0.75,T7s:0.75,98s:0.75,97s:0.75,96s:0.5,87s:0.75,86s:0.5,85s:0.5,76s:0.75,75s:0.5,65s:0.75,64s:0.5,54s:0.75,53s:0.5,43s:0.5
+#Range1#QQ:0.5,JJ:0.75,TT,99,88,77,66,55,44,33,22,AKo:0.25,AQs,AQo:0.75,AJs,AJo:0.75,ATs,ATo:0.75,A9s,A8s,A7s,A6s,A5s,A4s,A3s,A2s,KQ,KJ,KTs,KTo:0.5,K9s,K8s,K7s,K6s,K5s,K4s:0.5,K3s:0.5,K2s:0.5,QJ,QTs,Q9s,Q8s,Q7s,JTs,JTo:0.5,J9s,J8s,T9s,T8s,T7s,98s,97s,96s,87s,86s,76s,75s,65s,64s,54s,53s,43s
+#Board#Qs Jh 2h
+#Pot#10
+#EffectiveStacks#95
+#AllinThreshold#100
+#AddAllinOnlyIfLessThanThisTimesThePot#1000000
+#MinimumBetsize#0
+#UseUnifiedBetAfterRaise#False
+#UnifiedBetAfterRaise#
+#ForceIPBet#False
+#ForceOOPBet#False
+#Cap#0
+#CapEnabled#False
+#CapMode#NoLimit
+#RemovedLines#
+#ExtraLines#
+#FlopConfig.BetSize#100
+#FlopConfig.RaiseSize#50
+#FlopConfig.AddAllin#True
+#FlopConfig.DonkBetSize#
+#TurnConfig.BetSize#100
+#TurnConfig.RaiseSize#50
+#TurnConfig.AddAllin#True
+#TurnConfig.DonkBetSize#100
+#RiverConfig.BetSize#100
+#RiverConfig.RaiseSize#50
+#RiverConfig.AddAllin#True
+#RiverConfig.DonkBetSize#100
+#FlopConfigIP.BetSize#100
+#FlopConfigIP.RaiseSize#50
+#FlopConfigIP.AddAllin#True
+#FlopConfigIP.Dont3bet#True
+#TurnConfigIP.BetSize#100
+#TurnConfigIP.RaiseSize#50
+#TurnConfigIP.AddAllin#False
+#TurnConfigIP.Dont3bet#True
+#RiverConfigIP.BetSize#100
+#RiverConfigIP.RaiseSize#50
+#RiverConfigIP.AddAllin#True
+#RiverConfigIP.Dont3bet#True
+#Rake.Cap#0
+#Rake.Fraction#0
+#Rake.Enabled#False
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/README.md ===
+(# OpenSpiel README：C++ 核心 + Python 绑定、博弈类型覆盖)
+
+<!-- disableFinding(IMAGE_ALT_TEXT_INACCESSIBLE) -->
+<!-- disableFinding(HEADING_REPEAT_H1) -->
+<!-- disableFinding(SNIPPET_INVALID_LANGUAGE) -->
+<!-- disableFinding("github") -->
+<!-- disableFinding(LINK_CL_HEAD) -->
+
+# OpenSpiel: A Framework for Reinforcement Learning in Games
+
+[![Documentation Status](https://readthedocs.org/projects/openspiel/badge/?version=latest)](https://openspiel.readthedocs.io/en/latest/?badge=latest)
+![build_and_test](https://github.com/deepmind/open_spiel/workflows/build_and_test/badge.svg)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org)
+
+OpenSpiel is a collection of environments and algorithms for research in general
+reinforcement learning and search/planning in games. OpenSpiel supports n-player
+(single- and multi- agent) zero-sum, cooperative and general-sum, one-shot and
+sequential, strictly turn-taking and simultaneous-move, perfect and imperfect
+information games, as well as traditional multiagent environments such as
+(partially- and fully- observable) grid worlds and social dilemmas. OpenSpiel
+also includes tools to analyze learning dynamics and other common evaluation
+metrics. Games are represented as procedural extensive-form games, with some
+natural extensions. The core API and games are implemented in C++ and exposed to
+Python. Algorithms and tools are written both in C++ and Python.
+
+To try OpenSpiel in Google Colaboratory, please refer to `open_spiel/colabs` subdirectory or start [here](https://colab.research.google.com/github/deepmind/open_spiel/blob/master/open_spiel/colabs/install_open_spiel.ipynb).
+
+<p align="center">
+  <img src="docs/_static/OpenSpielC.png" alt="OpenSpiel visual asset" width="800px">
+</p>
+
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/docs/algorithms.md ===
+(# OpenSpiel 算法清单（CFR / MCCFR / Deep CFR / PIMC / Regret Matching 及文献引用）)
+Algorithms                                                            | Category     | Reference                                                                                                                                                                                                                                                                                                       | Status
+--------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------
+Perfect Information Monte Carlo (PIMC)                                | Search       | [Long et al. '10](https://ojs.aaai.org/index.php/AAAI/article/view/7562)                                                                                                                                                                                                                                        | <font color="orange"><b>~</b></font>
+Counterfactual Regret Minimization (CFR)                              | Tabular      | [Zinkevich et al '08](https://poker.cs.ualberta.ca/publications/NIPS07-cfr.pdf), [Neller &amp; Lanctot '13](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf)                                                                                                                                                     | ![](_static/green_circ10.png "green circle")
+External sampling Monte Carlo CFR                                     | Tabular      | [Lanctot et al. '09](http://mlanctot.info/files/papers/nips09mccfr.pdf), [Lanctot '13](http://mlanctot.info/files/papers/PhD_Thesis_MarcLanctot.pdf)                                                                                                                                                            | ![](_static/green_circ10.png "green circle")
+Outcome sampling Monte Carlo CFR                                      | Tabular      | [Lanctot et al. '09](http://mlanctot.info/files/papers/nips09mccfr.pdf), [Lanctot '13](http://mlanctot.info/files/papers/PhD_Thesis_MarcLanctot.pdf)                                                                                                                                                            | ![](_static/green_circ10.png "green circle")
+Regret Matching                                                       | Tabular      | [Hart &amp; Mas-Colell '00](https://onlinelibrary.wiley.com/doi/abs/10.1111/1468-0262.00153)                                                                                                                                                                                                                    | ![](_static/green_circ10.png "green circle")
+Deep CFR                                                              | MARL         | [Brown et al. '18](https://arxiv.org/abs/1811.00164)                                                                                                                                                                                                                                                            | ![](_static/green_circ10.png "green circle")
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/docs/concepts.md ===
+(# OpenSpiel 核心 API：Game / State / chance player / information state)
+## First examples
+
+One can run an example of a game running (in the `build/` folder):
+
+```bash
+./examples/example --game=tic_tac_toe
+```
+
+Similar examples using the Python API (run from one above `build`):
+
+```bash
+# Similar to the C++ example:
+python3 open_spiel/python/examples/example.py --game_string=breakthrough
+
+# Play a game against a random or MCTS bot:
+python3 open_spiel/python/examples/mcts.py --game=tic_tac_toe --player1=human --player2=random
+python3 open_spiel/python/examples/mcts.py --game=tic_tac_toe --player1=human --player2=mcts
+```
+
+## Concepts
+
+The following documentation describes the high-level concepts. Refer to the code
+comments for specific API descriptions.
+
+Note that, in English, the word "game" is used for both the description of the
+rules (e.g. the game of chess) and for a specific instance of a playthrough
+(e.g. "we played a game of chess yesterday"). We will be using "playthrough" or
+"trajectory" to refer to the second concept.
+
+The methods names are in `CamelCase` in C++ and `snake_case` in Python without
+any other difference (e.g. `state.ApplyAction` in C++ will be
+`state.apply_action` in Python).
+
+### The tree representation
+
+There are mainly 2 concepts to know about (defined in
+[open_spiel/spiel.h](https://github.com/deepmind/open_spiel/blob/master/open_spiel/spiel.h)):
+
+*   A `Game` object contains the high level description for a game (e.g. whether
+    it is simultaneous or sequential, the number of players, the maximum and
+    minimum scores).
+*   A `State`, which describes a specific point (e.g. a specific board position
+    in chess, a specific set of player cards, public cards and past bets in
+    Poker) within a trajectory.
+
+All possible trajectories in a game are represented as a tree. In this tree, a
+node is a `State` and is associated to a specific history of moves for all
+players. Transitions are actions taken by players (in case of a simultaneous
+node, the transition is composed of the actions for all players).
+
+Note that in most games, we deal with chance (i.e. any source of randomness)
+using an explicit player (the "chance" player, which has id `kChancePlayerId`).
+For example, in Poker, the root state would just be the players without any
+cards, and the first transitions will be chance nodes to deal the cards to the
+players (in practice one card is dealt per transition).
+
+See `spiel.h` for the full API description. For example,
+`game.NewInitialState()` will return the root `State`. Then,
+`state.LegalActions()` can be used to get the possible legal actions and
+`state.ApplyAction(action)` can be used to update `state` in place to play the
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/docs/games.md ===
+(# OpenSpiel 游戏表：共 102 行游戏记录；下表摘录含不完全信息扑克/牌类（Deterministic / Perfect info 两列即隐藏信息与随机性的标注）)
+# Available games
+
+Statuses:
+
+- 🟢: thoroughly-tested. In many cases, we verified against known values and/or reproduced results from papers.
+- 🔶: implemented but lightly tested.
+- ❌: known issues (see notes below and code for details).
+
+...
+🟢                                                                      | [Bridge](https://en.wikipedia.org/wiki/Contract_bridge)                                        | 4       | ❌              | ❌            | A card game where players compete in pairs.
+🔶                                                                      | [Cribbage](https://en.wikipedia.org/wiki/Cribbage)                                             | 2-4     | ❌              | ❌            | A card game that involves grouping cards in combinations to gain points.
+🔶                                                                      | Dark Hex                                                                                       | 2       | ✅              | ❌            | Hex, except the opponent's tokens are hidden (imperfect-information version).
+🔶                                                                      | [Dou Dizhu](https://en.wikipedia.org/wiki/Dou_dizhu)                                           | 3       | ❌              | ❌            | A three-player games where one player (dizhu) plays against a team of two (peasants).
+🔶                                                                      | [Euchre](https://en.wikipedia.org/wiki/Euchre)                                                 | 4       | ❌              | ❌            | Trick-taking card game where players compete in pairs.
+🟢                                                                      | [Kuhn poker](https://en.wikipedia.org/wiki/Kuhn_poker)                                         | 2       | ❌              | ❌            | Simplified poker amenable to game-theoretic analysis.
+🟢                                                                      | Leduc poker                                                                                    | 2       | ❌              | ❌            | Simplified poker amenable to game-theoretic analysis. References: [Southey et al. '05, Bayes’ bluff: Opponent modelling in poker](https://arxiv.org/abs/1207.1411).
+🟢                                                                      | [Poker (Hold 'em)](https://en.wikipedia.org/wiki/Texas_hold_%27em)                             | 2-10    | ❌              | ❌            | Players bet on whether their hand of cards plus some communal cards will form a special set. Implemented via [ACPC](http://www.computerpokercompetition.org/).
+🟢                                                                      | Tiny [Bridge](https://en.wikipedia.org/wiki/Contract_bridge)                                   | 2,4     | ❌              | ❌            | Simplified Bridge with fewer cards and tricks.
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/open_spiel/python/algorithms/cfr.py ===
+(# OpenSpiel Python CFR 实现：模块 docstring（CFR 三步骤）、Regret Matching+ 定义、CFRSolver / CFRPlusSolver 公共 API)
+"""Python implementation of the counterfactual regret minimization algorithm.
+
+One iteration of CFR consists of:
+1) Compute current strategy from regrets (e.g. using Regret Matching).
+2) Compute values using the current strategy
+3) Compute regrets from these values
+
+The average policy is what converges to a Nash Equilibrium.
+"""
+class _InfoStateNode(object):
+  Regret Matching+ corresponds to the following cumulative regrets update:
+  cumulative_regrets = max(cumulative_regrets + regrets, 0)
+class _CFRSolverBase(object):
+        cumulative_regrets = max(cumulative_regrets + regrets, 0)
+  def current_policy(self) -> policy.TabularPolicy:
+  def average_policy(self) -> policy.TabularPolicy:
+class _CFRSolver(_CFRSolverBase):
+  def evaluate_and_update_policy(self):
+class CFRPlusSolver(_CFRSolver):
+class CFRSolver(_CFRSolver):
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/open_spiel/python/algorithms/discounted_cfr.py ===
+(# OpenSpiel DCFR/LCRF 实现 docstring（alpha/beta/gamma 折扣公式）)
+# Copyright 2019 DeepMind Technologies Limited
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""Discounted CFR and Linear CFR algorithms.
+
+This implements Discounted CFR and Linear CFR, from Noam Brown and Tuomas
+Sandholm, 2019, "Solving Imperfect-Information Games via Discounted Regret
+Minimization".
+See https://arxiv.org/abs/1809.04040.
+
+Linear CFR (LCFR), is identical to CFR, except on iteration `t` the updates to
+the regrets and average strategies are given weight `t`. (Equivalently, one
+could multiply the accumulated regret by t / (t+1) on each iteration.)
+
+Discounted CFR(alpha, beta, gamma) is defined by, at iteration `t`:
+- multiplying the positive accumulated regrets by (t^alpha / (t^alpha + 1))
+- multiplying the negative accumulated regrets by (t^beta / (t^beta + 1))
+- multiplying the contribution to the average strategy by t^gamma
+
+WARNING: This was contributed on Github, and the OpenSpiel team is not aware it
+has been verified we can reproduce the paper results.
+"""
+
+import numpy as np
+
+from open_spiel.python.algorithms import cfr
+
+_InfoStateNode = cfr._InfoStateNode  # pylint: disable=protected-access
+
+
+class _DCFRSolver(cfr._CFRSolver):  # pylint: disable=protected-access
+  """Discounted CFR."""
+
+  def __init__(self, game, alternating_updates, linear_averaging,
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/v1.1.0/open_spiel/python/algorithms/deep_cfr.py ===
+(# OpenSpiel Deep CFR（v1.1.0 标签内存在；master 上该路径 404）docstring：advantage 网络 + strategy 网络 + reservoir buffer)
+# Copyright 2019 DeepMind Technologies Limited
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""Implements Deep CFR Algorithm.
+
+See https://arxiv.org/abs/1811.00164.
+
+The algorithm defines an `advantage` and `strategy` networks that compute
+advantages used to do regret matching across information sets and to approximate
+the strategy profiles of the game. To train these networks a reservoir buffer
+(other data structures may be used) memory is used to accumulate samples to
+train the networks.
+"""
+
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import collections
+import random
+import numpy as np
+import tensorflow.compat.v1 as tf
+
+from open_spiel.python import policy
+from open_spiel.python import simple_nets
+import pyspiel
+
+# Temporarily Disable TF2 behavior until we update the code.
+tf.disable_v2_behavior()
+
+=== https://raw.githubusercontent.com/uoftcprg/pokerkit/main/README.rst ===
+(# PokerKit README.rst：纯 Python、99% 覆盖率、统一 API（Automation / Mode）与自定义变体)
+========
+PokerKit
+========
+
+PokerKit is an open-source software library, written in pure Python, for simulating games, evaluating hands, and facilitating statistical analysis, developed by the Universal, Open, Free, and Transparent Computer Poker Research Group. PokerKit supports an extensive array of poker variants and it provides a flexible architecture for users to define their custom games. These facilities are exposed via an intuitive unified high-level programmatic API. The library can be used in a variety of use cases, from poker AI development, and tool creation, to online poker casino implementation. PokerKit's reliability has been established through static type checking, extensive doctests, and unit tests, achieving 99% code coverage.
+
+Features
+--------
+
+* Extensive poker game logic for major and minor poker variants.
+* High-speed hand evaluations.
+* Customizable game states and parameters.
+* Robust implementation with static type checking and extensive unit tests and doctests.
+
+Installation
+------------
+
+The PokerKit library requires Python Version 3.11 or above and can be installed using pip:
+
+.. code-block:: bash
+
+   pip install pokerkit
+
+=== https://raw.githubusercontent.com/sotetsuk/pgx/main/README.md ===
+(# Pgx README：JAX-native 并行博弈模拟器，vmap/JIT 用法，支持的游戏（含 Kuhn/Leduc/bridge bidding/sparrow mahjong）)
+<div align="center">
+<img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/logo.svg" width="40%">
+</div>
+
+<p align="center">
+<a href="https://www.python.org/"><img alt="python" src="https://img.shields.io/badge/python-3.9+-blue?logo=python&logoColor=ffdd54"></a>
+<a href="https://pypi.org/project/pgx/"><img alt="pypi" src="https://badge.fury.io/py/pgx.svg"></a>
+<a href="https://opensource.org/licenses/Apache-2.0"><img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-green.svg"></a>
+<a href="https://github.com/sotetsuk/pgx/actions/workflows/ci.yml"><img alt="ci" src="https://github.com/sotetsuk/pgx/actions/workflows/ci.yml/badge.svg"></a>
+<a href="https://codecov.io/github/sotetsuk/pgx"><img alt="codecov" src="https://codecov.io/github/sotetsuk/pgx/graph/badge.svg?token=JNJIQ83JYG"></a>
+<a href="https://arxiv.org/abs/2303.17503"><img alt="arxiv" src="https://img.shields.io/badge/arXiv-2303.17503-b31b1b.svg"></a>
+<a href="https://sotetsuk.github.io/pgx"><img src="https://img.shields.io/badge/docs-available-8CA1AF?logo=readthedocs&logoColor=fff"></a>
+</p>
+
+A collection of GPU-accelerated parallel game simulators for reinforcement learning (RL)
+
+> [!NOTE] 
+>⭐ If you find this project helpful, we would be grateful for your support through a GitHub star to help us grow the community and motivate further development!
+
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_dark.gif#gh-dark-mode-only" width="30%"><img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_dark.gif#gh-dark-mode-only" width="30%" style="transform:rotate(270deg);"><img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_dark.gif#gh-dark-mode-only" width="30%" style="transform:rotate(90deg);">
+<img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_light.gif#gh-light-mode-only" width="30%"><img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_light.gif#gh-light-mode-only" width="30%" style="transform:rotate(270deg);"><img src="https://raw.githubusercontent.com/sotetsuk/pgx/main/docs/assets/go_light.gif#gh-light-mode-only" width="30%" style="transform:rotate(90deg);">
+</div>
+
+## Why Pgx?
+
+<!--- 
+throughput: https://colab.research.google.com/drive/1gIWHYLKBxE2XKDhAlEYKVecz3WG4czdz#scrollTo=V1QZhRXoGL8K
+--->
+
+[Brax](https://github.com/google/brax), a [JAX](https://github.com/google/jax)-native physics engine, provides extremely high-speed parallel simulation for RL in *continuous* state space.
+Then, what about RL in *discrete* state spaces like Chess, Shogi, and Go? **Pgx** provides a wide variety of JAX-native game simulators! Highlighted features include:
+
+- ⚡ **Super fast** in parallel execution on accelerators
+- 🎲 **Various game support** including **Backgammon**, **Chess**, **Shogi**, and **Go**
+- 🖼️ **Beautiful visualization** in SVG format
+
+
+## Quick start
+
+=== https://raw.githubusercontent.com/datamllab/rlcard/master/README.md ===
+(# RLCard README：定位、游戏规模表（InfoSet Number）、支持算法)
+# RLCard: A Toolkit for Reinforcement Learning in Card Games
+<img width="500" src="https://dczha.com/files/rlcard/logo.jpg" alt="Logo" />
+
+[![Testing](https://github.com/datamllab/rlcard/actions/workflows/python-package.yml/badge.svg)](https://github.com/datamllab/rlcard/actions/workflows/python-package.yml)
+[![PyPI version](https://badge.fury.io/py/rlcard.svg)](https://badge.fury.io/py/rlcard)
+[![Coverage Status](https://coveralls.io/repos/github/datamllab/rlcard/badge.svg)](https://coveralls.io/github/datamllab/rlcard?branch=master)
+[![Downloads](https://pepy.tech/badge/rlcard)](https://pepy.tech/project/rlcard)
+[![Downloads](https://pepy.tech/badge/rlcard/month)](https://pepy.tech/project/rlcard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[中文文档](README.zh-CN.md)
+
+...
+| Leduc Hold’em ([paper](http://poker.cs.ualberta.ca/publications/UAI05.pdf))                                                                                                                    | 10^2            | 10^2              | 10^0        | leduc-holdem    | [doc](docs/games.md#leduc-holdem), [example](examples/run_random.py)                        |
+| Limit Texas Hold'em ([wiki](https://en.wikipedia.org/wiki/Texas_hold_%27em), [baike](https://baike.baidu.com/item/%E5%BE%B7%E5%85%8B%E8%90%A8%E6%96%AF%E6%89%91%E5%85%8B/83440?fr=aladdin))    | 10^14           | 10^3              | 10^0        | limit-holdem    | [doc](docs/games.md#limit-texas-holdem), [example](examples/run_random.py)                  |
+| Dou Dizhu ([wiki](https://en.wikipedia.org/wiki/Dou_dizhu), [baike](https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997?fr=aladdin))                                               | 10^53 ~ 10^83   | 10^23             | 10^4        | doudizhu        | [doc](docs/games.md#dou-dizhu), [example](examples/run_random.py)                           |
+| Mahjong ([wiki](https://en.wikipedia.org/wiki/Competition_Mahjong_scoring_rules), [baike](https://baike.baidu.com/item/%E9%BA%BB%E5%B0%86/215))                                                | 10^121          | 10^48             | 10^2        | mahjong         | [doc](docs/games.md#mahjong), [example](examples/run_random.py)                             | 
+| No-limit Texas Hold'em ([wiki](https://en.wikipedia.org/wiki/Texas_hold_%27em), [baike](https://baike.baidu.com/item/%E5%BE%B7%E5%85%8B%E8%90%A8%E6%96%AF%E6%89%91%E5%85%8B/83440?fr=aladdin)) | 10^162          | 10^3              | 10^4        | no-limit-holdem | [doc](docs/games.md#no-limit-texas-holdem), [example](examples/run_random.py)               |
+| UNO ([wiki](https://en.wikipedia.org/wiki/Uno_\(card_game\)), [baike](https://baike.baidu.com/item/UNO%E7%89%8C/2249587))                                                                      |  10^163         | 10^10             | 10^1        | uno             | [doc](docs/games.md#uno), [example](examples/run_random.py)                                 |
+| Gin Rummy ([wiki](https://en.wikipedia.org/wiki/Gin_rummy), [baike](https://baike.baidu.com/item/%E9%87%91%E6%8B%89%E7%B1%B3/3471710))                                                         | 10^52           | -                 | -           | gin-rummy       | [doc](docs/games.md#gin-rummy), [example](examples/run_random.py)                           |
+| Bridge ([wiki](https://en.wikipedia.org/wiki/Bridge), [baike](https://baike.baidu.com/item/%E6%A1%A5%E7%89%8C/332030))                                                                         |                 | -                 | -           | bridge          | [doc](docs/games.md#bridge), [example](examples/run_random.py)                              |
+| leduc-holdem-cfr                         | Pre-trained CFR (chance sampling) model on Leduc Hold'em |
+| leduc-holdem-rule-v1                     | Rule-based model for Leduc Hold'em, v1                   |
+| leduc-holdem-rule-v2                     | Rule-based model for Leduc Hold'em, v2                   |
+| uno-rule-v1                              | Rule-based model for UNO, v1                             |
+...
+| Deep Monte-Carlo (DMC)                   | [examples/run\_dmc.py](examples/run_dmc.py) | [[paper]](https://arxiv.org/abs/2106.06135)                                                              |
+| Deep Q-Learning (DQN)                    | [examples/run\_rl.py](examples/run_rl.py)   | [[paper]](https://arxiv.org/abs/1312.5602)                                                               |
+| Neural Fictitious Self-Play (NFSP)       | [examples/run\_rl.py](examples/run_rl.py)   | [[paper]](https://arxiv.org/abs/1603.01121)                                                              |
+| Counterfactual Regret Minimization (CFR) | [examples/run\_cfr.py](examples/run_cfr.py) | [[paper]](http://papers.nips.cc/paper/3306-regret-minimization-in-games-with-incomplete-information.pdf) |
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&titles=Counterfactual_regret_minimization ===
+(# 失败（内容不存在）：返回 missing，无 extract；同批 Regret_matching 亦然)
+{"query":{"pages":{"-1":{"ns":0,"title":"Counterfactual regret minimization","missing":""}}}}
+
+=== https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=PioSOLVER ===
+(# 失败（检索无果）：Wikipedia 无 PioSOLVER 条目；仅 Computer poker player 中以 "solver such as PioSOLVER" 提及)
+搜索返回 Computer poker player / Intel 8255 等无关条目。
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/open_spiel/python/algorithms/deep_cfr.py ===
+(# 失败（HTTP 404）：master 上已无该文件；改用 v1.1.0 标签（成功）)
+FAIL 404
+
+=== https://raw.githubusercontent.com/google-deepmind/open_spiel/master/open_spiel/python/algorithms/pimc.py ===
+(# 失败（HTTP 404）：OpenSpiel 无 PIMC 的 Python 实现文件；PIMC 仅见于 docs/algorithms.md 算法表（Long et al. 10，状态为"轻测"）)
+FAIL 404；同批 v1.1.0、python/bots、examples 路径均 404。
+
+=== https://raw.githubusercontent.com/bupticybee/TexasSolver/main/README.md ===
+(# 失败（HTTP 404）：默认分支为 master，非 main)
+FAIL 404
+
+=== https://raw.githubusercontent.com/uoftcprg/pokerkit/main/README.md ===
+(# 失败（HTTP 404）：README 为 .rst 后缀，非 .md)
+FAIL 404；README.rst 成功。
+
+=== https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=ReBeL ===
+(# 失败（无条目）：Wikipedia 无 ReBeL 算法条目；改用 Noam Brown 条目 + facebookresearch/ReBeL README)
+extract 为空。
+
+=== https://raw.githubusercontent.com/bupticybee/TexasHoldemSolverJava/master/README.md ===
+# 补充核验（第二阶段抓取）：TexasSolver 前身 Java 版的算法选项，以及与 PioSOLVER 结果差异的解释；用于支撑「CFR 家族迭代求解」的定性判断。
+
+Input all the parameters and start solving.
+
+```python
+result = ps_holdem.train(
+    "AA:0.5,KK:0.9,QQ:0.8,97,96,87,86,76", # player1's range, seperate by ','; you can write range in two ways: (1) "KK:0.5" stands for player have K-pair weighted 0.5 (2) "KK" stands for player have a K-pair weighted 1
+    "AA:0.8,KK:0.2,QQ:0.3,86,76:0.9", # player2's range
+    "Kd,Jd,Td,7s", # the revealed public cards. In turn there are four. 
+    50, # the iterations for cfr algorithm
+    10, # the gap to print exploitability
+    False, # whether to print debug info
+    True, # whether to use parallel technology
+    "output_strategy.json", # for to write output strategy. When set to None the strategy json will be returned in result of this method.
+    "log.txt", # log file 
+    "discounted_cfr", # the solver algorithm ,support "cfr" vanilla cfr algorithm, "cfr_plus" faster cfr+ algorithm,"discounted_cfr" discounted cfr ++ algorithm we proposed here
+    "none", # whether to use monte coral sampling algorithm,useful when the game tree is extremely big,got two options： "none" means do not use monte coral algorithm, "public" use public chance monte coral algorithm
+    -1, # threads number ,1 for single thread,2 for two threads...,-1 means use all possible cpu
+    1, # action fork probability, relevant to solver multithread performance ,should be between 0～1
+    1, # chance fork probability, relevant to solver multithread performance ,should be between 0～1
+    1, # fork every tree depth, relevant to solver multithread performance , should be > 0
+    4, # fork minimal size, relevant to solver multithread performance , should be > 0
+)
+```
+...
+| input (in image format)         |   ![flop](img/flop_setting.jpeg)          | ![turn](img/turn_setting.jpeg)            |       ![river](img/river_setting.jpeg)       | 
+| result compair         |   ![flop](img/flop_result.jpeg)          | ![turn](img/turn_result.jpeg)            |       ![river](img/river_result.jpeg)       | 
+
+The slight different between Piosolver and TexasHoldemSolverJava is due to different tree construction logic and insufficient CFR converge for both software.
+
+## Algorithm
+As shown in the figure below, thanks to the implementation of the latest algorithm variant discounted CFR ++, algorithm used in this project can be a lot faster than traditional algorithms such as CFR +.
+![algs](img/algs.png)
+
+## c++ version
+

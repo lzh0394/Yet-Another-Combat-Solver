@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmarks</title>
+<meta name="description" content="How fast the spire-mentor engine is on one core and on a whole 24-core machine, against the shipped game run headless, in search and PPO training, and next to two other Slay the Spire 2 simulators.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 4 9v14l12 7 12-7V9z' fill='%23d9a441'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kreon:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css?v=4">
+<style>
+.fig svg.bars { max-width: 32rem; margin-inline: auto; }
+.fig .v { fill: var(--text); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) {
+  .fig svg.bars .m, .fig svg.bars .v { font-size: 14.5px; }
+  .fig svg.bars .s { font-size: 13px; }
+}
+.fig .bar:hover path { fill: var(--accent-strong); }
+table.kv.cmp td:first-child { width: 22%; }
+p.verdict { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 1rem; }
+</style>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="spire-mentor home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 4 9v14l12 7 12-7V9z" fill="currentColor" opacity=".18"/><path d="M16 2 4 9v14l12 7 12-7V9zm0 4.6 8 4.7v9.4l-8 4.7-8-4.7v-9.4z" fill="oklch(0.78 0.13 76)"/></svg><span>spire-mentor</span></a>
+  <nav class="toplinks" aria-label="Site">
+    <a href="index.html">Docs</a>
+    <a href="ai.html"><span class="l">How the AI plays</span><span class="s">AI</span></a>
+    <a href="training.html"><span class="l">How it's trained</span><span class="s">Training</span></a>
+    <a href="benchmarks.html" aria-current="page"><span class="l">Benchmarks</span><span class="s">Speed</span></a>
+    <a class="gh" href="https://github.com/tfriedel/spire-mentor"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+  </nav>
+  <button class="iconbtn theme" type="button" aria-label="Switch colour theme" title="Switch colour theme"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  <button class="menu" type="button" aria-controls="toc" aria-expanded="false" aria-label="Contents"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg><span class="lbl">Contents</span></button>
+</header>
+
+<div class="layout">
+<nav id="toc" class="toc" aria-label="Contents">
+  <p class="toc-title">On this page</p>
+  <ol>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#machine">The machine</a></li>
+    <li><a href="#engine">Engine throughput</a></li>
+    <li><a href="#game">Against the shipped game</a></li>
+    <li><a href="#search">Search speed</a></li>
+    <li><a href="#training">Training speed</a></li>
+    <li><a href="#others">Other simulators</a></li>
+    <li><a href="#method">Method</a></li>
+  </ol>
+</nav>
+
+<main id="top">
+
+<section class="hero" id="summary">
+  <h1>Benchmarks</h1>
+  <p class="lede">How fast the Rust engine is on one core and on a whole
+  24-core machine, how it compares with the shipped game run headless, how
+  long its searches and a PPO training iteration take, and how it compares
+  with two other Slay the Spire 2 simulators. All measured on one server on
+  14 October 2026.</p>
+
+  <dl class="stats">
+    <div><dt>engine actions per second on one core (59,400 random-play fights per second)</dt><dd>1.30 M</dd></div>
+    <div><dt>actions per second on the whole machine, 48 processes</dt><dd>31.0 M</dd></div>
+    <div><dt>the shipped game's best measured throughput on one core</dt><dd>1,500×</dd></div>
+    <div><dt>the previous engine (12 Oct 2026), same fights</dt><dd>2.25×</dd></div>
+    <div><dt>a typical PPO training iteration, down from 609 s</dt><dd>208 s</dd></div>
+  </dl>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Headline results</caption>
+    <thead><tr><th>What</th><th>Result</th><th>Compared with what</th></tr></thead>
+    <tbody>
+      <tr><td>One core</td><td>59,400 fights/s · 1.30 M actions/s · 766 ns per action</td><td>Random play: Ironclad's starter deck against the 22 Act-1 encounters; one process on one core, the core's second hardware thread idle</td></tr>
+      <tr><td>Whole machine</td><td>1.41 M fights/s · 31.0 M actions/s</td><td>48 processes on 24 cores / 48 threads: 23.5× the one-process run of the same series</td></tr>
+      <tr><td>Previous engine</td><td>2.25× faster</td><td>The engine of 12 Oct 2026 on the same fights, identical results; 7 interleaved pairs, 2.17–2.37×</td></tr>
+      <tr><td>Shipped game, one core</td><td>1,500× (1,630× with both hardware threads busy on each side)</td><td>The game's best measured on one core: 16 game processes sharing it (the most tried; still rising from 8 to 16, CPUs 89% busy), 871 actions/s</td></tr>
+      <tr><td>Shipped game, whole machine</td><td>2,430×</td><td>The game's best on all 24 cores: 192 processes, 12,700 actions/s</td></tr>
+      <tr><td>Shipped game, CPU time</td><td>2,970× (2,250× against its game thread alone)</td><td>One warm game process: 2.28 ms of CPU per action (1.73 ms on the game thread) against 766 ns</td></tr>
+      <tr><td>Browser hint, 1,000 simulations</td><td>18.4 ms as WASM in Chromium · 13.7 ms native</td><td>1.93× faster than the previous engine in Chromium</td></tr>
+      <tr><td>PPO training</td><td>208 s per typical iteration instead of 609 s (2.93×); 150 iterations in about 9 h instead of 25 h</td><td>The deployed Ironclad recipe (960 games, 46 workers, one RTX 3090) on the engine training ran before</td></tr>
+      <tr><td>sansb/<wbr>sts2-sim</td><td>Ours is 3.13× faster per core on random play with no relic on either side, each engine stepping its own way (3.39× with our relic live; 1.63× on sansb's own fixture with a state copy per step, as sansb steps); 3.52× on the whole machine with our Burning Blood live (about 3.25× without it, scaled by the one-core ratio)</td><td>Combat only, game build v0.111.0, certified against real-game checksums; its review solver searches the true state by design (hindsight reviews)</td></tr>
+      <tr><td>lain-wood/<wbr>sts2core</td><td>sts2core is 1.56× faster per core (1.64–2.99× on sansb's fixture), 1.44× on the whole machine</td><td>Combat only, effectively Ironclad only, partial content, its own RNG by design, validated on recordings of real play; its live solver is given the true draw-pile order (partly clairvoyant)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Rounding: most measured values have three significant
+  figures; actions per fight have two decimals and percentages whole points;
+  counts, dates and build ids are exact. Medians over repeated runs. The unrounded values, the commands and the identity checks
+  are in the
+  <a href="https://github.com/tfriedel/spire-mentor/blob/main/sts2-rs/docs/perf/2026-10-14-benchmarks.md">benchmark write-up</a>.</p>
+</section>
+
+<section id="machine">
+  <h2>The machine</h2>
+  <div class="table-wrap">
+  <table class="kv">
+    <tbody>
+      <tr><td>System</td><td>ASUS ESC4000A-E10 server, one socket, one NUMA node</td></tr>
+      <tr><td>CPU</td><td>AMD EPYC 7443P (Zen 3 "Milan"): 24 cores, 48 hardware threads (SMT on)</td></tr>
+      <tr><td>Clock</td><td>boost up to 4.04 GHz (top non-boost state 2.85 GHz), <code>schedutil</code> governor. Measured: 3.91 GHz with one busy process, 3.65 GHz with 48</td></tr>
+      <tr><td>Caches</td><td>32 KiB L1d, 32 KiB L1i and 512 KiB L2 per core; 128 MiB L3 in four 32 MiB domains of six cores (CPUs 0–5, 6–11, 12–17, 18–23, each with its SMT siblings 24 higher)</td></tr>
+      <tr><td>Memory</td><td>256 GiB DDR4-3200 registered ECC, 4 × 64 GB; 4 of the CPU's 8 memory channels populated (102.4 GB/s peak)</td></tr>
+      <tr><td>GPUs</td><td>4 × NVIDIA GeForce RTX 3090, 24 GiB each; training uses one</td></tr>
+      <tr><td>OS</td><td>Ubuntu 24.04.4, Linux 6.8, no isolated CPUs, transparent huge pages on request (<code>madvise</code>)</td></tr>
+      <tr><td>Rust</td><td>1.96.0; release profile with fat LTO, one codegen unit, <code>opt-level</code> 3, no <code>target-cpu</code>, no profile-guided optimisation (except the training build marked PGO)</td></tr>
+      <tr><td>.NET</td><td>9.0.15 runtime, default settings (tiered JIT, dynamic PGO)</td></tr>
+      <tr><td>Python, PyTorch</td><td>CPython 3.13.12; torch 2.12.1 with CUDA 13.0</td></tr>
+      <tr><td>Browser</td><td>headless Chromium 149 (Playwright 1.61); Node 25.9</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The host is shared with other users, so every timed run waited for it to
+  go quiet first (<a href="#method">Method</a>). Three definitions hold on
+  the whole page:</p>
+  <ul class="facts">
+    <li><strong>One core</strong>: one single-threaded process pinned to one
+    physical core (CPU 20) with that core's second hardware thread (CPU 44)
+    idle. The shipped game runs several threads per process, so for it one
+    core means one game process and its Python driver confined to both
+    hardware threads of that core.</li>
+    <li><strong>Both threads of one core</strong>: two of our processes on
+    CPUs 20 and 44. For the game: 2 to 16 game processes sharing CPUs 20
+    and 44.</li>
+    <li><strong>Whole machine</strong>: all 24 cores and 48 threads. For a
+    Rust engine, the better of 24 processes (one per core) and 48 (one per
+    hardware thread); for the game, the best of 24 to 384 processes. Each
+    table says which one won.</li>
+  </ul>
+  <p>An <strong>action</strong> is one state transition: a card play or an
+  end of turn. Whole-machine rates are the sum of the processes' own rates,
+  all released at the same instant.</p>
+</section>
+
+<section id="engine">
+  <h2>Engine throughput</h2>
+  <p>The workload is random play: Ironclad at Ascension 0, the 10-card
+  starter deck at 80/80 HP and Burning Blood, against the 22 Act-1 Overgrowth
+  encounters in turn (4 weak, 12 normal, 3 elites, 3 bosses), with
+  uniformly random legal moves until the fight ends. Each fight starts from a
+  copy of a start state built the way a real run builds it. A run is 110,000
+  fights: 2,200 seeds × 50. The random player wins 32.4% of them, with 22.0
+  actions per fight.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>One core, previous and new engine</caption>
+    <thead><tr><th></th><th class="num">Previous (12 Oct)</th><th class="num">New</th></tr></thead>
+    <tbody>
+      <tr><td>Fights per second</td><td class="num">26,400</td><td class="num">59,400</td></tr>
+      <tr><td>Actions per second</td><td class="num">581,000</td><td class="num">1.30 M</td></tr>
+      <tr><td>Time per action</td><td class="num">1,720 ns</td><td class="num">766 ns</td></tr>
+      <tr><td>Instructions per action</td><td class="num">13,500</td><td class="num">6,520</td></tr>
+      <tr><td>Instructions per cycle</td><td class="num">1.97</td><td class="num">2.07</td></tr>
+      <tr><td>Clock while running</td><td class="num">3.90 GHz</td><td class="num">3.88 GHz</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The new engine is <strong>2.25×</strong> faster (median of 7
+  interleaved pairs; 2.17–2.37×). It executes half the instructions per
+  action (the previous one needs 2.08×) and the fights are identical: the
+  same 2,417,920 actions, the same 35,646 wins and the same digest over every
+  fight's length and outcome in all 14 runs.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>From one core to the whole machine (new engine, 3 repeats each)</caption>
+    <thead><tr><th>Preset</th><th>CPUs</th><th class="num">Processes</th><th class="num">Fights/s</th><th class="num">Actions/s</th><th class="num">Per process</th><th class="num">Efficiency</th><th class="num">GHz</th></tr></thead>
+    <tbody>
+      <tr><td>1 core</td><td>20 (44 idle)</td><td class="num">1</td><td class="num">60,100</td><td class="num">1.32 M</td><td class="num">1.32 M</td><td class="num">1.00</td><td class="num">3.91</td></tr>
+      <tr><td>1 core, both threads</td><td>20, 44</td><td class="num">2</td><td class="num">64,500</td><td class="num">1.42 M</td><td class="num">709,000</td><td class="num">0.537</td><td class="num">3.90</td></tr>
+      <tr><td>1 L3 domain, 1 thread per core</td><td>18&#8288;–&#8288;23</td><td class="num">6</td><td class="num">357,000</td><td class="num">7.84 M</td><td class="num">1.31 M</td><td class="num">0.989</td><td class="num">3.87</td></tr>
+      <tr><td>1 L3 domain, both threads</td><td>18&#8288;–&#8288;23, 42&#8288;–&#8288;47</td><td class="num">12</td><td class="num">381,000</td><td class="num">8.37 M</td><td class="num">697,000</td><td class="num">0.528</td><td class="num">3.86</td></tr>
+      <tr><td>12 cores, 3 per L3 domain</td><td>0&#8288;–&#8288;2, 6&#8288;–&#8288;8, 12&#8288;–&#8288;14, 18&#8288;–&#8288;20</td><td class="num">12</td><td class="num">710,000</td><td class="num">15.6 M</td><td class="num">1.30 M</td><td class="num">0.985</td><td class="num">3.87</td></tr>
+      <tr><td>24 cores, 1 thread each</td><td>0&#8288;–&#8288;23</td><td class="num">24</td><td class="num">1.37 M</td><td class="num">30.2 M</td><td class="num">1.26 M</td><td class="num">0.953</td><td class="num">3.79</td></tr>
+      <tr><td>48 threads</td><td>0&#8288;–&#8288;47</td><td class="num">48</td><td class="num">1.41 M</td><td class="num">31.0 M</td><td class="num">645,000</td><td class="num">0.488</td><td class="num">3.65</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Each process plays 440,000 fights. Efficiency = the
+  aggregate rate ÷ (processes × the same repeat's one-process rate), so a
+  value near 0.5 on the two-thread presets means each core still does about
+  the work of one process. Every process of every preset played identical
+  fights (one digest).</p>
+
+  <figure class="fig">
+    <div class="canvas"><svg class="narrow-ok bars" viewBox="0 0 400 250" role="img" aria-label="Bar chart of random-play fights per second, all processes together, new engine: 1 core 60.1 thousand, 1 core both threads 64.5 thousand, one L3 domain of 6 cores 357 thousand, the same with 12 threads 381 thousand, 12 cores 710 thousand, 24 cores 1.37 million, 48 threads 1.41 million">
+      <line x1="132" y1="8" x2="132" y2="204" class="grid"/><line x1="202" y1="8" x2="202" y2="204" class="grid"/><line x1="272" y1="8" x2="272" y2="204" class="grid"/><line x1="342" y1="8" x2="342" y2="204" class="grid"/>
+      <g class="bar"><title>1 core (1 process on CPU 20): 60,077 fights/s</title><text x="126" y="26" class="m" text-anchor="end">1 core</text><path d="M132,14h4.41a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-4.41z" class="acc"/><text x="145.4" y="26" class="v">60.1 k</text></g>
+      <g class="bar"><title>1 core, both threads (2 processes on CPUs 20 and 44): 64,531 fights/s</title><text x="126" y="54" class="m" text-anchor="end">1 core, 2 threads</text><path d="M132,42h5.03a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-5.03z" class="acc"/><text x="146.0" y="54" class="v">64.5 k</text></g>
+      <g class="bar"><title>One L3 domain, 6 cores (6 processes): 356,735 fights/s</title><text x="126" y="82" class="m" text-anchor="end">1 L3, 6 cores</text><path d="M132,70h45.94a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-45.94z" class="acc"/><text x="186.9" y="82" class="v">357 k</text></g>
+      <g class="bar"><title>One L3 domain, 12 threads (12 processes): 380,857 fights/s</title><text x="126" y="110" class="m" text-anchor="end">1 L3, 12 threads</text><path d="M132,98h49.32a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-49.32z" class="acc"/><text x="190.3" y="110" class="v">381 k</text></g>
+      <g class="bar"><title>12 cores, 3 per L3 domain (12 processes): 710,015 fights/s</title><text x="126" y="138" class="m" text-anchor="end">12 cores</text><path d="M132,126h95.40a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-95.40z" class="acc"/><text x="236.4" y="138" class="v">710 k</text></g>
+      <g class="bar"><title>24 cores, one thread each (24 processes): 1,374,049 fights/s</title><text x="126" y="166" class="m" text-anchor="end">24 cores</text><path d="M132,154h188.37a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-188.37z" class="acc"/><text x="329.4" y="166" class="v">1.37 M</text></g>
+      <g class="bar"><title>48 threads (48 processes): 1,409,466 fights/s</title><text x="126" y="194" class="m" text-anchor="end">48 threads</text><path d="M132,182h193.33a4,4 0 0 1 4,4v8a4,4 0 0 1 -4,4h-193.33z" class="acc"/><text x="334.3" y="194" class="v">1.41 M</text></g>
+      <text x="132" y="220" class="s num" text-anchor="middle">0</text><text x="202" y="220" class="s num" text-anchor="middle">0.5 M</text><text x="272" y="220" class="s num" text-anchor="middle">1.0 M</text><text x="342" y="220" class="s num" text-anchor="middle">1.5 M</text>
+      <text x="237" y="242" class="m" text-anchor="middle">random-play fights per second, all processes</text>
+    </svg></div>
+    <figcaption>Fights per second of the whole preset, new engine, median of
+    3 repeats (the table above has the numbers). Throughput grows almost
+    linearly with cores; the second hardware thread of each core adds 7% on
+    one core and 3% across the machine.</figcaption>
+  </figure>
+
+  <p>Measured the same way, the previous engine reaches 13.8 M actions/s on
+  the whole machine (48 processes), so the new one is 2.24× faster there as
+  well (2.23× on one core of the same series). With every core busy the
+  clock falls from 3.91 to 3.79 GHz (24 processes) and 3.65 GHz (48), which
+  accounts for most of the missing 5% at 24 processes.</p>
+</section>
+
+<section id="game">
+  <h2>Against the shipped game</h2>
+  <p><strong>What "headless" means.</strong> The game's own assembly,
+  <code>sts2.dll</code> of build v0.107.1 from a copy of the game, IL-patched
+  and run by the project's harness on .NET 9 with Godot stubbed out: no
+  window, no rendering, no animations. A Python driver talks to it as JSON
+  over a pipe and plays the same fights as the Rust benchmark, choosing
+  uniformly at random from the game's own list of legal actions. It is the
+  same oracle the parity suite checks the engine against. Random play gives
+  the same statistics on both: over 8,448 fights the game wins 32.2% with
+  21.98 actions per fight, our engine 32.4% with 21.98 over 110,000, and 21
+  of the 22 encounters agree within two standard errors (largest |z| 2.05).</p>
+
+  <p><strong>Why one game process is mostly asleep.</strong> After every
+  card play the harness waits for the game's action queue to drain by
+  polling it: <code>Thread.Sleep(1)</code> until five idle checks in a row
+  (<code>WaitForActionExecutor</code> in
+  <code>sts2-pycli/<wbr>src/<wbr>Sts2Headless/<wbr>RunSimulator.cs</code>). The game thread
+  goes to sleep 8.6 times per action, and a warm game process is on the CPU
+  for only 22% of its play time: 2.28 ms of CPU in 10.4 ms per action. The
+  wall time of one process therefore measures the harness's sleeping as
+  much as the game. The fair comparisons are CPU time and throughput with
+  many game processes sharing the CPUs, as many as raised the game's
+  throughput in the layouts tried.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Five ways to compare (our engine: new, Burning Blood live)</caption>
+    <thead><tr><th>Comparison</th><th>The shipped game</th><th>Our engine</th><th class="num">Ratio</th></tr></thead>
+    <tbody>
+      <tr><td>One process, cold: a fresh process per fight (the old site figure)</td><td>17.9 ms wall per action</td><td>766 ns</td><td class="num">23,400×</td></tr>
+      <tr><td>One process, warm: many fights per process</td><td>10.4 ms wall per action</td><td>766 ns</td><td class="num">13,500×</td></tr>
+      <tr><td>CPU time per action, warm process</td><td>2.28 ms (whole process) · 1.73 ms (game thread)</td><td>766 ns</td><td class="num">2,970× · 2,250×</td></tr>
+      <tr><td><strong>One core, best measured</strong></td><td>871 actions/s (16 processes on CPUs 20 and 44)</td><td>1.30 M (one thread) · 1.42 M (both threads)</td><td class="num"><strong>1,500×</strong> · 1,630×</td></tr>
+      <tr><td><strong>Whole machine, best measured</strong></td><td>12,700 actions/s (192 processes)</td><td>31.0 M (48 processes)</td><td class="num"><strong>2,430×</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="verdict"><strong>The fair headline:</strong> against the game's
+  best measured process count (16 on one core, 192 on the machine), our
+  engine does about 1,500 times
+  the shipped game's work on one core and 2,430 times on the whole machine.
+  Per unit of CPU time it is 2,250 to 2,970 times in one warm game process
+  (game thread or whole process), and 954× at the lowest across every
+  process layout measured. On one core the game had not levelled off at 16
+  processes, so the per-core ratio may be somewhat lower with more.</p>
+  <p>Our process is CPU-bound, so its 766 ns per action is also its CPU
+  time. The game's figures lean in the game's disfavour in two small ways:
+  its CPU time includes the harness's own work (building the state
+  dictionary on the game thread, JSON on the main thread), and its
+  throughput cells include a reset of about 30 ms per fight (reloading the
+  save and entering the room), which our engine replaces with copying a
+  start state. In one warm process the game does 96.5 actions/s without the
+  reset and 85.8 with it. Across all the process layouts below, the game
+  thread's CPU per action ranges from 0.73 to 1.73 ms, so the game-thread
+  CPU-time ratio ranges from 954× to 2,250× (whole process: 1,200× to
+  2,970×).</p>
+
+  <h3>Why "23,000×" is retired</h3>
+  <p>Earlier versions of this site said the engine was about 23,000× faster
+  than the shipped game. That compared the wall time of one game process
+  per fight, started cold, with one Rust thread: today 17.9 ms per action
+  against 766 ns, 23,400×. Of those 17.9 ms, about 2.3 ms is the game's warm
+  CPU work, about 7.8 ms is extra CPU a fresh process spends on its first
+  fight (JIT compilation and cold start), and about 7.8 ms is time off the
+  CPU in the harness's 1 ms polling sleeps. It measured that setup
+  correctly, but it is neither a throughput nor a language comparison.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>The shipped game in every process layout measured</caption>
+    <thead><tr><th>Layout</th><th class="num">Processes</th><th class="num">Actions/s</th><th class="num">Per core</th><th class="num">CPUs busy</th></tr></thead>
+    <tbody>
+      <tr><td>One core, 1 warm process</td><td class="num">1</td><td class="num">85.8</td><td class="num">85.8</td><td class="num">–</td></tr>
+      <tr><td>One core, shared</td><td class="num">2</td><td class="num">174</td><td class="num">174</td><td class="num">23%</td></tr>
+      <tr><td>One core, shared</td><td class="num">4</td><td class="num">352</td><td class="num">352</td><td class="num">31%</td></tr>
+      <tr><td>One core, shared</td><td class="num">8</td><td class="num">627</td><td class="num">627</td><td class="num">60%</td></tr>
+      <tr><td><strong>One core, shared</strong></td><td class="num">16</td><td class="num"><strong>871</strong></td><td class="num">871</td><td class="num">89%</td></tr>
+      <tr><td>Whole machine, 1 per core</td><td class="num">24</td><td class="num">2,140</td><td class="num">89.1</td><td class="num">13%</td></tr>
+      <tr><td>Whole machine, 1 per thread</td><td class="num">48</td><td class="num">4,240</td><td class="num">177</td><td class="num">15%</td></tr>
+      <tr><td>Whole machine, unpinned</td><td class="num">48</td><td class="num">4,250</td><td class="num">177</td><td class="num">19%</td></tr>
+      <tr><td>Whole machine, 4 per core</td><td class="num">96</td><td class="num">7,900</td><td class="num">329</td><td class="num">38%</td></tr>
+      <tr><td><strong>Whole machine, 8 per core</strong></td><td class="num">192</td><td class="num"><strong>12,700</strong></td><td class="num">530</td><td class="num">67%</td></tr>
+      <tr><td>Whole machine, 16 per core</td><td class="num">384</td><td class="num">12,500</td><td class="num">521</td><td class="num">86%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Every process carries its own Python driver on the same
+  CPUs. Warm processes play 220 untimed fights first. The game never fills
+  the CPUs: with 384 processes they are 86% busy and throughput is already
+  lower than with 192. The whole-machine best is 61% of 24 × the one-core
+  best. All layouts of a group played the same fights with the same digest,
+  and 66 reference fights replayed step for step as in the earlier
+  measurement.</p>
+</section>
+
+<section id="search">
+  <h2>Search speed</h2>
+  <p>The browser hint's MCTS search on a fixed position (seed BENCH1, the
+  first fight: Fuzzy Wurm Crawler at 57 HP against the starter hand), the
+  same call as the workbench's bench button. Native is one thread on one
+  core; WASM is the browser build, in Node and in headless Chromium on the
+  same machine, timed without the Web Worker round trip.</p>
+  <div class="table-wrap">
+  <table>
+    <caption>Browser hint search, ms per search</caption>
+    <thead><tr><th class="num">Simulations</th><th class="num">Native</th><th class="num">WASM, Node</th><th class="num">WASM, Chromium</th><th class="num">Chromium<br>÷ native</th><th class="num">vs previous<br>native · Chromium</th></tr></thead>
+    <tbody>
+      <tr><td class="num">200</td><td class="num">2.79</td><td class="num">3.90</td><td class="num">3.90</td><td class="num">1.40</td><td class="num">1.95× · 1.90×</td></tr>
+      <tr><td class="num">1,000</td><td class="num">13.7</td><td class="num">18.6</td><td class="num">18.4</td><td class="num">1.35</td><td class="num">1.96× · 1.93×</td></tr>
+      <tr><td class="num">2,000 (the hint's default)</td><td class="num">27.9</td><td class="num">39.6</td><td class="num">39.9</td><td class="num">1.43</td><td class="num">1.97× · 1.90×</td></tr>
+      <tr><td class="num">4,000</td><td class="num">58.8</td><td class="num">79.4</td><td class="num">79.4</td><td class="num">1.35</td><td class="num">1.95× · 1.92×</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <caption>The real-game advisor's search, 8,000 simulations on an Act-1 boss</caption>
+    <thead><tr><th>Threads</th><th class="num">Previous</th><th class="num">New</th><th class="num">Simulations/s</th><th class="num">Speed-up</th></tr></thead>
+    <tbody>
+      <tr><td>1 (CPU 20)</td><td class="num">491 ms</td><td class="num">275 ms</td><td class="num">29,100</td><td class="num">1.79×</td></tr>
+      <tr><td>8, two whole L3 domains (CPUs 6–17)</td><td class="num">76.4 ms</td><td class="num">39.6 ms</td><td class="num">202,000</td><td class="num">1.90×</td></tr>
+      <tr><td>8, one worker pinned per CPU (6–13)</td><td class="num">73.2 ms</td><td class="num">39.4 ms</td><td class="num">203,000</td><td class="num">1.86×</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">The advisor's position: Ironclad at Ascension 5 with a
+  16-card deck at 55/80 HP against the boss Vantom, where a simulation costs
+  more than in a first fight. Eight pinned threads run 6.97× as fast as one
+  (6.95× on the 6–17 mask). In the
+  real game the advisor runs on the player's own PC, not on this server.
+  Both searches keep the draw order hidden, as their deployed callers do.
+  They were timed with the search library's old default end-of-turn
+  widening (C 0.5, α 0.4). Both now use the run agent's wider one
+  (C 5.79, α 0.44), which made the hint's 2,000-simulation search about 8%
+  slower natively (28.6 → 30.9 ms, same position, interleaved runs); the
+  advisor's search has not been re-timed.
+  The advisor's root statistics were identical on both engines in every
+  run, and the hint picked the same first move.</p>
+
+  <p>On the whole machine, independent hint searches (one per process) at
+  1,000 simulations reach 1,490 searches/s with 48 processes and 1,480 with
+  24, against 72.8 on one core; at 200 simulations, 24 processes do best,
+  8,180 searches/s. Longer searches scale a little worse: on 24 cores the
+  efficiency is 0.951 at 200 simulations and 0.847 at 1,000.</p>
+</section>
+
+<section id="training">
+  <h2>Training speed</h2>
+  <p>Training plays whole runs: the PPO run policy for every decision
+  outside fights, MCTS for every fight (250 simulations per decision, 1,000
+  at bosses). Three builds: the <strong>previous</strong> engine as training
+  ran it before (plain build), the <strong>new</strong> engine plain, and the
+  new engine with the <strong>profile-guided</strong> build (PGO) that
+  training uses now. Only this project's engine appears here: the shipped
+  game cannot copy a state for search, and the other two simulators have no
+  run-level training loop.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>One worker on one core: six fixed Ironclad runs</caption>
+    <thead><tr><th>Build</th><th class="num">CPU s per run</th><th class="num">Runs per hour</th><th class="num">vs previous</th></tr></thead>
+    <tbody>
+      <tr><td>Previous, plain</td><td class="num">12.3</td><td class="num">292</td><td class="num">1.00</td></tr>
+      <tr><td>New, plain</td><td class="num">5.02</td><td class="num">718</td><td class="num">2.46×</td></tr>
+      <tr><td>New, PGO</td><td class="num">3.91</td><td class="num">921</td><td class="num">3.16×</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Seeds 700–705 at Ascensions 0/3/6/10, the Ironclad
+  champion, CPU 20; 3 runs per build, all nine with byte-identical game
+  records. Part of the speed-up is not the engine: the new code skips the
+  search when a decision has exactly one legal move.</p>
+
+  <p>A full iteration is the deployed Ironclad recipe: 960 games across
+  Ascensions 0–10, 46 worker processes on this 48-thread machine, then a
+  PPO update on one RTX 3090, starting from the Ironclad champion. The new
+  builds play identical games. Measured as the trainer ran it, iteration 0
+  is distorted by one game: game 703 (Ascension 4) has an Act-1 boss fight
+  that takes far longer than any other game, so for more than half of
+  iteration 0 it runs alone while the other 45 workers wait. On the previous
+  engine it ran past the trainer's 600 s stall watchdog, which dropped it,
+  so that iteration finished only 959 of 960 games and its time is a lower
+  bound.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Iteration 0, as the trainer ran it (2 runs each)</caption>
+    <thead><tr><th></th><th class="num">Previous, plain</th><th class="num">New, plain</th><th class="num">New, PGO</th></tr></thead>
+    <tbody>
+      <tr><td>Collection</td><td class="num">≥ 1,180 s</td><td class="num">537 s</td><td class="num">381 s</td></tr>
+      <tr><td>PPO update on the GPU</td><td class="num">34.1 s</td><td class="num">34.1 s</td><td class="num">34.2 s</td></tr>
+      <tr><td>Iteration</td><td class="num">≥ 1,210 s</td><td class="num">571 s</td><td class="num">416 s</td></tr>
+      <tr><td>Games per hour</td><td class="num">≤ 2,930</td><td class="num">6,440</td><td class="num">9,070</td></tr>
+      <tr><td>CPU seconds per game</td><td class="num">27.4</td><td class="num">11.7</td><td class="num">8.43</td></tr>
+      <tr><td>Machine busy during collection</td><td class="num">50%</td><td class="num">47%</td><td class="num">47%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <caption>A typical iteration: the same pool without its one outlier game</caption>
+    <thead><tr><th></th><th class="num">Previous, plain</th><th class="num">New, plain</th><th class="num">New, PGO</th></tr></thead>
+    <tbody>
+      <tr><td>Collection (the other 959 games)</td><td class="num">575 s</td><td class="num">242 s</td><td class="num">174 s</td></tr>
+      <tr><td>Iteration (with the update)</td><td class="num">609 s</td><td class="num">276 s</td><td class="num">208 s</td></tr>
+      <tr><td>Games per hour</td><td class="num">6,010</td><td class="num">14,300</td><td class="num">19,900</td></tr>
+      <tr><td>150 iterations</td><td class="num">25.4 h</td><td class="num">11.5 h</td><td class="num">8.66 h</td></tr>
+      <tr><td>Speed-up per iteration</td><td class="num">1.00</td><td class="num">2.21×</td><td class="num">2.93×</td></tr>
+      <tr><td>Total CPU for all 960 games</td><td class="num">26,700 s</td><td class="num">11,000 s</td><td class="num">7,900 s</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The throughput measures agree: total CPU falls 2.42× (plain) and
+  3.37× (PGO), one core 2.46× and 3.16×, a typical iteration 2.21× and
+  2.93×. The GPU's share is small: the update takes 34 s of the 208 s, with
+  the GPU 87% busy during it and idle during collection. With the 46
+  workers busy, the whole machine plays 21.6× the games per hour of one
+  worker on one core (PGO build; different games, so indicative).</p>
+  <p class="note">How "typical" was measured: the same 960-game pool
+  replayed outside the trainer without the watchdog, once per build. The
+  replays reproduce the trainer's new-engine collection times within 0.5%
+  and predict the previous engine's watchdog cut at 1,175 s (trainer:
+  1,177–1,180 s). They ran right after the quiet-host window, one at a
+  time with the machine about 2% busy before each, but not under its gate,
+  so treat them as a validated estimate. A real campaign's utilisation is about 0.95, not the 0.5 of
+  this iteration 0, but it also has rare outlier iterations: 21 of 762 in
+  the four past Ironclad campaigns on this host hit the same watchdog. As a
+  cross-check, the current Ironclad champion's last 150-iteration leg took
+  23.9 h on an older engine, close to the 25.4 h projected for the previous
+  one.</p>
+</section>
+
+<section id="others">
+  <h2>Other simulators</h2>
+  <p>This section measures two other open-source Rust simulators of Slay
+  the Spire 2 combat, and each does something better than this project:
+  <a href="https://github.com/sansb/sts2-sim/tree/c61336cf05d289ae01ab9254beaa62c1b4ee407c">sansb/sts2-sim</a>
+  certifies its fights against checksums the real game writes while it is
+  played, which this project does not have yet, and it tracks a newer game
+  build than the other two;
+  <a href="https://github.com/lain-wood/sts2core/tree/3b2d969d025b9e64bc96b9a15928bd2a0d824bf2">lain-wood/sts2core</a>
+  is the fastest of the three per core; it steps a compact 3,880-byte state
+  by value. Both were measured at the commits linked, on this machine, with
+  our own harnesses built against their public APIs.</p>
+
+  <div class="table-wrap">
+  <table class="kv cmp">
+    <caption>What each one is</caption>
+    <thead><tr><th></th><th>spire-mentor (this project)</th><th>sansb/sts2-sim</th><th>lain-wood/sts2core</th></tr></thead>
+    <tbody>
+      <tr><td>Measured at</td><td><code>6d1918237</code>, 14 Oct 2026 (previous engine <code>d3ea66a51</code>)</td><td><code>c61336cf</code>, 12 Oct 2026</td><td><code>3b2d969d</code>, 25 Sep 2026</td></tr>
+      <tr><td>Game build</td><td>v0.107.1</td><td>v0.111.0 (the newest of the three; v0.109.0–v0.110.1 lie between)</td><td>v0.107.1</td></tr>
+      <tr><td>Scope</td><td>whole single-player runs: map, events, shops, rest sites, rewards, three acts, Ascension 0–10</td><td>combat only, from a fully specified start state; Python tools rebuild run context from captures</td><td>combat only: a rules kernel, an in-combat solver and a deck advisor</td></tr>
+      <tr><td>Characters</td><td>all 5</td><td>all 5 (Ironclad is the largest share of its validation, 43–48% per set)</td><td>effectively Ironclad only (our reading of its 79 recordings and its tables; its docs do not say)</td></tr>
+      <tr><td>Content</td><td>an id for every current content class of the game (580 card ids for its 577 cards plus 3 legacy/internal; 297 relics, 63 potions, 121 monsters, 69 events, 23 enchantments; an id does not prove the behaviour); 3 of the 6 event-started fights are skipped: two give a stand-in outcome instead (one grants a placeholder relic), the third is not ported</td><td>596 cards, 299 relics, 64 potions, 105 monster kinds, 88 encounters; content it has not ported is refused, never approximated</td><td>117 cards incl. a placeholder (112 of the 128 in its reference catalog), 105 enemies incl. 3 synthetic and an unknown placeholder, 118 relic entries of which 103 modelled, 5 of the game's 22 enchantments; the Queen boss missing; values from Ascension 8 up taken from the game's code but not yet checked against its recordings (A0–A3)</td></tr>
+      <tr><td>Reproduces the game's RNG</td><td>yes: .NET <code>System.Random</code> ported, all 15 run and player streams</td><td>yes: all 9 combat streams</td><td>no, by design: its own streams for shuffles, enemy rolls, HP and rosters</td></tr>
+      <tr><td>Validated how</td><td>lockstep against the game's own assembly run headless, compared after every action (enemy intents and card afflictions are not in the compared state): full fuzz tier of random moves, Ironclad 6,104/6,104 clean (30 Jun 2026); Silent 5,732/5,762, Defect 5,740/5,752, Regent 5,740/5,762, Necrobinder 5,716/5,752 (7 Jul 2026, a deferred tail still open); run level 1,232/1,250 clean (7 Jul 2026, 5 characters × A0/2/5/8/10, random-policy runs that mostly end in Act 1; deeper Act-2 checks in June still had open divergences); no full sweep since; no checksummed real-game captures yet; five suspected bugs from 13–14 Oct open</td><td>lockstep against the checksums the real game writes after each action: 1,196 of the author's 1,206 captured fights replay exactly and none diverges (the other 10 are truncated, refused or unusable captures); 594 certified published fixtures; 4,205 certified A9/A10 fights from site uploads (a corpus of certified fights only; the sets overlap) (as of <code>c61336cf</code>)</td><td>one-step predictions on 79 recordings of real play: 1,565 match, 1 mismatch (a trace recorded before an enchantment fix), 9 content missing, 177 skipped; enemy next move 85% (353/415). Its README calls its deck advisor's absolute death rates untrustworthy, only paired differences (a caveat about the advisor, not the rules kernel)</td></tr>
+      <tr><td>Search sees hidden information?</td><td>no, for every deployed search (run AI, browser hint, real-game advisor: since July 2026 the draw order is hidden and every combat random stream reseeded); the search library's default setting is still clairvoyant</td><td>yes, by design: its exact solver and its site's reviews search the true state, draw order and RNG included, to show what was achievable in hindsight; a draw-blind lookahead (reshuffled draw pile, reseeded streams) exists for its coach's offer reviews</td><td>partly: a patched game-state exporter supplies the true draw-pile order, used as known until the next reshuffle</td></tr>
+      <tr><td>Licence</td><td>MIT</td><td>MIT</td><td>MIT</td></tr>
+      <tr><td>Rust code lines</td><td>217,781 (engine: core + content; roughly 40% of raw lines in test modules; search lives in other crates); 365,739 (all 12 crates)</td><td>419,659 (<code>engine/src</code>, incl. its solver; roughly 55–60% of raw lines in test modules)</td><td>32,366 (<code>src/</code>, incl. its solver, advisor binaries and tests)</td></tr>
+      <tr><td>Bindings</td><td>Python (PyO3); WASM (the browser workbench)</td><td>WASM (its browser engine); no Python bindings</td><td>none; zero dependencies</td></tr>
+      <tr><td>Stepping</td><td>one state changed in place; a fight copies its start state once</td><td>a new state allocated for every step</td><td>a 3,880-byte plain-old-data state passed by value</td></tr>
+      <tr><td>Legal actions</td><td>one per card in hand per target (our search merges identical cards itself)</td><td>identical cards and identical targets merged</td><td>identical cards merged</td></tr>
+      <tr><td>Build</td><td>rustc 1.96.0, fat LTO, unwinding panics</td><td>rustc 1.97.1, thin LTO, aborting panics</td><td>rustc 1.96.0 (it pins none; its authors use 1.97.1), fat LTO, aborting panics</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Clairvoyance is a property of a search, not of an engine: every engine
+  here steps a concrete state, ours included. No benchmark in this section
+  runs a search, so it affects none of these numbers.</p>
+  <p class="note">Lines of code: <code>cloc</code>, Rust code lines without
+  comments or blank lines, in-file test modules included, for each project's
+  engine source directories. Test shares are a heuristic count (lines from a
+  <code>#[cfg(test)]</code> module to the end of its file, plus test files).
+  sansb's and sts2core's directories include their solvers; ours keeps search
+  in separate crates, counted in the 365,739.</p>
+
+  <h3>Random play, one core (W1)</h3>
+  <p>The workload of the sections above. The other engines merge identical
+  actions, so their own "uniformly random" player picks among fewer moves
+  (it ends its turn more often) and plays a different, shorter game. Our
+  harnesses therefore also give them the <em>instance</em> player: one
+  choice per card in hand per target, the same random player as ours and
+  the game's. Its weighting is our harness code, running inside their timed
+  loop. With their own players, which play different games, their action
+  rates are 0.7% (sansb) and 1.7% (sts2core) higher (medians in the table),
+  and the ratios are 3.12× (sansb, ours with no relic) and 1.59×
+  (sts2core).</p>
+  <div class="table-wrap">
+  <table>
+    <caption>W1 on CPU 20, 7 rounds, order rotated every round</caption>
+    <thead><tr><th>Engine, random player</th><th class="num">Fights/s</th><th class="num">Actions/s</th><th class="num">ns per action</th><th class="num">Wins</th><th class="num">Actions per fight</th></tr></thead>
+    <tbody>
+      <tr><td>Ours, Burning Blood live</td><td class="num">59,000</td><td class="num">1.30 M</td><td class="num">770</td><td class="num">32.4%</td><td class="num">21.98</td></tr>
+      <tr><td>Ours, no relic</td><td class="num">54,700</td><td class="num">1.20 M</td><td class="num">831</td><td class="num">32.4%</td><td class="num">21.98</td></tr>
+      <tr><td>sansb, instance player</td><td class="num">17,500</td><td class="num">383,000</td><td class="num">2,610</td><td class="num">32.5%</td><td class="num">21.95</td></tr>
+      <tr><td>sts2core, instance player</td><td class="num">90,200</td><td class="num">2.03 M</td><td class="num">493</td><td class="num">35.0%</td><td class="num">22.47</td></tr>
+      <tr><td>sansb, its own merged-action player</td><td class="num">20,300</td><td class="num">386,000</td><td class="num">2,590</td><td class="num">20.3%</td><td class="num">19.01</td></tr>
+      <tr><td>sts2core, its own merged-action player</td><td class="num">106,000</td><td class="num">2.06 M</td><td class="num">485</td><td class="num">21.0%</td><td class="num">19.41</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Paired by round: ours ÷ sansb is <strong>3.13×</strong> with no live
+  relic on either side (Burning Blood is held but inert in sansb, whose
+  combat-only scope leaves out its after-fight heal) and 3.39× with ours
+  live. Ours ÷ sts2core is 0.640: <strong>sts2core is 1.56× faster</strong>,
+  with Burning Blood modelled on both. Our engine is 7.6% slower with no
+  relic than with Burning Blood on identical fights (it runs 3.1% more
+  instructions per action); the cause is not investigated, so both
+  figures are given.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>W1, whole machine: actions/s of all processes, instance player (3 repeats; ours with Burning Blood live)</caption>
+    <thead><tr><th>Preset</th><th class="num">Processes</th><th class="num">Ours</th><th class="num">sansb</th><th class="num">sts2core</th></tr></thead>
+    <tbody>
+      <tr><td>1 core</td><td class="num">1</td><td class="num">1.32 M</td><td class="num">388,000</td><td class="num">2.01 M</td></tr>
+      <tr><td>1 core, both threads</td><td class="num">2</td><td class="num">1.42 M</td><td class="num">341,000</td><td class="num">2.20 M</td></tr>
+      <tr><td>1 L3 domain, 1 thread per core</td><td class="num">6</td><td class="num">7.84 M</td><td class="num">2.29 M</td><td class="num">11.6 M</td></tr>
+      <tr><td>24 cores, 1 thread each</td><td class="num">24</td><td class="num">30.2 M</td><td class="num"><strong>8.79 M</strong></td><td class="num"><strong>44.7 M</strong></td></tr>
+      <tr><td>48 threads</td><td class="num">48</td><td class="num"><strong>31.0 M</strong></td><td class="num">7.52 M</td><td class="num">44.7 M</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Best against best (in bold): ours ÷ sansb <strong>3.52×</strong> (ours
+  with Burning Blood live, as in the per-core 3.39×; about 3.25× like for
+  like, scaled by the one-core ratio; there is no relic-free whole-machine
+  run), ours ÷ sts2core 0.692 (<strong>sts2core 1.44×</strong>, Burning
+  Blood live on both). The second hardware
+  thread helps ours (+3% across the machine), makes no difference to
+  sts2core and costs sansb 14.5% (48 threads ÷ 24 cores = 0.855).</p>
+
+  <h3>sansb's own benchmark fixture (W2)</h3>
+  <p>sansb's <code>sts-sim bench</code> plays 240,000 random playouts from
+  one Ironclad start state against two Toadpoles (68/80 HP, no relic),
+  allocating a new state for every step. The fixture leaves the ascension
+  field out, which sansb reads as Ascension 10, so all three engines play it
+  at A10. Our "copy per step" mode does what sansb does; "in place" is how
+  our own searches step.</p>
+  <div class="table-wrap">
+  <table>
+    <caption>W2 on CPU 20, 5 rounds</caption>
+    <thead><tr><th>Engine, mode</th><th class="num">Actions/s</th><th class="num">Playouts/s</th><th class="num">Wins</th><th class="num">Actions per playout</th></tr></thead>
+    <tbody>
+      <tr><td>Ours, a copy per step</td><td class="num">658,000</td><td class="num">35,300</td><td class="num">88.7%</td><td class="num">18.7</td></tr>
+      <tr><td>Ours, in place</td><td class="num">1.19 M</td><td class="num">63,800</td><td class="num">88.7%</td><td class="num">18.7</td></tr>
+      <tr><td>sansb, instance player</td><td class="num">404,000</td><td class="num">21,000</td><td class="num">88.2%</td><td class="num">19.3</td></tr>
+      <tr><td>sansb, <code>sts-sim bench</code> as published</td><td class="num">414,000</td><td class="num">24,300</td><td class="num">–</td><td class="num">17.0</td></tr>
+      <tr><td>sts2core, instance player</td><td class="num">1.95 M</td><td class="num">106,000</td><td class="num">89.3%</td><td class="num">18.5</td></tr>
+      <tr><td>sts2core, its own merged-action player</td><td class="num">1.95 M</td><td class="num">114,000</td><td class="num">61.1%</td><td class="num">17.2</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Ours ÷ sansb with the same player: 1.63× copying per step, 2.95× in
+  place. Ours ÷ sts2core: 0.335 copying, 0.610 in place. On this fixture
+  our lead over sansb is smaller than on W1, and sts2core's lead over ours
+  larger.</p>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Their own benchmarks</caption>
+    <thead><tr><th>Benchmark</th><th>As published by its authors (their hardware)</th><th>Re-run on this machine</th></tr></thead>
+    <tbody>
+      <tr><td>sansb <code>sts-sim bench</code> (W2 above)</td><td>1,049,000 transitions/s, one thread on an Apple M5 Max, best of 5</td><td>414,000 actions/s, CPU 20, median of 5</td></tr>
+      <tr><td>sansb <code>eval_throughput</code>: random playouts from its 594 certified real-game fixtures</td><td>median 302,000 transitions/s</td><td>median 120,000 (10th–90th percentile 66,700–338,000)</td></tr>
+      <tr><td>sts2core <code>bench</code>: a 28-card deck against a 300-HP synthetic target, a player that never ends its turn by choice</td><td>3.56–3.61 M steps/s on 1 thread, 54.9–56.5 M on 32 threads; its authors call their machine noisy, "not a baseline"</td><td>2.68 M on 1 thread, 44.4 M on 24 threads, 55.3 M on 48</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Published figures come from the authors' own machines
+  (sansb: an Apple M5 Max; sts2core: a Windows PC), so only the re-run
+  column is comparable with the rest of this page.</p>
+
+  <h3>What makes the comparison fair, and where it is not</h3>
+  <ul class="facts">
+    <li><strong>The same work.</strong> With the instance player, random play
+    agrees per encounter: sansb with ours on 19 of the 22 encounters within
+    two fight-level standard errors (which understate seed noise on
+    randomized rosters), sts2core on 14. sts2core's largest gaps are Cubex
+    Construct (+18 points; its monster differs from the game's code) and
+    Flyconid, Mawler and Snapping Jaxfruit (+9 to +13; not traced). On
+    Slithering Strangler ours is the outlier: 12.8% against 10.3% and 10.2%
+    (12.0% over 1,600 seeds, whose 200-seed blocks vary by 0.7 points),
+    unexplained. On Slimes (weak), sansb plays 0.86 more actions per fight
+    than ours, unexplained.</li>
+    <li><strong>Merged action lists</strong> make each engine's own random
+    player a different player; compare actions per second, or use the
+    instance player, never fights per second across players. Merging also
+    shrinks a search's branching; a per-action benchmark does not credit
+    that.</li>
+    <li><strong>Burning Blood</strong> is inert in sansb; hence the no-relic
+    comparison.</li>
+    <li><strong>Stepping.</strong> sansb allocates a state per step and
+    sts2core copies 3,880 bytes per step; ours mutates one state. W2's copy
+    mode puts ours on sansb's terms.</li>
+    <li><strong>Game build.</strong> sansb models v0.111.0, ours and
+    sts2core v0.107.1. The W1 monsters' HP bands are identical between the
+    two builds at A0, and none of the monsters on sansb's v0.110.1→v0.111.0
+    change list appears in W1; the v0.107.1→v0.110.1 changes are not
+    documented there, and movesets were not audited.</li>
+    <li><strong>RNG.</strong> sts2core draws its own random numbers, so its
+    fights match ours in distribution, not seed for seed; sansb and ours
+    reproduce the game's streams but enumerate actions in different orders,
+    so the same random player still picks different moves.</li>
+    <li><strong>Builds.</strong> Each engine uses its own release profile
+    (table above). None uses <code>target-cpu</code> or PGO, and all use the
+    system allocator.</li>
+    <li><strong>W2 is an A10 fight.</strong> Read at A0 by mistake, and with
+    our harness opening the back Toadpole with the wrong move (since fixed,
+    see Method),
+    it once looked like a 10-point rules disagreement between sansb and the
+    other two; at A10 all three agree within about one point of win rate,
+    and turns 1 and 2 match exactly. From turn 3 on, sansb's playouts run
+    about 3–4% more actions (19.3 per playout against 18.7 and 18.5),
+    unexplained.</li>
+  </ul>
+</section>
+
+<section id="method">
+  <h2>Method</h2>
+  <ul class="facts">
+    <li><strong>When and where.</strong> 14 October 2026, 10:59–16:33 UTC,
+    on the machine above. Before every timed stage the host had to be quiet:
+    1-minute load below 1.5, the whole machine below 3% busy over 5 s, and
+    the stage's own CPUs and their SMT siblings below 5% busy. At the 58 gate
+    passes the load was 1.38 and the machine 2% busy (medians). Whole-machine
+    runs, ours and the game's, used the whole-machine part of the gate only,
+    because background noise from other users on single CPUs never let the
+    per-CPU check pass for the game's cells. The training stages checked
+    only the whole-host busy share (≤ 3%); the 1-minute load at those 15
+    gate passes was 1.09–7.3.</li>
+    <li><strong>Pinning.</strong> Single-threaded runs on CPU 20 with CPU 44
+    idle; WASM on CPUs 18–23; the advisor as in its table; the game's
+    one-core cells on CPUs 20 and 44. Whole-machine runs fork every process,
+    pin it, and release all of them at the same instant.</li>
+    <li><strong>Interleaving.</strong> Previous and new engine alternate
+    (previous, new, new, previous, …): 7 pairs for random play, 5 for each
+    search runtime, 4 for the advisor; the three training builds run in
+    reversed order every round (3 rounds on one core, 2 full iterations).
+    Cross-engine runs rotate their order every round. Values are
+    medians; speed-ups are medians of the paired ratios.</li>
+    <li><strong>Identity checks.</strong> A timing ratio is only a speed-up
+    if both sides did the same work, so every harness prints a digest of it:
+    every fight's length and outcome, a search's root statistics, a position
+    fingerprint, or a hash of every training record. All 111 checks passed,
+    and no published run was forced on a busy host.</li>
+    <li><strong>A harness fix.</strong> Before this benchmark, our
+    random-fight harness built monsters through a debug scenario builder
+    whose monster AI and HP rolls differed from a real run's. It now builds
+    them as a run does. The random-play statistics barely moved, but the
+    numbers on this site before 14 October 2026 used the old builder;
+    <code>site_random_bench --legacy-spawn</code> reproduces them.</li>
+    <li><strong>Not covered.</strong> Other hardware: no desktop or laptop
+    CPU, no ARM, no Windows, no phone or tablet browser. The real game with
+    its renderer. The advisor on a player's PC with the game running.</li>
+  </ul>
+  <p>The full write-up, with every value unrounded, the reproduce commands,
+  the identity checks and what was left out and why:
+  <a href="https://github.com/tfriedel/spire-mentor/blob/main/sts2-rs/docs/perf/2026-10-14-benchmarks.md">sts2-rs/docs/perf/2026-10-14-benchmarks.md</a>.
+  Harnesses:
+  <a href="https://github.com/tfriedel/spire-mentor/blob/main/sts2-rs/crates/sts2-bench/examples/site_random_bench.rs">site_random_bench.rs</a>
+  and <a href="https://github.com/tfriedel/spire-mentor/blob/main/sts2-rs/crates/sts2-bench/examples/xsim_toadpoles.rs">xsim_toadpoles.rs</a>
+  (random play, W2),
+  <a href="https://github.com/tfriedel/spire-mentor/blob/main/sts2-rs/crates/sts2-workbench/examples/hint_bench.rs">hint_bench.rs</a>
+  (the hint's search), and
+  <a href="https://github.com/tfriedel/spire-mentor/tree/main/scripts/site-bench">scripts/site-bench/</a>
+  (whole-machine runner, the shipped game, WASM, advisor, training, and the
+  harnesses for the other two simulators).</p>
+</section>
+
+</main>
+</div>
+
+<footer class="foot"><span>spire-mentor · MIT licence</span><span>Not affiliated with Mega Crit</span><a href="https://github.com/tfriedel/spire-mentor">Source on GitHub</a></footer>
+<script src="site.js?v=4"></script>
+</body>
+</html>
+

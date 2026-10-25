@@ -1,0 +1,3104 @@
+=== https://raw.githubusercontent.com/hotwords123/StS2.RandomForeseer/main/README.md ===
+# Random Foreseer
+
+语言 / Languages：中文 | [English](README.en.md)
+
+《杀戮尖塔 2》的随机数预测模组。它会在不推进真实随机数的前提下，提前显示部分随机结果，而不必进行保存和读档。
+
+更新日志：[CHANGELOG.md](CHANGELOG.md)
+
+Steam 创意工坊：[随机数预测](https://steamcommunity.com/sharedfiles/filedetails/?id=3747531952)
+
+创意工坊包会根据当前游戏版本自动加载最新兼容的 Mod 版本；GitHub Release 提供对应版本的单一标准包。
+
+## 功能
+
+### 局外预测
+
+- **预测牌组变化结果**：在变牌选择网格悬停提示和确认预览中显示当前随机数状态将生成的确切卡牌。
+- **预测下一阶段先古之民和 Boss**：前两阶段的 Boss 奖励界面会在状态栏显示下一阶段起点的先古之民和终点 Boss。
+- **预测事件选项结果**：悬停非先古之民事件选项时，显示即时随机奖励、随机升级/降级和随机后续选项。
+- **水晶球透视**：在水晶球事件小游戏中透过未揭开的迷雾显示物品位置和类型。
+- **预测遗物拾起效果**：遗物提示（包括先古之民选项）会显示拾起时立即发生的随机卡牌、遗物、药水、诅咒和变牌结果。
+- **预测送货员补货**：拥有送货员时，悬停商店中可以购买的卡牌、药水或遗物会显示购买后补货的商品。
+- **预测浮木重掷奖励**：悬停卡牌奖励的“重掷”按钮时，显示重掷后将出现的卡牌。
+- **预测佩尔之翼献祭奖励**：悬停触发奖励的“献祭”按钮时，显示佩尔之翼将给予的遗物。
+- **预测休息处结果**：悬停休息处选项时，显示捕梦网、小邮箱、铲子等遗物将产生的随机结果。
+
+### 局内预测
+
+- **预测战斗随机变牌**：战斗中“熵”选择手牌变牌时，显示即将变化得到的卡牌。
+- **预测回合结束效果**：战斗中显示当前所有结束回合玩家的支持伤害效果总计；预测图标和血条预测可分别设置为悬停结束回合按钮时显示，或玩家回合内始终显示；悬停目标生物或预测图标时会显示逐条伤害来源详情。
+- **冻结之眼**：战斗中查看抽牌堆时，按实际抽牌顺序显示卡牌，并在玩家回合预览弃牌堆洗入后的顺序。
+- **预测战斗随机印牌**：战斗中悬停手牌里的随机印牌卡时，显示即将生成的卡牌。
+- **预测卡牌抽牌**：战斗中悬停已支持的抽牌卡牌时，显示将抽到的牌；抽牌堆不足时会预览洗牌后的后续结果。
+- **预测战斗随机选牌**：战斗中悬停手牌里的随机选牌卡或卡牌目标时，显示或高亮当前随机数状态将选中的牌；可能受副作用影响的预测会显示可关闭的警告。
+- **预测充能球效果**：战斗中悬停支持的充能球触发卡牌、药水或相应目标时，显示充能球将命中的目标，并在血条上显示预测。
+- **预测随机印牌药水**：在随机印牌药水的提示中显示即将出现的卡牌。
+- **预测药水抽牌**：战斗中悬停支持的抽牌药水时，显示将抽到的牌；抽牌堆不足时会预览洗牌后的后续结果。
+- **预测随机生成药水**：在混沌药水和炼制药水的提示中显示即将获得的药水。
+- **预测抽牌堆自动出牌**：战斗中悬停破灭、倾泻和精炼混沌时，显示将从抽牌堆打出的牌。
+- **预测随机目标攻击**：战斗中悬停支持的随机敌人目标攻击牌时，显示当前随机数状态将命中的目标，并在血条上显示预测。
+
+这些功能都可以在模组设置页中单独开关，也可以通过单人/多人模式总开关整体关闭。公平模式默认开启，只预测可以通过保存和读档获取的信息。
+
+## 模组联动
+
+### lemonSpire2
+
+安装 lemonSpire2 时，队友面板会复用 Random Foreseer 的现有预测：
+
+- 队友手牌中的战斗随机印牌、随机选牌、抽牌堆自动出牌、卡牌抽牌和随机生成药水预测
+- 队友先古遗物奖励的拾起效果预测
+- 队友商店遗物和商店药水的即时随机结果预测
+
+### 遗物奖励三选一
+
+在“遗物奖励三选一”模组的候选遗物界面，悬停遗物时显示支持的拾起效果预测。
+
+## 安装
+
+1. 安装并启用 `STS2-RitsuLib`。
+2. 将本模组发布包中的 `RandomForeseer` 目录放入游戏的 `mods` 目录。
+3. 启动游戏，在模组列表中确认 `RandomForeseer` 已加载。
+
+当前 manifest 目标：
+
+| 项 | 值 |
+|---|---|
+| 当前版本 | `0.13.19` |
+| 最低游戏版本 | `0.111.0` |
+| RitsuLib 依赖 | `0.5.14` |
+
+## 从源码构建
+
+首次构建前复制本机路径配置：
+
+```powershell
+Copy-Item .\local.props.template .\local.props
+```
+
+在 `local.props` 中配置：
+
+| 字段 | 说明 |
+|---|---|
+| `Sts2Dir` | Slay the Spire 2 安装目录 |
+| `Sts2DataDir` | 游戏 dll 目录，通常是 `$(Sts2Dir)/data_sts2_windows_x86_64` |
+| `GodotExe` | 用于导出 PCK 的 MegaDot/Godot 可执行文件，仅导出部署时需要 |
+
+在仓库根目录仅编译模组和测试项目：
+
+```powershell
+dotnet build
+```
+
+使用 Release 配置编译并导出部署：
+
+```powershell
+dotnet publish
+```
+
+发布会先完成模组编译，再导出 PCK，最后将模组自身的 DLL、PDB、现有 manifest 和 PCK
+部署到 `$(Sts2Dir)/mods/RandomForeseer`。使用 `dotnet publish -c Debug` 可发布 Debug 配置。
+manifest 依赖同步保持独立且默认关闭。
+
+测试通过独立命令执行，该命令会先编译：
+
+```powershell
+dotnet test
+```
+
+只编译模组时可使用 `dotnet build .\RandomForeseer.csproj`。发布到自定义目录时可使用
+`dotnet publish .\RandomForeseer.csproj -o .\artifacts\publish\RandomForeseer`。
+测试环境和回归运行方式见 [本地回归测试](docs/testing.md)。
+
+## 项目结构
+
+```text
+RandomForeseer.csproj - C# 项目与构建配置
+RandomForeseer.json - Mod manifest
+RandomForeseer/localization/ - 模组设置和界面本地化资源
+RandomForeseerCode/ - C# 源码
+RandomForeseerCode/Common/ - 通用预测 HoverTip、RNG 和本地化工具
+RandomForeseerCode/Data/ - 设置数据、持久化和迁移
+RandomForeseerCode/Debug/ - 调试入口和测试用奖励界面
+RandomForeseerCode/Entry.cs - 模组入口与 Harmony patch 注册
+RandomForeseerCode/InCombat/ - 战斗内卡牌、药水和冻结之眼预测
+RandomForeseerCode/Integrations/ - 与其它模组的可选联动补丁
+RandomForeseerCode/Localization/ - 模组本地化注册和文本访问
+RandomForeseerCode/OutOfCombat/ - 战斗外事件、奖励、商店、休息处和变牌预测
+RandomForeseerCode/OutOfCombat/Events/ - 非先古之民事件选项预测
+RandomForeseerCode/Settings/ - 设置页面注册和 UI bindings
+project.godot - PCK 导出用 Godot 项目
+scripts/ - 本地开发、维护和发版脚本
+workshop/loader/ - Steam 创意工坊多版本包加载器
+```
+
+## 许可协议
+
+MIT License
+
+
+=== https://raw.githubusercontent.com/gamerpuppy/sts_lightspeed/master/README.md ===
+# sts_lightspeed
+
+For tree search and simulation of the popular rogue-like deckbuilder game Slay The Spire
+
+**Features**
+* c++ 17 compiled with gcc
+* Standalone
+* Designed to be 100% RNG accurate*
+* Playable in console
+* Speed: 1M random playouts in 5s with 16 threads
+* Loading from save files (loading into combat currently only supported)
+* Tree Search (best result, knowing the state of the game's rng)
+
+**Planned Features**
+* Tree search of possible game outcomes (not given the state of rng)
+
+**Implementation Progress**
+* All enemies
+* All relics
+* All Ironclad cards
+* All colorless cards
+* Everything outside of combat / all acts
+
+**Getting Started**
+* The project was built with Clion2021 and the [mingw64 toolchain](https://www.msys2.org/) on Windows 10
+* The main target creates a simulator of the game that can be played in console.
+* The test target creates a program with various commands that can be run, including random simulation
+* Click the star button at the top of the repo :)
+
+**Build tips**
+* If your build fails with an error about not-return-only `constexpr` methods, ensure your compiler supports c++17.
+* If CLion shows an error about not finding python libs when loading the cmake project, try opening CLion from the msys2 shell.
+
+
+=== https://raw.githubusercontent.com/ForgottenArbiter/spirecomm/master/README.md ===
+# spirecomm
+A package for using Communication Mod with Slay the Spire, plus a simple AI
+
+## Communication Mod
+
+Communication Mod is a mod that allows communication between Slay the Spire and an external process. It can be found here:
+
+https://github.com/ForgottenArbiter/CommunicationMod
+
+The spirecomm package facilitates communicating with Slay the Spire through Communication Mod and accessing the state of the game.
+
+## Requirements:
+
+- Python 3.5+
+- kivy, only for the example GUI for Communication Mod, found in utilities
+
+## Running the AI:
+
+To run a simple Slay the Spire AI, configure Communication Mod to run main.py
+
+## Installing spirecomm:
+
+Run `python setup.py install` from the distribution root directory
+
+=== https://raw.githubusercontent.com/kwai/DouZero/main/README.md ===
+# [ICML 2021] DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning
+<img width="500" src="https://raw.githubusercontent.com/kwai/DouZero/main/imgs/douzero_logo.jpg" alt="Logo" />
+
+[![Building](https://github.com/kwai/DouZero/actions/workflows/python-package.yml/badge.svg)](https://github.com/kwai/DouZero/actions/workflows/python-package.yml)
+[![PyPI version](https://badge.fury.io/py/douzero.svg)](https://badge.fury.io/py/douzero)
+[![Downloads](https://pepy.tech/badge/douzero)](https://pepy.tech/project/douzero)
+[![Downloads](https://pepy.tech/badge/douzero/month)](https://pepy.tech/project/douzero)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/daochenzha/douzero-colab/blob/main/douzero-colab.ipynb)
+
+[中文文档](README.zh-CN.md)
+
+DouZero is a reinforcement learning framework for [DouDizhu](https://en.wikipedia.org/wiki/Dou_dizhu) ([斗地主](https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997)), the most popular card game in China. It is a shedding-type game where the player’s objective is to empty one’s hand of all cards before other players. DouDizhu is a very challenging domain with competition, collaboration, imperfect information, large state space, and particularly a massive set of possible actions where the legal actions vary significantly from turn to turn. DouZero is developed by AI Platform, Kwai Inc. (快手).
+
+*   Online Demo: [https://www.douzero.org/](https://www.douzero.org/)
+       * :loudspeaker: New Version with Bid（叫牌版本）: [https://www.douzero.org/bid](https://www.douzero.org/bid)
+*   Run the Demo Locally: [https://github.com/datamllab/rlcard-showdown](https://github.com/datamllab/rlcard-showdown)
+*   Video: [YouTube](https://youtu.be/inHIi8sej7Y)
+*   Paper: [https://arxiv.org/abs/2106.06135](https://arxiv.org/abs/2106.06135) 
+*   Related Project: [RLCard Project](https://github.com/datamllab/rlcard)
+*   Related Resources: [Awesome-Game-AI](https://github.com/datamllab/awesome-game-ai)
+*   Google Colab: [jupyter notebook](https://github.com/daochenzha/douzero-colab/blob/main/douzero-colab.ipynb)
+*   Unofficial improved versions of DouZero by the community: [[DouZero ResNet]](https://github.com/Vincentzyx/Douzero_Resnet) [[DouZero FullAuto]](https://github.com/Vincentzyx/DouZero_For_HLDDZ_FullAuto)
+*   Zhihu: [https://zhuanlan.zhihu.com/p/526723604](https://zhuanlan.zhihu.com/p/526723604)
+*   Miscellaneous Resources:
+	*   Check out our open-sourced [Large Time Series Model (LTSM)](https://github.com/daochenzha/ltsm)!
+	*   Have you heard of data-centric AI? Please check out our [data-centric AI survey](https://arxiv.org/abs/2303.10158) and [awesome data-centric AI resources](https://github.com/daochenzha/data-centric-AI)!
+
+**Community:**
+*  **Slack**: Discuss in [DouZero](https://join.slack.com/t/douzero/shared_invite/zt-rg3rygcw-ouxxDk5o4O0bPZ23vpdwxA) channel.
+*  **QQ Group**: Join our QQ group to discuss. Password: douzeroqqgroup
+
+	*  Group 1: 819204202
+	*  Group 2: 954183174
+	*  Group 3: 834954839
+	*  Group 4: 211434658
+	*  Group 5: 189203636
+
+**News:**
+*   Thanks for the contribution of [@Vincentzyx](https://github.com/Vincentzyx) for enabling CPU training. Now Windows users can train with CPUs.
+
+<img width="500" src="https://douzero.org/public/demo.gif" alt="Demo" />
+
+## Cite this Work
+If you find this project helpful in your research, please cite our paper:
+
+Zha, Daochen et al. “DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning.” ICML (2021).
+
+```bibtex
+@InProceedings{pmlr-v139-zha21a,
+  title = 	 {DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning},
+  author =       {Zha, Daochen and Xie, Jingru and Ma, Wenye and Zhang, Sheng and Lian, Xiangru and Hu, Xia and Liu, Ji},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {12333--12344},
+  year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/zha21a/zha21a.pdf},
+  url = 	 {http://proceedings.mlr.press/v139/zha21a.html},
+  abstract = 	 {Games are abstractions of the real world, where artificial agents learn to compete and cooperate with other agents. While significant achievements have been made in various perfect- and imperfect-information games, DouDizhu (a.k.a. Fighting the Landlord), a three-player card game, is still unsolved. DouDizhu is a very challenging domain with competition, collaboration, imperfect information, large state space, and particularly a massive set of possible actions where the legal actions vary significantly from turn to turn. Unfortunately, modern reinforcement learning algorithms mainly focus on simple and small action spaces, and not surprisingly, are shown not to make satisfactory progress in DouDizhu. In this work, we propose a conceptually simple yet effective DouDizhu AI system, namely DouZero, which enhances traditional Monte-Carlo methods with deep neural networks, action encoding, and parallel actors. Starting from scratch in a single server with four GPUs, DouZero outperformed all the existing DouDizhu AI programs in days of training and was ranked the first in the Botzone leaderboard among 344 AI agents. Through building DouZero, we show that classic Monte-Carlo methods can be made to deliver strong results in a hard domain with a complex action space. The code and an online demo are released at https://github.com/kwai/DouZero with the hope that this insight could motivate future work.}
+}
+```
+
+## What Makes DouDizhu Challenging?
+In addition to the challenge of imperfect information, DouDizhu has huge state and action spaces. In particular, the action space of DouDizhu is 10^4 (see [this table](https://github.com/datamllab/rlcard#available-environments)). Unfortunately, most reinforcement learning algorithms can only handle very small action spaces. Moreover, the players in DouDizhu need to both compete and cooperate with others in a partially-observable environment with limited communication, i.e., two Peasants players will play as a team to fight against the Landlord player. Modeling both competing and cooperation is an open research challenge.
+
+In this work, we propose Deep Monte Carlo (DMC) algorithm with action encoding and parallel actors. This leads to a very simple yet surprisingly effective solution for DouDizhu. Please read [our paper](https://arxiv.org/abs/2106.06135) for more details.
+
+## Installation
+The training code is designed for GPUs. Thus, you need to first install CUDA if you want to train models. You may refer to [this guide](https://docs.nvidia.com/cuda/index.html#installation-guides). For evaluation, CUDA is optional and you can use CPU for evaluation.
+
+First, clone the repo with (if you are in China and Github is slow, you can use the mirror in [Gitee](https://gitee.com/daochenzha/DouZero)):
+```
+git clone https://github.com/kwai/DouZero.git
+```
+Make sure you have python 3.6+ installed. Install dependencies:
+```
+cd douzero
+pip3 install -r requirements.txt
+```
+We recommend installing the stable version of DouZero with
+```
+pip3 install douzero
+```
+If you are in China and the above command is too slow, you can use the mirror provided by Tsinghua University:
+```
+pip3 install douzero -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+or install the up-to-date version (it could be not stable) with
+```
+pip3 install -e .
+```
+Note that Windows users can only use CPU as actors. See [Issues in Windows](README.md#issues-in-windows) about why GPUs are not supported. Nonetheless, Windows users can still [run the demo locally](https://github.com/datamllab/rlcard-showdown).  
+
+## Training
+To use GPU for training, run
+```
+python3 train.py
+```
+This will train DouZero on one GPU. To train DouZero on multiple GPUs. Use the following arguments.
+*   `--gpu_devices`: what gpu devices are visible
+*   `--num_actor_devices`: how many of the GPU deveices will be used for simulation, i.e., self-play
+*   `--num_actors`: how many actor processes will be used for each device
+*   `--training_device`: which device will be used for training DouZero
+
+For example, if we have 4 GPUs, where we want to use the first 3 GPUs to have 15 actors each for simulating and the 4th GPU for training, we can run the following command:
+```
+python3 train.py --gpu_devices 0,1,2,3 --num_actor_devices 3 --num_actors 15 --training_device 3
+```
+To use CPU training or simulation (Windows can only use CPU for actors), use the following arguments:
+*   `--training_device cpu`: Use CPU to train the model
+*   `--actor_device_cpu`: Use CPU as actors
+
+For example, use the following command to run everything on CPU:
+```
+python3 train.py --actor_device_cpu --training_device cpu
+```
+The following command only runs actors on CPU:
+```
+python3 train.py --actor_device_cpu
+```
+For more customized configuration of training, see the following optional arguments:
+```
+--xpid XPID           Experiment id (default: douzero)
+--save_interval SAVE_INTERVAL
+                      Time interval (in minutes) at which to save the model
+--objective {adp,wp}  Use ADP or WP as reward (default: ADP)
+--actor_device_cpu    Use CPU as actor device
+--gpu_devices GPU_DEVICES
+                      Which GPUs to be used for training
+--num_actor_devices NUM_ACTOR_DEVICES
+                      The number of devices used for simulation
+--num_actors NUM_ACTORS
+                      The number of actors for each simulation device
+--training_device TRAINING_DEVICE
+                      The index of the GPU used for training models. `cpu`
+                	  means using cpu
+--load_model          Load an existing model
+--disable_checkpoint  Disable saving checkpoint
+--savedir SAVEDIR     Root dir where experiment data will be saved
+--total_frames TOTAL_FRAMES
+                      Total environment frames to train for
+--exp_epsilon EXP_EPSILON
+                      The probability for exploration
+--batch_size BATCH_SIZE
+                      Learner batch size
+--unroll_length UNROLL_LENGTH
+                      The unroll length (time dimension)
+--num_buffers NUM_BUFFERS
+                      Number of shared-memory buffers
+--num_threads NUM_THREADS
+                      Number learner threads
+--max_grad_norm MAX_GRAD_NORM
+                      Max norm of gradients
+--learning_rate LEARNING_RATE
+                      Learning rate
+--alpha ALPHA         RMSProp smoothing constant
+--momentum MOMENTUM   RMSProp momentum
+--epsilon EPSILON     RMSProp epsilon
+```
+
+## Evaluation
+The evaluation can be performed with GPU or CPU (GPU will be much faster). Pretrained model is available at [Google Drive](https://drive.google.com/drive/folders/1NmM2cXnI5CIWHaLJeoDZMiwt6lOTV_UB?usp=sharing) or [百度网盘](https://pan.baidu.com/s/18g-JUKad6D8rmBONXUDuOQ), 提取码: 4624. Put pre-trained weights in `baselines/`. The performance is evaluated through self-play. We have provided pre-trained models and some heuristics as baselines:
+*   [random](douzero/evaluation/random_agent.py): agents that play randomly (uniformly)
+*   [rlcard](douzero/evaluation/rlcard_agent.py): the rule-based agent in [RLCard](https://github.com/datamllab/rlcard)
+*   SL (`baselines/sl/`): the pre-trained deep agents on human data
+*   DouZero-ADP (`baselines/douzero_ADP/`): the pretrained DouZero agents with Average Difference Points (ADP) as objective
+*   DouZero-WP (`baselines/douzero_WP/`): the pretrained DouZero agents with Winning Percentage (WP) as objective
+
+### Step 1: Generate evaluation data
+```
+python3 generate_eval_data.py
+```
+Some important hyperparameters are as follows.
+*   `--output`: where the pickled data will be saved
+*   `--num_games`: how many random games will be generated, default 10000
+
+### Step 2: Self-Play
+```
+python3 evaluate.py
+```
+Some important hyperparameters are as follows.
+*   `--landlord`: which agent will play as Landlord, which can be random, rlcard, or the path of the pre-trained model
+*   `--landlord_up`: which agent will play as LandlordUp (the one plays before the Landlord), which can be random, rlcard, or the path of the pre-trained model
+*   `--landlord_down`: which agent will play as LandlordDown (the one plays after the Landlord), which can be random, rlcard, or the path of the pre-trained model
+*   `--eval_data`: the pickle file that contains evaluation data
+*   `--num_workers`: how many subprocesses will be used
+*   `--gpu_device`: which GPU to use. It will use CPU by default
+
+For example, the following command evaluates DouZero-ADP in Landlord position against random agents
+```
+python3 evaluate.py --landlord baselines/douzero_ADP/landlord.ckpt --landlord_up random --landlord_down random
+```
+The following command evaluates DouZero-ADP in Peasants position against RLCard agents
+```
+python3 evaluate.py --landlord rlcard --landlord_up baselines/douzero_ADP/landlord_up.ckpt --landlord_down baselines/douzero_ADP/landlord_down.ckpt
+```
+By default, our model will be saved in `douzero_checkpoints/douzero` every half an hour. We provide a script to help you identify the most recent checkpoint. Run
+```
+sh get_most_recent.sh douzero_checkpoints/douzero/
+```
+The most recent model will be in `most_recent_model`.
+
+## Issues in Windows
+You may encounter `operation not supported` error if you use a Windows system to train with GPU as actors. This is because doing multiprocessing on CUDA tensors is not supported in Windows. However, our code extensively operates on the CUDA tensors since the code is optimized for GPUs. Please contact us if you find any solutions!
+
+## Core Team
+*   Algorithm: [Daochen Zha](https://github.com/daochenzha), [Jingru Xie](https://github.com/karoka), Wenye Ma, Sheng Zhang, [Xiangru Lian](https://xrlian.com/), Xia Hu, [Ji Liu](http://jiliu-ml.org/)
+*   GUI Demo: [Songyi Huang](https://github.com/hsywhu)
+*   Community contributors: [@Vincentzyx](https://github.com/Vincentzyx)
+
+## Acknowlegements
+*   The demo is largely based on [RLCard-Showdown](https://github.com/datamllab/rlcard-showdown)
+*   Code implementation is inspired by [TorchBeast](https://github.com/facebookresearch/torchbeast)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== https://raw.githubusercontent.com/datamllab/rlcard/master/README.md ===
+# RLCard: A Toolkit for Reinforcement Learning in Card Games
+<img width="500" src="https://dczha.com/files/rlcard/logo.jpg" alt="Logo" />
+
+[![Testing](https://github.com/datamllab/rlcard/actions/workflows/python-package.yml/badge.svg)](https://github.com/datamllab/rlcard/actions/workflows/python-package.yml)
+[![PyPI version](https://badge.fury.io/py/rlcard.svg)](https://badge.fury.io/py/rlcard)
+[![Coverage Status](https://coveralls.io/repos/github/datamllab/rlcard/badge.svg)](https://coveralls.io/github/datamllab/rlcard?branch=master)
+[![Downloads](https://pepy.tech/badge/rlcard)](https://pepy.tech/project/rlcard)
+[![Downloads](https://pepy.tech/badge/rlcard/month)](https://pepy.tech/project/rlcard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[中文文档](README.zh-CN.md)
+
+RLCard is a toolkit for Reinforcement Learning (RL) in card games. It supports multiple card environments with easy-to-use interfaces for implementing various reinforcement learning and searching algorithms. The goal of RLCard is to bridge reinforcement learning and imperfect information games. RLCard is developed by [DATA Lab](http://faculty.cs.tamu.edu/xiahu/) at Rice and Texas A&M University, and community contributors.
+
+*   Official Website: [https://www.rlcard.org](https://www.rlcard.org)
+*   Tutorial in Jupyter Notebook: [https://github.com/datamllab/rlcard-tutorial](https://github.com/datamllab/rlcard-tutorial)
+*   Paper: [https://arxiv.org/abs/1910.04376](https://arxiv.org/abs/1910.04376)
+*   Video: [YouTube](https://youtu.be/krK2jmSdKZc)
+*   GUI: [RLCard-Showdown](https://github.com/datamllab/rlcard-showdown)
+*   Dou Dizhu Demo: [Demo](https://douzero.org/)
+*   Resources: [Awesome-Game-AI](https://github.com/datamllab/awesome-game-ai)
+*   Related Project: [DouZero Project](https://github.com/kwai/DouZero)
+*   Zhihu: https://zhuanlan.zhihu.com/p/526723604
+*   Miscellaneous Resources:
+	*   Check out our open-sourced [Large Time Series Model (LTSM)](https://github.com/daochenzha/ltsm)!
+	*   Have you heard of data-centric AI? Please check out our [data-centric AI survey](https://arxiv.org/abs/2303.10158) and [awesome data-centric AI resources](https://github.com/daochenzha/data-centric-AI)!
+
+**Community:**
+*  **Slack**: Discuss in our [#rlcard-project](https://join.slack.com/t/rlcard/shared_invite/zt-rkvktsaq-xkMwz8BfKupCM6zGhO01xg) slack channel.
+*  **QQ Group**: Join our QQ group to discuss. Password: rlcardqqgroup
+	*  Group 1: 665647450
+	*  Group 2: 117349516
+
+**News:**
+*   We have updated the tutorials in Jupyter Notebook to help you walk through RLCard! Please check [RLCard Tutorial](https://github.com/datamllab/rlcard-tutorial).
+*   All the algorithms can suppport [PettingZoo](https://github.com/PettingZoo-Team/PettingZoo) now. Please check [here](examples/pettingzoo). Thanks the contribtuion from [Yifei Cheng](https://github.com/ycheng517).
+*   Please follow [DouZero](https://github.com/kwai/DouZero), a strong Dou Dizhu AI and the [ICML 2021 paper](https://arxiv.org/abs/2106.06135). An online demo is available [here](https://douzero.org/). The algorithm is also integrated in RLCard. See [Training DMC on Dou Dizhu](docs/toy-examples.md#training-dmc-on-dou-dizhu).
+*   Our package is used in [PettingZoo](https://github.com/PettingZoo-Team/PettingZoo). Please check it out!
+*   We have released RLCard-Showdown, GUI demo for RLCard. Please check out [here](https://github.com/datamllab/rlcard-showdown)!
+*   Jupyter Notebook tutorial available! We add some examples in R to call Python interfaces of RLCard with reticulate. See [here](docs/toy-examples-r.md)
+*   Thanks for the contribution of [@Clarit7](https://github.com/Clarit7) for supporting different number of players in Blackjack. We call for contributions for gradually making the games more configurable. See [here](CONTRIBUTING.md#making-configurable-environments) for more details.
+*   Thanks for the contribution of [@Clarit7](https://github.com/Clarit7) for the Blackjack and Limit Hold'em human interface.
+*   Now RLCard supports environment local seeding and multiprocessing. Thanks for the testing scripts provided by [@weepingwillowben](https://github.com/weepingwillowben).
+*   Human interface of NoLimit Holdem available. The action space of NoLimit Holdem has been abstracted. Thanks for the contribution of [@AdrianP-](https://github.com/AdrianP-).
+*   New game Gin Rummy and human GUI available. Thanks for the contribution of [@billh0420](https://github.com/billh0420).
+*   PyTorch implementation available. Thanks for the contribution of [@mjudell](https://github.com/mjudell).
+
+## Contributors
+The following games are mainly developed and maintained by community contributors. Thank you!
+*   Gin Rummy: [@billh0420](https://github.com/billh0420)
+*   Bridge: [@billh0420](https://github.com/billh0420)
+
+Thank all the contributors!
+
+<a href="https://github.com/daochenzha"><img src="https://github.com/daochenzha.png" width="40px" alt="daochenzha" /></a>&nbsp;&nbsp;
+<a href="https://github.com/hsywhu"><img src="https://github.com/hsywhu.png" width="40px" alt="hsywhu" /></a>&nbsp;&nbsp;
+<a href="https://github.com/CaoYuanpu"><img src="https://github.com/CaoYuanpu.png" width="40px" alt="CaoYuanpu" /></a>&nbsp;&nbsp;
+<a href="https://github.com/billh0420"><img src="https://github.com/billh0420.png" width="40px" alt="billh0420" /></a>&nbsp;&nbsp;
+<a href="https://github.com/ruzhwei"><img src="https://github.com/ruzhwei.png" width="40px" alt="ruzhwei" /></a>&nbsp;&nbsp;
+<a href="https://github.com/adrianpgob"><img src="https://github.com/adrianpgob.png" width="40px" alt="adrianpgob" /></a>&nbsp;&nbsp;
+<a href="https://github.com/Zhigal"><img src="https://github.com/Zhigal.png" width="40px" alt="Zhigal" /></a>&nbsp;&nbsp;
+<a href="https://github.com/aypee19"><img src="https://github.com/aypee19.png" width="40px" alt="aypee19" /></a>&nbsp;&nbsp;
+<a href="https://github.com/Clarit7"><img src="https://github.com/Clarit7.png" width="40px" alt="Clarit7" /></a>&nbsp;&nbsp;
+<a href="https://github.com/lhenry15"><img src="https://github.com/lhenry15.png" width="40px" alt="lhenry15" /></a>&nbsp;&nbsp;
+<a href="https://github.com/ismael-elatifi"><img src="https://github.com/ismael-elatifi.png" width="40px" alt="ismael-elatifi" /></a>&nbsp;&nbsp;
+<a href="https://github.com/mjudell"><img src="https://github.com/mjudell.png" width="40px" alt="mjudell" /></a>&nbsp;&nbsp;
+<a href="https://github.com/jkterry1"><img src="https://github.com/jkterry1.png" width="40px" alt="jkterry1" /></a>&nbsp;&nbsp;
+<a href="https://github.com/kaanozdogru"><img src="https://github.com/kaanozdogru.png" width="40px" alt="kaanozdogru" /></a>&nbsp;&nbsp;
+<a href="https://github.com/junyuGuo"><img src="https://github.com/junyuGuo.png" width="40px" alt="junyuGuo" /></a>&nbsp;&nbsp;
+<br />
+<a href="https://github.com/Xixo99"><img src="https://github.com/Xixo99.png" width="40px" alt="Xixo99" /></a>&nbsp;&nbsp;
+<a href="https://github.com/rodrigodelazcano"><img src="https://github.com/rodrigodelazcano.png" width="40px" alt="rodrigodelazcano" /></a>&nbsp;&nbsp;
+<a href="https://github.com/Michael1015198808"><img src="https://github.com/Michael1015198808.png" width="40px" alt="Michael1015198808" /></a>&nbsp;&nbsp;
+<a href="https://github.com/mia1996"><img src="https://github.com/mia1996.png" width="40px" alt="mia1996" /></a>&nbsp;&nbsp;
+<a href="https://github.com/kaiks"><img src="https://github.com/kaiks.png" width="40px" alt="kaiks" /></a>&nbsp;&nbsp;
+<a href="https://github.com/claude9493"><img src="https://github.com/claude9493.png" width="40px" alt="claude9493" /></a>&nbsp;&nbsp;
+<a href="https://github.com/SonSang"><img src="https://github.com/SonSang.png" width="40px" alt="SonSang" /></a>&nbsp;&nbsp;
+<a href="https://github.com/rishabhvarshney14"><img src="https://github.com/rishabhvarshney14.png" width="40px" alt="rishabhvarshney14" /></a>&nbsp;&nbsp;
+<a href="https://github.com/aetheryang"><img src="https://github.com/aetheryang.png" width="40px" alt="aetheryang" /></a>&nbsp;&nbsp;
+<a href="https://github.com/rxng8"><img src="https://github.com/rxng8.png" width="40px" alt="rxng8" /></a>&nbsp;&nbsp;
+<a href="https://github.com/nondecidibile"><img src="https://github.com/nondecidibile.png" width="40px" alt="nondecidibile" /></a>&nbsp;&nbsp;
+<a href="https://github.com/benblack769"><img src="https://github.com/benblack769.png" width="40px" alt="benblack769" /></a>&nbsp;&nbsp;
+<a href="https://github.com/zhengsx"><img src="https://github.com/zhengsx.png" width="40px" alt="zhengsx" /></a>&nbsp;&nbsp;
+<a href="https://github.com/andrewnc"><img src="https://github.com/andrewnc.png" width="40px" alt="andrewnc" /></a>&nbsp;&nbsp;
+
+## Cite this work
+If you find this repo useful, you may cite:
+
+Zha, Daochen, et al. "RLCard: A Platform for Reinforcement Learning in Card Games." IJCAI. 2020.
+```bibtex
+@inproceedings{zha2020rlcard,
+  title={RLCard: A Platform for Reinforcement Learning in Card Games},
+  author={Zha, Daochen and Lai, Kwei-Herng and Huang, Songyi and Cao, Yuanpu and Reddy, Keerthana and Vargas, Juan and Nguyen, Alex and Wei, Ruzhe and Guo, Junyu and Hu, Xia},
+  booktitle={IJCAI},
+  year={2020}
+}
+```
+
+## Installation
+Make sure that you have **Python 3.6+** and **pip** installed. We recommend installing the stable version of `rlcard` with `pip`:
+
+```
+pip3 install rlcard
+```
+The default installation will only include the card environments. To use PyTorch implementation of the training algorithms, run
+```
+pip3 install rlcard[torch]
+```
+If you are in China and the above command is too slow, you can use the mirror provided by Tsinghua University:
+```
+pip3 install rlcard -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+Alternatively, you can clone the latest version with (if you are in China and Github is slow, you can use the mirror in [Gitee](https://gitee.com/daochenzha/rlcard)):
+```
+git clone https://github.com/datamllab/rlcard.git
+```
+or only clone one branch to make it faster:
+```
+git clone -b master --single-branch --depth=1 https://github.com/datamllab/rlcard.git
+```
+Then install with
+```
+cd rlcard
+pip3 install -e .
+pip3 install -e .[torch]
+```
+
+We also provide [**conda** installation method](https://anaconda.org/toubun/rlcard):
+
+```
+conda install -c toubun rlcard
+```
+
+Conda installation only provides the card environments, you need to manually install Pytorch on your demands.
+
+## Examples
+A **short example** is as below.
+
+```python
+import rlcard
+from rlcard.agents import RandomAgent
+
+env = rlcard.make('blackjack')
+env.set_agents([RandomAgent(num_actions=env.num_actions)])
+
+print(env.num_actions) # 2
+print(env.num_players) # 1
+print(env.state_shape) # [[2]]
+print(env.action_shape) # [None]
+
+trajectories, payoffs = env.run()
+```
+
+RLCard can be flexibly connected to various algorithms. See the following examples:
+
+*   [Playing with random agents](docs/toy-examples.md#playing-with-random-agents)
+*   [Deep-Q learning on Blackjack](docs/toy-examples.md#deep-q-learning-on-blackjack)
+*   [Training CFR (chance sampling) on Leduc Hold'em](docs/toy-examples.md#training-cfr-on-leduc-holdem)
+*   [Having fun with pretrained Leduc model](docs/toy-examples.md#having-fun-with-pretrained-leduc-model)
+*   [Training DMC on Dou Dizhu](docs/toy-examples.md#training-dmc-on-dou-dizhu)
+*   [Evaluating Agents](docs/toy-examples.md#evaluating-agents)
+*   [Training Agents on PettingZoo](examples/pettingzoo)
+
+## Demo
+Run `examples/human/leduc_holdem_human.py` to play with the pre-trained Leduc Hold'em model. Leduc Hold'em is a simplified version of Texas Hold'em. Rules can be found [here](docs/games.md#leduc-holdem).
+
+```
+>> Leduc Hold'em pre-trained model
+
+>> Start a new game!
+>> Agent 1 chooses raise
+
+=============== Community Card ===============
+┌─────────┐
+│░░░░░░░░░│
+│░░░░░░░░░│
+│░░░░░░░░░│
+│░░░░░░░░░│
+│░░░░░░░░░│
+│░░░░░░░░░│
+│░░░░░░░░░│
+└─────────┘
+===============   Your Hand    ===============
+┌─────────┐
+│J        │
+│         │
+│         │
+│    ♥    │
+│         │
+│         │
+│        J│
+└─────────┘
+===============     Chips      ===============
+Yours:   +
+Agent 1: +++
+=========== Actions You Can Choose ===========
+0: call, 1: raise, 2: fold
+
+>> You choose action (integer):
+```
+We also provide a GUI for easy debugging. Please check [here](https://github.com/datamllab/rlcard-showdown/). Some demos:
+
+![doudizhu-replay](https://github.com/datamllab/rlcard-showdown/blob/master/docs/imgs/doudizhu-replay.png?raw=true)
+![leduc-replay](https://github.com/datamllab/rlcard-showdown/blob/master/docs/imgs/leduc-replay.png?raw=true)
+
+## Available Environments
+We provide a complexity estimation for the games on several aspects. **InfoSet Number:** the number of information sets; **InfoSet Size:** the average number of states in a single information set; **Action Size:** the size of the action space. **Name:** the name that should be passed to `rlcard.make` to create the game environment. We also provide the link to the documentation and the random example.
+
+| Game                                                                                                                                                                                           | InfoSet Number  | InfoSet Size      | Action Size | Name            | Usage                                                                                       |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------: | :---------------: | :---------: | :-------------: | :-----------------------------------------------------------------------------------------: |
+| Blackjack ([wiki](https://en.wikipedia.org/wiki/Blackjack), [baike](https://baike.baidu.com/item/21%E7%82%B9/5481683?fr=aladdin))                                                              | 10^3            | 10^1              | 10^0        | blackjack       | [doc](docs/games.md#blackjack), [example](examples/run_random.py)                           |
+| Leduc Hold’em ([paper](http://poker.cs.ualberta.ca/publications/UAI05.pdf))                                                                                                                    | 10^2            | 10^2              | 10^0        | leduc-holdem    | [doc](docs/games.md#leduc-holdem), [example](examples/run_random.py)                        |
+| Limit Texas Hold'em ([wiki](https://en.wikipedia.org/wiki/Texas_hold_%27em), [baike](https://baike.baidu.com/item/%E5%BE%B7%E5%85%8B%E8%90%A8%E6%96%AF%E6%89%91%E5%85%8B/83440?fr=aladdin))    | 10^14           | 10^3              | 10^0        | limit-holdem    | [doc](docs/games.md#limit-texas-holdem), [example](examples/run_random.py)                  |
+| Dou Dizhu ([wiki](https://en.wikipedia.org/wiki/Dou_dizhu), [baike](https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997?fr=aladdin))                                               | 10^53 ~ 10^83   | 10^23             | 10^4        | doudizhu        | [doc](docs/games.md#dou-dizhu), [example](examples/run_random.py)                           |
+| Mahjong ([wiki](https://en.wikipedia.org/wiki/Competition_Mahjong_scoring_rules), [baike](https://baike.baidu.com/item/%E9%BA%BB%E5%B0%86/215))                                                | 10^121          | 10^48             | 10^2        | mahjong         | [doc](docs/games.md#mahjong), [example](examples/run_random.py)                             | 
+| No-limit Texas Hold'em ([wiki](https://en.wikipedia.org/wiki/Texas_hold_%27em), [baike](https://baike.baidu.com/item/%E5%BE%B7%E5%85%8B%E8%90%A8%E6%96%AF%E6%89%91%E5%85%8B/83440?fr=aladdin)) | 10^162          | 10^3              | 10^4        | no-limit-holdem | [doc](docs/games.md#no-limit-texas-holdem), [example](examples/run_random.py)               |
+| UNO ([wiki](https://en.wikipedia.org/wiki/Uno_\(card_game\)), [baike](https://baike.baidu.com/item/UNO%E7%89%8C/2249587))                                                                      |  10^163         | 10^10             | 10^1        | uno             | [doc](docs/games.md#uno), [example](examples/run_random.py)                                 |
+| Gin Rummy ([wiki](https://en.wikipedia.org/wiki/Gin_rummy), [baike](https://baike.baidu.com/item/%E9%87%91%E6%8B%89%E7%B1%B3/3471710))                                                         | 10^52           | -                 | -           | gin-rummy       | [doc](docs/games.md#gin-rummy), [example](examples/run_random.py)                           |
+| Bridge ([wiki](https://en.wikipedia.org/wiki/Bridge), [baike](https://baike.baidu.com/item/%E6%A1%A5%E7%89%8C/332030))                                                                         |                 | -                 | -           | bridge          | [doc](docs/games.md#bridge), [example](examples/run_random.py)                              |
+
+## Supported Algorithms
+| Algorithm | example | reference |
+| :--------------------------------------: | :-----------------------------------------: | :------------------------------------------------------------------------------------------------------: |
+| Deep Monte-Carlo (DMC)                   | [examples/run\_dmc.py](examples/run_dmc.py) | [[paper]](https://arxiv.org/abs/2106.06135)                                                              |
+| Deep Q-Learning (DQN)                    | [examples/run\_rl.py](examples/run_rl.py)   | [[paper]](https://arxiv.org/abs/1312.5602)                                                               |
+| Neural Fictitious Self-Play (NFSP)       | [examples/run\_rl.py](examples/run_rl.py)   | [[paper]](https://arxiv.org/abs/1603.01121)                                                              |
+| Counterfactual Regret Minimization (CFR) | [examples/run\_cfr.py](examples/run_cfr.py) | [[paper]](http://papers.nips.cc/paper/3306-regret-minimization-in-games-with-incomplete-information.pdf) |
+
+## Pre-trained and Rule-based Models
+We provide a [model zoo](rlcard/models) to serve as the baselines.
+
+| Model                                    | Explanation                                              |
+| :--------------------------------------: | :------------------------------------------------------: |
+| leduc-holdem-cfr                         | Pre-trained CFR (chance sampling) model on Leduc Hold'em |
+| leduc-holdem-rule-v1                     | Rule-based model for Leduc Hold'em, v1                   |
+| leduc-holdem-rule-v2                     | Rule-based model for Leduc Hold'em, v2                   |
+| uno-rule-v1                              | Rule-based model for UNO, v1                             |
+| limit-holdem-rule-v1                     | Rule-based model for Limit Texas Hold'em, v1             |
+| doudizhu-rule-v1                         | Rule-based model for Dou Dizhu, v1                       |
+| gin-rummy-novice-rule                    | Gin Rummy novice rule model                              |
+
+## API Cheat Sheet
+### How to create an environment
+You can use the the following interface to make an environment. You may optionally specify some configurations with a dictionary.
+*   **env = rlcard.make(env_id, config={})**: Make an environment. `env_id` is a string of a environment; `config` is a dictionary that specifies some environment configurations, which are as follows.
+	*   `seed`: Default `None`. Set a environment local random seed for reproducing the results.
+	*   `allow_step_back`: Default `False`. `True` if allowing `step_back` function to traverse backward in the tree.
+	*   Game specific configurations: These fields start with `game_`. Currently, we only support `game_num_players` in Blackjack, .
+
+Once the environemnt is made, we can access some information of the game.
+*   **env.num_actions**: The number of actions.
+*   **env.num_players**: The number of players.
+*   **env.state_shape**: The shape of the state space of the observations.
+*   **env.action_shape**: The shape of the action features (Dou Dizhu's action can encoded as features)
+
+### What is state in RLCard
+State is a Python dictionary. It consists of observation `state['obs']`, legal actions `state['legal_actions']`, raw observation `state['raw_obs']` and raw legal actions `state['raw_legal_actions']`.
+
+### Basic interfaces
+The following interfaces provide a basic usage. It is easy to use but it has assumtions on the agent. The agent must follow [agent template](docs/developping-algorithms.md). 
+*   **env.set_agents(agents)**: `agents` is a list of `Agent` object. The length of the list should be equal to the number of the players in the game.
+*   **env.run(is_training=False)**: Run a complete game and return trajectories and payoffs. The function can be used after the `set_agents` is called. If `is_training` is `True`, it will use `step` function in the agent to play the game. If `is_training` is `False`, `eval_step` will be called instead.
+
+### Advanced interfaces
+For advanced usage, the following interfaces allow flexible operations on the game tree. These interfaces do not make any assumtions on the agent.
+*   **env.reset()**: Initialize a game. Return the state and the first player ID.
+*   **env.step(action, raw_action=False)**: Take one step in the environment. `action` can be raw action or integer; `raw_action` should be `True` if the action is raw action (string).
+*   **env.step_back()**: Available only when `allow_step_back` is `True`. Take one step backward. This can be used for algorithms that operate on the game tree, such as CFR (chance sampling).
+*   **env.is_over()**: Return `True` if the current game is over. Otherewise, return `False`.
+*   **env.get_player_id()**: Return the Player ID of the current player.
+*   **env.get_state(player_id)**: Return the state that corresponds to `player_id`.
+*   **env.get_payoffs()**: In the end of the game, return a list of payoffs for all the players.
+*   **env.get_perfect_information()**: (Currently only support some of the games) Obtain the perfect information at the current state.
+
+## Library Structure
+The purposes of the main modules are listed as below:
+
+*   [/examples](examples): Examples of using RLCard.
+*   [/docs](docs): Documentation of RLCard.
+*   [/tests](tests): Testing scripts for RLCard.
+*   [/rlcard/agents](rlcard/agents): Reinforcement learning algorithms and human agents.
+*   [/rlcard/envs](rlcard/envs): Environment wrappers (state representation, action encoding etc.)
+*   [/rlcard/games](rlcard/games): Various game engines.
+*   [/rlcard/models](rlcard/models): Model zoo including pre-trained models and rule models.
+
+## More Documents
+For more documentation, please refer to the [Documents](docs/README.md) for general introductions. API documents are available at our [website](http://www.rlcard.org).
+
+## Contributing
+Contribution to this project is greatly appreciated! Please create an issue for feedbacks/bugs. If you want to contribute codes, please refer to [Contributing Guide](./CONTRIBUTING.md). If you have any questions, please contact [Daochen Zha](https://github.com/daochenzha) with [daochen.zha@rice.edu](mailto:daochen.zha@rice.edu).
+
+## Acknowledgements
+We would like to thank JJ World Network Technology Co.,LTD for the generous support and all the contributions from the community contributors.
+
+
+=== https://raw.githubusercontent.com/Equim-chan/Mortal/main/README.md ===
+<p align="center">
+  <img src="https://github.com/Equim-chan/Mortal/raw/main/docs/src/assets/logo.png" width="550" />
+</p>
+
+# Mortal
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Equim-chan/Mortal/libriichi.yml?branch=main)](https://github.com/Equim-chan/Mortal/actions/workflows/libriichi.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Equim-chan/Mortal/docs.yml?branch=main&label=docs)](https://mortal.ekyu.moe)
+[![dependency status](https://deps.rs/repo/github/Equim-chan/Mortal/status.svg)](https://deps.rs/repo/github/Equim-chan/Mortal)
+![GitHub top language](https://img.shields.io/github/languages/top/Equim-chan/Mortal)
+![Lines of code](https://www.aschey.tech/tokei/github/Equim-chan/Mortal)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Equim-chan/Mortal)
+[![license](https://img.shields.io/github/license/Equim-chan/Mortal)](https://github.com/Equim-chan/Mortal/blob/main/LICENSE)
+
+[![Donate](https://img.shields.io/badge/Donate-%E2%9D%A4%EF%B8%8F-blue?style=social)](https://mortal.ekyu.moe/donate.html)
+
+Mortal ([凡夫](https://www.mdbg.net/chinese/dictionary?wdqb=%E5%87%A1%E5%A4%AB)) is a free and open source AI for Japanese mahjong, powered by deep reinforcement learning.
+
+Read the [**Documentation**](https://mortal.ekyu.moe) for everything about this work.
+
+## Okay cool now give me the weights!
+Read [this post](https://gist.github.com/Equim-chan/cf3f01735d5d98f1e7be02e94b288c56) for details regarding this topic.
+
+## License
+### Code
+[![AGPL-3.0-or-later](https://github.com/Equim-chan/Mortal/raw/main/docs/src/assets/agpl.png)](https://github.com/Equim-chan/Mortal/blob/main/LICENSE)
+
+Copyright (C) 2021-2022 Equim
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+### Logo and Other Assets
+[![CC BY-SA 4.0](https://github.com/Equim-chan/Mortal/raw/main/docs/src/assets/by-sa.png)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+
+=== https://raw.githubusercontent.com/Cryolite/kanachan/master/README.md ===
+*"It's time to get me in."* - Kana Ikeda
+
+# kanachan
+A Mahjong AI that supports a variant of rules of 4-player Japanese Riichi Mahjong that is adopted in standard games in Mahjong Soul (雀魂, Jantama, [CN](https://www.maj-soul.com/), [JP](https://mahjongsoul.com/), [EN](https://mahjongsoul.yo-star.com/)).
+
+## Announcements
+
+- [\[2023/05/06\] Significant additions and changes to the repository's code base](https://github.com/Cryolite/kanachan/discussions/24)
+
+## Brief Guide
+
+This repository provides an annotation tool for game records of Mahjong Soul, and programs training some types of Mahjong AI models. However, this repository does not provide any crawler for game records of Mahjong Soul, any training data, nor any trained models. Therefore, users are assumed to prepare their own training data and computation resources.
+
+The first thing users should do in order to use this repository is to collect game records of Mahjong Soul. The format of game records must be the same as the WebSocket response message that is returned from the Mahjong Soul API server when you hit a URL of the format `https://game.mahjongsoul.com/?paipu=YYMMDD-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`. Data in this format can be obtained by capturing WebSocket messages exchanged with the Mahjong Soul's API server, using a network sniffering tools such as [mitmproxy](https://mitmproxy.org/) or [Wireshark](https://www.wireshark.org/), browser extensions, or other tools. Again, this repository does not include such a tool. Therefore, please look for one on code hosting services including GitHub, or implement one yourself.
+
+After collecting game records, the next step is to use [annotate](src/annotation) to convert the game records into annotations in a format suitable for learning.
+
+Finally, the trained model can be obtained by running the training programs under the [kanachan](kanachan) Python module with the annotations as input.
+
+## Goal of This Project
+
+The goal of this project is to create a Mahjong AI for a variant of rules of 4-player Japanese Riichi Mahjong that can beat existing top-tier Mahjong AIs, including [NAGA](https://dmv.nico/ja/articles/mahjong_ai_naga/) and [Suphx](https://arxiv.org/abs/2003.13590), and even top professional human players.
+
+This project is a personal one by myself. This is in contrast to some of the top mahjong AI projects today, which are run by corporations. This project is also intended to show the world that top-class mahjong AI can be built by personal projects.
+
+Currently, Japanese chess (Shogi, 将棋) AI has been already considered to be far superior to the level of top human professionals. I believe that the driving force behind this situation in Japanese chess is the fierce competition among various Shogi AI by personal projects. I expect for this project to be a pioneer to cause such situation in the field of mahjong AI, too.
+
+## Key Features of This Project
+
+### Extremely Large Data Set from Mahjong Soul
+
+This project supposes to use game record (牌譜) data set crawled from Mahjong Soul. This would become an extremely large data set, which differs in order of magnitude in both quantity and generation speed from the existing representative, i.e., the one from the Phoenix Table (houou-taku, 鳳凰卓) of [Tenhou (天鳳)](https://tenhou.net/).
+
+Let me show you concrete numbers. Game records consisting of 17 million rounds, which were generated in 11 years from 2009 to 2019, can be obtained from the Phoenix Table of Tenhou. On the other hand, I have been crawling game records from Mahjong Soul since July 2020, and the amount of game records for 4-player Mahjong played in the Gold Room (kin-no-ma, 金の間) or the higher rooms has reached about 65 million rounds as of the end of August 2021. This number will surely surpass 100 million rounds by the end of 2021.
+
+This critical difference in data volume will allow us to use models that are orders of magnitude larger and/or more powerfully expressive than those used in existing Mahjong AIs. For example, while NAGA and Suphx have trained the [ResNet](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf) with the Tenhou dataset, this project aims to take advantage of the huge amount of data to train large scale models based on more powerfully expressive framework (e.g., transformer).
+
+### No Human-crafted Features
+
+The inputs to models in this project, the features in other words, are almost devoid of processing based on human experience and intuition about Mahjong. All tiles are represented as mere tokens, which are indexes to the corresponding embeddings. The token representing the 1 Circle (一筒) tile is not directly associated with the number "1", nor it does indicate one of Circle tiles. The tokens that represent the 1 Circle tile in one's hand and ones that represent the 1 Circle tile in their discarded tiles (河) are not directly related at all. There is no feature that directly represents the relationship between the dora-indicating tile (ドラ表示牌) and the dora (ドラ) tile. There is no feature that represents the visible-to-player number of tiles of a certain type. While there are a total of 90 types of chows (chi, チー, 吃) in the standard rule of Mahjong Soul, each chow is represented by only one of completely independent 90 tokens... and so on.
+
+The situation at a given time in a game is represented very simply as follows. Aspects of game situation that have nothing to do with the order in which the game is played, such as the game wind (chang, 場), the round number (ju, 局), the dora tiles, the hand tiles, etc., are represented as a set of above-mentioned tokens. The discarded tiles (打牌) and the meldings (fulu, 副露) played by each player are represented as a sequence of above-mentioned tokens representing the order in which they occur. The number of points, the number of riichi deposits, and other numerically meaningful features are represented as numbers themselves.
+
+To be more specific, see [Training Data Format for Behavioral Cloning](https://github.com/Cryolite/kanachan/wiki/Notes-on-Training-Data#training-data-format-for-behavioral-cloning).
+
+Some readers may be seriously wondering whether such feature design is really capable of proper learning. Don't worry. Even in the very early stages of learning, the behavior of the model trained with the above-mentioned feature design already shows that it has acquired basic concepts of Mahjong. It seems to acquire concepts including dora, the red tiles, the Dragon Tiles (箭牌), the game wind tile (圏風牌), the player's wind tile (門風牌), 断幺九, melding (鳴き) for fans (役) including 断幺九, 三色同順, 一気通貫, 混全帯么九, and 対々和, value of 混一色 and 清一色, merely formal ready hands (形式聴牌), getting out of the game, 現物 (gen-butsu, the concept that tiles discarded after a riichi is absolutely safe against that riichi), 筋 (suji, the concept that, for example, if 5s is discarded after a riichi, 2s and 8s are relatively safe against that riichi), Liuju Manguan (流し満貫)... and so on.
+
+However, it goes without saying that such an end-to-end feature design requires large data sets and highly expressive models to function properly. It is a fundamental trade-off in machine learning whether to use human wisdom to devise appropriate feature designs, or to prepare large datasets and highly expressive models and leave them to large-scale computational resources. This project chooses the latter, because the essence of the success of deep learning is the liberation from feature engineering, and because I have been engaged in machine learning since the early 2000s and struggled with feature engineering in those days.
+
+### Step-by-step Curriculum Fine-tuning
+
+There are various objectives in Mahjong AIs, including imitation of human behavior, maximization of round delta of the score, higher final ranking, and maximization of delta of the grading point (段位戦ポイント). Since these objectives become more abstract and comprehensive in this order, the latter learning we move to, the more difficult it becomes to learn.
+
+The idea behind this project is to learn mappings from action selections to these objectives step by step, from the easiest to the hardest. This would be equivalent to [Curriculum Learning](https://dl.acm.org/doi/10.1145/1553374.1553380). Moreover, when a mapping for one objective has been learned and then starting learning a mapping for one more harder objective, the *encoder part* of the model trained in the former step is reused in the training of the latter mapping, and only the *decoder part* of the model is replaced to tailor to the new harder objective. The information learned in the former step is stored in the encoder part and transferred to the latter step. By doing so, it is intended that universal knowledge about Mahjong that is independent of objectives will be retained in the encoder part. In this project, this idea is called *curriculum fine-tuning*.
+
+## Components
+
+### [prerequisites](prerequisites) (For developers only)
+
+Make various prerequisite packages and tools available for use in other components. This component is built and available as a [public Docker image](https://hub.docker.com/r/cryolite/kanachan.prerequisites), and implicitly used by other components. Therefore, there is no need for non-developers to build or directly use this component.
+
+### [src/annotation](src/annotation)
+
+A C++ program that extracts almost all the *decision-making points* from game records of Mahjong Soul, and converts the game situation at each decision-making point together with the player's action and round's/game's final results into annotations suitable to learning.
+
+### [src/xiangting](src/xiangting)
+
+A C++ program that generates a [LOUDS-based TRIE data structure](https://github.com/s-yata/marisa-trie) used to calculate shanten (xiang ting, 向聴) numbers.
+
+### [src/simulation](src/simulation)
+
+A C++ library implementing a Mahjong simulator that perfectly mimics the standard game rule of Mahjong Soul, including even many unstated corner cases of the rule. The functionality of this library can be also accessed via the `kanachan.simulation.simulate` Python function.
+
+### [src/paishan](src/paishan)
+
+A C++ program that restores the entire tile wall (pai shan, 牌山) from a game record of Mahjong Soul. Note that the tile wall restored by this program can be used for testing purposes (input to [test/annotation_vs_simulation](test/annotation_vs_simulation)) only, and not for any other purpose.
+
+### [test/annotation_vs_simulation](test/annotation_vs_simulation)
+
+A testing framework called *annotation-vs-simulation* that checks if there is any discrepancy between the annotation implementation and the simulation implementation.
+
+### [kanachan/training](kanachan/training)
+
+Implementations of learning programs and prediction modules with [PyTorch](https://pytorch.org/).
+
+
+=== SEARCH(HTML): https://github.com/search?q=slay%20the%20spire%20ai&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=slay%20the%20spire%20reinforcement%20learning&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=slay%20the%20spire%20simulator&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=balatro%20ai&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=balatro%20bot&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=monster%20train%20ai&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== https://raw.githubusercontent.com/zhiyue/sts2-rl-agent/main/README.md ===
+# STS2 RL Agent
+
+A reinforcement learning agent for **Slay the Spire 2**, built on a high-performance headless combat simulator and a Gymnasium training environment. Includes a C# bridge mod for connecting the trained agent to the real game.
+
+## Architecture
+
+```
++-----------------------------------------------------------------------+
+|  Headless Python Simulator (sts2_env/)                                |
+|                                                                       |
+|  +----------------+  +----------------+  +---------------------------+|
+|  | Core Engine    |  | Game Content   |  | Gym Environments          ||
+|  | combat.py      |  | 577 cards      |  | combat_env.py  (single)  ||
+|  | creature.py    |  | 260 powers     |  | run_env.py     (full run)||
+|  | hooks.py       |  | 121 monsters   |  | observation.py (131-dim) ||
+|  | damage.py      |  | 290 relics     |  | action_space.py(61/100)  ||
+|  | rng.py         |  | 63 potions     |  | reward.py                ||
+|  +-------+--------+  +-------+--------+  +-----------+--------------+|
+|          |                    |                        |              |
+|          +--------------------+------------------------+              |
++-----------------------------------------------------------------------+
+           |                                             |
+           v                                             v
++---------------------+                  +--------------------------+
+| Training Pipeline   |                  | Bridge to Real Game      |
+| MaskablePPO (SB3)   |                  | bridge_mod/ (C#/Godot)|
+| train_combat.py     |------model------>| agent_runner.py (Python) |
+| train_full_run.py   |                  | TCP JSON protocol        |
++---------------------+                  +--------------------------+
+```
+
+## Project Stats
+
+| Metric | Value |
+|--------|-------|
+| Source files | 133 Python + C# |
+| Lines of code | ~50,000 |
+| Test functions | 408 |
+| Cards implemented | 577 |
+| Powers implemented | 260 |
+| Monsters implemented | 121 |
+| Relics implemented | 290 |
+| Potions implemented | 63 |
+| Playable characters | 5 (Ironclad, Silent, Defect, Necrobinder, Regent) |
+| Simulation speed | ~1,200 combats/sec, ~28,000 steps/sec |
+| Combat win rate (trained PPO) | ~92% (Act 1 Ironclad) |
+
+## Quick Start
+
+### Prerequisites
+
+- **Python 3.11+** (3.12 recommended)
+- **pip** (included with Python)
+- For training: a CUDA-capable GPU is recommended but not required
+- For real-game bridge: .NET 9 SDK, Godot 4.5.1 Mono, Slay the Spire 2 (Steam)
+
+### Install
+
+```bash
+git clone <repo-url>
+cd sts2-rl-agent
+
+# Core simulator only
+pip install -e .
+
+# With training dependencies (PyTorch, SB3, sb3-contrib)
+pip install -e ".[train]"
+
+# With dev dependencies (pytest)
+pip install -e ".[dev]"
+```
+
+### Run Benchmark
+
+Measure simulation throughput with random actions:
+
+```bash
+python scripts/benchmark.py
+```
+
+Expected output on a modern CPU:
+
+```
+Episodes:       1000
+Total steps:    28101
+Time:           0.78s
+Episodes/sec:   1276
+Steps/sec:      28101
+```
+
+### Play a Full Run in the Terminal
+
+Start from the opening event, choose map nodes, fight combats, collect rewards,
+and continue the run from the command line:
+
+```bash
+python -m sts2_env.cli.play_run
+```
+
+Useful options:
+
+```bash
+python -m sts2_env.cli.play_run --character Silent --seed 123 --ascension 0
+```
+
+Without `--character`, the CLI asks you to pick a character first. Inside the
+game, enter the number beside an action. Shortcuts: `a` takes the first listed
+action, `c` confirms or skips, and `q` quits.
+
+### Play a Full Run in the Browser
+
+Run the local web UI:
+
+```bash
+python -m sts2_env.web.play_run --port 8765
+```
+
+Then open <http://127.0.0.1:8765/>. The browser UI uses the same `RunManager`
+logic as the terminal version, but presents the run as clickable screens for
+map, combat, events, rewards, shop, rest sites, treasure, and boss relics.
+
+### Train a Combat Agent
+
+Train a MaskablePPO agent on single-combat encounters:
+
+```bash
+python scripts/train_combat.py \
+    --total-timesteps 500000 \
+    --n-envs 4 \
+    --output-dir output/combat_ppo
+```
+
+Key flags:
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--total-timesteps` | 500,000 | Total environment steps |
+| `--n-envs` | 4 | Parallel environments (use CPU cores) |
+| `--lr` | 3e-4 | Learning rate |
+| `--batch-size` | 256 | Minibatch size |
+| `--n-steps` | 2048 | Steps per rollout per env |
+| `--output-dir` | output/combat_ppo | Where to save models and logs |
+
+### Train a Full-Run Agent
+
+Train an agent that handles an entire run (combat + map + rewards + events):
+
+```bash
+python scripts/train_full_run.py \
+    --total-timesteps 1000000 \
+    --act-count 1 \
+    --n-envs 4 \
+    --output-dir output/run_ppo
+```
+
+The `--act-count` flag controls how many acts per episode (1 = Act 1 only, 3 = full game).
+
+### Connect to Real Game
+
+After training, run the agent against the actual game:
+
+1. Build and install the bridge mod (see [docs/MOD_BUILD_GUIDE.md](docs/MOD_BUILD_GUIDE.md))
+2. Start Slay the Spire 2
+3. Run the agent:
+
+```bash
+python -m sts2_env.bridge.agent_runner \
+    --model-path output/combat_ppo/best_model/best_model.zip \
+    --verbose
+```
+
+See [docs/AGENT_USAGE_GUIDE.md](docs/AGENT_USAGE_GUIDE.md) for details.
+
+## Project Structure
+
+```
+sts2-rl-agent/
+|-- pyproject.toml                 # Package config, dependencies
+|-- scripts/
+|   |-- benchmark.py               # Throughput benchmark
+|   |-- train_combat.py            # Combat-only training
+|   +-- train_full_run.py          # Full-run training
+|
+|-- sts2_env/                      # Python package (headless simulator)
+|   |-- core/                      # Combat engine
+|   |   |-- combat.py              # CombatState (turn flow, card play)
+|   |   |-- creature.py            # Creature (HP, block, powers)
+|   |   |-- hooks.py               # Central hook dispatch (~25 hooks)
+|   |   |-- damage.py              # Damage/block calculation pipelines
+|   |   |-- enums.py               # CardId, PowerId, IntentType, etc.
+|   |   |-- constants.py           # Game constants from decompiled source
+|   |   +-- rng.py                 # Seeded RNG
+|   |
+|   |-- cards/                     # Card definitions (577 cards)
+|   |   |-- base.py                # CardInstance class
+|   |   |-- effects.py             # 12 composable effect primitives
+|   |   |-- registry.py            # Card ID -> effect dispatch
+|   |   |-- ironclad.py            # Ironclad cards
+|   |   |-- silent.py              # Silent cards
+|   |   |-- defect.py              # Defect cards
+|   |   |-- necrobinder.py         # Necrobinder cards
+|   |   |-- regent.py              # Regent cards
+|   |   |-- colorless.py           # Colorless cards
+|   |   +-- status.py              # Status/Curse cards
+|   |
+|   |-- powers/                    # Status effects (260 powers)
+|   |   |-- base.py                # PowerInstance base class
+|   |   |-- common.py              # Core powers (Strength, Vulnerable, etc.)
+|   |   |-- damage_modifiers.py    # Damage pipeline hooks
+|   |   |-- block_modifiers.py     # Block pipeline hooks
+|   |   |-- card_play_effects.py   # On-card-play triggers
+|   |   |-- damage_reactions.py    # Thorns, reactive powers
+|   |   |-- duration.py            # Tick-down / duration powers
+|   |   |-- turn_effects.py        # Start/end of turn triggers
+|   |   +-- monster.py             # Monster-specific powers
+|   |
+|   |-- monsters/                  # Monster AI (121 monsters)
+|   |   |-- state_machine.py       # MoveState, RandomBranch, ConditionalBranch
+|   |   |-- intents.py             # Intent types
+|   |   |-- act1_weak.py           # Act 1 weak encounters
+|   |   |-- act1.py                # Act 1 monsters
+|   |   |-- act2.py                # Act 2 monsters
+|   |   |-- act3.py                # Act 3 monsters
+|   |   +-- act4.py                # Act 4 monsters
+|   |
+|   |-- relics/                    # Relic effects (290 relics)
+|   |-- potions/                   # Potion effects (63 potions)
+|   |-- orbs/                      # Orb mechanics (Defect)
+|   |-- characters/                # Character starting states
+|   |-- encounters/                # Encounter definitions (88 encounters)
+|   |-- events/                    # Event decision trees (68 events)
+|   |-- map/                       # Map generation algorithm
+|   |-- run/                       # Full-run state management
+|   |   |-- run_manager.py         # Run loop (map -> room -> rewards)
+|   |   |-- run_state.py           # Persistent run state
+|   |   |-- rewards.py             # Card/gold/potion rewards
+|   |   |-- shop.py                # Shop system
+|   |   |-- rest_site.py           # Rest site (heal/upgrade)
+|   |   +-- events.py              # Event handler
+|   |
+|   |-- gym_env/                   # Gymnasium environments
+|   |   |-- combat_env.py          # Single-combat env (Discrete(61))
+|   |   |-- run_env.py             # Full-run env (Discrete(100))
+|   |   |-- observation.py         # State -> 131-dim float32 vector
+|   |   |-- action_space.py        # Action encoding + masking
+|   |   +-- reward.py              # Reward shaping
+|   |
+|   +-- bridge/                    # Real-game connection
+|       |-- client.py              # TCP client
+|       |-- protocol.py            # Message types, phases
+|       |-- state_adapter.py       # Game JSON -> observation vector
+|       +-- agent_runner.py        # Main agent loop
+|
+|-- bridge_mod/                    # C# Bridge Mod (Godot project)
+|   |-- STS2BridgeMod.csproj       # Build config (Godot.NET.Sdk/4.5.1)
+|   |-- MainFile.cs                # Entry point, Harmony patches
+|   |-- BridgeServer.cs            # TCP server
+|   |-- RlAutoSlayer.cs            # AutoSlay-based automation
+|   |-- RlCombatHandler.cs         # Combat decision handler
+|   |-- RlMapHandler.cs            # Map navigation handler
+|   |-- RlCardSelector.cs          # Card selection handler
+|   +-- RlCardRewardScreenHandler.cs
+|
+|-- tests/                         # 14 test files, 408 test functions
+|-- docs/                          # Documentation
+|   |-- GAME_BRIDGE_REFERENCE.md   # Bridge architecture and protocol
+|   |-- AUTOSLAY_BRIDGE.md         # AutoSlay-based bridge design
+|   |-- GAME_SYSTEMS_REFERENCE.md  # Game mechanics reference
+|   |-- CARDS_REFERENCE.md         # All 577 cards
+|   |-- POWERS_REFERENCE.md        # All 260 powers
+|   |-- MONSTERS_REFERENCE.md      # All 121 monsters
+|   +-- RELICS_REFERENCE.md        # All 290 relics
+|
+|-- RESEARCH.md                    # Research notes and prior work
++-- DECOMPILED_ARCHITECTURE.md     # Decompiled C# architecture analysis
+```
+
+## Game Content Coverage
+
+| Content Type | Game Total | Implemented | Coverage |
+|-------------|-----------|-------------|----------|
+| Cards | 577 | 577 | 100% |
+| Powers (status effects) | 260 | 260 | 100% |
+| Monsters | 121 | 121 | 100% |
+| Relics | 290 | 290 | 100% |
+| Potions | 63 | 63 | 100% |
+| Encounters | 88 | 88 | 100% |
+| Events | 68 | 68 | 100% |
+| Characters | 5 + 2 | 5 | 100% (playable) |
+| Acts | 4 | 4 | 100% |
+
+## How It Works
+
+### Two-Phase Approach
+
+Following lessons from the STS1 RL community, this project uses a two-phase strategy:
+
+1. **Headless Simulator** (for training): A pure-Python reimplementation of STS2 combat and run mechanics, verified against the decompiled C# source. Runs at ~1,200 combats/second -- fast enough for millions of training episodes.
+
+2. **Bridge Mod** (for validation): A C# mod that hooks into the real game via Harmony, exposes state over TCP, and injects agent decisions. Includes 5-10x speed patches for faster real-game evaluation.
+
+### RL Algorithm
+
+- **MaskablePPO** from sb3-contrib (Stable Baselines 3)
+- **Invalid action masking**: Each step, the environment provides a boolean mask indicating which actions are legal (playable cards, valid targets). Illegal actions are zeroed out before policy sampling.
+- **Observation**: 131-dimensional float32 vector encoding player state, hand cards, pile summaries, and enemy state
+- **Action space**: Discrete(61) for combat (end turn + 10 self-target + 50 targeted), Discrete(100) for full run
+
+### Reward Design
+
+**Combat environment:**
+- Win: +1.0
+- Loss: -1.0
+- HP loss: small negative penalty (encourages efficient play)
+
+**Full-run environment:**
+- Win the run: +1.0
+- Death: -1.0
+- Optional shaping: small bonuses for floor progression and act completion
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [README.md](README.md) | This file |
+| [RESEARCH.md](RESEARCH.md) | Research notes, prior work, algorithm selection |
+| [DECOMPILED_ARCHITECTURE.md](DECOMPILED_ARCHITECTURE.md) | Decompiled C# analysis for simulator |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guide, dev setup, adding content |
+| [docs/SIMULATOR_ARCHITECTURE.md](docs/SIMULATOR_ARCHITECTURE.md) | Python simulator internal architecture |
+| [docs/TRAINING_GUIDE.md](docs/TRAINING_GUIDE.md) | Comprehensive RL training guide |
+| [docs/PROTOCOL.md](docs/PROTOCOL.md) | TCP bridge communication protocol |
+| [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) | Current known issues and limitations |
+| [docs/MOD_BUILD_GUIDE.md](docs/MOD_BUILD_GUIDE.md) | How to build and install the bridge mod |
+| [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common problems and solutions |
+| [docs/GAME_BRIDGE_REFERENCE.md](docs/GAME_BRIDGE_REFERENCE.md) | Bridge architecture and design notes |
+| [docs/AUTOSLAY_BRIDGE.md](docs/AUTOSLAY_BRIDGE.md) | AutoSlay-based bridge design |
+| [docs/GAME_SYSTEMS_REFERENCE.md](docs/GAME_SYSTEMS_REFERENCE.md) | Game mechanics reference |
+
+## License
+
+This project is for research and educational purposes. Slay the Spire 2 is the property of Mega Crit Games.
+
+## Acknowledgments
+
+- [decapitate-the-spire](https://github.com/jahabrewer/decapitate-the-spire) -- STS1 headless simulator, architectural inspiration
+- [spire-codex](https://github.com/ptrlrd/spire-codex) -- STS2 data extraction pipeline
+- [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod) -- STS1 game bridge protocol design
+- [BaseLib-StS2](https://github.com/Alchyr/BaseLib-StS2) -- STS2 mod framework
+- [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3) -- RL training framework
+
+
+=== https://raw.githubusercontent.com/dbyrne/ClawTheSpire/main/README.md ===
+# ClawTheSpire
+
+An autonomous AI bot for [Slay the Spire 2](https://store.steampowered.com/app/2868840/Slay_the_Spire_2/) that plays the game end-to-end — from character select through boss fights. It combines an exhaustive combat solver with an LLM-powered strategic advisor, all orchestrated through a real-time terminal UI.
+
+Built with [Claude Code](https://claude.ai/claude-code) + the [STS2-Agent](https://github.com/CharTyr/STS2-Agent) game mod.
+
+## How It Works
+
+```
+Slay the Spire 2 (game)
+        │  HTTP API (mod)
+        ▼
+   Game Client ──► Runner (TUI game loop)
+        │              │
+        ├──► Combat Solver ──► Evaluator
+        │    (exhaustive search)   (state scoring)
+        │
+        └──► Strategic Advisor
+             (local LLM via Ollama)
+             Card rewards, map, shop, events, rest sites
+```
+
+**Combat** is handled by a depth-first solver that evaluates every legal card-play ordering and picks the highest-scoring sequence. The evaluator scores states based on damage dealt, enemy threat priority, block efficiency, power/buff values, and character-specific weights.
+
+**Strategy** (everything outside combat) is handled by an LLM advisor with character-aware prompts, card tier lists, relic synergy guides, and deck archetype detection.
+
+The **runner** ties it all together in a polling loop — detecting the current screen, dispatching to the right decision engine, executing actions, and logging everything.
+
+## Features
+
+- **Two characters**: Ironclad and The Silent, with character-specific strategy, tier lists, and evaluator tuning
+- **Rich terminal UI**: Three-panel layout showing run status, solver output, advisor reasoning, and a scrolling action log
+- **Batch runner**: Continuous game loop with hot-reloadable config, automatic dashboard updates, and per-character stats
+- **Event-sourced logging**: Full JSONL logs capturing every decision, state change, and outcome for replay and analysis
+- **Progress dashboard**: Auto-deployed Chart.js dashboard tracking floor progression across generations of improvements
+- **MCP server integration**: Both the game interface and solver expose [MCP](https://modelcontextprotocol.io/) tools, so Claude Code (or any MCP client) can play interactively
+
+## Architecture
+
+```
+STS2/
+├── run.py                      # Entry point for interactive runner
+├── sts2_config.json            # Bot configuration
+├── sts2-solver/                # Core bot logic (Python)
+│   └── src/sts2_solver/
+│       ├── runner.py           # Autonomous game loop + TUI
+│       ├── batch_runner.py     # Continuous multi-game runner
+│       ├── solver.py           # Exhaustive combat search
+│       ├── combat_engine.py    # Turn simulation engine
+│       ├── evaluator.py        # Combat state scoring
+│       ├── advisor.py          # LLM strategic advisor
+│       ├── advisor_prompts.py  # Character-aware prompt builder
+│       ├── config.py           # Tunable weights, tier lists, strategy params
+│       ├── bridge.py           # Game state ↔ solver state conversion
+│       ├── game_client.py      # HTTP client to game mod
+│       ├── run_logger.py       # Event-sourced JSONL logging
+│       ├── mcp_server.py       # MCP tools: solve_combat, advise_strategy
+│       └── ...
+├── dashboard/                  # Vercel-hosted progress dashboard
+│   ├── index.html              # Chart.js visualization
+│   └── update_data.py          # Log scanner → data.json
+└── STS2-Agent/                 # Game mod (git submodule, not included)
+```
+
+## Prerequisites
+
+- **Slay the Spire 2** (Steam)
+- **[STS2-Agent mod](https://github.com/CharTyr/STS2-Agent)** installed in the game's mods directory
+- **Python 3.11+** with [uv](https://docs.astral.sh/uv/)
+- **[Ollama](https://ollama.com/)** running locally with a model pulled (e.g. `ollama pull qwen3:8b`)
+
+## Setup
+
+```bash
+# Clone with the game mod submodule
+git clone --recurse-submodules https://github.com/dbyrne/ClawTheSpire.git
+cd ClawTheSpire
+
+# Install Python dependencies
+cd sts2-solver
+uv sync
+cd ..
+
+# Pull the advisor LLM
+ollama pull qwen3:8b
+
+# Start the game, enable the STS2AIAgent mod, and verify:
+curl http://127.0.0.1:8081/health
+```
+
+## Usage
+
+### Single Game (Interactive TUI)
+
+```bash
+python run.py                        # Auto-play as Ironclad
+python run.py --character Silent     # Play as The Silent
+python run.py --step                 # Step mode: press Enter per action
+python run.py --dry-run              # Show decisions without executing
+```
+
+### Batch Runner (Continuous)
+
+```bash
+python -m sts2_solver.batch_runner              # Run games forever
+python -m sts2_solver.batch_runner --once       # Single game, then exit
+python -m sts2_solver.batch_runner --character Silent
+```
+
+The batch runner reads `sts2_config.json` before every game, so you can change config mid-session:
+
+```json
+{
+  "gen": 6,
+  "character": "Ironclad",
+  "characters": ["Ironclad", "Silent"],
+  "model": "qwen3:14b",
+  "poll_interval": 1.0,
+  "deploy_dashboard": true
+}
+```
+
+Set `characters` to rotate between characters each game. The `--character` CLI flag overrides everything.
+
+### MCP Servers (for Claude Code)
+
+Add to your `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "sts2-ai-agent": {
+      "command": "uv",
+      "args": ["run", "--directory", "STS2-Agent/mcp_server", "sts2-mcp-server"],
+      "env": { "STS2_API_BASE_URL": "http://127.0.0.1:8081" }
+    },
+    "sts2-solver": {
+      "command": "uv",
+      "args": ["run", "--directory", "sts2-solver", "sts2-solver-mcp"],
+      "env": {
+        "STS2_API_BASE_URL": "http://127.0.0.1:8081",
+        "STS2_ADVISOR_BASE_URL": "http://localhost:11434/v1",
+        "STS2_ADVISOR_MODEL": "qwen3:8b"
+      }
+    }
+  }
+}
+```
+
+Then Claude Code can play the game interactively using `solve_combat` and `advise_strategy` tools.
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `STS2_API_BASE_URL` | `http://127.0.0.1:8081` | Game mod HTTP endpoint |
+| `STS2_ADVISOR_BASE_URL` | `http://localhost:11434/v1` | Ollama API endpoint |
+| `STS2_ADVISOR_MODEL` | `qwen3:8b` | LLM model for strategic decisions |
+| `STS2_ADVISOR_MAX_TOKENS` | `256` | Max tokens for advisor responses |
+
+### Tuning
+
+All solver and evaluator weights live in `sts2-solver/src/sts2_solver/config.py`:
+
+- **Evaluator weights**: Kill bonuses, threat multipliers, block scaling, energy penalties
+- **Power values**: Per-character scoring for buffs/powers (e.g. Demon Form, Accuracy)
+- **Card tier lists**: S/A/B/Avoid tiers per character, used in advisor prompts
+- **Strategy params**: Deck size targets, HP thresholds, boss floor locations
+
+## How the Solver Works
+
+The combat solver does a depth-first search over all legal card-play orderings for the current turn:
+
+1. **Generate legal plays** — cards in hand with enough energy, valid targets
+2. **Simulate each play** — update player/enemy state (damage, block, powers, draw)
+3. **Recurse** — after each play, generate the next set of legal plays
+4. **Evaluate leaf states** — score the resulting board position
+5. **Return the best sequence** — highest-scoring path through the search tree
+
+Key optimizations:
+- Deduplicates equivalent plays (two copies of Strike → only try one)
+- Respects time budget (soft cap, default 5s)
+- Prunes branches that can't improve on the current best
+- Character-aware power valuations (Ironclad values Demon Form; Silent values Accuracy)
+
+## Dashboard
+
+The bot auto-deploys a progress dashboard after each run showing floor progression across generations:
+
+```bash
+python dashboard/update_data.py          # Rebuild data.json from logs
+python dashboard/update_data.py --deploy # Also deploy to Vercel
+```
+
+## License
+
+MIT
+
+
+=== https://raw.githubusercontent.com/tfriedel/spire-mentor/main/README.md ===
+# spire-mentor
+
+[![CI](https://github.com/tfriedel/spire-mentor/actions/workflows/ci.yml/badge.svg)](https://github.com/tfriedel/spire-mentor/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-tfriedel.github.io%2Fspire--mentor-blue)](https://tfriedel.github.io/spire-mentor/)
+[![Steam Workshop](https://img.shields.io/badge/Steam_Workshop-Spire_Mentor-1b2838?logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3821016481)
+
+**A Rust simulator of Slay the Spire 2's combat and run rules, plus a strong AI trained on it.  
+It's an analysis and training tool for people who own the game: replay positions in the browser, see how the AI would play them, or let it coach you.  
+You can even let the AI play the fights, so you can practise the run-level decisions.**
+
+> **You need your own copy of Slay the Spire 2** (Steam). This project is not
+> affiliated with Mega Crit. Art and sound are extracted locally from your
+> install and are never distributed; the repository contains no art, audio or
+> game code. See [what's included](#whats-included-and-what-isnt).
+
+![The browser workbench in the act-3 boss fight: the best card carries a 95% win badge and the machine-reasoning panel ranks every legal move](docs/site/img/wb-combat.webp)
+
+<sub>The browser workbench in the act-3 boss fight: the search marks the best
+card with its win chance, and the machine-reasoning panel ranks every legal
+move.</sub>
+
+## Highlights
+
+### Simulation
+
+- complete Rust port of the combat and run rules for **all characters**, cards, relics, potions and enemies of the current stable build v0.107.1  
+- optimized for [speed](https://tfriedel.github.io/spire-mentor/benchmarks.html), but with no compromises on accuracy: \~1,500× faster than running the game's own combat logic headless on one core (\~60k combats/s), \~2,400× using the whole machine. This was also the main reason to port the rules to Rust, because the training time is bottlenecked by the simulation.  
+- parity tests and fuzzing against the game's own code after every action. After the initial implementation I found there were lots of little differences between the simulation and the real game, so I invested a lot of effort into extensive parity testing. Ironclad is currently at 100% parity, the other characters between 99.4% and 99.8%.  
+- Python bindings so you can run combats, full runs or the training stack from Python
+
+### AI
+
+- MCTS-based combat  
+- PPO / reinforcement-learning-based run-level AI, trained over many weeks, with the best win rates of any STS2 AI I'm aware of (e.g. Ironclad 90% A0, 39% A9, 11% A10; Defect 22% A10)  
+- **non-clairvoyant** / using chance nodes, i.e. it doesn’t cheat by exploiting the RNG or using information like which card it’s about to draw
+
+### UI / workbench
+
+- the workbench runs in your browser (WASM). With art and sound imported from your own install (one command), it looks like the real game. Neither is included in this git repository.  
+- revert to any step and branch off to play a situation in multiple different ways  
+- use AI to coach you  
+- let the AI play the fights so you can practise the macro decisions  
+- analyze your game after you've finished to find the biggest blunders  
+- copy a state from the real game into the workbench to analyze it  
+- explore the MCTS search tree  
+- synergy catalog
+- a game mod with many of these features inside the real game (see [below](#spire-mentor-mod))
+
+## Numbers
+
+| | |
+|---|---|
+| Engine coverage | 5 characters · 580 card ids · 297 relics · 63 potions · 272 powers · 121 monsters · 69 events · 4 act models |
+| Parity vs the game's C# | lockstep after every action, a 5,000-seed fuzz tier · last full sweeps: Ironclad 6,104/6,104 fuzzed fights clean (June 2026), the other characters 99.4–99.8% (July 2026) · whole runs 1,232/1,250 clean (July 2026) |
+| Throughput | one core: ~59k random-play fights/s · ~1.3M engine actions/s · whole machine (24 cores / 48 threads): ~1.4M fights/s · ~31M actions/s · vs the shipped game run headless ~2,430× whole machine |
+| MCTS | search: 1,000 sims ≈ 14 ms native, one thread  |
+| Training | a typical PPO iteration (Ironclad, 960 games, 46 workers, one RTX 3090) ≈ 208 s, 150 iterations ≈ 9 h |
+| Code | ~360k lines of Rust · ~116k Python · ~56k TypeScript · 7,000+ Rust tests, 3,000+ Python, 1,400+ web |
+
+More performance benchmarks: [benchmarks page](https://tfriedel.github.io/spire-mentor/benchmarks.html);
+method and commands:
+[`sts2-rs/docs/perf/2026-10-14-benchmarks.md`](sts2-rs/docs/perf/2026-10-14-benchmarks.md).
+
+**Current win rates** (8,000 sims per decision, 
+measured October 2026; 200 runs per cell at A0–A8, 500 at A9–A10):
+
+| Character | A0 | A4 | A8 | A9 | A10 | Mean A0–A10 | Promotion gate (vs previous champion) |
+|---|---|---|---|---|---|---|---|
+| Defect | 93.0% | 90.5% | 70.0% | 39.2% | 22.0% | **76.1%** | +5.5 pp, p = 2e-6 |
+| Ironclad | 89.5% | 86.5% | 70.0% | 39.0% | 11.0% | **74.9%** | +5.2 pp, p = 1e-6 |
+| Silent | 78.5% | 67.5% | 55.5% | 20.0% | 9.0% | **59.9%** | +5.6 pp, p = 7e-7, all 11 levels up |
+| Regent | 67.5% | 66.0% | 43.5% | 15.6% | 6.2% | **53.8%** | +4.6 pp, p = 1e-4 |
+| Necrobinder | 66.5% | 62.5% | 44.5% | 13.8% | 5.6% | **51.7%** | +6.8 pp, p = 6e-10, all 11 levels up |
+
+Win rates for every ascension level are in the
+[docs](https://tfriedel.github.io/spire-mentor/#ai).
+
+## The browser workbench
+
+![The live regret coach flagging a move as it is made](docs/site/img/wb-regret-coach.webp)
+
+I started out with a CLI-based interface to the STS2 simulator, but this has now turned
+into a full-blown React front end over the Rust engine compiled to WebAssembly, with animations and sound.
+The graphics and sounds come from your own copy of the game: `just import-game` extracts them locally.
+
+Some things you can do:
+
+- **Play** any character, seed and ascension. You can either play manually or let the AI take over for a single action,
+turn or even a full run.
+- **Rewind and branch** any decision; like save-scumming, it lets you explore many "what-ifs".
+- **Ask the AI** for a combat hint, open the MCTS search tree, rank the
+  choices on a card reward, shop or event, or let it play the best line.
+- **Coach**: after each of your moves, the AI reveals how it would have played.
+  If you make a particularly bad move, it will tell you.
+- **Autobattle**: if you want to focus on learning deck building / work on your run-level decisions (paths, cards, shops, events),
+  you can let the AI play the fights for you in this mode.
+- **Review**: the AI constantly estimates your chance of winning. It can go through your whole run and highlight any dips. This is similar to what some chess engines offer.
+- **SimLab**: set up any single fight (character, deck, HP, relics, potions, enemies, ascension) and see what the search thinks of
+  every move, or replay it many times for the spread of outcomes and
+  seed-paired strategy studies. This is the tool for questions like
+  "is it better to remove a Strike or a Defend?".
+- **Lab tools**: replay viewer, MCTS-runs browser, deck analysis, and
+  *state import*, where you paste a position copied from the live game and
+  analyze it here.
+
+### Workbench quickstart
+
+You need `rustup`, `just` 1.38+, `uv`, Node 20+ and the `wasm-bindgen` CLI
+in the version the crate uses
+(`cargo install wasm-bindgen-cli --version 0.2.120 --locked`). The repo pins
+Rust 1.96 and the `wasm32-unknown-unknown` target, so `rustup` fetches those
+by itself, and the first build runs `npm install` for you. On Windows,
+`.\install-windows-deps.ps1` installs everything except `rustup`, `uv`, git
+and the VS Build Tools (see [Windows](#windows)).
+
+```sh
+just import-game          # optional: real art and sound from your copy of the game
+just workbench-local      # build + serve on http://127.0.0.1:4173
+```
+
+If you skip `import-game`, the workbench still runs with the real card text,
+but with placeholder art and no sound. To import the art and sound you also
+need `ilspycmd`, `cwebp` and `ffmpeg`. See
+[Building from source](#building-from-source) and
+[docs/bring-your-own-game.md](docs/bring-your-own-game.md).
+
+## Spire Mentor mod
+
+![Route advice from the run policy on the real game's map](docs/site/img/mod-hud-map.webp)
+
+A lighter version of the workbench that runs inside the real game: the AI can advise you or make the decisions for you.
+
+**To play with it, subscribe on the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3821016481)**
+(Windows only; Steam installs BaseLib along with it). The workbench is
+bundled with the mod and follows your run in the browser.
+
+- **Advisor mode**: you play, and the mod shows the ranked moves with their
+  MCTS statistics, scores for card rewards and shop items, the recommended
+  map route and your estimated chance of winning.
+- **AI turns**: `F6` lets the AI make one decision, `F7` lets it keep playing
+  until you stop it. Autopilot plays whole runs on its own.
+- **Rewind**: the mod saves a snapshot (including the RNG state) every time
+  you enter a room. You can undo a combat turn (`Ctrl+Z`), restart a room or
+  go back to any earlier room, even after a fight is over, and the game
+  continues exactly as it would have.
+- **Workbench link**: open the current game state in the workbench, browse
+  the game's history there and rewind the real game from the browser.
+- There's also a toolbar, an in-game help panel (`F1`), an action log, speed
+  controls and a settings page.
+
+How to build and install it, and the protocol it uses to talk to the AI:
+[`spire-mentor-mod/README.md`](spire-mentor-mod/README.md),
+[`spire-mentor-mod/PROTOCOL.md`](spire-mentor-mod/PROTOCOL.md).
+
+## Repository layout
+
+| Subproject | Language | What it is |
+|---|---|---|
+| [`sts2-rs/`](sts2-rs/) | Rust | The engine, MCTS, the run AI (ONNX policy inference), a CLI, the PyO3 bindings and the engine part of the workbench (WASM). Builds and tests on its own. |
+| [`sts2-pycli/`](sts2-pycli/) | Python + C# + TS | Most of the rest: the headless C# harness that runs the real game code (from your copy) for parity testing, the parity tests, PPO training, the workbench web app, the real-game advisor, and an MCP server so an LLM can play. |
+| [`spire-mentor-mod/`](spire-mentor-mod/) | C# | The Spire Mentor mod. |
+| [`sts2-wiki/`](sts2-wiki/) | Python / Astro | Extraction tools: decompiles your copy of the game, extracts data, art and sound, and can generate a static wiki. |
+| `scripts/import_game.py` | Python | What `just import-game` runs. Extracts everything the repo needs from your game install. |
+
+There's more in [ARCHITECTURE.md](ARCHITECTURE.md) and in the full
+documentation with screenshots at
+**[tfriedel.github.io/spire-mentor](https://tfriedel.github.io/spire-mentor/)**
+(source in [`docs/site/`](docs/site/)).
+
+## What's included and what isn't
+
+> Slay the Spire 2 is © Mega Crit. This project is not affiliated with or
+> endorsed by them. The repository contains the game's **text**, so the engine, the AI and the workbench work out of the box. It
+> contains **no art, audio, game assemblies or decompiled code**. The tooling
+> extracts those from **your own copy of the game**
+> ([docs/bring-your-own-game.md](docs/bring-your-own-game.md)) into paths that
+> git ignores. See [NOTICE](NOTICE) and [PROVENANCE.md](PROVENANCE.md).
+
+## Building from source
+
+There are three levels of setup, depending on what you want to work on. More
+on the prerequisites in
+[docs/bring-your-own-game.md](docs/bring-your-own-game.md).
+
+**Engine only (no game needed).** Rust 1.96 (pinned by
+`sts2-rs/rust-toolchain.toml`), `cargo-nextest` and `just` 1.38+. `sccache`
+is optional; to use it, `export RUSTC_WRAPPER=sccache`.
+
+```sh
+just rs-check      # cargo check --workspace --all-targets
+just rs-test       # cargo nextest run --workspace  (never bare `cargo test`)
+just rs-doc-test   # cargo test --workspace --doc   (nextest cannot run doctests)
+```
+
+**The C# parity harness.** You also need the game, the .NET 9 SDK and `uv`.
+
+```sh
+just import-game /path/to/Slay\ the\ Spire\ 2 --tier oracle
+cd sts2-pycli && uv sync --dev && just build-cs && uv run pytest tests
+```
+
+**The workbench with real art and sound (and the decompiled source).**
+Everything from the [workbench quickstart](#workbench-quickstart), plus
+`ilspycmd` 9.1 (`dotnet tool install -g ilspycmd --version 9.1.0.7988`),
+`cwebp` (libwebp) and `ffmpeg`. On Linux the sound also needs the FMOD SDK
+(`FMOD_SDK_ROOT`, see [docs/bring-your-own-game.md](docs/bring-your-own-game.md));
+on Windows it uses the FMOD runtime that ships with the game.
+
+```sh
+just import-game          # finds the game through Steam; art, data and sound
+just workbench-local      # build + serve on http://127.0.0.1:4173
+```
+
+`workbench-local` builds `sts2-pycli/web/dist` and serves it on this machine
+only. The engine runs in the browser as WASM, so there's no backend.
+`just workbench-server` is the alternative with a Python backend, on port 8077.
+
+**Please run the workbench locally and don't host it publicly.** With the
+real art, the build contains the game's images and sound, which you
+extracted from your copy for your own use. The servers only listen on
+`127.0.0.1` by default. Set `STS2_HOST` (Python servers) or `STS2_WEB_HOST`
+(Vite) to make them reachable from your LAN.
+
+**The mod.** You need Windows, the game at v0.107.1, the .NET 9 SDK and
+[BaseLib](https://github.com/Alchyr/BaseLib-StS2) v3.4.1 in
+`<game>/mods/BaseLib/` (`install-windows-deps.ps1` installs both).
+`cd spire-mentor-mod && dotnet build` builds the mod and copies it into the
+game's `mods/` folder. The in-game advisor also needs `cd sts2-pycli && uv sync`
+once. Details in [`spire-mentor-mod/README.md`](spire-mentor-mod/README.md).
+
+## Windows
+
+Everything above works from **PowerShell**; on Windows the root `justfile`
+runs its recipes in PowerShell. From a fresh clone:
+
+```powershell
+.\install-windows-deps.ps1                  # the toolchain (winget / cargo / dotnet), safe to re-run
+# open a new terminal so the tools are on PATH
+just import-game                            # finds the game through Steam
+just workbench-local                        # http://127.0.0.1:4173
+cd spire-mentor-mod; dotnet build           # the mod (install BaseLib first, see spire-mentor-mod\README.md)
+```
+
+The script installs everything except `rustup`, `uv`, git and the VS Build
+Tools (needed as the Rust linker). It checks that those are there.
+[BUILDING-WINDOWS.md](BUILDING-WINDOWS.md) has the details. The justfiles in
+the subprojects (`sts2-rs/`, `sts2-pycli/`, `sts2-wiki/`) use bash, so run
+those from Git Bash.
+
+## Testing
+
+- Rust: `cargo nextest run --workspace` **and** `cargo test --workspace --doc`
+  from `sts2-rs/`. Don't use plain `cargo test`: it runs all tests in one
+  process, which causes random false failures here. Tests that need the game
+  data are skipped if it's missing.
+- Python: `uv run pytest tests` from `sts2-pycli/`. Tests that need the C#
+  harness have the `oracle` marker and are skipped without `lib/sts2.dll`.
+  CI runs `-m "not oracle"`, the subset that works without the game.
+- Web: `npm test` from `sts2-pycli/web/` (vitest). Tests that need the
+  extracted art or audio are skipped without them.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). It also explains how this repository
+is synced from my private development repo.
+
+## Credits
+
+- `sts2-pycli` began as a fork of [wuhao21/sts2-cli](https://github.com/wuhao21/sts2-cli)
+  by Hao Wu (MIT).
+- Spire Mentor started as a port of zhiyue's STS2BridgeMod from
+  [zhiyue/sts2-rl-agent](https://github.com/zhiyue/sts2-rl-agent).
+- The mod's settings page uses Alchyr's
+  [BaseLib](https://github.com/Alchyr/BaseLib-StS2).
+
+## License
+
+MIT, see [LICENSE](LICENSE). `sts2-rs/`, `sts2-pycli/`, `spire-mentor-mod/` and
+`sts2-wiki/` each have their own MIT license file. The license only covers the
+original work in this repo; nothing from the game is licensed or included.
+
+
+=== https://raw.githubusercontent.com/xaved88/bottled_ai/main/README.md ===
+# Bottled AI
+Customizable bot for roguelike deck-building game [Slay the Spire](https://store.steampowered.com/app/646570/Slay_the_Spire/).
+
+## FAQ
+### Does it win a lot? Is it super smart?
+Depends on which character and strategy is in use. We've got a few different ones! Our current best is a watcher strategy with 52% winrate. You can see our most current [winrates here](docs/winrates.md).
+
+### How does it work? Machine Learning? Gen AI?
+Nah, just good old-fashioned manually constructed automated decision-making. For example:
+- Selecting Cards, Boss Relics, and Upgrades works with a prioritized list, e.g. our strategy for Watcher might prefer taking Blasphemy over Tranquility.
+- Some decisions have specific conditions attached to them, like in the Shining Light event: take the damage for the 2 random upgrades... but not if we don't have much health left.
+- In combat, the bot figures out what the outcome would be for each of the different ways it could play its hand (with a graph traversal and a simulation we constructed). Then, the bot picks the outcome it likes best and plays the cards in that order.
+  - To decide what the best outcome is, the bot weighs about 40 different values against each other. Simple example: the bot prefers a turn where it defeats an enemy, but not if we will take a bunch of damage to make it happen.
+
+### Does the bot have access to secret information, e.g. the outcomes of random rolls, or what it will draw next?
+No, it can only see what the player does.
+
+### What are its current limitations/capabilities?
+See [capabilities.md](docs/capabilities.md).
+
+### Do you make videos about the bot?
+Actually, yes. Check out the [YouTube channel](https://www.youtube.com/@BottledAI)!
+
+## Setup
+
+### Python Setup
+1) Have Python installed (min version 3.11.8).
+    - Windows: you will likely need to add Python to the Path Environmental Variable.
+    - MacOS: you need Python 3.11+ within xcode. This requires xcode 14.0+ (this applied for python 3.9+, might need to be higher now), which in turn requires macOS Monterey (lower versions won't work!).
+2) Have [PIP](https://pip.pypa.io/en/stable/installation/) (python package manager) installed.
+
+### Project Setup
+1) Clone this repository into the game's install folder, in a new folder: `\bottled_ai`.
+   - Windows example: ` E:\Steam\steamapps\common\SlayTheSpire\bottled_ai`
+   - MacOS example: Browse local files of StS via Steam -> Right click and Show Package Contents -> Resources -> bottled_ai
+2) Get/subscribe these mods via the Steam Workshop:
+    - [BaseMod](https://steamcommunity.com/sharedfiles/filedetails/?id=1605833019) 
+    - [StSLib](https://steamcommunity.com/sharedfiles/filedetails/?id=1609158507)
+    - [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)
+    - [Communication Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2131373661)
+3) Run the game with the mods enabled - this will create your spire mod config files.
+4) Navigate to your CommunicationMod folder. How to find it:
+   - Windows: `%LOCALAPPDATA%\ModTheSpire\`
+   - MacOS: `~/Library/Preferences/ModTheSpire/`
+5) Modify `config.properties` in the CommunicationMod folder:
+    - Windows: Add `command=python .\\bottled_ai\\main.py` to the `config.properties` file there.
+    - MacOS: Add `command=python3 ./bottled_ai/main.py` to the `config.properties` file there.
+
+### Running the bot
+Start the bot via the game's main menu:
+- → Mods
+- → Communication Mod
+- → Config (next to "Return")
+- → Start external process
+
+You can configure some run settings in [main.py](main.py).
+
+The process has a timeout of 10s so if you simply see that delay but nothing's happening - something isn't working.
+To debug, check the output in the ModTheSpire console, or the `communication_mod_errors.log` in the StS folder.
+
+## Making your own bot
+- See [how_to_make_your_own_bot.md](docs/how_to_make_your_own_bot.md).
+
+
+## Contact
+Just use the Discussions feature here on GitHub. We're happy to discuss or support!
+
+
+## Tools
+
+### Bot Controls
+- Adjust which bot strategy is used, the amount of runs, and the seed in [main.py](main.py).
+- Pause the bot in [run_controller.txt](run_controller.txt).
+- Adjust the speed of certain actions in [presentation_config.py](presentation_config.py).
+
+### Tests
+- All tests can be found in the `/tests` directory.
+- They're VERY useful for checking bot behavior without needing to run the game.
+
+
+## Contributing
+We're happy to see you use this code for your own projects!
+
+We're also  happy to have you contribute to this repository! What we'd specifically love to see in _this_ project:
+- Any increased card / functionality coverage.
+- Performance improvements.
+- New handlers that add give strategies more options for effectiveness (like better potion handling for example).
+- Bugfixes!
+
+See [capabilities.md](docs/capabilities.md) for a _rough_ overview of current functionality coverage.
+
+Please note:
+- We will be hesitant to integrate any new strategies - unless they bring in a particular new approach that would be beneficial for others to use / learn from. 
+- We normally will not accept major changes to the systems or code structure. If you'd like to do this, please fork the repo and share it with us so that we can see what you've created!
+- Please cover any new functionality with tests. If you're not sure how to do that, just submit your changes without tests anyway, and we can support you with adding them.
+
+Just create a pull request with your changes, and we'll address them promptly. Thank you!
+
+=== https://raw.githubusercontent.com/AttemorySystem/spire-agent/main/README.md ===
+# Spire Agent
+
+[English](README.md) | [简体中文](README_CN.md)
+
+**Spire Agent: An Autonomous Agent for Slay the Spire**
+
+## Highlights
+
+- **Minimal framework.** A minimal agent framework makes logic and actions easy
+  to customize, while independent, pluggable tools contain complex domain
+  logic.
+- **Deterministic first.** The harness guarantees deterministic interaction,
+  while independent tools implement decisions backed by stable evidence. Only
+  judgments that still require open-ended tradeoffs are delegated to an LLM.
+- **Continuous improvement.** Every run is fully recorded and replayable,
+  becoming fixed test evidence for later policy improvements.
+
+## Current status
+
+- Characters: Ironclad and Defect
+- Platforms: Linux and macOS tested; Windows untested
+- Current results: both
+  [Ironclad](https://www.bilibili.com/video/BV1ewuo66EP7/) and
+  [Defect](https://www.bilibili.com/video/BV14Sto65EQz/) have achieved multiple
+  Ascension 20 Heart wins.
+    - Ironclad: In a recent 12-run sample, the average final floor was 38.6;
+      six runs reached Act 3, including two that reached Act 4.
+    - Defect: Evaluation is ongoing; early results are broadly comparable to
+      the Ironclad results above.
+
+![Spire Agent playing Slay the Spire](docs/assets/demo.gif)
+
+## Why this is hard
+
+Even experienced players find it difficult to clear an Ascension 20 Heart
+(A20H) run in *Slay the Spire*. A run spans more than 50 floors and hundreds of
+coupled decisions: the deck determines combat options; combat determines HP; HP
+constrains routing; and routing shapes the deck. An early choice may not reveal
+its cost until the final boss. Outcomes vary with the seed, while sparse
+terminal rewards make failures difficult to attribute.
+
+LLMs provide valuable contextual judgment, but they cannot reliably control a
+process that demands exact arithmetic, protocol correctness, and consistent
+decisions across multiple time scales. Many attempts to let an LLM control
+everything fail to clear even Ascension 0. A seemingly minor hallucination,
+calculation error, or misuse of resources can turn a winning run into a loss.
+More prompt context cannot make these properties deterministic or guarantee an
+improvement.
+
+| Problem | LLM only | Spire Agent |
+|---|---|---|
+| Sparse terminal rewards and run-level variance | LLM reasoning struggles to identify the root cause of success or failure, so policy changes cannot be compared reliably. | Replay records semantic boundaries and RNG under the same runtime configuration; frozen trajectories and paired combat regressions compare changes on identical RNG worlds. |
+| Numerically precise combat in a stochastic environment | Long action sequences, exact calculations, and extreme branches are easy to misjudge. | Combat Tool gives the complete state to a fast simulator and MCTS instead of asking an LLM to calculate the battle. |
+| Context-dependent card value | Choices tend toward static rankings or superficial synergies. | Winning Path combines build structure, immediate survival needs, and contextual expert evidence, returning a decision or a constrained shortlist. |
+| Coupled planning horizons | LLM reasoning struggles to preserve both turn-level precision and sound run-level planning. | Map, Build, and Combat Agents own separate decisions and exchange only structured evidence across those boundaries. |
+| Stateful game protocol | The model can act on stale screens, choose a wrong index, or lose a nested task after a transition. | Stable-state adaptation, command validation, commit-after-confirmation, and scoped continuations keep interaction correctness out of model reasoning. |
+
+In Spire Agent, the harness guarantees interaction correctness; independent
+Tools own evidence-backed domain decisions; the LLM handles unresolved
+tradeoffs. EvolveAgent turns run logs into frozen evaluation samples and
+promotes changes only after benchmark gains without regression.
+
+## Architecture
+
+```text
+          +--------------------------+
+          | Slay the Spire           |
+          +-------------+------------+
+                        ^
+                        | gym-sts
+                        v
+          +-------------+------------+
+          | GameAgent                |<-----> replay
+          | loop + router            |------> logs-----+
+          +-------------+------------+                 |
+                        ^                              |
+                        | agent templates              |
+                        v                              |
+             +----------+----------+                   |
+             |          |          |                   |
+             v          v          v                   v
+          MapAgent   BuildAgent  CombatAgent      EvolveAgent
+             |          |          |                   |
+             v          v          v                   |
+          MapTool   CardPicker   CombatTool            |
+           (LLM)  (Winning Path)   (MCTS)              |
+                        ^                              |
+                        +------------------------------+
+```
+
+`GameAgent` is a small state-action loop and router. `MapAgent`, `BuildAgent`,
+and `CombatAgent` use the same request/decision interface to connect to the
+game, and each delegates domain work through an external tool interface. Every
+state, decision, LLM call, and MCTS search is written under `runs/<seed>/`; the
+same run can be reproduced from its replay journal.
+
+## Install
+
+Spire Agent requires Slay the Spire. Install the game and subscribe to
+ModTheSpire, BaseMod, and CommunicationMod on Steam, then clone the repository:
+
+```bash
+git clone --recurse-submodules https://github.com/AttemorySystem/spire-agent.git
+cd spire-agent
+uv sync
+mkdir -p runtime/lib runtime/mods
+```
+
+Copy `desktop-1.0.jar` and `ModTheSpire.jar` to `runtime/lib/`, and copy
+`BaseMod.jar` and `CommunicationMod.jar` to `runtime/mods/`.
+
+Then build `sts_lightspeed`:
+
+```bash
+cmake -S 3rd/sts_lightspeed -B 3rd/sts_lightspeed/build \
+  -DCMAKE_BUILD_TYPE=Release
+cmake --build 3rd/sts_lightspeed/build \
+  --target battle-sim card-reward-eval -j
+```
+
+Download `AgentStateFixes.jar` and `AgentVisualizer.jar` from the
+[GitHub Releases](https://github.com/AttemorySystem/spire-agent/releases) page
+and place both files in `runtime/mods/`.
+
+Set the model in [config.yaml](config.yaml) and set the `API_KEY` environment
+variable.
+
+The [detailed installation guide](docs/install.md) covers platform
+prerequisites, Steam paths, installation verification, and troubleshooting.
+
+## How to run
+
+Configure [config.yaml](config.yaml), then start the terminal UI:
+
+```bash
+uv run spire-agent
+```
+
+Each run writes logs, LLM calls, MCTS records, card choices, and a replay
+journal under `runs/<canonical-seed>/`. `run_config.json` records the resolved
+non-secret settings. HUD history is recorded even when its in-game display is
+off. An existing run directory is never overwritten.
+
+Common console commands are:
+
+```text
+run                         # Start with config.yaml defaults
+run ironclad a17 ABC123     # Override character, ascension, and seed
+replay ABC123               # Replay and continue a recorded run
+agent off                   # Pause the agent for manual control
+agent on                    # Resume agent control after the game settles
+window                      # Use the configured window size
+fullscreen                  # Use fullscreen for the next run
+hud=on                      # Enable the in-game agent HUD
+hud=off                     # Disable the in-game agent HUD
+```
+
+Press `Ctrl+D` to exit. Use Up/Down to browse and edit command history, and use
+`PageUp`/`PageDown` to scroll the output.
+
+To run without the TUI:
+
+```bash
+uv run spire-agent --no-tui
+```
+
+## Agents
+
+We divide the game into three decision units: map, build, and combat. One agent
+owns each unit. At the code level, all three agents receive a stable
+`DecisionRequest` and return one legal `Decision`. Tools are injected behind
+this boundary, so an implementation can be replaced without changing
+`GameAgent` or any other module.
+
+- **Map Agent** uses an LLM because route selection depends on contextual
+  tradeoffs that are difficult to reduce to one fixed score. It evaluates
+  complete routes to the Act boss. Deterministic gates
+  preserve keys and reject unsupported consecutive fights using current-deck
+  simulations; the LLM ranks the remaining routes by growth, recovery, shops,
+  and Act-specific risk.
+
+- **Build Agent** owns deck construction, relic selection, shops, events, and
+  rest sites. Instead of using a neural network to predict individual card
+  picks, its default Winning Path picker searches a sparse graph of expert
+  winning-deck templates. Template distance, immediate survival needs, and
+  contextual expert choices determine whether to pick or skip; some unresolved
+  candidates still require a final judgment from the LLM.
+
+- **Combat Agent** receives the complete combat state. Its default tool searches
+  `sts_lightspeed` with MCTS and returns one root action plus any required card
+  selections. Potions are first withheld, then selectively exposed to MCTS when
+  the no-potion search predicts excessive HP loss. The current implementation
+  still contains some dirty hacks that need cleanup.
+
+Select implementations under `agents` in [config.yaml](config.yaml).
+
+## Notes
+
+### LLM implementations and prompts
+
+To let the configured LLM control every Build and Combat decision, set:
+
+```yaml
+agents:
+  map: llm
+  build: llm
+  combat: llm
+```
+
+Build and Combat can be switched independently.
+
+Build and Combat share the endpoint and model under `llm` in
+[config.yaml](config.yaml). The full normalized game state is included in every
+request.
+
+The pure `build: llm` and `combat: llm` implementations are both defined in
+[`tools/llm_agents.py`](src/spire_agent/tools/llm_agents.py). This file contains
+the instructions sent to the model and requires both agents to return the same
+JSON object: `{"command":"...","reason":"..."}`.
+
+When customizing these instructions, keep the command contract unchanged: the
+model must choose exactly one command currently exposed by CommunicationMod and
+follow the documented index rules. The Tool assembles the changing game-state
+payload automatically, so the prompt only needs stable decision rules.
+
+With the default `agents.build: winning_path`, Winning Path resolves card
+rewards when it has sufficient evidence. Unresolved card rewards and other
+non-fast-path Build scenes use the scene-specific prompts in
+[`en.toml`](src/spire_agent/subagents/prompts/build/en.toml) and
+[`zh.toml`](src/spire_agent/subagents/prompts/build/zh.toml); these files are not
+used by the pure `build: llm` implementation.
+
+### MCTS search time and quality
+
+MCTS search is currently the largest source of latency. The `mcts` section in
+[config.yaml](config.yaml) controls the Combat search budget.
+Increasing per-worker `simulations` and `max_time_ms` gives normal searches more
+room; `adaptive_simulations` and `adaptive_time_ms` do the same for difficult
+states.
+`threads` controls parallel workers and RNG-world coverage. A search can reach
+either its simulation or time limit, so increase both limits when one is already
+binding. Larger values can improve difficult combat decisions, but consume more
+CPU and make each action take longer; set `threads` according to the available
+CPU cores.
+
+### Map decision latency
+
+Before asking the Map LLM to rank routes, MapTool evaluates the current deck
+against representative future hallway and elite encounters, including relevant
+post-Rest projections. These deterministic readiness simulations can make Map
+decisions noticeably slower. Their small search budget is currently fixed in
+[`tools/map/readiness.py`](src/spire_agent/tools/map/readiness.py), cached within
+each run, and not exposed in `config.yaml`. The Combat `mcts` settings do not
+change this Map evaluation budget.
+
+## Thanks
+
+- [sts_lightspeed](https://github.com/Attemory/sts_lightspeed), the fast combat
+  simulator and tree-search engine.
+- [gym-sts](https://github.com/Attemory/gym-sts), the Slay the Spire game and
+  CommunicationMod bridge.
+
+Special thanks to [Baalorlord](https://baalorlord.tv/) for publishing his run
+archive. Its expert card-choice history provides important evidence and
+evaluation data for Winning Path.
+
+
+=== https://raw.githubusercontent.com/utilForever/conquer-the-spire/master/README.md ===
+# conquer-the-spire
+
+<img src="./Medias/Logos/Logo.png" width=256 height=256 />
+
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/utilForever/conquer-the-spire/blob/master/LICENSE) [![Build Status](https://travis-ci.org/utilForever/conquer-the-spire.svg?branch=master)](https://travis-ci.org/utilForever/conquer-the-spire/branches) [![Build status](https://ci.appveyor.com/api/projects/status/github/utilForever/conquer-the-spire?branch=master&svg=true)](https://ci.appveyor.com/project/utilForever/conquer-the-spire/branch/master) [![Build Status](https://utilforever.visualstudio.com/conquer-the-spire/_apis/build/status/utilForever.conquer-the-spire?branchName=master)](https://utilforever.visualstudio.com/conquer-the-spire/_build/latest?definitionId=9&branchName=master)
+
+[![codecov](https://codecov.io/gh/utilForever/conquer-the-spire/branch/master/graph/badge.svg)](https://codecov.io/gh/utilForever/conquer-the-spire)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e1f5dc4c5484c1dad24168da3c1059b)](https://www.codacy.com/manual/utilForever/conquer-the-spire?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=utilForever/conquer-the-spire&amp;utm_campaign=Badge_Grade)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/utilForever/conquer-the-spire.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/utilForever/conquer-the-spire/alerts/)
+[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/utilForever/conquer-the-spire.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/utilForever/conquer-the-spire/context:cpp)
+[![CodeFactor](https://www.codefactor.io/repository/github/utilforever/conquer-the-spire/badge)](https://www.codefactor.io/repository/github/utilforever/conquer-the-spire)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=conquer-the-spire&metric=alert_status)](https://sonarcloud.io/dashboard?id=conquer-the-spire) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=conquer-the-spire&metric=ncloc)](https://sonarcloud.io/dashboard?id=conquer-the-spire) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=conquer-the-spire&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=conquer-the-spire) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=conquer-the-spire&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=conquer-the-spire) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=conquer-the-spire&metric=security_rating)](https://sonarcloud.io/dashboard?id=conquer-the-spire)
+
+conquer-the-spire is Slay the Spire simulator using C++ with some reinforcement learning. The code is built on C++17 and can be compiled with commonly available compilers such as g++, clang++, or Microsoft Visual Studio. conquer-the-spire currently supports macOS (10.14 or later), Ubuntu (18.04 or later), Windows (Visual Studio 2017 or later), and Windows Subsystem for Linux (WSL). Other untested platforms that support C++17 also should be able to build conquer-the-spire.
+
+## Key Features
+
+  * C++17 based Slay the Spire library
+  * Console and GUI simulator program
+  * C++ and Python API
+
+## Implementation List
+
+  * Cards
+    * Ironclad Cards
+    * Silent Cards
+    * Defect Cards
+    * Colorless Cards
+    * Status
+    * Curse
+  * Characters
+    * Ironclad
+    * Silent
+    * Defect
+  * Enemies
+    * Monsters
+    * Elites
+    * Bosses
+  * Others
+    * Events
+    * Relics
+    * Potions
+    * Merchant
+    * Ascension
+  * Reinforcement learning
+    * Connecting with PyTorch C++ API
+    * Applying DQN and so on
+  * API Support
+    * Python
+
+## Quick Start
+
+You will need CMake to build the code. If you're using Windows, you need Visual Studio 2017 in addition to CMake.
+
+First, clone the code:
+
+```
+git clone https://github.com/utilForever/conquer-the-spire.git --recursive
+cd conquer-the-spire
+```
+
+### C++ API
+
+For macOS or Linux or Windows Subsystem for Linux (WSL):
+
+```
+mkdir build
+cd build
+cmake ..
+make
+```
+
+For Windows:
+
+```
+mkdir build
+cd build
+cmake .. -G"Visual Studio 15 2017 Win64"
+MSBuild conquer-the-spire.sln /p:Configuration=Release
+```
+
+### Docker
+
+```
+docker pull utilforever/conquer-the-spire:latest
+```
+
+## Documentation
+
+TBA
+
+## How To Contribute
+
+Contributions are always welcome, either reporting issues/bugs or forking the repository and then issuing pull requests when you have completed some additional coding that you feel will be beneficial to the main project. If you are interested in contributing in a more dedicated capacity, then please contact me.
+
+## Contact
+
+You can contact me via e-mail (utilForever at gmail.com). I am always happy to answer questions or help with any issues you might have, and please be sure to share any additional work or your creations with me, I love seeing what other people are making.
+
+## License
+
+<img align="right" src="http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
+
+The class is licensed under the [MIT License](http://opensource.org/licenses/MIT):
+
+Copyright &copy; 2019 [Chris Ohk](http://www.github.com/utilForever) and [Gyojun Youn](https://github.com/youngyojun).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=== https://raw.githubusercontent.com/coder/balatrobot/main/README.md ===
+<div align="center">
+  <h1>BalatroBot</h1>
+  <p align="center">
+    <a href="https://github.com/coder/balatrobot/releases">
+      <img alt="GitHub release" src="https://img.shields.io/github/v/release/coder/balatrobot?include_prereleases&sort=semver&style=for-the-badge&logo=github"/>
+    </a>
+    <a href="https://discord.gg/TPn6FYgGPv">
+      <img alt="Discord" src="https://img.shields.io/badge/discord-server?style=for-the-badge&logo=discord&logoColor=%23FFFFFF&color=%235865F2"/>
+    </a>
+  </p>
+  <div><img src="./docs/assets/balatrobot.svg" alt="balatrobot" width="170" height="170"></div>
+  <p><em>API for developing Balatro bots</em></p>
+</div>
+
+---
+
+BalatroBot is a mod for Balatro that serves a JSON-RPC 2.0 HTTP API, exposing game state and controls for external program interaction. The API provides endpoints for complete game control, including card selection, shop transactions, blind selection, and state management. External clients connect via HTTP POST to execute game actions programmatically.
+
+## 📚 Documentation
+
+https://coder.github.io/balatrobot/
+
+## 🚀 Related Projects
+
+- [**BalatroBot**](https://github.com/coder/balatrobot): API for developing Balatro bots
+- [**BalatroLLM**](https://github.com/coder/balatrollm): Play Balatro with LLMs
+- [**BalatroBench**](https://github.com/coder/balatrobench): Benchmark LLMs playing Balatro
+
+## 🙏 Acknowledgments
+
+This project is a fork of the original [balatrobot](https://github.com/besteon/balatrobot) repository. We would like to acknowledge and thank the original contributors who laid the foundation for this framework:
+
+- [@phughesion](https://github.com/phughesion)
+- [@besteon](https://github.com/besteon)
+- [@giewev](https://github.com/giewev)
+
+The original repository provided the initial API and botting framework that this project has evolved from. We appreciate their work in creating the foundation for Balatro bot development.
+
+
+=== https://raw.githubusercontent.com/destire-mio/sts-ironclad-agent/main/README.md ===
+<div align="center">
+
+# sts-ironclad-agent
+
+**A20 Ironclad bot for Slay the Spire: one frozen network for every out-of-combat choice, simulator search in combat — about 50% Heart win rate in the simulator and the real game.**
+
+English | [中文](README.zh-CN.md)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![Heart win rate ~50%](https://img.shields.io/badge/Heart%20win%20rate-~50%25-green.svg)](#results)
+[![Simulator parity: incomplete](https://img.shields.io/badge/simulator%20parity-incomplete-red.svg)](#simulator-vs-original-game)
+
+</div>
+
+Built on [sts_lightspeed](https://github.com/gamerpuppy/sts_lightspeed), continued from
+[Jialeiv/sts-rl-agent](https://github.com/Jialeiv/sts-rl-agent). The goal is an Ironclad that wins
+Ascension 20 with all three keys and the Heart, where every out-of-combat choice comes from one
+frozen network and only combat search stays classical. The simulator-only subset is published
+separately as [sts-ironclad-simulator](https://github.com/destire-mio/sts-ironclad-simulator).
+
+## Results
+
+| Game | Policy | Seeds | Games | Heart win rate | 95% interval |
+|---|---|---|---:|---:|---:|
+| Simulator | P300 teacher (`agent/p300_play_v21.py`) | development block | 2,000 | 50.1% | — |
+| Simulator | P300 teacher | fresh block | 1,000 | 49.5% | — |
+| Simulator | distilled student ([`student/`](student/README.md)) | development block 3900040000+ | 1,000 | 50.2% | — |
+| **Original game** | **distilled student (v3)** | fresh block 3900020000+ | 501 | **50.1%** | [45.7, 54.5] |
+
+- **Simulator** = fixed-seed simulation. **Original game** = real Java, A20 against the Heart, combat search retained, one frozen network for out-of-combat choices, faults listed separately.
+- The original-game number is the first pass (473 games) plus a rerun of its 34 bridge-faulted seeds on a repaired importer (28 terminal, 6 still faults); the repair changes only the bridge, not the policy.
+- The original-game interval covers the simulator estimate, so this run gives **no evidence that the simulator number is inflated**.
+- Evaluation rule: fixed seeds, no reseeding, no retrying, no repeated search on one decision. The locked 1,024-unseen-seed acceptance has not been run.
+- Original-game report and per-game data: [`docs/live-original-distill3-student-20261001.md`](docs/live-original-distill3-student-20261001.md).
+
+Where the losses come from (simulator, 3,000 games; death rate among games reaching each stage):
+
+| Act 1 path | Act 1 boss | Act 2 path | Act 2 boss | Act 3 path | Act 3 bosses | Shield & Spear | Heart |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 9.1% | 1.9% | 10.3% | 5.1% | 4.3% | 9.3% | 3.7% | 21.3% |
+
+## How it works
+
+1. **Decision layer** — map, card rewards, shops, campfires, events and relics are chosen by one frozen network distilled from the teacher.
+2. **Combat** — simulator search (`sims32`, extra boss budget, subtree reuse); engine source in [`combat_engine/`](combat_engine/combat4r/).
+3. **Evaluation** — fixed seeds only; acceptance numbers must come from unseen seeds.
+
+## Simulator vs original game
+
+The simulator carries patches ([`sim_patch/`](sim_patch/README.md)) and a real-game parity checker
+([`sim_patch/parity/`](sim_patch/parity/README.md)). Consistency is still **`INCOMPLETE`** — the
+bridge faults on some queued-action cases — so it is not a move-for-move reproduction, but the first
+original-game run above agrees with the simulator within its interval. Current bridge fixes are on `main`; see the
+[importer repair report and validation scope](docs/original-importer-repairs-2026-10-01.md).
+The [follow-up review](docs/original-importer-followup-2026-10-01.md) covers the frozen-runtime mismatch,
+Pen Nib queue/counter repairs, and three diagnostic replays.
+The `live-original-bridge` branch retains the historical integration baseline.
+
+## Repository map
+
+| Path | Contents |
+|---|---|
+| `agent/` | teacher drivers (`p300_play_v21.py`, `p300_play_v24.py`), distillation and Heart research tools |
+| `student/` | distilled student network (weights, code, interface, `play_student.py`) |
+| `live_original/` | scripts that ran the teacher/student in the real game (paths still to adapt) |
+| `combat_engine/` | combat engine source and the post-battle HP scoring report |
+| `runtime/` | frozen parent network, config and runtime files (engine built into `runtime/engine/`) |
+| `data/` | stage value tables the teacher reads |
+| `sim_patch/` | simulator patches, native alignment tests, original-game parity checker |
+| `steam/` | real-game state export and live search |
+| `docs/` | [documentation index](docs/README.md): status, history, original-game reports, experiment records |
+| `experiments-archive/` | reports and results from P200-P212 and cloud runs c5-c52 |
+| `scripts/` | `setup.sh`, `run_teacher.sh`, `assemble_runtime.py` |
+| `tests/` | regression tests (need the built `slaythespire` module and PyTorch) |
+| `video/` | animation source for the project introduction video (12 segments, 1080p; see [`video/README.md`](video/README.md)) |
+
+## Related repositories
+
+- [sts-ironclad-simulator](https://github.com/destire-mio/sts-ironclad-simulator) — simulator-only package: `sts_lightspeed` engine, patches, runtime, teacher/student drivers.
+- [sts-search-advisor](https://github.com/destire-mio/sts-search-advisor) — experimental in-combat turn advisor (Java mod + native search server).
+- The historical original-game integration baseline lives on the `live-original-bridge` branch.
+
+## Quick start
+
+Needs Python 3.12, `cmake` and a C++17 compiler (tested on macOS arm64). The engine source, parent
+network and value tables are all in this repository.
+
+```bash
+scripts/setup.sh                 # venv + numpy/torch/pybind11, build the engine, write runtime identity files
+scripts/run_teacher.sh 4 4       # 4 games on 4 workers with the adopted teacher
+scripts/run_student.sh 4 4       # same, but the student network decides outside combat
+```
+
+`run_teacher.sh [GAMES] [WORKERS] [FIRST_SEED] [OUTPUT]` writes one JSON line per game and prints
+the win count; a game takes about a minute on one core and runs resume. Use an unseen seed block for
+an honest number (development block: `3900012000+`). A fresh CMake build does not reproduce the
+cloud games move for move (the delivery used PGO/LTO), so treat its win rates as unmeasured until
+re-run — see [`combat_engine/combat4r/report.md`](combat_engine/combat4r/report.md). The
+original-game runner is in [`live_original/`](live_original/PORTING.md) (as run; needs your own game
+and mods).
+
+## Credits and license
+
+- Simulator: [gamerpuppy/sts_lightspeed](https://github.com/gamerpuppy/sts_lightspeed) (MIT).
+- Real-game bridge: [CommunicationMod](https://github.com/ForgottenArbiter/CommunicationMod),
+  [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [BaseMod](https://github.com/daviscook477/BaseMod).
+- This repository: MIT, see [`LICENSE`](LICENSE) and [`docs/acknowledgements.md`](docs/acknowledgements.md).
+  Slay the Spire is a trademark of Mega Crit Games; this is an unaffiliated research project.
+
+
+=== https://raw.githubusercontent.com/Card-Forge/forge/master/README.md ===
+# ⚔️  Forge: The Magic: The Gathering Rules Engine
+
+Join the **Forge community** on [Discord](https://discord.gg/HcPJNyD66a)!
+
+[![Test build](https://github.com/Card-Forge/forge/actions/workflows/test-build.yaml/badge.svg)](https://github.com/Card-Forge/forge/actions/workflows/test-build.yaml)
+
+---
+
+## ✨ Introduction
+**Forge** is a dynamic and open-source **Rules Engine** tailored for **Magic: The Gathering** enthusiasts. Developed by a community of passionate programmers, Forge allows players to explore the rich universe of MTG through a flexible, engaging platform. 
+
+**Note:** Forge operates independently and is not affiliated with Wizards of the Coast.
+
+---
+
+## 🌟 Key Features
+- **🌐 Cross-Platform Support:** Play on **Windows, Mac, Linux,** and **Android**.
+- **🔧 Extensible Architecture:** Built in **Java**, Forge encourages developers to contribute by adding features and cards.
+- **🎮 Versatile Gameplay:** Dive into single-player modes or challenge opponents online!
+
+---
+
+## 🛠️ Installation Steps
+
+### 📥 Desktop
+1. **Latest Releases:** Download the latest version [here](https://github.com/Card-Forge/forge/releases/latest).
+2. **Snapshot Build:** For the latest development version, grab the `forge-gui-desktop` tarball from our [Snapshot Build](https://github.com/Card-Forge/forge/releases/tag/daily-snapshots).
+   - **Tip:** Extract to a new folder to prevent version conflicts.
+3. **User Data Management:** Previous players’ data is preserved during upgrades.
+4. **Java Requirement:** Ensure you have **Java 17 or later** installed.
+
+### 📱 Android
+- _(Note: **Android 11** is the minimum requirement with at least **6GB RAM** to run smoothly. You need to enable **"Install unknown apps"** for Forge to initialize and update itself)_
+- Download the **APK** from the [Snapshot Build](https://github.com/Card-Forge/forge/releases/tag/daily-snapshots). On the first launch, Forge will automatically download all necessary assets.
+
+### 📱 iOS (early stage)
+- Build the **IPA** according to Wiki
+- No jailbreak needed, only developer mode and iOS 16-27
+- Connect your device to a PC to self-sign and upload the app file, multiple tools exist e.g. [Sideloadly](https://sideloadly.io)
+
+---
+
+## 🎮 Modes of Play
+Forge offers various exciting gameplay options:
+
+### 🌍 Adventure Mode
+Embark on a thrilling single-player journey where you can:
+- Explore an overworld map.
+- Challenge diverse AI opponents.
+- Collect cards and items to boost your abilities.
+
+<img width="1282" height="752" alt="Shandalar World" src="https://github.com/user-attachments/assets/9af31471-d688-442f-9418-9807d8635b72" />
+
+### 🔍 Quest Mode
+Engage in focused gameplay without the overworld exploration—perfect for quick sessions!
+
+<img width="1282" height="752" alt="Quest Duels" src="https://github.com/user-attachments/assets/b9613b1c-e8c3-4320-8044-6922c519aad4" />
+
+### 🤖 AI Formats
+Test your skills against AI in multiple formats:
+- **Sealed**
+- **Draft**
+- **Commander**
+- **Cube**
+
+For comprehensive gameplay instructions, visit our [User Guide](https://github.com/Card-Forge/forge/wiki/User-Guide).
+
+<img width="1282" height="752" alt="Sealed" src="https://github.com/user-attachments/assets/ae603dbd-4421-4753-a333-87cb0a28d772" />
+
+---
+
+## 💬 Support & Community
+Need help? Join our vibrant Discord community! 
+- 📜 Read the **#rules** and explore the **FAQ**.
+- ❓ Ask your questions in the **#help** channel for assistance.
+
+---
+
+## 🤝 Contributing to Forge
+We love community contributions! Interested in helping? Check out our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+
+---
+
+## ℹ️ About Forge
+Forge aims to deliver an immersive and customizable Magic: The Gathering experience for fans around the world. 
+
+### 📊 Repository Statistics
+
+| Metric         | Count                                                       |
+|----------------|-------------------------------------------------------------|
+| **⭐ Stars:**   | [![GitHub stars](https://img.shields.io/github/stars/Card-Forge/forge?style=flat-square)](https://github.com/Card-Forge/forge/stargazers) |
+| **🍴 Forks:**   | [![GitHub forks](https://img.shields.io/github/forks/Card-Forge/forge?style=flat-square)](https://github.com/Card-Forge/forge/network) |
+| **👥 Contributors:** | [![GitHub contributors](https://img.shields.io/github/contributors/Card-Forge/forge?style=flat-square)](https://github.com/Card-Forge/forge/graphs/contributors) |
+
+---
+
+**📄 License:** [GPL-3.0](LICENSE)
+<div align="center" style="display: flex; align-items: center; justify-content: center;">
+    <div style="margin-left: auto;">
+        <a href="#top">
+            <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+        </a>
+    </div>
+</div>
+
+
+=== https://raw.githubusercontent.com/HearthSim/SabberStone/master/README.md ===
+<p align="center">
+<img src="docs/readme/sabberstoneNew.png" alt="SabberStone logo" height="80%"/>
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![Build status](https://ci.appveyor.com/api/projects/status/051e59v5u9hm10qr?svg=true)](https://ci.appveyor.com/project/darkfriend77/sabberstonecore)
+[![Build status master](https://ci.appveyor.com/api/projects/status/051e59v5u9hm10qr/branch/master?svg=true)](https://ci.appveyor.com/project/darkfriend77/sabberstonecore/branch/master)
+[![nuget](https://img.shields.io/nuget/v/SabberStoneCore)](https://img.shields.io/nuget/v/SabberStoneCore)
+[![license](https://img.shields.io/github/license/HearthSim/SabberStone)](https://img.shields.io/github/license/HearthSim/SabberStone)
+[![contributors](https://img.shields.io/github/contributors/HearthSim/SabberStone)](https://img.shields.io/github/contributors/HearthSim/SabberStone)
+# SabberStone 2.1
+Massive changes and updates are applied!
+Please check the Changelog: https://github.com/HearthSim/SabberStone/wiki/Changelog
+
+# Overview
+
+**State of Implementation: 98% (Rise of Shadows 94%, Rastakhan's Rumble 95%, The Boomsday Project 98%, The Witchwood 99%) of current Standard Cards (Year of the Dragon)!** ***(23.07.2019)***
+
+SabberStone is just another Hearthstone simulator and implementation, written in C#. The project was started in Nov'16 while trying to implement aura, buffs & triggers into Brimstone. Focused to prototype my so called onion system I created SabberStone, which is using a layer approach to handle entity changing enchantments. Since then I haven't stopped implementing day by day new cards, new tests and new stuff. I created for fun a visualisation and a scoring based tree search a.i. which can be used to play games ([SabberStoneGui](/extensions/SabberStoneGui)).
+
+By now this is a one man show, but there is still a lot of work to do, so any help is appreciated. The base code of Brimstone was a great inspiration for this project. Big thanks to **@Pattux**, **@Patashu** for helping on hearthstone super science problems ^^ thx **@Katy** for inspiration. And thx a lot to **@Citiral**, **@BertP** for working out on the stove implementation. And thx to **@Milva** who did a refactoring on the aura & enchantment system, with great value and is working hard for this project! You're welcome!
+
+If you enjoy using SabberStone consider supporting us at [buymeacoffee.com/darkfriend77](https://www.buymeacoffee.com/darkfriend77)
+
+Join us on [Discord](https://discord.gg/my9WTwK)!
+
+**Sabberstone Simulator has an own visualisation and client/server architecture for AI research!**
+![Preview SabberStone connected to the Stove project](docs/readme/clientserver.PNG)
+
+### Project Structure ###
+
+* **SabberStoneCore** *(.NET Core)*
+
+  Core simulator engine, all the functions needed for the simulator are in here. Check out the Wiki [Link](https://github.com/HearthSim/SabberStone/wiki) for informations about the core and how to use it.
+
+* **SabberStoneCoreTest** *(.NET Core)*
+
+  UnitTest for the simulator, there is a generated test for each card in the current game.
+
+* **SabberStoneCoreConsole** *(.NET Core)*
+
+  A test project to run simple codeline based games to test outcome.
+
+* **SabberStoneBasicAI** *(.NET Core)*
+
+  A test project to run A.I. simulations with predefinied decks and strategys.
+
+* **(deprectated)SabberStoneGui** *(.NET Framework)* (This is currently reworked in a Unity3D GUI Client with a GameServer)
+
+  A test project that shows off a visual implementation of the SimpleAi project. This is probably where beginners should start looking at. There is a simple GUI which allows different decks to play against each other with different strategys. Check out the Wiki [Link](https://github.com/HearthSim/SabberStone/wiki/SabberStoneGui) for informations about the use of SimpleUi.
+
+### Extension Projects ###
+
+* Client-Server with gRPC
+	
+	https://github.com/darkfriend77/SabberStone-gRPC
+
+* Unity implementation for Sabberstone
+	
+	https://github.com/darkfriend77/SabberStoneUnityClient
+
+### Cards Implementation
+**Basic & Classic**
+* **100% Basic (142 Cards)**
+* **100%% Classic (245 Cards)**
+* 87% Hall of Fame (24 Cards)
+
+**Adventures**
+* **100% Blackrock Mountain (31 Cards)**
+* **100% One Night in Karazhan (45 Cards)**
+* *68% The League of Explorers (45 Cards) (needs to be upgraded to new system)*
+
+**Expensions**
+* *94% Rise of Shadows (136 Cards)*
+* *96% Rastakhan's Rumble (135 Cards)*
+* *98% The Boomsday Project (136 Cards)*
+* *99% The Witchwood (129 Cards)*
+
+* **100% Kobolds and Catacombs (135 Cards)**
+* **100% Knights of the Frozen Throne (135 Cards)**
+* **100% Journey to Un'Goro (135 cards)**
+* *93% The Grand Tournament (132 Cards) (needs to be upgraded to new system)*
+* **100% Whispers of the Old Gods (134 Cards)**
+* **100% Mean Streets of Gadgetzan (132 Cards)**
+* 80% Goblins vs Gnomes (123 cards)
+* **100% Curse of Naxxramas (30 cards)**
+
+**Not Implemented Standard Cards**
+#### Rise of Shadows
+- [DAL_377] Nine Lives
+- [DAL_431] Swampqueen Hagatha
+- [DAL_573] Commander Rhyssa
+- [DAL_729] Madame Lazul
+- [DAL_731] Duel!
+- [DAL_742] Whirlwind Tempest
+- [DAL_800] Zayle, Shadow Cloak
+
+#### Rastakhan's Rumble
+- [TRL_318] Hex Lord Malacrass
+- [TRL_345] Krag'wa, the Frog
+- [TRL_522] Wartbringer
+- [TRL_532] Mosh'Ogg Announcer
+- [TRL_535] Snapjaw Shellfighter
+
+#### The Boomsday Project
+- [BOT_436] Prismatic Lens
+- [BOT_914] Whizbang the Wonderful
+
+##### The Witchwood
+- [GIL_655] Festeroot Hulk
+
+*(Standard is beeing prioritized.)*
+
+### Requirements
+
+* Windows, macOS or Linux
+  - [Visual Studio 2017 RC](https://www.microsoft.com/net/core#windowsvs2017) or [Visual Studio Code](https://code.visualstudio.com/) for best .NET Core support
+  - [.NET Core](https://www.microsoft.com/net/download/core)
+
+### Installation
+
+* tbd
+
+### Documentation
+
+* Wiki [Link](https://github.com/HearthSim/SabberStone/wiki)
+* SabberStoneBasicAI [Link](https://github.com/HearthSim/SabberStone/tree/master/core-extensions/SabberStoneBasicAI)
+* Unity3D GUI Client & GameServer  [Link](https://github.com/darkfriend77/SabberStone-gRPC)
+
+### License
+
+[![AGPLv3](https://www.gnu.org/graphics/agplv3-88x31.png)](http://choosealicense.com/licenses/agpl-3.0/)
+
+SabberStone is licensed under the terms of the
+[Affero GPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) or any later version.
+
+### Community
+SabberStone is being developed by darkfriend77 (darkfriend@swissonline.ch)
+* SabberStone on [Discord](https://discord.gg/my9WTwK) .. come and talk with us!
+* SabberStone on [Reddit](https://redd.it/5p0ar8)
+* SabberStone is a [HearthSim](http://hearthsim.info) project!
+
+
+=== SEARCH(HTML): https://github.com/search?q=xmage&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=hearthstone%20ai&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=ygopro%20windbot&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== SEARCH(HTML): https://github.com/search?q=yu-gi-oh%20ai&type=repositories ===
+(GitHub repository search results page, server-rendered HTML; repo names/stars/descriptions extracted)
+
+=== https://raw.githubusercontent.com/magefree/mage/main/README.md FETCH_FAILED: Response status code does not indicate success: 404 (Not Found). ===
+=== https://raw.githubusercontent.com/peter1591/hearthstone-ai/master/README.md ===
+## Introduction
+
+The is an AI for the card game HearthStone which originally motivated by AlphaGo! This work combines Monte Carlo tree search (with extensions for imperfection game), deep neural network, and a high-performance game engine.
+
+Compete with Mage in basic practice mode. Running on Macbook Pro. AI can easily beat innkeeper (8 = 0).
+[![Video](https://img.youtube.com/vi/L6kr_zJKCQI/0.jpg)](http://www.youtube.com/watch?v=L6kr_zJKCQI)
+
+Compete with Warlock in expert practice mode. Running on Macbook Pro.
+[![Video](https://img.youtube.com/vi/wLvBlKChFW0/0.jpg)](http://www.youtube.com/watch?v=wLvBlKChFW0)
+
+## Motivation
+* AlphaGo successfully combines MCTS and deep neural networks to beat human on Go.
+* Games with hidden information are still a big challenge in many ways.
+* Give it a try on Hearhstone.
+
+## Modules
+
+### [Game engine](./engine)
+* Header-only implementation. No dependency. No need to compile anything!
+* Use template programming intensively for higher performance.
+
+### [Judgement framework](./judge)
+* A judgement framework allowing two agents to compete with each other.
+
+### [MCTS Agent](./agents/include/agents)
+* [Monte Carlo tree search](./agents/include/MCTS)
+  * Use Multiple-Observer MCTS to handle hidden information
+  * Share tree nodes for identical boards
+* Combine with a [neural network](./agents/train/tensorflow)
+  * Act as a policy network to choose the promising steps with higher probabilities
+  * Also act as a default network to play the game in simulation phase
+  * Guess the game result for early cutoff
+
+### Neural Network
+
+Use [TensorFlow](https://www.tensorflow.org) for training and prediction. The neural network model is defined in [`model.py`](./agents/train/tensorflow/model.py). A neural network model can be trained and integrated into the [MCTS agent](./agents/include/agents) by the following steps:
+
+1. Prepare [training data](./agents/train/gcc7/generate_train_data).
+2. [Train](./agents/train/tensorflow) the model using Tensorflow.
+3. Save andfreeze the model.
+4. Set the model path to MCTS agent.
+
+A simple example shows the neural network can *greatly* boost MCTS play strength:
+  * A mid-level person knows the *arcane missiles* should generally not be played in the first turn.
+  * If using random default policy, it takes more than 300k iterations (8G+ RAM) to realize this.
+  * If using neural network as default policy, it only takes < 15k iterations (less than 5 seconds) to realize this.
+
+### [Reinforcement Learning Pipeline](./agents/train/gcc7/reinforcement_learning)
+
+Similar to AlphaZero proposed by DeepMind, a reinforcement learning pipeline
+is also implemented. The pipeline works,
+but requires intensive computation resource to do a great job. Some [results](./agents/train/gcc7/reinforcement_learning)
+are also outlined.
+
+### [Game Board Recognition](./ui/build/vs2017/HearthstoneAI/LogWatcher)
+* Use the logging feature in HearthStone
+* Written in C# since no critical performance issue occurs here.
+* Parse the logs to get a picture of the game board.
+* Use the C# coroutine to parse the logs in a cleaner way.
+
+### [Graphical User Interface](./ui)
+* Integrate everything in one piece.
+* Automatically show a suggestion move as you play the game. See videos like [this](https://youtu.be/L6kr_zJKCQI) for a demo.
+
+## Installation
+1. Install HearthStone on Windows.
+2. Enable logging to HearthStone, so we can know what's the board looks like.
+3. Open the C# project under [this folder](./ui/build/vs2017).
+4. Compile and run it.
+
+## Future Works
+
+### [Neural Network Improvements](https://github.com/peter1591/hearthstone-card2vec)
+
+The goal of the neural network is to guess who is going to win this game, by looking at only the current board. Several improvements could be done:
+
+1. Take history data into account: secret cards, played cards, etc.
+2. Take hand cards into account.
+3. Take card id into account. Currently, only HP/Max-HP/Attack are considered.
+4. Take cards in deck into account.
+
+Hope we can have a better accuracy than current result (~79%, which also aligned to the result of AAIA'17 Data Mining Challenge: Helping AI to Play Hearthstone (https://knowledgepit.fedcsis.org/mod/page/view.php?id=1022)).
+
+I have tried to embedding the card id to encode the battlecry and deathrattle features for each different card. Maybe we need to find a better way to generate game data automatically, so the neural network can learn the embeddings separately and hopefully more accurately.
+
+This is now dealt with by [a separated repository on github](https://github.com/peter1591/hearthstone-card2vec).
+
+### Balance Between Wide and Deep
+
+Why wide? Due to randomness, the branch factor is quite large (~4000 when drawing a card). So, there are many tree nodes in the game tree.
+
+Why deep? The neural network by itself are not strength enough. We need to think ahead more steps to overcome the weakness in simulation.
+
+In a naive implementation of MCTS, all the children nodes must be expanded before we use UCB formula to choose a child node and continues in selection stage. Few ideas here:
+1. A fixed possibility to continue in selection stage. Even not all children are expanded.
+2. A dynamic possibility based on **rest of thinking time** and **current expansion progress**.
+
+### Share information between nodes
+
+Even if there are only one card is different, we still need two tree nodes. Otherwise, we will fuse the strategy decision in Monte-Carlo tree search. However, this does *not* means that, we cannot share information between nodes. On the contrary, AMAF (all-move-as-first) and RAVE (rapid action value estimation) are based on this basic idea.
+
+### Automatic Play bot
+
+Right now, Just refer to the move the AI suggested, and do it manually on the game client.
+
+## Demo Videos
+* First demo video is on!!! https://youtu.be/z0I1nM6_k0w
+* Another demo video with higher quality: https://youtu.be/L6kr_zJKCQI
+* First demo video with expert warlock: https://youtu.be/wLvBlKChFW0
+* Another demo video played with expert warlock innkeeper: https://youtu.be/yVX8nTo8o00
+
+## Contribution
+
+Just me. Any idea/help is always welcomed.
+
+## License
+
+Latest GPL license is applied to this project.
+
+Some third party libraries are used, please also obey to their licenses.
+
+
+=== https://raw.githubusercontent.com/IceYGO/windbot/master/README.md ===
+# WindBot
+
+WindBot is a C# duel bot for [YGOPro](https://github.com/Fluorohydride/ygopro). It is compatible with [YGOSharp](https://github.com/IceYGO/ygosharp) and [SRVPro](https://github.com/mycard/srvpro) servers.
+
+## Usage
+
+1. Build `WindBot.sln` with Visual Studio/MSBuild or Mono.
+2. Place `cards.cdb` next to the compiled `WindBot.exe`.
+3. Start a YGOPro host.
+4. Run WindBot with options in `Key=Value` format, for example:
+   ```text
+   WindBot.exe Name=WindBot Deck=Blue-Eyes Host=127.0.0.1 Port=7911
+   ```
+5. The bot will connect to the host and start dueling.
+6. Refer to `BotWrapper/bot.conf` or the `[Deck]` declarations of each file in `Game/AI/Decks` for available decks.
+
+Contributor guidance for creating and modifying deck AIs is available in `AGENTS.md`.
+
+## Command-line options
+
+- `Name`: The bot's nickname.
+- `Deck`: The built-in deck AI to use. Leave this empty to select a random deck with the `Normal` level. Deck names are defined by the executors in `Game/AI/Decks`.
+- `DeckFile`: The `.ydk` deck file to use. It is selected automatically by `Deck`, but can be overridden. Cards not supported by the selected deck AI may not be used correctly.
+- `Dialog`: The dialog set to use. Available dialog files are in `Dialogs`.
+- `Host`: The host name or IP address of the YGOPro server.
+- `Port`: The server port.
+- `HostInfo`: The room password.
+- `Version`: The YGOPro protocol version.
+- `Hand`: For testing your deck, forces the bot's rock-paper-scissors choice: `1` for Scissors, `2` for Rock, or `3` for Paper. The default behavior is random for most deck AIs.
+- `Chat`: Set to `False` to disable bot chat. The default is `True`.
+- `Debug`: Set to `True` to print detailed card-movement logs. The default is `False`.
+- `Config`: Loads additional options from a configuration file. Command-line options take precedence.
+- `DbPath`: Specifies the path to `cards.cdb`. The default is `cards.cdb`. The program also looks for `cards.cdb` in the parent directory of the working directory, which is the typical location for YGOPro.
+- `ServerMode` and `ServerPort`: Enable the HTTP server mode and set its port. The default port is `2399`.
+
+## Server mode
+
+Server mode exposes an HTTP endpoint that starts a bot for each valid request. Example:
+
+```text
+http://127.0.0.1:2399/?name=%E2%91%A8&deck=Blue-Eyes&host=127.0.0.1&port=7911&dialog=cirno.zh-CN
+```
+
+Query parameter names are lowercase. Supported parameters are `name`, `deck`, `host`, `port`, `dialog`, `version`, `password`, `hand`, `debug`, and `chat`. The `name`, `host`, and `port` parameters are required. `deckfile` is not supported.
+
+The HTTP listener binds to all interfaces. On Windows, run with sufficient privileges or reserve the URL for the selected port (using `2399` here):
+
+```text
+netsh http add urlacl url=http://+:2399/ user=Everyone
+```
+
+## Known issue
+
+- When a chain contains multiple activations that rely on preselected `AI.SelectCard` choices, a later activation may consume the wrong selection.
+
+## TODO list
+
+- Add and update deck AIs.
+- Add linked-zone and non-linked-zone preferences to `AI.SelectPlace`.
+- Add an `AI.SelectTribute` preselection interface.
+- Keep the known-card enums up to date.
+- Add more executors for commonly used cards.
+
+## Related projects
+
+### BotWrapper
+
+`BotWrapper` is a lightweight launcher for YGOPro's built-in bot mode. It converts the arguments supplied by YGOPro into WindBot options, supports random bot selection, and starts `WindBot.exe`.
+
+`BotWrapper/bot.conf` is in the format that YGOPro expects for its bot mode.
+
+### Template generator
+
+The [WindBot template generator](https://mercury233.me/windbot/gen.html) creates a deck AI template from a YGOPro `.ydk` file.
+
+### WindBot Arena
+
+[WindBot Arena](https://github.com/mercury233/windbot-arena) is a self-hosted automated duel experimentation console for running regression tests, deck challenges, smoke tests, and win-rate rankings with WindBot.
+
+
+=== https://raw.githubusercontent.com/tommy85/MirrorForce/main/README.md ===
+# MirrorForce
+
+MirrorForce is a Yu-Gi-Oh! OCG agent trained by self-play reinforcement learning on the YGOPro rules engine, named
+after the trap card *Mirror Force*.
+
+- **Champion of the first YGO agent competition** (retro Sky Striker mirror,
+  [announcement](https://www.bilibili.com/opus/1256117444081090563)). Against the Sky Striker human champion
+  **第14位奏者** it won the first best-of-seven 5–3 (two of the three losses were agent disconnections) and lost
+  the second 3–4. Replays are in [`replay/`](replay/).
+- A 28M-parameter transformer trained from scratch for about 3 days on 32 H20 GPUs.
+- The champion's weights (iteration 1,084) are attached to the [first release](../../releases).
+
+**Deck scope.** Training so far uses only the Sky Striker deck in [`deck/SkyStriker.ydk`](deck/SkyStriker.ydk), so
+the released weights play only this deck, in the mirror match. The architecture is not tied to one deck: cards are
+described by their database fields and script features over the whole card pool, and the trainer samples decks from
+a pool, so multi-deck training is supported in principle.
+
+## Training progress
+
+![Elo and win rate against WinBot over training](docs/elo-curve.svg)
+
+Each point is a checkpoint played greedily on fixed deals with both turn orders: internal Elo (left) and win rate
+against WinBot, the scripted YGOPro bot (right).
+
+## Key techniques
+
+- **Entity transformer over cards.** Every card is a token built from its database fields and the structure of its
+  Lua script. A set transformer encodes the board, a causal transformer the events of the current turn, and each
+  earlier turn is kept as one summary token. Each legal action is a query that attends to the cards, so menus of any
+  size are scored.
+- **Self-play PPO with a magnet KL.** PPO-clip plus a KL pull toward the uniform policy over legal actions with
+  a decaying temperature, following the Ataraxos recipe. A central critic that sees hidden cards estimates
+  advantages during training only; the policy sees only what a real client sees.
+- **Targeted scenario training.** Scripted demonstrations of tactical scenes the agent missed (lethal lines,
+  clearing the field before attacking, the timing of defensive sets) were mixed into training; see
+  [docs/training.md](docs/training.md).
+- **Follower and local search (library only).** A local engine replays the server's public messages and infers the
+  opponent's choices from their results, so the client can look ahead: it samples hidden cards consistent with the
+  public record and rolls each candidate line forward with the policy and value head. No client in this release plays
+  a game with search yet; see [docs/search.md](docs/search.md).
+
+## Architecture
+
+![MirrorForce architecture: training loop, online play and policy network](docs/architecture.svg)
+
+More in [docs/](docs/): [architecture](docs/architecture.md), [model](docs/model.md),
+[features](docs/features.md), [training](docs/training.md), [search](docs/search.md) and [usage](docs/usage.md).
+
+## Quick start
+
+```bash
+git clone --recursive https://github.com/tommy85/MirrorForce.git
+```
+
+Build the engine and the environment extension, then serve the released weights and join a YGOPro room; the
+commands are in [docs/usage.md](docs/usage.md). Training from scratch or from the released weights is described in
+[docs/training.md](docs/training.md).
+
+## TODO and known issues
+
+- **Information leakage.** The agent tends to set cards as soon as it draws them, normal spells included, which
+  gives the opponent information for free.
+- **Rare tactics.** Some strong lines are never found, for example transforming Raye into Kagari during the Battle
+  Phase to dodge Effect Veiler, or using Area Zero for free value.
+- **One deck.** Only the Sky Striker mirror is trained. More decks, modern card pools and randomized hand traps are
+  next.
+- **Play-time search.** Search is released as a library only: no client or tool in this release plays a game with
+  it. It has not yet shown a measured gain over the plain policy, and when the follower loses sync the client leaves
+  the game instead of falling back to the plain policy.
+- **Belief.** The opponent-hand belief is an auxiliary head; neither the policy nor the search reads it yet.
+- **Training ideas.** Attention over the full cross-turn history; counterfactual replays of lost games to find the
+  decisive decisions; exploiter agents that target the main agent's weaknesses.
+
+## License
+
+MIT; see [LICENSE](LICENSE). Third-party code and the scripts distributed under GPL-2.0 are listed in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Acknowledgements
+
+- [sbl1996/ygo-agent](https://github.com/sbl1996/ygo-agent) (MIT): the environment, model and trainer started from
+  a fork of this project, imported with the fork author's consent.
+- 呼呼啦啦咕咕咔嚓: our input-feature code draws on the feature design of the GGBOY agent.
+- [Fluorohydride/ygopro-core](https://github.com/Fluorohydride/ygopro-core) (MIT): the rules engine.
+- [EnvPool](https://github.com/sail-sg/envpool) (Apache-2.0): the batched environment framework.
+- [Cleanba](https://github.com/vwxyzjn/cleanba): the distributed training layout.
+- Sokota et al., *Scalable decision-making for games of imperfect information*, Nature 2026
+  ([doi:10.1038/s41586-026-11036-y](https://doi.org/10.1038/s41586-026-11036-y)): the training recipe.
+- The organizers and participants of the first YGO agent competition.
+
+
+=== https://raw.githubusercontent.com/edo9300/edopro/master/README.md ===
+# [Project Ignis](https://github.com/ProjectIgnis): EDOPro
+
+The bleeding-edge automatic duel simulator, a fork of the [YGOPro client](https://github.com/Fluorohydride/ygopro).
+
+All YGOPro forks and known automatic duel simulators are powered by the [YGOPro core (ocgcore)](https://github.com/Fluorohydride/ygopro-core), an automated scripting engine for the Yu-Gi-Oh! Official Card Game. EDOPro is powered by our own [ocgcore fork](https://github.com/edo9300/ygopro-core).
+
+Due to many accumulated changes in this client and its core, it is incompatible with simulators not derived from this fork.
+
+This repository is for the game client only. Related Ignis projects:
+- [Canonical card script collection](https://github.com/ProjectIgnis/CardScripts)
+- [Canonical card databases collection](https://github.com/ProjectIgnis/BabelCdb)
+- [WindBot Ignite](https://github.com/ProjectIgnis/windbot/)
+
+## Contributing
+
+Please keep all usage questions and Windows and macOS bug reports on Discord; do not open an issue or pull request for this purpose.
+We are not taking suggestions or feature requests and the issue tracker is not to be used for this purpose either.
+
+Otherwise, pull requests are welcome! It might take some time for them to be evaluated since we are pretty swamped with a lot work to be done.
+
+Check out the [wiki](https://github.com/edo9300/edopro/wiki/) for possibly outdated build instructions and a partial user manual.
+
+## Project Ignis
+
+We are an international, open-source collaboration staffed entirely by volunteers and we welcome support on our projects.
+Reach out to us on Discord to learn how to contribute and join!
+
+_Ignis_ is the fire and light of knowledge passed from the gods to humanity in Greco-Roman mythology.
+This represents our vision for all of our projects and work and recognizes the contribution of every individual on the team.
+
+[Debut announcement on Reddit](https://www.reddit.com/r/yugioh/comments/fvdn7v/presenting_project_ignis_edopro_the_opensource/).
+
+## License
+
+EDOPro is free/libre and open source software licensed under the GNU Affero General Public License, version 3 or later.
+Dependencies and resources may be provided under different licenses.
+Please see [LICENSE](https://github.com/edo9300/edopro/blob/master/LICENSE) and [COPYING](https://github.com/edo9300/edopro/blob/master/COPYING) for more details.
+
+Yu-Gi-Oh! is a trademark of Shueisha and Konami. This project is not affiliated with or endorsed by Shueisha or Konami.
+
+
+=== https://raw.githubusercontent.com/ForgottenArbiter/CommunicationMod/master/README.md ===
+# CommunicationMod
+Slay the Spire mod that provides a protocol for allowing another process to control the game
+
+## Requirements
+
+- Slay the Spire
+- ModTheSpire (https://github.com/kiooeht/ModTheSpire)
+- BaseMod (https://github.com/daviscook477/BaseMod)
+
+## Setup
+
+1. Copy CommunicationMod.jar to your ModTheSpire mods directory
+2. Run ModTheSpire with CommunicationMod enabled
+3. Edit your newly-created SpireConfig file with the command you want to use with CommunicationMod (see https://github.com/kiooeht/ModTheSpire/wiki/SpireConfig for the location of your config file). Your config file should look something like this (note that certain special characters must be escaped):
+```
+#Sat Apr 20 02:49:10 CDT 2019
+command=python C\:\\Path\\To\\Script\\main.py
+```
+
+## What does this mod do?
+
+CommunicationMod launches a specified process and communicates with this process through stdin and stdout, with the following protocol:
+
+(Note: all messages are assumed to be ended by a new line '\n')
+
+- After starting the external process, CommunicationMod waits for the process to send "ready" on stdout. If "ready" is not received before a specified timeout, the external process will be terminated.
+- Whenever the state of the game is determined to be stable (no longer changing without external input), CommunicationMod sends a message containing the JSON representation of the current game state to the external process's stdin. For example:
+```
+{"available_commands":["play","end","key","click","wait","state"],"ready_for_command":true,"in_game":true,"game_state":{"screen_type":"NONE","screen_state":{},"seed":-3047511808784702860,"combat_state":{"draw_pile":[{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"0560233c-41e8-4620-a474-d0ed627354bd","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"f8adc2a6-4d1c-4524-9044-9e2bfacf4256","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"c6594538-debc-4085-81be-3b20a5d44062","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":false,"cost":-2,"name":"Ascender\u0027s Bane","id":"AscendersBane","type":"CURSE","ethereal":true,"uuid":"da41cd4b-6eda-4020-a031-ad870a52b0e1","upgrades":0,"rarity":"SPECIAL","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"b54d5d98-f074-4f71-b705-f071f1d44fff","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"9c10951d-0c08-46bd-bc5f-be2e1b9d53f2","upgrades":0,"rarity":"BASIC","has_target":false}],"discard_pile":[],"exhaust_pile":[],"cards_discarded_this_turn":0,"times_damaged":0,"monsters":[{"is_gone":false,"move_hits":1,"move_base_damage":12,"half_dead":false,"move_adjusted_damage":-1,"max_hp":46,"intent":"DEBUG","move_id":1,"name":"Jaw Worm","current_hp":1,"block":0,"id":"JawWorm","powers":[]}],"turn":1,"limbo":[],"hand":[{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"7b54caef-9c56-4134-82a2-be8f1d5c435f","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"5f9bba1a-4c54-4be7-b387-1992937c5717","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"0dbea551-c9ae-4228-8821-74e2ffd04889","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"612c16f7-f8f7-4253-88bb-ab4813d34b69","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":2,"name":"Bash","id":"Bash","type":"ATTACK","ethereal":false,"uuid":"41e3754b-d2e3-40b4-a83b-f165b1943ec3","upgrades":0,"rarity":"BASIC","has_target":true}],"player":{"orbs":[],"current_hp":68,"block":0,"max_hp":75,"powers":[],"energy":3}},"deck":[{"exhausts":false,"is_playable":false,"cost":-2,"name":"Ascender\u0027s Bane","id":"AscendersBane","type":"CURSE","ethereal":true,"uuid":"da41cd4b-6eda-4020-a031-ad870a52b0e1","upgrades":0,"rarity":"SPECIAL","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"7b54caef-9c56-4134-82a2-be8f1d5c435f","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"c6594538-debc-4085-81be-3b20a5d44062","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"5f9bba1a-4c54-4be7-b387-1992937c5717","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"0560233c-41e8-4620-a474-d0ed627354bd","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Strike","id":"Strike_R","type":"ATTACK","ethereal":false,"uuid":"b54d5d98-f074-4f71-b705-f071f1d44fff","upgrades":0,"rarity":"BASIC","has_target":true},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"9c10951d-0c08-46bd-bc5f-be2e1b9d53f2","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"0dbea551-c9ae-4228-8821-74e2ffd04889","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"612c16f7-f8f7-4253-88bb-ab4813d34b69","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":1,"name":"Defend","id":"Defend_R","type":"SKILL","ethereal":false,"uuid":"f8adc2a6-4d1c-4524-9044-9e2bfacf4256","upgrades":0,"rarity":"BASIC","has_target":false},{"exhausts":false,"is_playable":true,"cost":2,"name":"Bash","id":"Bash","type":"ATTACK","ethereal":false,"uuid":"41e3754b-d2e3-40b4-a83b-f165b1943ec3","upgrades":0,"rarity":"BASIC","has_target":true}],"relics":[{"name":"Burning Blood","id":"Burning Blood","counter":-1},{"name":"Neow\u0027s Lament","id":"NeowsBlessing","counter":2}],"max_hp":75,"act_boss":"The Guardian","gold":99,"action_phase":"WAITING_ON_USER","act":1,"screen_name":"NONE","room_phase":"COMBAT","is_screen_up":false,"potions":[{"requires_target":false,"can_use":false,"can_discard":false,"name":"Potion Slot","id":"Potion Slot"},{"requires_target":false,"can_use":false,"can_discard":false,"name":"Potion Slot","id":"Potion Slot"}],"current_hp":68,"floor":1,"ascension_level":20,"class":"IRONCLAD","map":[{"symbol":"M","children":[{"x":0,"y":1}],"x":1,"y":0,"parents":[]},{"symbol":"M","children":[{"x":2,"y":1}],"x":2,"y":0,"parents":[]},{"symbol":"M","children":[{"x":4,"y":1}],"x":3,"y":0,"parents":[]},{"symbol":"M","children":[{"x":5,"y":1}],"x":6,"y":0,"parents":[]},{"symbol":"M","children":[{"x":1,"y":2}],"x":0,"y":1,"parents":[]},{"symbol":"M","children":[{"x":1,"y":2},{"x":2,"y":2}],"x":2,"y":1,"parents":[]},{"symbol":"?","children":[{"x":3,"y":2}],"x":4,"y":1,"parents":[]},{"symbol":"$","children":[{"x":4,"y":2}],"x":5,"y":1,"parents":[]},{"symbol":"M","children":[{"x":1,"y":3},{"x":2,"y":3}],"x":1,"y":2,"parents":[]},{"symbol":"?","children":[{"x":2,"y":3},{"x":3,"y":3}],"x":2,"y":2,"parents":[]},{"symbol":"M","children":[{"x":3,"y":3}],"x":3,"y":2,"parents":[]},{"symbol":"M","children":[{"x":5,"y":3}],"x":4,"y":2,"parents":[]},{"symbol":"?","children":[{"x":1,"y":4}],"x":1,"y":3,"parents":[]},{"symbol":"M","children":[{"x":3,"y":4}],"x":2,"y":3,"parents":[]},{"symbol":"?","children":[{"x":3,"y":4}],"x":3,"y":3,"parents":[]},{"symbol":"M","children":[{"x":4,"y":4}],"x":5,"y":3,"parents":[]},{"symbol":"M","children":[{"x":1,"y":5}],"x":1,"y":4,"parents":[]},{"symbol":"?","children":[{"x":2,"y":5},{"x":3,"y":5}],"x":3,"y":4,"parents":[]},{"symbol":"M","children":[{"x":3,"y":5}],"x":4,"y":4,"parents":[]},{"symbol":"E","children":[{"x":1,"y":6}],"x":1,"y":5,"parents":[]},{"symbol":"E","children":[{"x":1,"y":6},{"x":2,"y":6}],"x":2,"y":5,"parents":[]},{"symbol":"R","children":[{"x":2,"y":6},{"x":3,"y":6}],"x":3,"y":5,"parents":[]},{"symbol":"R","children":[{"x":2,"y":7}],"x":1,"y":6,"parents":[]},{"symbol":"M","children":[{"x":2,"y":7},{"x":3,"y":7}],"x":2,"y":6,"parents":[]},{"symbol":"E","children":[{"x":3,"y":7}],"x":3,"y":6,"parents":[]},{"symbol":"E","children":[{"x":1,"y":8},{"x":2,"y":8},{"x":3,"y":8}],"x":2,"y":7,"parents":[]},{"symbol":"R","children":[{"x":3,"y":8}],"x":3,"y":7,"parents":[]},{"symbol":"T","children":[{"x":0,"y":9}],"x":1,"y":8,"parents":[]},{"symbol":"T","children":[{"x":1,"y":9}],"x":2,"y":8,"parents":[]},{"symbol":"T","children":[{"x":2,"y":9},{"x":3,"y":9},{"x":4,"y":9}],"x":3,"y":8,"parents":[]},{"symbol":"R","children":[{"x":1,"y":10}],"x":0,"y":9,"parents":[]},{"symbol":"M","children":[{"x":1,"y":10}],"x":1,"y":9,"parents":[]},{"symbol":"M","children":[{"x":1,"y":10},{"x":3,"y":10}],"x":2,"y":9,"parents":[]},{"symbol":"R","children":[{"x":4,"y":10}],"x":3,"y":9,"parents":[]},{"symbol":"?","children":[{"x":4,"y":10}],"x":4,"y":9,"parents":[]},{"symbol":"?","children":[{"x":0,"y":11},{"x":1,"y":11}],"x":1,"y":10,"parents":[]},{"symbol":"R","children":[{"x":3,"y":11}],"x":3,"y":10,"parents":[]},{"symbol":"E","children":[{"x":3,"y":11},{"x":4,"y":11}],"x":4,"y":10,"parents":[]},{"symbol":"$","children":[{"x":0,"y":12}],"x":0,"y":11,"parents":[]},{"symbol":"M","children":[{"x":1,"y":12}],"x":1,"y":11,"parents":[]},{"symbol":"M","children":[{"x":3,"y":12},{"x":4,"y":12}],"x":3,"y":11,"parents":[]},{"symbol":"?","children":[{"x":4,"y":12}],"x":4,"y":11,"parents":[]},{"symbol":"E","children":[{"x":0,"y":13}],"x":0,"y":12,"parents":[]},{"symbol":"M","children":[{"x":1,"y":13}],"x":1,"y":12,"parents":[]},{"symbol":"?","children":[{"x":3,"y":13}],"x":3,"y":12,"parents":[]},{"symbol":"M","children":[{"x":3,"y":13}],"x":4,"y":12,"parents":[]},{"symbol":"?","children":[{"x":1,"y":14}],"x":0,"y":13,"parents":[]},{"symbol":"M","children":[{"x":1,"y":14}],"x":1,"y":13,"parents":[]},{"symbol":"?","children":[{"x":2,"y":14},{"x":3,"y":14}],"x":3,"y":13,"parents":[]},{"symbol":"R","children":[{"x":3,"y":16}],"x":1,"y":14,"parents":[]},{"symbol":"R","children":[{"x":3,"y":16}],"x":2,"y":14,"parents":[]},{"symbol":"R","children":[{"x":3,"y":16}],"x":3,"y":14,"parents":[]}],"room_type":"MonsterRoom"}}
+```
+- CommunicationMod then waits for a message back from the external process, containing a command to be executed. Possible commands are:
+  - START PlayerClass [AscensionLevel] [Seed]
+    - Starts a new game with the selected class, on the selected Ascension level (default 0), with the selected seed (random seed if omitted).
+    - Seeds are alphanumeric, as displayed in game.
+    - This and all commands are case insensitive.
+    - Only currently available in the main menu of the game.
+  - POTION Use|Discard PotionSlot [TargetIndex]
+    - Uses or discards the potion in the selected slot, on the selected target, if necessary.
+    - TargetIndex is the index of the target monster in the game's monster array (0-indexed).
+    - Only available when potions can be used or discarded.
+  - PLAY CardIndex [TargetIndex]
+    - Plays the selected card in your hand, with the selected target, if necessary.
+    - Only available when cards can be played in combat.
+    - Currently, CardIndex is 1-indexed to match up with the card numbers in game.
+  - END
+    - Ends your turn.
+    - Only available when the end turn button is available, in combat.
+  - CHOOSE ChoiceIndex|ChoiceName
+    - Makes a choice relevant to the current screen.
+    - A list of names for each choice is provided in the game state. If provided with a name, the first choice index with the matching name is selected.
+    - Generally, available at any point when PLAY is not available.
+  - PROCEED
+    - Clicks the button on the right side of the screen, generally causing the game to proceed to a new screen.
+    - Equivalent to CONFIRM.
+    - Available whenever the proceed or confirm button is present on the right side of the screen.
+  - RETURN
+    - Clicks the button on the left side of the screen, generally causing you to return to the previous screen.
+    - Equivalent to SKIP, CANCEL, and LEAVE.
+    - Available whenever the return, cancel, or leave buttons are present on the left side of the screen. Also used for the skip button on card reward screens.
+  - KEY Keyname [Timeout]
+    - Presses the key corresponding to Keyname
+    - Possible keynames are: Confirm, Cancel, Map, Deck, Draw_Pile, Discard_Pile, Exhaust_Pile, End_Turn, Up, Down, Left, Right, Drop_Card, Card_1, Card_2, ..., Card_10
+    - The actual keys pressed depend on the corresponding mapping in the game options
+    - If no state change is detected after [Timeout] frames (default 100), Communication Mod will then transmit the new state and accept input from the game. This is useful for keypresses that open menus or pick up cards, without affecting the state as detected by Communication Mod.
+    - Only available in a run (not the main menus)
+  - CLICK Left|Right X Y
+    - Clicks the selected mouse button at the specified (X,Y) coordinates
+    - (0,0) is the upper left corner of the screen, and (1920,1080) is the lower right corner, regardless of game resolution
+    - Will move your cursor to the specified coordindates
+    - Timeout works the same as the CLICK command
+    - Only available in a run
+  - WAIT Timeout
+    - Waits for the specified number of frames or until a state change is detected, then transmits the current game state (same behavior as Timeout for the CLICK and KEY commands, but no input is sent to the game)
+    - Possibly useful for KEY and CLICK commands which are expected to produce multiple state changes as detected by Communication Mod
+    - Only available in a run
+  - STATE
+    - Causes CommunicationMod to immediately send a JSON representation of the current state to the external process, whether or not the game state is stable.
+    - Always available.
+- Upon receiving a command, CommunicationMod will execute it, and reply again with a JSON representation of the state of the game, when it is next stable.
+- If there was an error in executing the command, CommunicationMod will instead send an error message of the form:
+```
+{"error":"Error message","ready_for_command":True}
+```
+
+## Known issues and limitations, to be hopefully fixed soon:
+- The full state of the Match and Keep event is not transmitted.
+- There is no feedback or state change if you attempt to take or buy a potion while your potion inventory is full. Beware!
+- Unselecting cards in hand select screens is not supported.
+- Several actions do not currently register a state change if they are performed manually in game.
+- You must manually edit the mod's config file to set the command for your external process.
+- Communication Mod has not been tested without fast mode on.
+
+## What are some of the potential applications of this mod?
+
+- Twitch plays Slay the Spire
+- Slay the Spire AIs
+- Streamers can display detailed information about the current run while in game
+
+## Frequently asked questions
+
+- How do I debug my process?
+
+Communication Mod captures both the stderr and stdout of the external process. All messages sent to stdout are included in the game log, which is displayed in a window by ModTheSpire. All messages sent to the process by Communication Mod are also visible in the game log. The stdout of the external process is logged in a file named communication_mod_errors.log. Instead of printing debug information to stdout, try using a log file.
+
+- When I start the external process, the game hangs for 10 seconds, and then the external process quits. What do I do?
+
+Communication Mod is probably not receiving a ready signal. Make sure your process sends "Ready\n" to stdout when it is ready to receive commands from Communication Mod. If this is not the problem, there is likely some issue with the command used to start the process. Check communication_mod_errors.log to help debug these kinds of issues.
+
+- Can I get some example code to help get started with the Communication Mod protocol?
+
+Try looking at [spirecomm](https://github.com/ForgottenArbiter/spirecomm), the Python package I wrote to interface with Communication Mod.
+
+=== 抓取索引（cards-deck，2026-10-24）===
+
+说明：本会话 web_search/web_fetch 返回 HTTP 401 不可用；以下全部用 pwsh + Invoke-WebRequest
+（与 _research/fetch.ps1 同源）抓取。成功内容已按 "=== <url> ===" 分段追加在本文件；
+GitHub 仓库搜索页为服务器渲染 HTML，文件中记录的是搜索结果提取（repo/stars/描述）。
+
+成功（README / 页面正文已存）：
+- https://raw.githubusercontent.com/hotwords123/StS2.RandomForeseer/main/README.md
+- https://raw.githubusercontent.com/tfriedel/spire-mentor/main/README.md
+- https://raw.githubusercontent.com/zhiyue/sts2-rl-agent/main/README.md
+- https://raw.githubusercontent.com/dbyrne/ClawTheSpire/main/README.md
+- https://raw.githubusercontent.com/xaved88/bottled_ai/main/README.md
+- https://raw.githubusercontent.com/AttemorySystem/spire-agent/main/README.md
+- https://raw.githubusercontent.com/gamerpuppy/sts_lightspeed/master/README.md
+- https://raw.githubusercontent.com/ForgottenArbiter/spirecomm/master/README.md
+- https://raw.githubusercontent.com/ForgottenArbiter/CommunicationMod/master/README.md
+- https://raw.githubusercontent.com/destire-mio/sts-ironclad-agent/main/README.md
+- https://raw.githubusercontent.com/coder/balatrobot/main/README.md
+- https://raw.githubusercontent.com/kwai/DouZero/main/README.md
+- https://raw.githubusercontent.com/datamllab/rlcard/master/README.md
+- https://raw.githubusercontent.com/Equim-chan/Mortal/main/README.md
+- https://raw.githubusercontent.com/Cryolite/kanachan/master/README.md
+- https://raw.githubusercontent.com/Card-Forge/forge/master/README.md
+- https://raw.githubusercontent.com/HearthSim/SabberStone/master/README.md
+- https://raw.githubusercontent.com/peter1591/hearthstone-ai/master/README.md
+- https://raw.githubusercontent.com/edo9300/edopro/master/README.md
+- https://raw.githubusercontent.com/IceYGO/windbot/master/README.md
+- https://raw.githubusercontent.com/tommy85/MirrorForce/main/README.md
+- https://github.com/magefree/mage （仓库首页 HTML，仅简介与 star 2.4k）
+- GitHub 搜索页：slay+the+spire+ai / slay+the+spire+reinforcement+learning /
+  slay+the+spire+simulator / balatro+ai / balatro+bot / monster+train+ai /
+  xmage / hearthstone+ai / ygopro+windbot / yu-gi-oh+ai （type=repositories）
+
+失败 / 未采用：
+- https://raw.githubusercontent.com/magefree/mage/main/README.md -> 404
+- https://raw.githubusercontent.com/magefree/mage/master/README.md -> 404
+- api.github.com：已知限流 403，未使用。
+- web_search / web_fetch 工具：HTTP 401，未使用。
+=== https://github.com/magefree/mage ===
+[HTML page excerpt, README unavailable at raw.githubusercontent.com/main|master]
+XMage - Magic Another Game Engine. Contribute to magefree/mage development by creating an account on GitHub.
+star marker: 
+

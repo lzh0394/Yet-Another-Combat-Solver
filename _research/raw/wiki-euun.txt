@@ -1,0 +1,35 @@
+NNUE, which stands for efficiently updatable neural network (often stylized as ƎUИИ) is a neural network made to replace the evaluation of Shogi, chess and other board games using alpha-beta searchers running on a CPU.
+
+
+== History ==
+NNUE was invented by Yu Nasu in 2018, and was first used in the computer shogi engine YaneuraOu. It is a Japanese wordplay on Nue (鵺), a mythical Japanese chimera. Following its success in Shogi, NNUE was for the first time ported to the chess engine Stockfish 12, resulting in a major increase in Elo for the engine. Since then, NNUE has been used for almost every other competitive engine.
+The architecture was inspired by Kunihito Hoki's approach in the shogi engine Bonanza, which used piece-square tables indexed by king location (also known as the "Bonanza method"). It was first implemented into YaneuraOu which was developed by Motohiro Isozaki.
+
+
+== Adaptation to computer chess ==
+In early 2020, Japanese programmer Hisayori "Nodchip" Noda added the NNUE evaluation into a development branch of Stockfish (specifically in Stockfish 10) to prove its effectiveness in chess. This prototype, known as "Stockfish NNUE", demonstrated a significant increase in Elo (or playing strength) even though it halved the engine's raw search (nodes per second) because of the higher computational cost of neural inference compared to handcrafted rules.
+Following the success of the Stockfish NNUE prototype in early 2020, many developers realized that handcrafted evaluation could no longer compete with the massive playing strength provided by NNUE. This led the chess engine community to shift towards a neural-network evaluation approach, making NNUE popular among chess engines.
+
+
+== Architecture ==
+
+The NNUE used for the original 2018 computer shogi implementation consists of four weight layers: W1 (16-bit integers) and W2, W3 and W4  (8-bit). It has four fully-connected layers, ReLU activation functions, and outputs a single number, which is the score of the board.
+NNUE starts with how it looks at the board. Instead of passing a simple 8×8 grid, it uses a massive, sparse input layer, often called the HalfKP feature set. This means the network tracks the position of every piece relative to the king's location. Because only one piece moves at a time, the engine doesn't need to recalculate the entire network from the start for every move, it simply "updates" the changed neurons. This is possible because the first layer is merely linear, without an activation function. The first layer is massive, often containing tens of thousands of input features, but it stays fast because it is sparse. Since there can only be 32 pieces on the board at a time, almost all the inputs will be zeroes, so it is inexpensive to evaluate.
+
+
+== Performance ==
+
+NNUE is a neural-network based evaluation function used inside a chess engine's search. They use incremental computation and single instruction multiple data (SIMD) techniques along with appropriate intrinsic instructions. In contrast, deep neural network-based chess engines such as Leela Chess Zero or AlphaZero require GPU-based (TPU-based in AlphaZero's case) inference.
+
+
+== See also ==
+Elmo (shogi engine)
+List of chess software
+
+
+== References ==
+
+
+== External links ==
+NNUE on the Chess Programming Wiki.
+NNUE evaluation functions for computer shogi on github.com

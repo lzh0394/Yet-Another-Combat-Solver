@@ -1,0 +1,50 @@
+The Universal Chess Interface (UCI) is an open communication protocol designed by Rudolf Huber and Stefan Meyer-Kahlen that enables chess engines to communicate with user interfaces.
+
+
+== History ==
+The UCI protocol was released in November 2000. Designed by Rudolf Huber and Stefan Meyer-Kahlen, the author of Shredder. UCI rivals the older communication protocol XBoard/WinBoard.
+In 2002, the chess software company Chessbase that markets Fritz, began to support UCI.
+
+
+== Design ==
+By design, UCI assigns some tasks to the user interface (i.e., presentation layer) which have traditionally been handled by the engine itself.
+Stefan-Meyer Kahlen's UCI protocol in Shredder uses a variation of long algebraic notation for moves. A "nullmove" from an engine to a GUI should be sent as 0000.
+
+
+=== Examples ===
+e2e4 (white pawn push)
+e7e5 (black pawn push)
+e1g1 (white short castling)
+e7e8q (for promotion)
+In the case of Chess 960, castling moves are represented by the King capturing their own corresponding rook.
+
+
+== Commands ==
+There are many commands used to communicate with an engine.
+
+Additional commands can be implemented per engine, the below commands are implemented by the Stockfish chess engine.
+
+
+== Features ==
+The uci_limitstrength parameter tells engines with this feature to play at a lower level.  The uci_elo parameter specifies the Elo rating at which the engine will aim to play.  Engines that have implemented uci_elo include Delfi, Fritz, Hiarcs, Houdini, Junior, Rybka, Shredder, Sjeng and Stockfish.
+
+
+== Variants ==
+The UCI has been modified to play some other games, and chess variants. Some of these are:
+
+Universal Shogi Interface (USI), a dialect for shogi;
+Universal Chinese Chess Interface (UCCI), a dialect for xiangqi.
+Each of these protocols may also define variants of Portable Game Notation (PGN) and Forsyth–Edwards Notation (FEN).
+
+
+== See also ==
+Chess Engine Communication Protocol (XBoard protocol)
+Shredder
+XBoard
+
+
+== References ==
+
+
+== External links ==
+List of UCI Engines (continuously updated)
