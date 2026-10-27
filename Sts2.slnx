@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Sts2.Cli/Sts2.Cli.csproj" />
+    <Project Path="src/Sts2.Contracts/Sts2.Contracts.csproj" />
+    <Project Path="src/Sts2.Engine/Sts2.Engine.csproj" />
+    <Project Path="src/Sts2.View/Sts2.View.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Sts2.Engine.Tests/Sts2.Engine.Tests.csproj" />
+  </Folder>
+</Solution>

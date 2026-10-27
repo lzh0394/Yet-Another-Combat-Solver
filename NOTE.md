@@ -80,3 +80,17 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 - **快照**：每行动一行 JSONL，含 `action`、回合/阶段、玩家（HP/格挡/能量/星/能力/遗物/药水）、敌人（HP/格挡/能力/意图）、五个牌堆（手牌带 `can_play`）、七条 RNG 流的 counter 与前四个状态字。RNG counter 是判断随机消耗顺序是否一致的关键。
 - 录制场景：`harness/scenarios/ironclad_nibbits.json`，`tests/vectors/real/ironclad_nibbits.jsonl`（10 行，含击杀收尾）。场景动作的 `slot` 指"动作发生时手牌下标"，比按 id 找牌稳定。
 - 实机行为样本：NibbitsWeak 的 Nibbit 起手 43/43（随机 HP），首招 `Attack 12`；回合 2 变 `Attack 6 + Defend`；Defend 给 5 格挡；Bash 先结算伤害、后上易伤（本体不吃自己的易伤），后续 Strike 6×1.5=9；易伤叠到 3 层时仍只放大 1.5 倍。
+
+## 9. 引擎纵切实现记录（M3）
+
+- **命名空间**：`Data`（读 `data/sts2/*.json`）、`Random`（XXH64 + xoshiro256\*\*）、`Model`（`CardInstance`/`PlayerState`/`MonsterInstance`，统一实现 `ICombatant`）、`Combat`（状态机）、`Rules`（伤害/格挡）、`Hooks`（`IDamageModifier` 两遍结算）、`Effects`（本切片的三张牌）、`Diagnostics`（L3 不变量）。`Contracts` 是唯一出口，`View` 只读 `Contracts`。
+- **出牌**：校验手牌与能量 → 扣能量（X 费取当前能量）→ 手牌入 Play 堆 → `Resolve` → 进弃牌堆或消耗堆；若本次出牌导致战斗结束，卡牌留在 Play 堆（真机 `EndCombatInternal` 之后才清牌堆），最后一行快照因此能看到它。
+- **伤害**：`(基础 + 力量) × 易伤1.5 × 虚弱0.75`，再 `min(..., 999999999)`、`max(0, ...)`；格挡吸收 `int min(block, (int)amount)`，剩余部分 `(int)Math.Clamp(...)` 截断。因此 7×1.5=10.5 打 10 格挡是"完全格挡、0 点掉血"。
+- **回合**：玩家回合开始才清格挡（第 1 回合豁免）、回能量、抽 5；结束回合先弃手牌，再逐个敌人执行意图并推进状态机，然后才在敌方侧结束递减易伤/虚弱，最后进入下一个玩家回合并重掷意图。
+- **洗牌**：初始洗牌用 `UnstableShuffle`（降序 Fisher-Yates，每次 `NextInt(num+1)`）；牌堆耗尽时"排序 + UnstableShuffle"，排序键是 `CardModel.CompareTo`（先 id 序、再升级等级）。这些都走 run 级 `shuffle` 流，counter 不按战斗重置。
+- **验证命令**：
+  - `dotnet run --project tests/Sts2.Engine.Tests`（8 项：伤害截断、格挡、RNG 状态、整场对拍、能量校验、敌方攻击）。
+  - `dotnet run --project src/Sts2.Cli -- run --scenario harness/scenarios/ironclad_nibbits.json --pack data/sts2 --out artifacts/engine/x.jsonl`
+  - `python tools/compare_snapshots.py --a tests/vectors/real/ironclad_nibbits.jsonl --b artifacts/engine/x.jsonl` → `ok: 10 snapshots identical`。
+  - `dotnet run --project src/Sts2.Cli -- tui --scenario harness/scenarios/ironclad_nibbits.json`：`play <slot> [target]` / `end` / `map` / `quit` 单步。
+- **对拍细节**：快照字段名与真机 mod 完全一致；`action` 里只有非空字段输出（`start` 无 `index`），卡牌里的 `enchantment`/`affliction` 即使是 null 也保留；RNG 的七条流平铺在 `rng` 对象上，`monsters` 数组在旁。数值比较用 1e-9 容差、结构逐键比较。

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <RootNamespace>Sts2.Engine.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sts2.Contracts\Sts2.Contracts.csproj" />
+    <ProjectReference Include="..\..\src\Sts2.Engine\Sts2.Engine.csproj" />
+  </ItemGroup>
+
+</Project>
