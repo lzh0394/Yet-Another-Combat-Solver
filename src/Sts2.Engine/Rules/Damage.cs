@@ -58,6 +58,13 @@ public static class Damage
             burrower.CurrentState = "BITE_MOVE";
             burrower.SkipNextTurn = true;
         }
+        // DieForYouPower: a powered attack's unblocked damage is dealt to Osty instead of the owner.
+        if (loss > 0 && target is PlayerState owner && owner.OstyAlive && source is MonsterInstance)
+        {
+            int absorbed = Math.Min(owner.OstyHp, loss);
+            owner.OstyHp -= absorbed;
+            loss -= absorbed;
+        }
         target.Hp = Math.Max(0, target.Hp - loss);
 
         // PaperCutsPower.AfterDamageGiven: the scroll's powered attack also cuts the player's max HP.

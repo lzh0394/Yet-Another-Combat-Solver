@@ -289,8 +289,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.AGGRESSION": {
     "id": "CARD.AGGRESSION",
@@ -1699,8 +1706,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.BODY_SLAM": {
     "id": "CARD.BODY_SLAM",
@@ -3077,7 +3091,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.CLOAK_AND_DAGGER": {
     "id": "CARD.CLOAK_AND_DAGGER",
@@ -5159,7 +5180,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.DISCOVERY": {
     "id": "CARD.DISCOVERY",
@@ -10044,8 +10072,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.LEG_SWEEP": {
     "id": "CARD.LEG_SWEEP",
@@ -11387,6 +11422,12 @@
     "multimodal": false,
     "effect_complete": true,
     "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      },
       {
         "op": "power",
         "target": "self",
@@ -13280,6 +13321,12 @@
     "effect_complete": true,
     "effect": [
       {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      },
+      {
         "op": "block",
         "target": "self",
         "amount": {
@@ -13712,8 +13759,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      }
+    ]
   },
   "CARD.REAP": {
     "id": "CARD.REAP",
@@ -16395,6 +16449,12 @@
     "multimodal": false,
     "effect_complete": true,
     "effect": [
+      {
+        "op": "summon",
+        "amount": {
+          "var": "Summon"
+        }
+      },
       {
         "op": "heal",
         "target": "self",

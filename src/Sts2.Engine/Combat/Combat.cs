@@ -143,6 +143,11 @@ public sealed class Combat
         Turn = 1;
         Round = 1;
         DrawCards(5);
+        if (HasRelic("BOUND_PHYLACTERY"))
+        {
+            // BeforeCombatStart: the starter relic summons Osty with 1 HP.
+            SummonOsty(1);
+        }
         if (HasRelic("CRACKED_CORE"))
         {
             // Cracked Core channels a Lightning orb when combat starts.
@@ -268,6 +273,24 @@ public sealed class Combat
             }
         }
         EndTurn(actionIndex);
+    }
+
+    public void SummonOsty(int amount)
+    {
+        if (amount <= 0)
+        {
+            return;
+        }
+        if (Player.OstyAlive)
+        {
+            Player.OstyMaxHp += amount;
+            Player.OstyHp = Math.Min(Player.OstyMaxHp, Player.OstyHp + amount);
+        }
+        else
+        {
+            Player.OstyMaxHp = amount;
+            Player.OstyHp = amount;
+        }
     }
 
     private int OrbCapacity => Player.Id == "DEFECT" ? 3 : 0;
@@ -485,6 +508,11 @@ public sealed class Combat
         Round++;
         Player.Block = 0;
         Player.Energy = Player.MaxEnergy;
+        if (HasRelic("BOUND_PHYLACTERY"))
+        {
+            // AfterEnergyResetLate: the phylactery re-summons Osty at the start of every turn after the first.
+            SummonOsty(1);
+        }
         GrantRampart();
         DrawCards(5);
         foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive))

@@ -1180,6 +1180,8 @@ class Exporter:
                     ops.append(
                         {"op": "block", "target": "self", "amount": self._effect_amount(args[1], owner)}
                     )
+                elif cmd in ("OstyCmd", "SummonCmd") and name == "Summon" and len(args) >= 3:
+                    ops.append({"op": "summon", "amount": amount(args[2])})
                 elif cmd == "CreatureCmd" and name == "Heal" and len(args) >= 2:
                     ops.append(
                         {"op": "heal", "target": "self", "amount": self._effect_amount(args[1], owner)}
@@ -1264,7 +1266,7 @@ class Exporter:
 
         ops: list[dict] = []
         handled: list[tuple[int, int]] = []
-        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd|CardSelectCmd|CardCmd|OrbCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd|CardSelectCmd|CardCmd|OrbCmd|OstyCmd|SummonCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
         for m in pat.finditer(body):
             cmd, name = m.group(1), m.group(2)
             open_pos = m.end() - 1
@@ -1287,6 +1289,8 @@ class Exporter:
                     ops.append(op)
                 elif cmd == "CreatureCmd" and name == "GainBlock" and len(args) >= 2:
                     ops.append({"op": "block", "target": "self", "amount": amount(args[1])})
+                elif cmd in ("OstyCmd", "SummonCmd") and name == "Summon" and len(args) >= 3:
+                    ops.append({"op": "summon", "amount": amount(args[2])})
                 elif cmd == "CreatureCmd" and name == "Heal" and len(args) >= 2:
                     ops.append({"op": "heal", "target": "self", "amount": amount(args[1])})
                 elif cmd == "CardPileCmd" and name in ("AddToCombatAndPreview", "AddToCombat") and len(args) >= 3:

@@ -247,7 +247,7 @@ JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布�
 
 ## 17. 五角色铺开（M5，进行中）
 
-成功标准 2 要求“5 角色 × Overgrowth 弱遭遇，随机动作序列与真机零差异”。当前进度：**Ironclad、Silent、Regent、Defect 起手牌组对 NibbitsWeak 已 0 差异**，只剩 Necrobinder 的 Osty 子系统。
+成功标准 2 要求“5 角色 × Overgrowth 弱遭遇，随机动作序列与真机零差异”。当前进度：**五个角色（Ironclad、Silent、Regent、Defect、Necrobinder）起手牌组对 NibbitsWeak 均已 0 差异**。
 
 - **选择类卡牌的确定性**：真机在无 UI 的 headless 下会卡在 `CardSelectCmd`（例如 Silent 的 `SURVIVOR` 要弃一张牌）。parity mod 在 `[ModInitializer]` 里 `CardSelectCmd.PushSelector(new FirstCardSelector())`，策略是“按列表顺序取前 N 张”；引擎的 `discard`/`exhaust` op 用同一策略（手牌首位）。这是 harness 的约定，不是游戏原生的自动选择。
 - **导出器**：`CardSelectCmd.FromHandForDiscard/FromHandForExhaust` → `{op: discard|exhaust, count: N, pick: "first"}`（N 取自 `CardSelectorPrefs` 的第二参）；紧随其后的 `CardCmd.Discard/Exhaust` 视为已由选择 op 覆盖，不再记 unsupported。结构化卡牌从 239 增至 **242**/596；随后把 `CreatureCmd.TriggerAnim` 等纯表现命令列为可忽略（它们不携带战斗状态），结构化覆盖跳到 **414**/596；补上 `OrbCmd.Channel/EvokeNext` 后为 **425**/596。
@@ -255,7 +255,5 @@ JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布�
 - **星辰资源（Regent）**：`PlayerCmd.GainStars` → `{op: stars}`；`DIVINE_RIGHT` 开局给 3 点；`PlayCard` 校验并扣除 `star_cost`（FALLING_STAR 0 费 2 星）；快照 `player.stars` 直接映射。`regent_nibbits_auto`（PARITY-13，5 行）0 差异。
 - **充能球（Defect）**：`OrbCmd.Channel<T>` → `{op: channel, orb}`、`OrbCmd.EvokeNext(..., dequeue: false)` → `{op: evoke, count, dequeue}`；引擎实现 `PlayerState.Orbs` + 3 球位、`CRACKED_CORE` 开局引导闪电球、引导满位时先激发最前一颗、闪电被动（回合结束 3 点）与激发（8 点）走 `Rng.CombatTargets.NextInt` 选随机敌人、且为 unpowered（不吃力量/易伤）。`defect_nibbits_auto`（PARITY-11，5 行）0 差异。
 - **已通过**：`silent_nibbits_auto`（PARITY-10，9 行，含弃牌选择、Weak、蛇戒起手）、`regent_nibbits_auto`（PARITY-13，5 行，含星辰起手、星辰费用、Falling Star 的易伤+虚弱）。
-- **已知缺口**（轨迹已录，场景在 `harness/scenarios/known_gaps/`）：
-  - Necrobinder：Osty（`BODYGUARD` 召唤、`UNLEASH` 协同）。
-- Necrobinder 的真机轨迹在 `tests/vectors/real/known_gaps/necrobinder_nibbits_auto.jsonl`；Osty 需要 `OstyCmd.Summon`（HP 池）、`FromOsty` 的伤害基数与 Osty 自身受击/死亡，回归时直接对拍。
-- 结构化卡牌 425/596；剩余 171 张主要卡在 `CardSelectCmd` 的其它变体（升级/变形/选牌入手）、`OrbCmd`、`SummonCmd`、`ForgeCmd` 与自定义命令。
+- **Osty（Necrobinder）**：`OstyCmd.Summon(...)` → `{op: summon, amount}`；引擎把 Osty 建模成玩家的 HP 池（`PlayerState.OstyHp/OstyMaxHp`），`BOUND_PHYLACTERY` 开局召唤 1 HP、之后每个玩家回合开始再召唤 1（`AfterEnergyResetLate`），存活时召唤改为“上限 +N 且治疗 N”。`DieForYouPower` 的语义是**溢出**而非全免：敌方 powered 攻击的未格挡伤害先扣 Osty HP，Osty 死后剩余部分才落到玩家（真机首回合 12 伤害 → Osty 6 点全吃、玩家掉 6；实测确认）。`UNLEASH`/`PROTECTOR`/`SQUEEZE` 的 `CalculatedDamageVar` 按 `base + ExtraDamage × multiplier` 计算（Osty 当前 HP / Osty 上限 / 其它 OstyAttack 卡数），Osty 不在场时整张卡不结算。`necrobinder_nibbits_auto`（PARITY-12，6 行）0 差异。
+- 结构化卡牌 **429**/596；剩余 167 张主要卡在 `CardSelectCmd` 的其它变体（升级/变形/选牌入手）、`OrbCmd` 的其它球、`ForgeCmd` 与自定义命令。

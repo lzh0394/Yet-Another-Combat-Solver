@@ -50,6 +50,9 @@ public sealed class PlayerState : ICombatant
     public int MaxEnergy { get; set; }
     public int Stars { get; set; }
     public List<string> Orbs { get; } = new();
+    public int OstyHp { get; set; }
+    public int OstyMaxHp { get; set; }
+    public bool OstyAlive => OstyHp > 0;
     public List<PowerInstance> Powers { get; } = new();
     public List<RelicInstance> Relics { get; } = new();
     public List<string?> Potions { get; } = new() { null, null, null };

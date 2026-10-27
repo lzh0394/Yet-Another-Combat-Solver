@@ -12,8 +12,16 @@ namespace Sts2.Engine.Effects;
 /// </summary>
 public static class CardEffects
 {
+    private static readonly HashSet<string> OstyAttackCards = new(StringComparer.Ordinal) { "UNLEASH", "PROTECTOR", "SQUEEZE" };
+
     public static void Resolve(Combat.Combat combat, CardInstance card, MonsterInstance? target)
     {
+        if (OstyAttackCards.Contains(card.Entry) && !combat.Player.OstyAlive)
+        {
+            // Osty.CheckMissingWithAnim: without Osty these cards do nothing at all.
+            return;
+        }
+
         if (card.Def.EffectComplete)
         {
             foreach (EffectDef effect in card.Def.Effect)
@@ -32,8 +40,8 @@ public static class CardEffects
         {
             case "damage":
             {
-                int amount = Amount(card, effect.Amount);
-                int hits = effect.Hits is null ? 1 : Amount(card, effect.Hits);
+                int amount = Amount(combat, card, effect.Amount);
+                int hits = effect.Hits is null ? 1 : Amount(combat, card, effect.Hits);
                 foreach (MonsterInstance monster in DamageTargets(combat, card, effect, target))
                 {
                     for (int i = 0; i < hits && monster.IsAlive; i++)
@@ -45,17 +53,17 @@ public static class CardEffects
             }
 
             case "block":
-                Damage.GainBlock(combat.Player, Amount(card, effect.Amount));
+                Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount));
                 break;
 
             case "heal":
-                combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(card, effect.Amount));
+                combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(combat, card, effect.Amount));
                 break;
 
             case "power":
             {
                 string power = effect.Power ?? throw new CombatException($"{card.Entry}: power op without id");
-                int amount = Amount(card, effect.Amount);
+                int amount = Amount(combat, card, effect.Amount);
                 if (effect.Target == "self")
                 {
                     combat.Player.AddPower(power, amount);
@@ -76,13 +84,13 @@ public static class CardEffects
             }
 
             case "draw":
-                combat.DrawCards(Amount(card, effect.Amount));
+                combat.DrawCards(Amount(combat, card, effect.Amount));
                 break;
 
             case "discard":
             case "exhaust":
             {
-                int count = effect.Count is null ? 1 : Amount(card, effect.Count);
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
                 bool exhaust = effect.Op == "exhaust";
                 for (int i = 0; i < count && combat.Player.Hand.Count > 0; i++)
                 {
@@ -108,7 +116,7 @@ public static class CardEffects
 
             case "evoke":
             {
-                int count = effect.Count is null ? 1 : Amount(card, effect.Count);
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
                 bool dequeue = effect.Dequeue ?? true;
                 for (int i = 0; i < count; i++)
                 {
@@ -117,12 +125,16 @@ public static class CardEffects
                 break;
             }
 
+            case "summon":
+                combat.SummonOsty(Amount(combat, card, effect.Amount));
+                break;
+
             case "stars":
-                combat.Player.Stars += Amount(card, effect.Amount);
+                combat.Player.Stars += Amount(combat, card, effect.Amount);
                 break;
 
             case "energy":
-                combat.Player.Energy += Amount(card, effect.Amount);
+                combat.Player.Energy += Amount(combat, card, effect.Amount);
                 break;
 
             default:
@@ -145,7 +157,28 @@ public static class CardEffects
         return new[] { single };
     }
 
-    private static int Amount(CardInstance card, System.Text.Json.JsonElement? element)
+    /// <summary>
+    /// CalculatedDamageVar with FromOsty(): base + ExtraDamage * multiplier. The multiplier for the three
+    /// Osty-attack cards is Osty's current HP (Unleash), Osty's max HP (Protector) or the number of other
+    /// Osty-attack cards in combat (Squeeze).
+    /// </summary>
+    private static int CalculatedDamage(Combat.Combat combat, CardInstance card)
+    {
+        int baseValue = (int)card.Var("CalculationBase");
+        int extra = (int)card.Var("ExtraDamage");
+        return card.Entry switch
+        {
+            "UNLEASH" => baseValue + extra * combat.Player.OstyHp,
+            "PROTECTOR" => baseValue + extra * combat.Player.OstyMaxHp,
+            "SQUEEZE" => baseValue + extra * (
+                combat.Player.Hand.Concat(combat.Player.DrawPile)
+                    .Concat(combat.Player.DiscardPile).Concat(combat.Player.ExhaustPile)
+                    .Count(c => !ReferenceEquals(c, card) && OstyAttackCards.Contains(c.Entry))),
+            _ => throw new CombatException($"{card.Entry}: calculated damage not modeled"),
+        };
+    }
+
+    private static int Amount(Combat.Combat combat, CardInstance card, System.Text.Json.JsonElement? element)
     {
         if (element is null)
         {
@@ -160,7 +193,12 @@ public static class CardEffects
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("var", out System.Text.Json.JsonElement varName))
         {
-            return (int)card.Var(varName.GetString() ?? "");
+            string name = varName.GetString() ?? "";
+            if (name == "CalculatedDamage")
+            {
+                return CalculatedDamage(combat, card);
+            }
+            return (int)card.Var(name);
         }
         throw new CombatException($"{card.Entry}: unresolved effect amount {value}");
     }
