@@ -247,14 +247,15 @@ JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布�
 
 ## 17. 五角色铺开（M5，进行中）
 
-成功标准 2 要求“5 角色 × Overgrowth 弱遭遇，随机动作序列与真机零差异”。当前进度：**Ironclad、Silent 起手牌组对 NibbitsWeak 已 0 差异**，其余三角色差在各自的专属子系统。
+成功标准 2 要求“5 角色 × Overgrowth 弱遭遇，随机动作序列与真机零差异”。当前进度：**Ironclad、Silent、Regent 起手牌组对 NibbitsWeak 已 0 差异**，Defect 与 Necrobinder 差在专属子系统。
 
 - **选择类卡牌的确定性**：真机在无 UI 的 headless 下会卡在 `CardSelectCmd`（例如 Silent 的 `SURVIVOR` 要弃一张牌）。parity mod 在 `[ModInitializer]` 里 `CardSelectCmd.PushSelector(new FirstCardSelector())`，策略是“按列表顺序取前 N 张”；引擎的 `discard`/`exhaust` op 用同一策略（手牌首位）。这是 harness 的约定，不是游戏原生的自动选择。
-- **导出器**：`CardSelectCmd.FromHandForDiscard/FromHandForExhaust` → `{op: discard|exhaust, count: N, pick: "first"}`（N 取自 `CardSelectorPrefs` 的第二参）；紧随其后的 `CardCmd.Discard/Exhaust` 视为已由选择 op 覆盖，不再记 unsupported。结构化卡牌从 239 增至 **242**/596。
+- **导出器**：`CardSelectCmd.FromHandForDiscard/FromHandForExhaust` → `{op: discard|exhaust, count: N, pick: "first"}`（N 取自 `CardSelectorPrefs` 的第二参）；紧随其后的 `CardCmd.Discard/Exhaust` 视为已由选择 op 覆盖，不再记 unsupported。结构化卡牌从 239 增至 **242**/596；随后把 `CreatureCmd.TriggerAnim` 等纯表现命令列为可忽略（它们不携带战斗状态），结构化覆盖跳到 **414**/596。
 - **引擎**：`CardEffects` 新增 discard/exhaust；`Combat` 在开局抽 5 后按 `RING_OF_THE_SNAKE` 再抽 2（Silent 起手 7 张）。
-- **已通过**：`silent_nibbits_auto`（PARITY-10，9 行，含弃牌选择、Weak、蛇戒起手）。
+- **星辰资源（Regent）**：`PlayerCmd.GainStars` → `{op: stars}`；`DIVINE_RIGHT` 开局给 3 点；`PlayCard` 校验并扣除 `star_cost`（FALLING_STAR 0 费 2 星）；快照 `player.stars` 直接映射。`regent_nibbits_auto`（PARITY-13，5 行）0 差异。
+- **已通过**：`silent_nibbits_auto`（PARITY-10，9 行，含弃牌选择、Weak、蛇戒起手）、`regent_nibbits_auto`（PARITY-13，5 行，含星辰起手、星辰费用、Falling Star 的易伤+虚弱）。
 - **已知缺口**（轨迹已录，场景在 `harness/scenarios/known_gaps/`）：
   - Defect：充能球（`ZAP` 引导、`DUALCAST` 激发、球位与被动结算）。
   - Necrobinder：Osty（`BODYGUARD` 召唤、`UNLEASH` 协同）。
-  - Regent：星辰资源（`DIVINE_RIGHT` 起始 3 点、`VENERATE`、卡牌星辰费用）。
-- 三者的真机轨迹分别在 `tests/vectors/real/known_gaps/{defect,necrobinder,regent}_nibbits_auto.jsonl`，实现子系统后直接回归即可。
+- 两者的真机轨迹在 `tests/vectors/real/known_gaps/{defect,necrobinder}_nibbits_auto.jsonl`，实现子系统后直接回归即可。
+- 结构化卡牌 414/596；剩余 182 张主要卡在 `CardSelectCmd` 的其它变体（升级/变形/选牌入手）、`OrbCmd`、`SummonCmd`、`ForgeCmd` 与自定义命令。

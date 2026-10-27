@@ -102,6 +102,10 @@ public static class CardEffects
                 break;
             }
 
+            case "stars":
+                combat.Player.Stars += Amount(card, effect.Amount);
+                break;
+
             case "energy":
                 combat.Player.Energy += Amount(card, effect.Amount);
                 break;

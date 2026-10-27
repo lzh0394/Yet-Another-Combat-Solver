@@ -1326,6 +1326,8 @@ class Exporter:
                     ops.append({"op": "draw", "amount": amount(args[1])})
                 elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
                     ops.append({"op": "energy", "amount": amount(args[0])})
+                elif cmd == "PlayerCmd" and name == "GainStars" and args:
+                    ops.append({"op": "stars", "amount": amount(args[0])})
                 elif cmd == "CardSelectCmd" and name in ("FromHandForDiscard", "FromHandForExhaust") and len(args) >= 3:
                     # CardSelectorPrefs(<prompt>, N) -- N cards picked; the harness always picks the
                     # first eligible card, so the op just needs the count.
@@ -1334,6 +1336,9 @@ class Exporter:
                     if pm:
                         count = int(pm.group(1))
                     ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
+                elif cmd == "CreatureCmd" and name in ("TriggerAnim", "PlayVfx", "PlaySound", "TriggerAnimations"):
+                    # Presentation-only commands; they carry no combat state.
+                    pass
                 elif cmd == "CardCmd" and name in ("Discard", "Exhaust") and any(
                     op.get("op") in ("discard", "exhaust") for op in ops
                 ):

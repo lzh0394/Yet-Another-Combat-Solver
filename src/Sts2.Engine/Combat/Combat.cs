@@ -143,6 +143,11 @@ public sealed class Combat
         Turn = 1;
         Round = 1;
         DrawCards(5);
+        if (HasRelic("DIVINE_RIGHT"))
+        {
+            // Divine Right grants three stars when combat starts.
+            Player.Stars += 3;
+        }
         if (HasRelic("RING_OF_THE_SNAKE"))
         {
             // Ring of the Snake draws two extra cards on the first turn.
@@ -187,11 +192,19 @@ public sealed class Combat
         {
             throw new CombatException($"{card.Entry} costs {cost}, only {Player.Energy} energy");
         }
+        if (card.StarCost >= 0 && Player.Stars < card.StarCost)
+        {
+            throw new CombatException($"{card.Entry} costs {card.StarCost} stars, only {Player.Stars} stars");
+        }
 
         MonsterInstance? targetMonster = ResolveTarget(card, target);
 
         _side = CombatSide.Player;
         Player.Energy -= card.CostsX ? Player.Energy : cost;
+        if (card.StarCost > 0)
+        {
+            Player.Stars -= card.StarCost;
+        }
         Player.Hand.Remove(card);
         Player.PlayPile.Add(card);
 
