@@ -196,6 +196,8 @@ Strangler 的 `ConstrictPower` 也在第 19 轮补上：`AfterSideTurnEnd` 只�
 - `FrailPower.ModifyBlock`：携带 Frail 的生物获得的格挡 ×0.75，然后由 `GainBlockInternal`
   截断成 int（5 → 3）。
 - `RavenousPower.AfterDeath`：同侧怪物死亡时，存活且带 Ravenous 的怪物 +4 力量并眩晕一回合。
+- `ARTIFACT_POWER`：`PowerCmd.Apply` 遇到带 Artifact 的目标时，先消耗一层 Artifact、Debuff 不落地
+  （引擎 `Combat.TryApplyPower`；卡牌与怪物两条施加路径都走它）。
 
 计划口径（成功标准 3）允许“未结构化/未实现”显式报错；这些缺口目前表现为对拍差异或
 `CombatException`，不会静默通过。

@@ -32,6 +32,7 @@ public sealed class Combat
     public const string BurrowedPower = "BURROWED_POWER";
     public const string ConstrictPower = "CONSTRICT_POWER";
     public const string RavenousPower = "RAVENOUS_POWER";
+    public const string ArtifactPower = "ARTIFACT_POWER";
 
     private readonly DataPack _data;
     private readonly EncounterDef _encounter;
@@ -461,6 +462,24 @@ public sealed class Combat
                 owner.SkipNextTurn = true;
             }
         }
+    }
+
+    /// <summary>
+    /// PowerCmd.Apply: ArtifactPower consumes one stack to negate an incoming Debuff instead of
+    /// letting it land. Returns false when the debuff was prevented.
+    /// </summary>
+    public bool TryApplyPower(ICombatant target, string powerId, int amount)
+    {
+        string id = PowerIds.Normalize(powerId);
+        bool isDebuff = _data.Powers.TryGetValue("POWER." + id, out PowerDef? def)
+            && string.Equals(def.Type, "Debuff", StringComparison.OrdinalIgnoreCase);
+        if (isDebuff && amount > 0 && target.PowerAmount(ArtifactPower) > 0)
+        {
+            target.AddPower(ArtifactPower, -1);
+            return false;
+        }
+        target.AddPower(id, amount);
+        return true;
     }
 
     private bool HasRelic(string entry)
@@ -1228,7 +1247,7 @@ public sealed class Combat
                     throw new CombatException($"unresolved power amount on {monster.Def.Entry}: {power}");
                 }
                 ICombatant target = effect.Target == "player" ? Player : monster;
-                target.AddPower(power, amount);
+                TryApplyPower(target, power, amount);
                 // PowerCmd.Apply sets SkipNextDurationTick when a Debuff lands on a player-side
                 // creature, regardless of whose turn it is.
                 if (target is PlayerState)

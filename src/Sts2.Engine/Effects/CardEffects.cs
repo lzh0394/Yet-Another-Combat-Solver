@@ -195,24 +195,24 @@ public static class CardEffects
                 }
                 if (effect.Target == "self")
                 {
-                    combat.Player.AddPower(power, amount);
+                    combat.TryApplyPower(combat.Player, power, amount);
                 }
                 else if (effect.Target == "all_enemies")
                 {
                     foreach (MonsterInstance monster in combat.Enemies.Where(m => m.IsAlive))
                     {
-                        monster.AddPower(power, amount);
+                        combat.TryApplyPower(monster, power, amount);
                     }
                 }
                 else if (card.TargetType is "AnyAlly" or "AllAllies")
                 {
                     // Ally-targeted buffs land on the only ally the engine models: the player.
-                    combat.Player.AddPower(power, amount);
+                    combat.TryApplyPower(combat.Player, power, amount);
                 }
                 else
                 {
                     MonsterInstance single = target ?? throw new CombatException($"{card.Entry} needs an enemy target");
-                    single.AddPower(power, amount);
+                    combat.TryApplyPower(single, power, amount);
                 }
                 break;
             }
