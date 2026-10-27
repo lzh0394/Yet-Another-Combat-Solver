@@ -97,6 +97,59 @@ public static class CardEffects
                 combat.DrawCards(Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "discard_hand_draw":
+            {
+                int count = combat.Player.Hand.Count;
+                while (combat.Player.Hand.Count > 0)
+                {
+                    CardInstance tossed = combat.Player.Hand[0];
+                    combat.Player.Hand.RemoveAt(0);
+                    combat.Player.DiscardPile.Add(tossed);
+                }
+                combat.DrawCards(count);
+                break;
+            }
+
+            case "return_from_discard":
+            {
+                for (int i = combat.Player.DiscardPile.Count - 1; i >= 0; i--)
+                {
+                    CardInstance recycled = combat.Player.DiscardPile[i];
+                    bool matches = effect.Filter switch
+                    {
+                        "zero_cost" => recycled.Cost <= 0,
+                        _ => true,
+                    };
+                    if (!matches)
+                    {
+                        continue;
+                    }
+                    combat.Player.DiscardPile.RemoveAt(i);
+                    combat.Player.Hand.Add(recycled);
+                }
+                break;
+            }
+
+            case "add_from_draw":
+            {
+                int space = 10 - combat.Player.Hand.Count;
+                for (int i = 0; i < combat.Player.DrawPile.Count && space > 0;)
+                {
+                    CardInstance fetched = combat.Player.DrawPile[i];
+                    bool matches = effect.Rarity is null
+                        || string.Equals(fetched.Def.Rarity, effect.Rarity, StringComparison.OrdinalIgnoreCase);
+                    if (!matches)
+                    {
+                        i++;
+                        continue;
+                    }
+                    combat.Player.DrawPile.RemoveAt(i);
+                    combat.Player.Hand.Add(fetched);
+                    space--;
+                }
+                break;
+            }
+
             case "draw_until":
             {
                 int guard = 0;

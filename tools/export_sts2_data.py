@@ -1620,6 +1620,29 @@ class Exporter:
             except Exception:
                 ops.append({"op": f"{cmd}.{name}", "unresolved": True})
 
+        # Calculated Gamble: discard the whole hand, then draw as many cards.
+        gamble = re.search(r"CardCmd\.DiscardAndDraw\s*\(", body)
+        if gamble:
+            g_open = gamble.end() - 1
+            g_close = match_paren(body, g_open)
+            if g_close > 0:
+                handled.append((gamble.start(), g_close))
+            ops.append({"op": "discard_hand_draw", "count": {"hand": True}})
+
+        # All For One: after the damage, every 0-cost card in the discard pile returns to hand.
+        if re.search(r"PileType\.Discard\.GetPile\([^)]*\)\.Cards\s*\.Where\(Filter\)", body):
+            recycle = re.search(r"CardPileCmd\.Add\(\s*item\s*,\s*PileType\.Hand[^)]*\)", body)
+            if recycle:
+                handled.append((recycle.start(), recycle.end()))
+                ops.append({"op": "return_from_discard", "filter": "zero_cost"})
+
+        # Anointed: pull rare cards from the draw pile into the hand (up to the hand size limit).
+        if re.search(r"PileType\.Draw\.GetPile\([^)]*\)\.Cards\s*\.Where\([^;]*CardRarity\.Rare", body):
+            fetch = re.search(r"CardPileCmd\.Add\(\s*cards\s*,\s*PileType\.Hand[^)]*\)", body)
+            if fetch:
+                handled.append((fetch.start(), fetch.end()))
+                ops.append({"op": "add_from_draw", "rarity": "Rare", "count": {"hand_space": True}})
+
         # Separated form: `CardModel c = (await CardSelectCmd.FromCombatPile(...)).FirstOrDefault();`
         # followed later by `CardPileCmd.Add(c, PileType.X)` or `CardCmd.Exhaust(ctx, c)`.
         for sel in re.finditer(r"CardSelectCmd\.FromCombatPile\(", body):
@@ -1659,8 +1682,28 @@ class Exporter:
                 ops.append({"op": "exhaust_pick", "from": src, "count": count, "pick": "first"})
                 continue
 
+        # `<Type>.CreateInHand(...)` creates a generated card straight into the hand (Shiv and
+        # friends); the count is the enclosing `for (... < DynamicVars.Cards ...)` loop.
+        for cre in re.finditer(r"\b(\w+)\.CreateInHand\s*\(", body):
+            kind = cre.group(1)
+            if kind in ("CardCmd", "CardPileCmd", "CardSelectCmd", "CreatureCmd"):
+                continue
+            count: object = 1
+            cre_open = cre.end() - 1
+            cre_close = match_paren(body, cre_open)
+            cre_args = split_top(body[cre_open + 1 : cre_close]) if cre_close > 0 else []
+            if any("DynamicVars.Cards" in a for a in cre_args) or re.search(
+                r"for\s*\([^;]*;\s*\w+\s*<\s*base\.DynamicVars\.Cards", body
+            ):
+                count = {"var": "Cards"}
+            ops.append(
+                {"op": "add_card", "card": "CARD." + camel_to_screaming(kind), "pile": "Hand", "count": count}
+            )
+        if not ops and re.fullmatch(r"\s*return\s+Task\.CompletedTask\s*;\s*", body):
+            return [], True
+
         unsupported: list[str] = []
-        for m in re.finditer(r"(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
+        for m in re.finditer(r"(\w+Cmd)\s*\.\s*(\w+)\s*(?:<[^<>]*>)?\s*\(", body):
             cmd = m.group(1)
             if cmd not in self.EFFECT_CMDS:
                 continue

@@ -424,7 +424,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -432,6 +432,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "return_from_discard",
+        "filter": "zero_cost"
       }
     ],
     "calc": null
@@ -492,8 +496,16 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_from_draw",
+        "rarity": "Rare",
+        "count": {
+          "hand_space": true
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.ANTICIPATE": {
@@ -1533,8 +1545,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.BLADE_OF_INK": {
@@ -1557,7 +1578,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": [],
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.BLADE_SYMPHONY": {
@@ -1578,8 +1608,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.BLAZE": {
@@ -2849,8 +2888,15 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "discard_hand_draw",
+        "count": {
+          "hand": true
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.CALL_OF_THE_VOID": {
@@ -3110,7 +3156,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "upgrade",
@@ -3385,6 +3431,14 @@
         "target": "self",
         "amount": {
           "var": "Block"
+        }
+      },
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": {
+          "var": "Cards"
         }
       }
     ],
@@ -4856,7 +4910,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [],
     "calc": null
   },
@@ -6844,6 +6898,12 @@
         "target": "self",
         "power": "POWER.FAN_OF_KNIVES_POWER",
         "amount": 1
+      },
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": 1
       }
     ],
     "calc": null
@@ -9515,6 +9575,12 @@
         "op": "upgrade",
         "target": "all",
         "count": 9999
+      },
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": 1
       }
     ],
     "calc": null
@@ -10738,6 +10804,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": 1
       }
     ],
     "calc": null
@@ -17893,6 +17965,12 @@
         "op": "upgrade",
         "target": "all",
         "count": 9999
+      },
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": 1
       }
     ],
     "calc": null
@@ -20099,8 +20177,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "CARD.SHIV",
+        "pile": "Hand",
+        "count": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.VEILPIERCER": {
