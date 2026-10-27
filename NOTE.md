@@ -185,6 +185,13 @@ Ovicopter 已做到“三只 `ToughEgg` 的生成顺序、初始 HP 与 `Rng.Nic
 引擎目前跳过未解析的 start effect），以及真机给每只被召唤生物分配的 `CombatId` 与引擎不同，
 导致 `rng.monsters[*]` 的 seed 不一致。
 
+还有一个未解的点记在这里，避免下一轮重复踩：Ovicopter 第 5 回合真机吃 35 点、引擎吃 19 点，
+差额来自玩家身上的 **Vulnerable 在敌方回合是否仍然生效**。真机的意图显示 28（16+3 力量，再 ×1.5），
+说明它在该敌方回合攻击时易伤仍在；而引擎按“玩家侧 Debuff 在玩家回合结束递减”的规则，攻击时易伤已掉光。
+但把玩家侧的递减整体挪回敌方回合结束，会让 corpse_slugs（Frail）与 punch_off 回归失败；
+按“Frail/Weak 玩家回合末、Vulnerable 敌方回合末”拆分，又会让 Ovicopter 差 32 处。
+结论：三个 Power 的 `AfterSideTurnEnd` 判据并不一致，需要逐个读实现，不能用一个统一规则概括。
+
 Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里对**玩家侧**的 Debuff 置
 `SkipNextDurationTick`，而 `FrailPower` 和 Weak/Vulnerable 一样在敌方回合结束时递减——
 引擎此前只递减 Weak/Vulnerable，玩家身上的 Frail 会永不过期。
