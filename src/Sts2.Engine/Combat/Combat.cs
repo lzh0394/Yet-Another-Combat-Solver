@@ -103,12 +103,11 @@ public sealed class Combat
             throw new CombatException($"encounter {encounter.Id} has no monster list and no generator");
         }
         int? starterBase = encounter.StarterRng is { } starterRng ? encounterRng.NextInt(starterRng.Range) : null;
-        int combatId = 1;
         int spawnIndex = 0;
         foreach (EncounterSpawn spawn in spawns)
         {
             MonsterDef spawnDef = data.Monster(spawn.Id);
-            MonsterInstance monster = new(spawnDef, combatId++)
+            MonsterInstance monster = new(spawnDef, NextCombatId())
             {
                 Slot = spawn.Slot,
             };
@@ -183,6 +182,8 @@ public sealed class Combat
     public PlayerState Player { get; }
     public List<MonsterInstance> Enemies { get; } = new();
     public int Turn { get; private set; }
+    private int _nextCombatId = 1;
+
     public int Round { get; private set; }
     public bool PlayerDead => Player.Hp <= 0;
     public bool CombatOver => Enemies.All(e => !e.IsAlive) || PlayerDead;
@@ -1258,8 +1259,9 @@ public sealed class Combat
 
     private int NextCombatId()
     {
-        int max = Enemies.Count == 0 ? 0 : Enemies.Max(e => e.CombatId);
-        return max + 1;
+        // Combat ids are monotonic: the real game never reuses the id of a creature that has died,
+        // so a second wave of summons keeps drawing fresh monster-RNG seeds.
+        return _nextCombatId++;
     }
 
     /// <summary>Places a copy of a card in one of the player's piles.</summary>
