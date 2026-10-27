@@ -137,6 +137,28 @@ public static class CardEffects
                 break;
             }
 
+            case "orb_remove":
+            {
+                int amount = Math.Max(0, Amount(combat, card, effect.Amount, target));
+                combat.OrbCapacity = Math.Max(0, combat.OrbCapacity - amount);
+                while (combat.Player.Orbs.Count > combat.OrbCapacity)
+                {
+                    combat.EvokeFrontOrb(dequeue: true);
+                }
+                break;
+            }
+
+            case "orb_passive":
+            {
+                int count = (effect.Count is null ? 1 : Amount(combat, card, effect.Count))
+                            + (card.Upgrade > 0 ? effect.ExtraIfUpgraded ?? 0 : 0);
+                for (int i = 0; i < count; i++)
+                {
+                    combat.TriggerOrbPassives(effect.Orb);
+                }
+                break;
+            }
+
             case "play_top":
             {
                 int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);

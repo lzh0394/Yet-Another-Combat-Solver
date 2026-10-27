@@ -2395,8 +2395,14 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "orb_remove",
+        "amount": {
+          "var": "OrbSlots"
+        }
+      },
       {
         "op": "power",
         "target": "self",
@@ -18868,7 +18874,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -18876,6 +18882,18 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "orb_passive",
+        "orb": "LIGHTNING",
+        "count": 1,
+        "extra_if_upgraded": 1
+      },
+      {
+        "op": "orb_passive",
+        "orb": "LIGHTNING",
+        "count": 1,
+        "extra_if_upgraded": 1
       }
     ],
     "calc": null

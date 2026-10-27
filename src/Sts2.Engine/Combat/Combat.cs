@@ -371,6 +371,22 @@ public sealed class Combat
         }
     }
 
+    /// <summary>OrbCmd.Passive: trigger the passive of every orb of one kind (Tesla Coil).</summary>
+    public void TriggerOrbPassives(string? orbKind)
+    {
+        foreach (string orb in Player.Orbs.ToList())
+        {
+            if (orbKind is not null && orb != orbKind)
+            {
+                continue;
+            }
+            if (orb == "LIGHTNING")
+            {
+                TriggerOrbDamage(3);
+            }
+        }
+    }
+
     /// <summary>Lightning is an unpowered hit: no strength, no vulnerable multiplier, random target.</summary>
     private void TriggerOrbDamage(int amount)
     {

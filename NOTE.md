@@ -357,7 +357,7 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 ### 22. 覆盖报告（M5）
 
 `tools/coverage_report.py` 把 `data/sts2/*.json` 的静态覆盖与 `sts2 smoke` 的运行覆盖合并成
-另外三类 op 让结构化覆盖到 **488/596**：
+另外三类 op 让结构化覆盖到 **488/596**，随后 `orb_remove`/`orb_passive`（Bulk Up、Tesla Coil）到 **490/596**：
 
 - `move_card` 的分离写法：`CardModel c = (await CardSelectCmd.FromCombatPile(...)).FirstOrDefault();` 之后
   再 `CardPileCmd.Add(c, PileType.X)` 或 `CardCmd.Exhaust(ctx, c)`（Headbutt/Hologram/SecretTechnique/Cleanse/
@@ -369,7 +369,7 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 - `hits_if`（Dismantle：目标有易伤时打 2 段；Spite：本回合掉过血时按 Repeat 段数）——`PlayerLostHpThisTurn`
   在玩家回合开始清零、受未格挡伤害时置位。
 
-`docs/coverage.md`：卡牌 596 张里结构化 488（可打出 457、不可打出 31，冒烟 0 失败）、
+`docs/coverage.md`：卡牌 596 张里结构化 490（可打出 459、不可打出 31，冒烟 0 失败）、
 怪物招式 389 条里完整解析 334、能力 265、遗物 299、遭遇 90（冒烟 64 个可启动）。
 CI 在冒烟之后刷新这份报告。
 

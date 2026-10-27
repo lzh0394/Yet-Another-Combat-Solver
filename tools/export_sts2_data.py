@@ -1486,6 +1486,11 @@ class Exporter:
                     ops.append({"op": "energy", "amount": amount(args[0])})
                 elif cmd == "OrbCmd" and name == "Channel" and m.group(3):
                     ops.append({"op": "channel", "orb": m.group(3).strip("<> ").split(".")[-1].replace("Orb", "").upper()})
+                elif cmd == "OrbCmd" and name == "RemoveSlots" and len(args) >= 2:
+                    ops.append({"op": "orb_remove", "amount": amount(args[1])})
+                elif cmd == "OrbCmd" and name == "Passive" and "OfType<LightningOrb>" in body:
+                    upgraded_extra = 1 if re.search(r"if\s*\(\s*base\.IsUpgraded\s*\)[^}]*OrbCmd\.Passive", body, re.S) else 0
+                    ops.append({"op": "orb_passive", "orb": "LIGHTNING", "count": 1, "extra_if_upgraded": upgraded_extra})
                 elif cmd == "OrbCmd" and name == "EvokeNext" and args:
                     dequeue = "dequeue: false" not in body[open_pos:close]
                     ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})

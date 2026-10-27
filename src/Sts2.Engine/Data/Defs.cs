@@ -91,6 +91,7 @@ public sealed class EffectDef
     public bool? Exhaust { get; set; }
     public string? Filter { get; set; }
     public JsonElement? HitsIf { get; set; }
+    public int? ExtraIfUpgraded { get; set; }
 
     public int IntAmount =>
         Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;
