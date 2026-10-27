@@ -1,0 +1,5553 @@
+{
+  "MONSTER.AEONGLASS": {
+    "id": "MONSTER.AEONGLASS",
+    "name": "Aeonglass",
+    "min_hp": 512,
+    "max_hp": 512,
+    "initial_state": "EBB_MOVE",
+    "moves": {
+      "EBB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 22,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "EYE_LASERS_MOVE",
+        "must_perform_once": false
+      },
+      "EYE_LASERS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "INCREASING_INTENSITY_MOVE",
+        "must_perform_once": false
+      },
+      "INCREASING_INTENSITY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "EBB_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.ARCHITECT": {
+    "id": "MONSTER.ARCHITECT",
+    "name": "Architect",
+    "min_hp": 9999,
+    "max_hp": 9999,
+    "initial_state": "NOTHING",
+    "moves": {
+      "NOTHING": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Hidden"
+          }
+        ],
+        "follow_up": "NOTHING",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.ASSASSIN_RUBY_RAIDER": {
+    "id": "MONSTER.ASSASSIN_RUBY_RAIDER",
+    "name": "AssassinRubyRaider",
+    "min_hp": 18,
+    "max_hp": 23,
+    "initial_state": "KILLSHOT_MOVE",
+    "moves": {
+      "KILLSHOT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "KILLSHOT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.AXEBOT": {
+    "id": "MONSTER.AXEBOT",
+    "name": "Axebot",
+    "min_hp": null,
+    "max_hp": null,
+    "initial_state": null,
+    "moves": {
+      "BOOT_UP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "HAMMER_UPPERCUT_MOVE",
+        "must_perform_once": false
+      },
+      "ONE_TWO_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "HAMMER_UPPERCUT_MOVE",
+        "must_perform_once": false
+      },
+      "HAMMER_UPPERCUT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "ONE_TWO_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.AXE_RUBY_RAIDER": {
+    "id": "MONSTER.AXE_RUBY_RAIDER",
+    "name": "AxeRubyRaider",
+    "min_hp": 20,
+    "max_hp": 22,
+    "initial_state": "SWING_1",
+    "moves": {
+      "SWING_1": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "SWING_2",
+        "must_perform_once": false
+      },
+      "SWING_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "BIG_SWING",
+        "must_perform_once": false
+      },
+      "BIG_SWING": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SWING_1",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BATTLE_FRIEND_V1": {
+    "id": "MONSTER.BATTLE_FRIEND_V1",
+    "name": "BattleFriendV1",
+    "min_hp": 75,
+    "max_hp": 75,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BATTLE_FRIEND_V2": {
+    "id": "MONSTER.BATTLE_FRIEND_V2",
+    "name": "BattleFriendV2",
+    "min_hp": 150,
+    "max_hp": 150,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BATTLE_FRIEND_V3": {
+    "id": "MONSTER.BATTLE_FRIEND_V3",
+    "name": "BattleFriendV3",
+    "min_hp": 300,
+    "max_hp": 300,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BIG_DUMMY": {
+    "id": "MONSTER.BIG_DUMMY",
+    "name": "BigDummy",
+    "min_hp": 9999,
+    "max_hp": 9999,
+    "initial_state": "NOTHING",
+    "moves": {
+      "NOTHING": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Hidden"
+          }
+        ],
+        "follow_up": "NOTHING",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BOWLBUG_EGG": {
+    "id": "MONSTER.BOWLBUG_EGG",
+    "name": "BowlbugEgg",
+    "min_hp": 21,
+    "max_hp": 22,
+    "initial_state": "BITE_MOVE",
+    "moves": {
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "BITE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BOWLBUG_NECTAR": {
+    "id": "MONSTER.BOWLBUG_NECTAR",
+    "name": "BowlbugNectar",
+    "min_hp": 35,
+    "max_hp": 38,
+    "initial_state": "THRASH_MOVE",
+    "moves": {
+      "THRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BUFF_MOVE",
+        "must_perform_once": false
+      },
+      "BUFF_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "THRASH2_MOVE",
+        "must_perform_once": false
+      },
+      "THRASH2_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "THRASH2_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BOWLBUG_ROCK": {
+    "id": "MONSTER.BOWLBUG_ROCK",
+    "name": "BowlbugRock",
+    "min_hp": 45,
+    "max_hp": 48,
+    "initial_state": "HEADBUTT_MOVE",
+    "moves": {
+      "HEADBUTT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "POST_HEADBUTT",
+        "must_perform_once": false
+      },
+      "DIZZY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "HEADBUTT_MOVE",
+        "must_perform_once": false
+      },
+      "POST_HEADBUTT": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "DIZZY_MOVE",
+          "HEADBUTT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.BOWLBUG_SILK": {
+    "id": "MONSTER.BOWLBUG_SILK",
+    "name": "BowlbugSilk",
+    "min_hp": 40,
+    "max_hp": 43,
+    "initial_state": "TOXIC_SPIT_MOVE",
+    "moves": {
+      "THRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "TOXIC_SPIT_MOVE",
+        "must_perform_once": false
+      },
+      "TOXIC_SPIT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "THRASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BRUTE_RUBY_RAIDER": {
+    "id": "MONSTER.BRUTE_RUBY_RAIDER",
+    "name": "BruteRubyRaider",
+    "min_hp": 30,
+    "max_hp": 33,
+    "initial_state": "BEAT_MOVE",
+    "moves": {
+      "BEAT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ROAR_MOVE",
+        "must_perform_once": false
+      },
+      "ROAR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BEAT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BYGONE_EFFIGY": {
+    "id": "MONSTER.BYGONE_EFFIGY",
+    "name": "BygoneEffigy",
+    "min_hp": 127,
+    "max_hp": 127,
+    "initial_state": "SLEEP_MOVE",
+    "moves": {
+      "SLEEP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Sleep"
+          }
+        ],
+        "follow_up": "WAKE_MOVE",
+        "must_perform_once": false
+      },
+      "WAKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SLASHES_MOVE",
+        "must_perform_once": false
+      },
+      "SLEEP_MOVE_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Sleep"
+          }
+        ],
+        "follow_up": "SLASHES_MOVE",
+        "must_perform_once": false
+      },
+      "SLASHES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SLASHES_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BYRDONIS": {
+    "id": "MONSTER.BYRDONIS",
+    "name": "Byrdonis",
+    "min_hp": 81,
+    "max_hp": 84,
+    "initial_state": "SWOOP_MOVE",
+    "moves": {
+      "PECK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "SWOOP_MOVE",
+        "must_perform_once": false
+      },
+      "SWOOP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PECK_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.BYRDPIP": {
+    "id": "MONSTER.BYRDPIP",
+    "name": "Byrdpip",
+    "min_hp": 9999,
+    "max_hp": 9999,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CALCIFIED_CULTIST": {
+    "id": "MONSTER.CALCIFIED_CULTIST",
+    "name": "CalcifiedCultist",
+    "min_hp": 38,
+    "max_hp": 41,
+    "initial_state": "INCANTATION_MOVE",
+    "moves": {
+      "INCANTATION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "DARK_STRIKE_MOVE",
+        "must_perform_once": false
+      },
+      "DARK_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "DARK_STRIKE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CEREMONIAL_BEAST": {
+    "id": "MONSTER.CEREMONIAL_BEAST",
+    "name": "CeremonialBeast",
+    "min_hp": 252,
+    "max_hp": 252,
+    "initial_state": "STAMP_MOVE",
+    "moves": {
+      "STAMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PLOW_MOVE",
+        "must_perform_once": false
+      },
+      "PLOW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PLOW_MOVE",
+        "must_perform_once": false
+      },
+      "STUN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "BEAST_CRY_MOVE",
+        "must_perform_once": true
+      },
+      "BEAST_CRY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "STOMP_MOVE",
+        "must_perform_once": false
+      },
+      "STOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "CRUSH_MOVE",
+        "must_perform_once": false
+      },
+      "CRUSH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BEAST_CRY_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CHOMPER": {
+    "id": "MONSTER.CHOMPER",
+    "name": "Chomper",
+    "min_hp": 60,
+    "max_hp": 64,
+    "initial_state": "CLAMP_MOVE",
+    "moves": {
+      "CLAMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "SCREECH_MOVE",
+        "must_perform_once": false
+      },
+      "SCREECH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 3
+          }
+        ],
+        "follow_up": "CLAMP_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CORPSE_SLUG": {
+    "id": "MONSTER.CORPSE_SLUG",
+    "name": "CorpseSlug",
+    "min_hp": 25,
+    "max_hp": 27,
+    "initial_state": null,
+    "moves": {
+      "WHIP_SLAP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "GLOMP_MOVE",
+        "must_perform_once": false
+      },
+      "GLOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "GOOP_MOVE",
+        "must_perform_once": false
+      },
+      "GOOP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "WHIP_SLAP_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CROSSBOW_RUBY_RAIDER": {
+    "id": "MONSTER.CROSSBOW_RUBY_RAIDER",
+    "name": "CrossbowRubyRaider",
+    "min_hp": 18,
+    "max_hp": 21,
+    "initial_state": "RELOAD_MOVE",
+    "moves": {
+      "FIRE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RELOAD_MOVE",
+        "must_perform_once": false
+      },
+      "RELOAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "FIRE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CRUSHER": {
+    "id": "MONSTER.CRUSHER",
+    "name": "Crusher",
+    "min_hp": 209,
+    "max_hp": 209,
+    "initial_state": "THRASH_MOVE",
+    "moves": {
+      "THRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ENLARGING_STRIKE_MOVE",
+        "must_perform_once": false
+      },
+      "ENLARGING_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BUG_STING_MOVE",
+        "must_perform_once": false
+      },
+      "BUG_STING_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 2
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "ADAPT_MOVE",
+        "must_perform_once": false
+      },
+      "ADAPT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "GUARDED_STRIKE_MOVE",
+        "must_perform_once": false
+      },
+      "GUARDED_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "THRASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.CUBEX_CONSTRUCT": {
+    "id": "MONSTER.CUBEX_CONSTRUCT",
+    "name": "CubexConstruct",
+    "min_hp": 65,
+    "max_hp": 65,
+    "initial_state": "CHARGE_UP_MOVE",
+    "moves": {
+      "CHARGE_UP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "REPEATER_BLAST_MOVE",
+        "must_perform_once": false
+      },
+      "REPEATER_BLAST_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "REPEATER_BLAST_MOVE_2",
+        "must_perform_once": false
+      },
+      "REPEATER_BLAST_MOVE_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "EXPEL_MOVE",
+        "must_perform_once": false
+      },
+      "EXPEL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "REPEATER_BLAST_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.DAMP_CULTIST": {
+    "id": "MONSTER.DAMP_CULTIST",
+    "name": "DampCultist",
+    "min_hp": 51,
+    "max_hp": 53,
+    "initial_state": "INCANTATION_MOVE",
+    "moves": {
+      "INCANTATION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "DARK_STRIKE_MOVE",
+        "must_perform_once": false
+      },
+      "DARK_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "DARK_STRIKE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.DECIMILLIPEDE_SEGMENT_BACK": {
+    "id": "MONSTER.DECIMILLIPEDE_SEGMENT_BACK",
+    "name": "DecimillipedeSegmentBack",
+    "min_hp": 40,
+    "max_hp": 46,
+    "initial_state": null,
+    "moves": {
+      "WRITHE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "CONSTRICT_MOVE",
+        "must_perform_once": false
+      },
+      "BULK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "WRITHE_MOVE",
+        "must_perform_once": false
+      },
+      "CONSTRICT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BULK_MOVE",
+        "must_perform_once": false
+      },
+      "DEAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "REATTACH_MOVE",
+        "must_perform_once": false
+      },
+      "REATTACH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Heal"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": true
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "WRITHE_MOVE",
+          "BULK_MOVE",
+          "CONSTRICT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.DECIMILLIPEDE_SEGMENT_FRONT": {
+    "id": "MONSTER.DECIMILLIPEDE_SEGMENT_FRONT",
+    "name": "DecimillipedeSegmentFront",
+    "min_hp": 40,
+    "max_hp": 46,
+    "initial_state": null,
+    "moves": {
+      "WRITHE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "CONSTRICT_MOVE",
+        "must_perform_once": false
+      },
+      "BULK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "WRITHE_MOVE",
+        "must_perform_once": false
+      },
+      "CONSTRICT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BULK_MOVE",
+        "must_perform_once": false
+      },
+      "DEAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "REATTACH_MOVE",
+        "must_perform_once": false
+      },
+      "REATTACH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Heal"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": true
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "WRITHE_MOVE",
+          "BULK_MOVE",
+          "CONSTRICT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.DECIMILLIPEDE_SEGMENT_MIDDLE": {
+    "id": "MONSTER.DECIMILLIPEDE_SEGMENT_MIDDLE",
+    "name": "DecimillipedeSegmentMiddle",
+    "min_hp": 40,
+    "max_hp": 46,
+    "initial_state": null,
+    "moves": {
+      "WRITHE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "CONSTRICT_MOVE",
+        "must_perform_once": false
+      },
+      "BULK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "WRITHE_MOVE",
+        "must_perform_once": false
+      },
+      "CONSTRICT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BULK_MOVE",
+        "must_perform_once": false
+      },
+      "DEAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "REATTACH_MOVE",
+        "must_perform_once": false
+      },
+      "REATTACH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Heal"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": true
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "WRITHE_MOVE",
+          "BULK_MOVE",
+          "CONSTRICT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.DEPRECATED_MONSTER": {
+    "id": "MONSTER.DEPRECATED_MONSTER",
+    "name": "DeprecatedMonster",
+    "min_hp": 0,
+    "max_hp": 0,
+    "initial_state": "STUB",
+    "moves": {
+      "STUB": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Hidden"
+          }
+        ],
+        "follow_up": "STUB",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.DEVOTED_SCULPTOR": {
+    "id": "MONSTER.DEVOTED_SCULPTOR",
+    "name": "DevotedSculptor",
+    "min_hp": 162,
+    "max_hp": 162,
+    "initial_state": "FORBIDDEN_INCANTATION_MOVE",
+    "moves": {
+      "FORBIDDEN_INCANTATION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SAVAGE_MOVE",
+        "must_perform_once": false
+      },
+      "SAVAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SAVAGE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.ENTOMANCER": {
+    "id": "MONSTER.ENTOMANCER",
+    "name": "Entomancer",
+    "min_hp": 145,
+    "max_hp": 145,
+    "initial_state": "BEES_MOVE",
+    "moves": {
+      "PHEROMONE_SPIT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BEES_MOVE",
+        "must_perform_once": false
+      },
+      "BEES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 7
+          }
+        ],
+        "follow_up": "SPEAR_MOVE",
+        "must_perform_once": false
+      },
+      "SPEAR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PHEROMONE_SPIT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.EXOSKELETON": {
+    "id": "MONSTER.EXOSKELETON",
+    "name": "Exoskeleton",
+    "min_hp": 24,
+    "max_hp": 28,
+    "initial_state": "INIT_MOVE",
+    "moves": {
+      "SKITTER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "MANDIBLES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ENRAGE_MOVE",
+        "must_perform_once": false
+      },
+      "ENRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SKITTER_MOVE",
+          "MANDIBLES_MOVE"
+        ]
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "SKITTER_MOVE",
+          "MANDIBLES_MOVE",
+          "ENRAGE_MOVE",
+          "RAND"
+        ]
+      }
+    }
+  },
+  "MONSTER.EYE_WITH_TEETH": {
+    "id": "MONSTER.EYE_WITH_TEETH",
+    "name": "EyeWithTeeth",
+    "min_hp": 6,
+    "max_hp": 6,
+    "initial_state": "DISTRACT_MOVE",
+    "moves": {
+      "DISTRACT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 3
+          }
+        ],
+        "follow_up": "DISTRACT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.FABRICATOR": {
+    "id": "MONSTER.FABRICATOR",
+    "name": "Fabricator",
+    "min_hp": 150,
+    "max_hp": 150,
+    "initial_state": "fabricateBranch",
+    "moves": {
+      "FABRICATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "fabricateBranch",
+        "must_perform_once": false
+      },
+      "FABRICATING_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          },
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "fabricateBranch",
+        "must_perform_once": false
+      },
+      "DISINTEGRATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "fabricateBranch",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "FABRICATE_MOVE",
+          "FABRICATING_STRIKE_MOVE"
+        ]
+      },
+      "fabricateBranch": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "RAND",
+          "DISINTEGRATE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FAKE_MERCHANT_MONSTER": {
+    "id": "MONSTER.FAKE_MERCHANT_MONSTER",
+    "name": "FakeMerchantMonster",
+    "min_hp": 165,
+    "max_hp": 165,
+    "initial_state": "SWIPE_MOVE",
+    "moves": {
+      "SWIPE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND_MOVE",
+        "must_perform_once": false
+      },
+      "SPEW_COINS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 2,
+            "repeats": 8
+          }
+        ],
+        "follow_up": "RAND_MOVE",
+        "must_perform_once": false
+      },
+      "THROW_RELIC_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND_ATTACK_MOVE",
+        "must_perform_once": false
+      },
+      "ENRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND_MOVE",
+        "must_perform_once": false
+      },
+      "RAND_MOVE": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SWIPE_MOVE",
+          "SPEW_COINS_MOVE",
+          "THROW_RELIC_MOVE",
+          "ENRAGE_MOVE"
+        ]
+      },
+      "RAND_ATTACK_MOVE": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SWIPE_MOVE",
+          "SPEW_COINS_MOVE",
+          "THROW_RELIC_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FAT_GREMLIN": {
+    "id": "MONSTER.FAT_GREMLIN",
+    "name": "FatGremlin",
+    "min_hp": 13,
+    "max_hp": 17,
+    "initial_state": "SPAWNED_MOVE",
+    "moves": {
+      "SPAWNED_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "FLEE_MOVE",
+        "must_perform_once": false
+      },
+      "FLEE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Escape"
+          }
+        ],
+        "follow_up": "FLEE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.FLAIL_KNIGHT": {
+    "id": "MONSTER.FLAIL_KNIGHT",
+    "name": "FlailKnight",
+    "min_hp": 101,
+    "max_hp": 101,
+    "initial_state": "RAM_MOVE",
+    "moves": {
+      "WAR_CHANT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "FLAIL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "WAR_CHANT",
+          "FLAIL_MOVE",
+          "RAM_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FLYCONID": {
+    "id": "MONSTER.FLYCONID",
+    "name": "Flyconid",
+    "min_hp": 47,
+    "max_hp": 49,
+    "initial_state": "INITIAL",
+    "moves": {
+      "VULNERABLE_SPORES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "FRAIL_SPORES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "SMASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "VULNERABLE_SPORES_MOVE",
+          "FRAIL_SPORES_MOVE",
+          "SMASH_MOVE"
+        ]
+      },
+      "INITIAL": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "FRAIL_SPORES_MOVE",
+          "SMASH_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FOGMOG": {
+    "id": "MONSTER.FOGMOG",
+    "name": "Fogmog",
+    "min_hp": 74,
+    "max_hp": 74,
+    "initial_state": "ILLUSION_MOVE",
+    "moves": {
+      "ILLUSION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "SWIPE_MOVE",
+        "must_perform_once": false
+      },
+      "SWIPE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BRANCH",
+        "must_perform_once": false
+      },
+      "SWIPE_RANDOM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "HEADBUTT_MOVE",
+        "must_perform_once": false
+      },
+      "HEADBUTT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SWIPE_MOVE",
+        "must_perform_once": false
+      },
+      "BRANCH": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SWIPE_RANDOM_MOVE",
+          "HEADBUTT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FOSSIL_STALKER": {
+    "id": "MONSTER.FOSSIL_STALKER",
+    "name": "FossilStalker",
+    "min_hp": 51,
+    "max_hp": 53,
+    "initial_state": "LATCH_MOVE",
+    "moves": {
+      "TACKLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "LATCH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "LASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "LATCH_MOVE",
+          "TACKLE_MOVE",
+          "LASH_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FROG_KNIGHT": {
+    "id": "MONSTER.FROG_KNIGHT",
+    "name": "FrogKnight",
+    "min_hp": 191,
+    "max_hp": 191,
+    "initial_state": "TONGUE_LASH",
+    "moves": {
+      "FOR_THE_QUEEN": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "HALF_HEALTH",
+        "must_perform_once": false
+      },
+      "STRIKE_DOWN_EVIL": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 21,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FOR_THE_QUEEN",
+        "must_perform_once": false
+      },
+      "TONGUE_LASH": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "STRIKE_DOWN_EVIL",
+        "must_perform_once": false
+      },
+      "BEETLE_CHARGE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 35,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TONGUE_LASH",
+        "must_perform_once": false
+      },
+      "HALF_HEALTH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "TONGUE_LASH",
+          "BEETLE_CHARGE"
+        ]
+      }
+    }
+  },
+  "MONSTER.FUZZY_WURM_CRAWLER": {
+    "id": "MONSTER.FUZZY_WURM_CRAWLER",
+    "name": "FuzzyWurmCrawler",
+    "min_hp": 55,
+    "max_hp": 57,
+    "initial_state": "FIRST_ACID_GOOP",
+    "moves": {
+      "FIRST_ACID_GOOP": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "INHALE",
+        "must_perform_once": false
+      },
+      "ACID_GOOP": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FIRST_ACID_GOOP",
+        "must_perform_once": false
+      },
+      "INHALE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "ACID_GOOP",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.GAS_BOMB": {
+    "id": "MONSTER.GAS_BOMB",
+    "name": "GasBomb",
+    "min_hp": 7,
+    "max_hp": 7,
+    "initial_state": "EXPLODE_MOVE",
+    "moves": {
+      "EXPLODE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "DeathBlow",
+            "damage": null,
+            "repeats": 1
+          }
+        ],
+        "follow_up": null,
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.GLOBE_HEAD": {
+    "id": "MONSTER.GLOBE_HEAD",
+    "name": "GlobeHead",
+    "min_hp": 148,
+    "max_hp": 148,
+    "initial_state": "SHOCKING_SLAP",
+    "moves": {
+      "THUNDER_STRIKE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "GALVANIC_BURST",
+        "must_perform_once": false
+      },
+      "SHOCKING_SLAP": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "THUNDER_STRIKE",
+        "must_perform_once": false
+      },
+      "GALVANIC_BURST": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SHOCKING_SLAP",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.GREMLIN_MERC": {
+    "id": "MONSTER.GREMLIN_MERC",
+    "name": "GremlinMerc",
+    "min_hp": 47,
+    "max_hp": 49,
+    "initial_state": "GIMME_MOVE",
+    "moves": {
+      "GIMME_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "DOUBLE_SMASH_MOVE",
+        "must_perform_once": false
+      },
+      "DOUBLE_SMASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 2
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "HEHE_MOVE",
+        "must_perform_once": false
+      },
+      "HEHE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "GIMME_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.GUARDBOT": {
+    "id": "MONSTER.GUARDBOT",
+    "name": "Guardbot",
+    "min_hp": 16,
+    "max_hp": 20,
+    "initial_state": "GUARD_MOVE",
+    "moves": {
+      "GUARD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "GUARD_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.HAUNTED_SHIP": {
+    "id": "MONSTER.HAUNTED_SHIP",
+    "name": "HauntedShip",
+    "min_hp": 63,
+    "max_hp": 63,
+    "initial_state": "HAUNT_MOVE",
+    "moves": {
+      "SWIPE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "STOMP_MOVE",
+        "must_perform_once": false
+      },
+      "STOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "SWIPE_MOVE",
+        "must_perform_once": false
+      },
+      "HAUNT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "StatusCard",
+            "cards": 5
+          }
+        ],
+        "follow_up": "SWIPE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.HUNTER_KILLER": {
+    "id": "MONSTER.HUNTER_KILLER",
+    "name": "HunterKiller",
+    "min_hp": 121,
+    "max_hp": 121,
+    "initial_state": "TENDERIZING_GOOP_MOVE",
+    "moves": {
+      "TENDERIZING_GOOP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "PUNCTURE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "BITE_MOVE",
+          "PUNCTURE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.INFESTED_PRISM": {
+    "id": "MONSTER.INFESTED_PRISM",
+    "name": "InfestedPrism",
+    "min_hp": 161,
+    "max_hp": 161,
+    "initial_state": "JAB_MOVE",
+    "moves": {
+      "JAB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RADIATE_MOVE",
+        "must_perform_once": false
+      },
+      "RADIATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "WHIRLWIND_MOVE",
+        "must_perform_once": false
+      },
+      "WHIRLWIND_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "PULSATE_MOVE",
+        "must_perform_once": false
+      },
+      "PULSATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "JAB_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.INKLET": {
+    "id": "MONSTER.INKLET",
+    "name": "Inklet",
+    "min_hp": 11,
+    "max_hp": 17,
+    "initial_state": "JAB_MOVE",
+    "moves": {
+      "JAB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "WHIRLWIND_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 2,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "JAB_MOVE",
+        "must_perform_once": false
+      },
+      "PIERCING_GAZE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "JAB_MOVE",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "PIERCING_GAZE_MOVE",
+          "WHIRLWIND_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.KIN_FOLLOWER": {
+    "id": "MONSTER.KIN_FOLLOWER",
+    "name": "KinFollower",
+    "min_hp": 58,
+    "max_hp": 59,
+    "initial_state": "QUICK_SLASH_MOVE",
+    "moves": {
+      "QUICK_SLASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BOOMERANG_MOVE",
+        "must_perform_once": false
+      },
+      "BOOMERANG_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 2,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "POWER_DANCE_MOVE",
+        "must_perform_once": false
+      },
+      "POWER_DANCE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "QUICK_SLASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.KIN_PRIEST": {
+    "id": "MONSTER.KIN_PRIEST",
+    "name": "KinPriest",
+    "min_hp": 190,
+    "max_hp": 190,
+    "initial_state": "ORB_OF_FRAILTY_MOVE",
+    "moves": {
+      "ORB_OF_FRAILTY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "ORB_OF_WEAKNESS_MOVE",
+        "must_perform_once": false
+      },
+      "ORB_OF_WEAKNESS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "RITUAL_MOVE",
+        "must_perform_once": false
+      },
+      "RITUAL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "ORB_OF_FRAILTY_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.KNOWLEDGE_DEMON": {
+    "id": "MONSTER.KNOWLEDGE_DEMON",
+    "name": "KnowledgeDemon",
+    "min_hp": 379,
+    "max_hp": 379,
+    "initial_state": "CURSE_OF_KNOWLEDGE_MOVE",
+    "moves": {
+      "CURSE_OF_KNOWLEDGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "SLAP_MOVE",
+        "must_perform_once": false
+      },
+      "SLAP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "KNOWLEDGE_OVERWHELMING_MOVE",
+        "must_perform_once": false
+      },
+      "KNOWLEDGE_OVERWHELMING_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "PONDER_MOVE",
+        "must_perform_once": false
+      },
+      "PONDER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          },
+          {
+            "type": "Heal"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "CurseOfKnowledgeBranch",
+        "must_perform_once": false
+      },
+      "CurseOfKnowledgeBranch": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "CURSE_OF_KNOWLEDGE_MOVE",
+          "SLAP_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.LAGAVULIN_MATRIARCH": {
+    "id": "MONSTER.LAGAVULIN_MATRIARCH",
+    "name": "LagavulinMatriarch",
+    "min_hp": 222,
+    "max_hp": 222,
+    "initial_state": "SLEEP_MOVE",
+    "moves": {
+      "SLEEP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Sleep"
+          }
+        ],
+        "follow_up": "SLEEP_BRANCH",
+        "must_perform_once": false
+      },
+      "SLASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 19,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "DISEMBOWEL_MOVE",
+        "must_perform_once": false
+      },
+      "SLASH2_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "SOUL_SIPHON_MOVE",
+        "must_perform_once": false
+      },
+      "DISEMBOWEL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "SLASH2_MOVE",
+        "must_perform_once": false
+      },
+      "SOUL_SIPHON_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SLASH_MOVE",
+        "must_perform_once": false
+      },
+      "SLEEP_BRANCH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "SLEEP_MOVE",
+          "SLASH_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.LEAF_SLIME_M": {
+    "id": "MONSTER.LEAF_SLIME_M",
+    "name": "LeafSlimeM",
+    "min_hp": 32,
+    "max_hp": 35,
+    "initial_state": "STICKY_SHOT",
+    "moves": {
+      "CLUMP_SHOT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "STICKY_SHOT",
+        "must_perform_once": false
+      },
+      "STICKY_SHOT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 2
+          }
+        ],
+        "follow_up": "CLUMP_SHOT",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.LEAF_SLIME_S": {
+    "id": "MONSTER.LEAF_SLIME_S",
+    "name": "LeafSlimeS",
+    "min_hp": 11,
+    "max_hp": 15,
+    "initial_state": "RAND",
+    "moves": {
+      "TACKLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "GOOP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "TACKLE_MOVE",
+          "GOOP_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.LIVING_FOG": {
+    "id": "MONSTER.LIVING_FOG",
+    "name": "LivingFog",
+    "min_hp": 80,
+    "max_hp": 80,
+    "initial_state": "ADVANCED_GAS_MOVE",
+    "moves": {
+      "ADVANCED_GAS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "CardDebuff"
+          }
+        ],
+        "follow_up": "BLOAT_MOVE",
+        "must_perform_once": false
+      },
+      "BLOAT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 1
+          },
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "SUPER_GAS_BLAST_MOVE",
+        "must_perform_once": false
+      },
+      "SUPER_GAS_BLAST_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BLOAT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.LIVING_SHIELD": {
+    "id": "MONSTER.LIVING_SHIELD",
+    "name": "LivingShield",
+    "min_hp": 55,
+    "max_hp": 55,
+    "initial_state": "SHIELD_SLAM_MOVE",
+    "moves": {
+      "SHIELD_SLAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SHIELD_SLAM_BRANCH",
+        "must_perform_once": false
+      },
+      "SHIELD_SLAM_BRANCH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "SHIELD_SLAM_MOVE",
+          "SMASH_MOVE"
+        ]
+      },
+      "SMASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SMASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.LOUSE_PROGENITOR": {
+    "id": "MONSTER.LOUSE_PROGENITOR",
+    "name": "LouseProgenitor",
+    "min_hp": 134,
+    "max_hp": 136,
+    "initial_state": "WEB_CANNON_MOVE",
+    "moves": {
+      "WEB_CANNON_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "CURL_AND_GROW_MOVE",
+        "must_perform_once": false
+      },
+      "POUNCE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "WEB_CANNON_MOVE",
+        "must_perform_once": false
+      },
+      "CURL_AND_GROW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "POUNCE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.MAGI_KNIGHT": {
+    "id": "MONSTER.MAGI_KNIGHT",
+    "name": "MagiKnight",
+    "min_hp": 82,
+    "max_hp": 82,
+    "initial_state": "POWER_SHIELD_MOVE",
+    "moves": {
+      "POWER_SHIELD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "DAMPEN_MOVE",
+        "must_perform_once": false
+      },
+      "DAMPEN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAM_MOVE",
+        "must_perform_once": false
+      },
+      "PREP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "MAGIC_BOMB",
+        "must_perform_once": false
+      },
+      "MAGIC_BOMB": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 35,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAM_MOVE",
+        "must_perform_once": false
+      },
+      "RAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PREP_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.MAWLER": {
+    "id": "MONSTER.MAWLER",
+    "name": "Mawler",
+    "min_hp": 72,
+    "max_hp": 72,
+    "initial_state": "CLAW_MOVE",
+    "moves": {
+      "RIP_AND_TEAR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "ROAR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "CLAW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "RIP_AND_TEAR_MOVE",
+          "ROAR_MOVE",
+          "CLAW_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.MECHA_KNIGHT": {
+    "id": "MONSTER.MECHA_KNIGHT",
+    "name": "MechaKnight",
+    "min_hp": 300,
+    "max_hp": 300,
+    "initial_state": "CHARGE_MOVE",
+    "moves": {
+      "CHARGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 25,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FLAMETHROWER_MOVE",
+        "must_perform_once": false
+      },
+      "FLAMETHROWER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "StatusCard",
+            "cards": 4
+          }
+        ],
+        "follow_up": "WINDUP_MOVE",
+        "must_perform_once": false
+      },
+      "WINDUP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "HEAVY_CLEAVE_MOVE",
+        "must_perform_once": false
+      },
+      "HEAVY_CLEAVE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 35,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FLAMETHROWER_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.MULTI_ATTACK_MOVE_MONSTER": {
+    "id": "MONSTER.MULTI_ATTACK_MOVE_MONSTER",
+    "name": "MultiAttackMoveMonster",
+    "min_hp": 999,
+    "max_hp": 999,
+    "initial_state": "POKE",
+    "moves": {
+      "POKE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 5
+          }
+        ],
+        "follow_up": "POKE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.MYSTERIOUS_KNIGHT": {
+    "id": "MONSTER.MYSTERIOUS_KNIGHT",
+    "name": "MysteriousKnight",
+    "min_hp": 101,
+    "max_hp": 101,
+    "initial_state": "RAM_MOVE",
+    "moves": {
+      "WAR_CHANT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "FLAIL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "WAR_CHANT",
+          "FLAIL_MOVE",
+          "RAM_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.MYTE": {
+    "id": "MONSTER.MYTE",
+    "name": "Myte",
+    "min_hp": 61,
+    "max_hp": 67,
+    "initial_state": "INIT_MOVE",
+    "moves": {
+      "TOXIC_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 2
+          }
+        ],
+        "follow_up": "BITE_MOVE",
+        "must_perform_once": false
+      },
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SUCK_MOVE",
+        "must_perform_once": false
+      },
+      "SUCK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "TOXIC_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.NIBBIT": {
+    "id": "MONSTER.NIBBIT",
+    "name": "Nibbit",
+    "min_hp": 42,
+    "max_hp": 46,
+    "initial_state": "INIT_MOVE",
+    "moves": {
+      "BUTT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SLICE_MOVE",
+        "must_perform_once": false
+      },
+      "SLICE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "HISS_MOVE",
+        "must_perform_once": false
+      },
+      "HISS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BUTT_MOVE",
+        "must_perform_once": false
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "HISS_MOVE",
+          "SLICE_MOVE"
+        ],
+        "branches_conditional": [
+          "BUTT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.NOISEBOT": {
+    "id": "MONSTER.NOISEBOT",
+    "name": "Noisebot",
+    "min_hp": 18,
+    "max_hp": 23,
+    "initial_state": "NOISE_MOVE",
+    "moves": {
+      "NOISE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 2
+          }
+        ],
+        "follow_up": "NOISE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.ONE_HP_MONSTER": {
+    "id": "MONSTER.ONE_HP_MONSTER",
+    "name": "OneHpMonster",
+    "min_hp": 1,
+    "max_hp": 1,
+    "initial_state": "NOTHING",
+    "moves": {
+      "NOTHING": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Hidden"
+          }
+        ],
+        "follow_up": "NOTHING",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.OSTY": {
+    "id": "MONSTER.OSTY",
+    "name": "Osty",
+    "min_hp": 1,
+    "max_hp": 1,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.OVICOPTER": {
+    "id": "MONSTER.OVICOPTER",
+    "name": "Ovicopter",
+    "min_hp": 124,
+    "max_hp": 130,
+    "initial_state": "LAY_EGGS_MOVE",
+    "moves": {
+      "LAY_EGGS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "SMASH_MOVE",
+        "must_perform_once": false
+      },
+      "SMASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TENDERIZER_MOVE",
+        "must_perform_once": false
+      },
+      "TENDERIZER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "SUMMON_BRANCH_STATE",
+        "must_perform_once": false
+      },
+      "NUTRITIONAL_PASTE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SMASH_MOVE",
+        "must_perform_once": false
+      },
+      "SUMMON_BRANCH_STATE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "LAY_EGGS_MOVE",
+          "NUTRITIONAL_PASTE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.OWL_MAGISTRATE": {
+    "id": "MONSTER.OWL_MAGISTRATE",
+    "name": "OwlMagistrate",
+    "min_hp": 231,
+    "max_hp": 231,
+    "initial_state": "MAGISTRATE_SCRUTINY",
+    "moves": {
+      "MAGISTRATE_SCRUTINY": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PECK_ASSAULT",
+        "must_perform_once": false
+      },
+      "PECK_ASSAULT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 6
+          }
+        ],
+        "follow_up": "JUDICIAL_FLIGHT",
+        "must_perform_once": false
+      },
+      "JUDICIAL_FLIGHT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "VERDICT",
+        "must_perform_once": false
+      },
+      "VERDICT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 33,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "MAGISTRATE_SCRUTINY",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.PAELS_LEGION": {
+    "id": "MONSTER.PAELS_LEGION",
+    "name": "PaelsLegion",
+    "min_hp": 9999,
+    "max_hp": 9999,
+    "initial_state": "NOTHING_MOVE",
+    "moves": {
+      "NOTHING_MOVE": {
+        "kind": "MoveState",
+        "intents": [],
+        "follow_up": "NOTHING_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.PARAFRIGHT": {
+    "id": "MONSTER.PARAFRIGHT",
+    "name": "Parafright",
+    "min_hp": 21,
+    "max_hp": 21,
+    "initial_state": "SLAM_MOVE",
+    "moves": {
+      "SLAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SLAM_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.PHANTASMAL_GARDENER": {
+    "id": "MONSTER.PHANTASMAL_GARDENER",
+    "name": "PhantasmalGardener",
+    "min_hp": 26,
+    "max_hp": 31,
+    "initial_state": "INIT_MOVE",
+    "moves": {
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "LASH_MOVE",
+        "must_perform_once": false
+      },
+      "LASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FLAIL_MOVE",
+        "must_perform_once": false
+      },
+      "FLAIL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "ENLARGE_MOVE",
+        "must_perform_once": false
+      },
+      "ENLARGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BITE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.PHROG_PARASITE": {
+    "id": "MONSTER.PHROG_PARASITE",
+    "name": "PhrogParasite",
+    "min_hp": 61,
+    "max_hp": 64,
+    "initial_state": "INFECT_MOVE",
+    "moves": {
+      "INFECT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 3
+          }
+        ],
+        "follow_up": "LASH_MOVE",
+        "must_perform_once": false
+      },
+      "LASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 4
+          }
+        ],
+        "follow_up": "INFECT_MOVE",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "INFECT_MOVE",
+          "LASH_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.PUNCH_CONSTRUCT": {
+    "id": "MONSTER.PUNCH_CONSTRUCT",
+    "name": "PunchConstruct",
+    "min_hp": 55,
+    "max_hp": 55,
+    "initial_state": null,
+    "moves": {
+      "READY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "FAST_PUNCH_MOVE",
+        "must_perform_once": false
+      },
+      "STRONG_PUNCH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "READY_MOVE",
+        "must_perform_once": false
+      },
+      "FAST_PUNCH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "STRONG_PUNCH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.QUEEN": {
+    "id": "MONSTER.QUEEN",
+    "name": "Queen",
+    "min_hp": 400,
+    "max_hp": 400,
+    "initial_state": "PUPPET_STRINGS_MOVE",
+    "moves": {
+      "PUPPET_STRINGS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "CardDebuff"
+          }
+        ],
+        "follow_up": "YOU_ARE_MINE_MOVE",
+        "must_perform_once": false
+      },
+      "YOU_ARE_MINE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "YOURE_MINE_NOW_BRANCH",
+        "must_perform_once": false
+      },
+      "YOURE_MINE_NOW_BRANCH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "BURN_BRIGHT_FOR_ME_MOVE",
+          "OFF_WITH_YOUR_HEAD_MOVE"
+        ]
+      },
+      "BURN_BRIGHT_FOR_ME_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "BURN_BRIGHT_FOR_ME_BRANCH",
+        "must_perform_once": false
+      },
+      "BURN_BRIGHT_FOR_ME_BRANCH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "BURN_BRIGHT_FOR_ME_MOVE",
+          "OFF_WITH_YOUR_HEAD_MOVE"
+        ]
+      },
+      "OFF_WITH_YOUR_HEAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 5
+          }
+        ],
+        "follow_up": "EXECUTION_MOVE",
+        "must_perform_once": false
+      },
+      "EXECUTION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ENRAGE_MOVE",
+        "must_perform_once": false
+      },
+      "ENRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "OFF_WITH_YOUR_HEAD_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.ROCKET": {
+    "id": "MONSTER.ROCKET",
+    "name": "Rocket",
+    "min_hp": 199,
+    "max_hp": 199,
+    "initial_state": "TARGETING_RETICLE_MOVE",
+    "moves": {
+      "TARGETING_RETICLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PRECISION_BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "PRECISION_BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "CHARGE_UP_MOVE",
+        "must_perform_once": false
+      },
+      "CHARGE_UP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "LASER_MOVE",
+        "must_perform_once": false
+      },
+      "LASER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 31,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RECHARGE_MOVE",
+        "must_perform_once": false
+      },
+      "RECHARGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Sleep"
+          }
+        ],
+        "follow_up": "TARGETING_RETICLE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SCROLL_OF_BITING": {
+    "id": "MONSTER.SCROLL_OF_BITING",
+    "name": "ScrollOfBiting",
+    "min_hp": 30,
+    "max_hp": 37,
+    "initial_state": null,
+    "moves": {
+      "CHOMP": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "MORE_TEETH",
+        "must_perform_once": false
+      },
+      "CHEW": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 5,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "rand",
+        "must_perform_once": false
+      },
+      "MORE_TEETH": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "CHEW",
+        "must_perform_once": false
+      },
+      "rand": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "CHOMP",
+          "CHEW"
+        ]
+      }
+    }
+  },
+  "MONSTER.SEAPUNK": {
+    "id": "MONSTER.SEAPUNK",
+    "name": "Seapunk",
+    "min_hp": 44,
+    "max_hp": 46,
+    "initial_state": "SEA_KICK_MOVE",
+    "moves": {
+      "SEA_KICK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SPINNING_KICK_MOVE",
+        "must_perform_once": false
+      },
+      "SPINNING_KICK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 2,
+            "repeats": 4
+          }
+        ],
+        "follow_up": "BUBBLE_BURP_MOVE",
+        "must_perform_once": false
+      },
+      "BUBBLE_BURP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "SEA_KICK_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SEWER_CLAM": {
+    "id": "MONSTER.SEWER_CLAM",
+    "name": "SewerClam",
+    "min_hp": 56,
+    "max_hp": 56,
+    "initial_state": "JET_MOVE",
+    "moves": {
+      "PRESSURIZE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "JET_MOVE",
+        "must_perform_once": false
+      },
+      "JET_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PRESSURIZE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SHRINKER_BEETLE": {
+    "id": "MONSTER.SHRINKER_BEETLE",
+    "name": "ShrinkerBeetle",
+    "min_hp": 38,
+    "max_hp": 40,
+    "initial_state": "SHRINKER_MOVE",
+    "moves": {
+      "SHRINKER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "DebuffStrong"
+          }
+        ],
+        "follow_up": "CHOMP_MOVE",
+        "must_perform_once": false
+      },
+      "CHOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "STOMP_MOVE",
+        "must_perform_once": false
+      },
+      "STOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "CHOMP_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SINGLE_ATTACK_MOVE_MONSTER": {
+    "id": "MONSTER.SINGLE_ATTACK_MOVE_MONSTER",
+    "name": "SingleAttackMoveMonster",
+    "min_hp": 999,
+    "max_hp": 999,
+    "initial_state": "POKE",
+    "moves": {
+      "POKE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "POKE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SKULKING_COLONY": {
+    "id": "MONSTER.SKULKING_COLONY",
+    "name": "SkulkingColony",
+    "min_hp": 75,
+    "max_hp": 75,
+    "initial_state": "ZOOM_MOVE",
+    "moves": {
+      "ZOOM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ZOOM_MOVE_2",
+        "must_perform_once": false
+      },
+      "ZOOM_MOVE_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "INERTIA_MOVE",
+        "must_perform_once": false
+      },
+      "INERTIA_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PIERCING_STABS_MOVE",
+        "must_perform_once": false
+      },
+      "PIERCING_STABS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "ZOOM_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SLIMED_BERSERKER": {
+    "id": "MONSTER.SLIMED_BERSERKER",
+    "name": "SlimedBerserker",
+    "min_hp": 261,
+    "max_hp": 261,
+    "initial_state": "VOMIT_ICHOR_MOVE",
+    "moves": {
+      "VOMIT_ICHOR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 10
+          }
+        ],
+        "follow_up": "FURIOUS_PUMMELING_MOVE",
+        "must_perform_once": false
+      },
+      "LEECHING_HUG_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SMOTHER_MOVE",
+        "must_perform_once": false
+      },
+      "SMOTHER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 30,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "VOMIT_ICHOR_MOVE",
+        "must_perform_once": false
+      },
+      "FURIOUS_PUMMELING_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 4
+          }
+        ],
+        "follow_up": "LEECHING_HUG_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SLITHERING_STRANGLER": {
+    "id": "MONSTER.SLITHERING_STRANGLER",
+    "name": "SlitheringStrangler",
+    "min_hp": 53,
+    "max_hp": 55,
+    "initial_state": "CONSTRICT",
+    "moves": {
+      "CONSTRICT": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "rand",
+        "must_perform_once": false
+      },
+      "THWACK": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "CONSTRICT",
+        "must_perform_once": false
+      },
+      "LASH": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "CONSTRICT",
+        "must_perform_once": false
+      },
+      "rand": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "THWACK",
+          "LASH"
+        ]
+      }
+    }
+  },
+  "MONSTER.SLUDGE_SPINNER": {
+    "id": "MONSTER.SLUDGE_SPINNER",
+    "name": "SludgeSpinner",
+    "min_hp": 37,
+    "max_hp": 39,
+    "initial_state": "OIL_SPRAY_MOVE",
+    "moves": {
+      "OIL_SPRAY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "SLAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "OIL_SPRAY_MOVE",
+          "SLAM_MOVE",
+          "RAGE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.SLUMBERING_BEETLE": {
+    "id": "MONSTER.SLUMBERING_BEETLE",
+    "name": "SlumberingBeetle",
+    "min_hp": 86,
+    "max_hp": 86,
+    "initial_state": "SNORE_MOVE",
+    "moves": {
+      "SNORE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Sleep"
+          }
+        ],
+        "follow_up": "SNORE_NEXT",
+        "must_perform_once": false
+      },
+      "ROLL_OUT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "ROLL_OUT_MOVE",
+        "must_perform_once": false
+      },
+      "SNORE_NEXT": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "SNORE_MOVE",
+          "ROLL_OUT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.SNAPPING_JAXFRUIT": {
+    "id": "MONSTER.SNAPPING_JAXFRUIT",
+    "name": "SnappingJaxfruit",
+    "min_hp": 31,
+    "max_hp": 33,
+    "initial_state": "ENERGY_ORB_MOVE",
+    "moves": {
+      "ENERGY_ORB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "ENERGY_ORB_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SNEAKY_GREMLIN": {
+    "id": "MONSTER.SNEAKY_GREMLIN",
+    "name": "SneakyGremlin",
+    "min_hp": 10,
+    "max_hp": 14,
+    "initial_state": "SPAWNED_MOVE",
+    "moves": {
+      "SPAWNED_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "TACKLE_MOVE",
+        "must_perform_once": false
+      },
+      "TACKLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TACKLE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SOUL_FYSH": {
+    "id": "MONSTER.SOUL_FYSH",
+    "name": "SoulFysh",
+    "min_hp": 211,
+    "max_hp": 211,
+    "initial_state": "BECKON_MOVE",
+    "moves": {
+      "BECKON_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 2
+          }
+        ],
+        "follow_up": "DE_GAS_MOVE",
+        "must_perform_once": false
+      },
+      "DE_GAS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "GAZE_MOVE",
+        "must_perform_once": false
+      },
+      "GAZE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          },
+          {
+            "type": "StatusCard",
+            "cards": 1
+          }
+        ],
+        "follow_up": "FADE_MOVE",
+        "must_perform_once": false
+      },
+      "FADE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SCREAM_MOVE",
+        "must_perform_once": false
+      },
+      "SCREAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BECKON_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.SOUL_NEXUS": {
+    "id": "MONSTER.SOUL_NEXUS",
+    "name": "SoulNexus",
+    "min_hp": 234,
+    "max_hp": 234,
+    "initial_state": "SOUL_BURN_MOVE",
+    "moves": {
+      "SOUL_BURN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 29,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "MAELSTROM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 4
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "DRAIN_LIFE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          },
+          {
+            "type": "DebuffStrong"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SOUL_BURN_MOVE",
+          "MAELSTROM_MOVE",
+          "DRAIN_LIFE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.SPECTRAL_KNIGHT": {
+    "id": "MONSTER.SPECTRAL_KNIGHT",
+    "name": "SpectralKnight",
+    "min_hp": 93,
+    "max_hp": 93,
+    "initial_state": "HEX",
+    "moves": {
+      "HEX": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "SOUL_SLASH",
+        "must_perform_once": false
+      },
+      "SOUL_SLASH": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "SOUL_FLAME": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SOUL_SLASH",
+          "SOUL_FLAME"
+        ]
+      }
+    }
+  },
+  "MONSTER.SPINY_TOAD": {
+    "id": "MONSTER.SPINY_TOAD",
+    "name": "SpinyToad",
+    "min_hp": 116,
+    "max_hp": 119,
+    "initial_state": "PROTRUDING_SPIKES_MOVE",
+    "moves": {
+      "PROTRUDING_SPIKES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SPIKE_EXPLOSION_MOVE",
+        "must_perform_once": false
+      },
+      "SPIKE_EXPLOSION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 23,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TONGUE_LASH_MOVE",
+        "must_perform_once": false
+      },
+      "TONGUE_LASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "PROTRUDING_SPIKES_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.STABBOT": {
+    "id": "MONSTER.STABBOT",
+    "name": "Stabbot",
+    "min_hp": 18,
+    "max_hp": 23,
+    "initial_state": "STAB_MOVE",
+    "moves": {
+      "STAB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "STAB_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TEN_HP_MONSTER": {
+    "id": "MONSTER.TEN_HP_MONSTER",
+    "name": "TenHpMonster",
+    "min_hp": 10,
+    "max_hp": 10,
+    "initial_state": "NOTHING",
+    "moves": {
+      "NOTHING": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Hidden"
+          }
+        ],
+        "follow_up": "NOTHING",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TERROR_EEL": {
+    "id": "MONSTER.TERROR_EEL",
+    "name": "TerrorEel",
+    "min_hp": 140,
+    "max_hp": 140,
+    "initial_state": "CRASH_MOVE",
+    "moves": {
+      "CRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "THRASH_MOVE",
+        "must_perform_once": false
+      },
+      "THRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 3
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "CRASH_MOVE",
+        "must_perform_once": false
+      },
+      "STUN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "TERROR_MOVE",
+        "must_perform_once": false
+      },
+      "TERROR_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "CRASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TEST_SUBJECT": {
+    "id": "MONSTER.TEST_SUBJECT",
+    "name": "TestSubject",
+    "min_hp": 100,
+    "max_hp": 100,
+    "initial_state": "BITE_MOVE",
+    "moves": {
+      "RESPAWN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Heal"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "REVIVE_BRANCH",
+        "must_perform_once": true
+      },
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 20,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SKULL_BASH_MOVE",
+        "must_perform_once": false
+      },
+      "SKULL_BASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "BITE_MOVE",
+        "must_perform_once": false
+      },
+      "MULTI_CLAW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": null
+          }
+        ],
+        "follow_up": "MULTI_CLAW_MOVE",
+        "must_perform_once": false
+      },
+      "PHASE3_LACERATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "BIG_POUNCE",
+        "must_perform_once": false
+      },
+      "BIG_POUNCE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 45,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BURNING_GROWL_MOVE",
+        "must_perform_once": false
+      },
+      "BURNING_GROWL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 3
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PHASE3_LACERATE_MOVE",
+        "must_perform_once": false
+      },
+      "REVIVE_BRANCH": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "MULTI_CLAW_MOVE",
+          "PHASE3_LACERATE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.THE_ADVERSARY_MK_ONE": {
+    "id": "MONSTER.THE_ADVERSARY_MK_ONE",
+    "name": "TheAdversaryMkOne",
+    "min_hp": 100,
+    "max_hp": 100,
+    "initial_state": "SMASH_MOVE",
+    "moves": {
+      "SMASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 12,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BARRAGE_MOVE",
+        "must_perform_once": false
+      },
+      "BARRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 2
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SMASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_ADVERSARY_MK_THREE": {
+    "id": "MONSTER.THE_ADVERSARY_MK_THREE",
+    "name": "TheAdversaryMkThree",
+    "min_hp": 300,
+    "max_hp": 300,
+    "initial_state": "CRASH_MOVE",
+    "moves": {
+      "CRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FLAME_BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "FLAME_BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BARRAGE_MOVE",
+        "must_perform_once": false
+      },
+      "BARRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 2
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "CRASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_ADVERSARY_MK_TWO": {
+    "id": "MONSTER.THE_ADVERSARY_MK_TWO",
+    "name": "TheAdversaryMkTwo",
+    "min_hp": 200,
+    "max_hp": 200,
+    "initial_state": "BASH_MOVE",
+    "moves": {
+      "BASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "FLAME_BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "FLAME_BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BARRAGE_MOVE",
+        "must_perform_once": false
+      },
+      "BARRAGE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 9,
+            "repeats": 2
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "BASH_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_FORGOTTEN": {
+    "id": "MONSTER.THE_FORGOTTEN",
+    "name": "TheForgotten",
+    "min_hp": 106,
+    "max_hp": 106,
+    "initial_state": "MIASMA",
+    "moves": {
+      "MIASMA": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "Defend"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "DREAD",
+        "must_perform_once": false
+      },
+      "DREAD": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": null,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "MIASMA",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_INSATIABLE": {
+    "id": "MONSTER.THE_INSATIABLE",
+    "name": "TheInsatiable",
+    "min_hp": 321,
+    "max_hp": 321,
+    "initial_state": "LIQUIFY_GROUND_MOVE",
+    "moves": {
+      "LIQUIFY_GROUND_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "StatusCard",
+            "cards": 6
+          }
+        ],
+        "follow_up": "THRASH_MOVE",
+        "must_perform_once": false
+      },
+      "THRASH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "LUNGING_BITE_MOVE",
+        "must_perform_once": false
+      },
+      "THRASH_MOVE_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "THRASH_MOVE",
+        "must_perform_once": false
+      },
+      "LUNGING_BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 28,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SALIVATE_MOVE",
+        "must_perform_once": false
+      },
+      "SALIVATE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "THRASH_MOVE_2",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_LOST": {
+    "id": "MONSTER.THE_LOST",
+    "name": "TheLost",
+    "min_hp": 93,
+    "max_hp": 93,
+    "initial_state": "DEBILITATING_SMOG",
+    "moves": {
+      "DEBILITATING_SMOG": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "EYE_LASERS",
+        "must_perform_once": false
+      },
+      "EYE_LASERS": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "DEBILITATING_SMOG",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.THE_OBSCURA": {
+    "id": "MONSTER.THE_OBSCURA",
+    "name": "TheObscura",
+    "min_hp": 123,
+    "max_hp": 123,
+    "initial_state": "ILLUSION_MOVE",
+    "moves": {
+      "ILLUSION_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "PIERCING_GAZE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "SAIL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "HARDENING_STRIKE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "PIERCING_GAZE_MOVE",
+          "SAIL_MOVE",
+          "HARDENING_STRIKE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.THIEVING_HOPPER": {
+    "id": "MONSTER.THIEVING_HOPPER",
+    "name": "ThievingHopper",
+    "min_hp": 79,
+    "max_hp": 79,
+    "initial_state": "THIEVERY_MOVE",
+    "moves": {
+      "THIEVERY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 17,
+            "repeats": 1
+          },
+          {
+            "type": "CardDebuff"
+          }
+        ],
+        "follow_up": "FLUTTER_MOVE",
+        "must_perform_once": false
+      },
+      "NAB_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ESCAPE_MOVE",
+        "must_perform_once": false
+      },
+      "HAT_TRICK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 21,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "NAB_MOVE",
+        "must_perform_once": false
+      },
+      "FLUTTER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "HAT_TRICK_MOVE",
+        "must_perform_once": false
+      },
+      "ESCAPE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Escape"
+          }
+        ],
+        "follow_up": "ESCAPE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TOADPOLE": {
+    "id": "MONSTER.TOADPOLE",
+    "name": "Toadpole",
+    "min_hp": 21,
+    "max_hp": 25,
+    "initial_state": "INIT_MOVE",
+    "moves": {
+      "SPIKE_SPIT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "WHIRL_MOVE",
+        "must_perform_once": false
+      },
+      "WHIRL_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SPIKEN_MOVE",
+        "must_perform_once": false
+      },
+      "SPIKEN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SPIKE_SPIT_MOVE",
+        "must_perform_once": false
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "WHIRL_MOVE",
+          "SPIKEN_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.TORCH_HEAD_AMALGAM": {
+    "id": "MONSTER.TORCH_HEAD_AMALGAM",
+    "name": "TorchHeadAmalgam",
+    "min_hp": 199,
+    "max_hp": 199,
+    "initial_state": "STRONG_TACKLE_MOVE",
+    "moves": {
+      "STRONG_TACKLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 26,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TACKLE_2_MOVE",
+        "must_perform_once": false
+      },
+      "TACKLE_2_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 18,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BEAM_MOVE",
+        "must_perform_once": false
+      },
+      "BEAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 3
+          }
+        ],
+        "follow_up": "TACKLE_3_MOVE",
+        "must_perform_once": false
+      },
+      "TACKLE_3_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TACKLE_4_MOVE",
+        "must_perform_once": false
+      },
+      "TACKLE_4_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BEAM_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TOUGH_EGG": {
+    "id": "MONSTER.TOUGH_EGG",
+    "name": "ToughEgg",
+    "min_hp": 14,
+    "max_hp": 18,
+    "initial_state": "HATCH_MOVE",
+    "moves": {
+      "HATCH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "NIBBLE_MOVE",
+        "must_perform_once": false
+      },
+      "NIBBLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "NIBBLE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TRACKER_RUBY_RAIDER": {
+    "id": "MONSTER.TRACKER_RUBY_RAIDER",
+    "name": "TrackerRubyRaider",
+    "min_hp": 21,
+    "max_hp": 25,
+    "initial_state": "TRACK_MOVE",
+    "moves": {
+      "TRACK_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "HOUNDS_MOVE",
+        "must_perform_once": false
+      },
+      "HOUNDS_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 1,
+            "repeats": 8
+          }
+        ],
+        "follow_up": "HOUNDS_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TUNNELER": {
+    "id": "MONSTER.TUNNELER",
+    "name": "Tunneler",
+    "min_hp": 87,
+    "max_hp": 87,
+    "initial_state": "BITE_MOVE",
+    "moves": {
+      "BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BURROW_MOVE",
+        "must_perform_once": false
+      },
+      "BURROW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "Defend"
+          }
+        ],
+        "follow_up": "BELOW_MOVE",
+        "must_perform_once": false
+      },
+      "BELOW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 23,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "BELOW_MOVE",
+        "must_perform_once": false
+      },
+      "DIZZY_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "BITE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TURRET_OPERATOR": {
+    "id": "MONSTER.TURRET_OPERATOR",
+    "name": "TurretOperator",
+    "min_hp": 41,
+    "max_hp": 41,
+    "initial_state": "UNLOAD_MOVE",
+    "moves": {
+      "UNLOAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 5
+          }
+        ],
+        "follow_up": "UNLOAD_MOVE_2",
+        "must_perform_once": false
+      },
+      "UNLOAD_MOVE_2": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 3,
+            "repeats": 5
+          }
+        ],
+        "follow_up": "RELOAD_MOVE",
+        "must_perform_once": false
+      },
+      "RELOAD_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "UNLOAD_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TWIG_SLIME_M": {
+    "id": "MONSTER.TWIG_SLIME_M",
+    "name": "TwigSlimeM",
+    "min_hp": 26,
+    "max_hp": 28,
+    "initial_state": "STICKY_SHOT_MOVE",
+    "moves": {
+      "POKEY_POUNCE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 11,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "STICKY_SHOT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "StatusCard",
+            "cards": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "POKEY_POUNCE_MOVE",
+          "STICKY_SHOT_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.TWIG_SLIME_S": {
+    "id": "MONSTER.TWIG_SLIME_S",
+    "name": "TwigSlimeS",
+    "min_hp": 7,
+    "max_hp": 11,
+    "initial_state": "TACKLE_MOVE",
+    "moves": {
+      "TACKLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 4,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "TACKLE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.TWO_TAILED_RAT": {
+    "id": "MONSTER.TWO_TAILED_RAT",
+    "name": "TwoTailedRat",
+    "min_hp": 17,
+    "max_hp": 21,
+    "initial_state": null,
+    "moves": {
+      "SCRATCH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "DISEASE_BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "SCREECH_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Debuff"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "CALL_FOR_BACKUP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Summon"
+          }
+        ],
+        "follow_up": "RAND",
+        "must_perform_once": false
+      },
+      "RAND": {
+        "kind": "RandomBranchState",
+        "branches": [
+          "SCRATCH_MOVE",
+          "DISEASE_BITE_MOVE",
+          "SCREECH_MOVE",
+          "CALL_FOR_BACKUP_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.VANTOM": {
+    "id": "MONSTER.VANTOM",
+    "name": "Vantom",
+    "min_hp": 173,
+    "max_hp": 173,
+    "initial_state": "INK_BLOT_MOVE",
+    "moves": {
+      "INK_BLOT_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 7,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "INKY_LANCE_MOVE",
+        "must_perform_once": false
+      },
+      "INKY_LANCE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "DISMEMBER_MOVE",
+        "must_perform_once": false
+      },
+      "DISMEMBER_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 26,
+            "repeats": 1
+          },
+          {
+            "type": "StatusCard",
+            "cards": 3
+          }
+        ],
+        "follow_up": "PREPARE_MOVE",
+        "must_perform_once": false
+      },
+      "PREPARE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "INK_BLOT_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.VINE_SHAMBLER": {
+    "id": "MONSTER.VINE_SHAMBLER",
+    "name": "VineShambler",
+    "min_hp": 61,
+    "max_hp": 61,
+    "initial_state": "SWIPE_MOVE",
+    "moves": {
+      "GRASPING_VINES_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 8,
+            "repeats": 1
+          },
+          {
+            "type": "CardDebuff"
+          }
+        ],
+        "follow_up": "CHOMP_MOVE",
+        "must_perform_once": false
+      },
+      "SWIPE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 2
+          }
+        ],
+        "follow_up": "GRASPING_VINES_MOVE",
+        "must_perform_once": false
+      },
+      "CHOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 16,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "SWIPE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.WATERFALL_GIANT": {
+    "id": "MONSTER.WATERFALL_GIANT",
+    "name": "WaterfallGiant",
+    "min_hp": 240,
+    "max_hp": 240,
+    "initial_state": "PRESSURIZE_MOVE",
+    "moves": {
+      "PRESSURIZE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "STOMP_MOVE",
+        "must_perform_once": false
+      },
+      "STOMP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 15,
+            "repeats": 1
+          },
+          {
+            "type": "Debuff"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "RAM_MOVE",
+        "must_perform_once": false
+      },
+      "RAM_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 10,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "SIPHON_MOVE",
+        "must_perform_once": false
+      },
+      "SIPHON_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Heal"
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PRESSURE_GUN_MOVE",
+        "must_perform_once": false
+      },
+      "PRESSURE_GUN_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": null,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "PRESSURE_UP_MOVE",
+        "must_perform_once": false
+      },
+      "PRESSURE_UP_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 13,
+            "repeats": 1
+          },
+          {
+            "type": "Buff"
+          }
+        ],
+        "follow_up": "STOMP_MOVE",
+        "must_perform_once": false
+      },
+      "ABOUT_TO_BLOW_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "EXPLODE_MOVE",
+        "must_perform_once": true
+      },
+      "EXPLODE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "DeathBlow",
+            "damage": null,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "EXPLODE_MOVE",
+        "must_perform_once": false
+      }
+    }
+  },
+  "MONSTER.WRIGGLER": {
+    "id": "MONSTER.WRIGGLER",
+    "name": "Wriggler",
+    "min_hp": 17,
+    "max_hp": 21,
+    "initial_state": null,
+    "moves": {
+      "NASTY_BITE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 6,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "WRIGGLE_MOVE",
+        "must_perform_once": false
+      },
+      "WRIGGLE_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Buff"
+          },
+          {
+            "type": "StatusCard",
+            "cards": 1
+          }
+        ],
+        "follow_up": "NASTY_BITE_MOVE",
+        "must_perform_once": false
+      },
+      "SPAWNED_MOVE": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Stun"
+          }
+        ],
+        "follow_up": "INIT_MOVE",
+        "must_perform_once": false
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "NASTY_BITE_MOVE",
+          "WRIGGLE_MOVE",
+          "NASTY_BITE_MOVE",
+          "WRIGGLE_MOVE"
+        ]
+      }
+    }
+  },
+  "MONSTER.ZAPBOT": {
+    "id": "MONSTER.ZAPBOT",
+    "name": "Zapbot",
+    "min_hp": 18,
+    "max_hp": 23,
+    "initial_state": "ZAP",
+    "moves": {
+      "ZAP": {
+        "kind": "MoveState",
+        "intents": [
+          {
+            "type": "Attack",
+            "damage": 14,
+            "repeats": 1
+          }
+        ],
+        "follow_up": "ZAP",
+        "must_perform_once": false
+      }
+    }
+  }
+}

@@ -1,0 +1,3153 @@
+{
+  "RELIC.AKABEKO": {
+    "id": "RELIC.AKABEKO",
+    "name": "Akabeko",
+    "rarity": "Uncommon",
+    "vars": {
+      "VigorPower": {
+        "base": 8
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.ALCHEMICAL_COFFER": {
+    "id": "RELIC.ALCHEMICAL_COFFER",
+    "name": "AlchemicalCoffer",
+    "rarity": "Ancient",
+    "vars": {
+      "PotionSlots": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.AMETHYST_AUBERGINE": {
+    "id": "RELIC.AMETHYST_AUBERGINE",
+    "name": "AmethystAubergine",
+    "rarity": "Common",
+    "vars": {
+      "Gold": {
+        "base": 15
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.ANCHOR": {
+    "id": "RELIC.ANCHOR",
+    "name": "Anchor",
+    "rarity": "Common",
+    "vars": {
+      "Block": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.ARCANE_SCROLL": {
+    "id": "RELIC.ARCANE_SCROLL",
+    "name": "ArcaneScroll",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ARCHAIC_TOOTH": {
+    "id": "RELIC.ARCHAIC_TOOTH",
+    "name": "ArchaicTooth",
+    "rarity": "Ancient",
+    "vars": {
+      "StarterCard": {
+        "expr": "new StringVar(\"StarterCard\")"
+      },
+      "AncientCard": {
+        "expr": "new StringVar(\"AncientCard\")"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ART_OF_WAR": {
+    "id": "RELIC.ART_OF_WAR",
+    "name": "ArtOfWar",
+    "rarity": "Rare",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.ASTROLABE": {
+    "id": "RELIC.ASTROLABE",
+    "name": "Astrolabe",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BAG_OF_MARBLES": {
+    "id": "RELIC.BAG_OF_MARBLES",
+    "name": "BagOfMarbles",
+    "rarity": "Common",
+    "vars": {
+      "VulnerablePower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BAG_OF_PREPARATION": {
+    "id": "RELIC.BAG_OF_PREPARATION",
+    "name": "BagOfPreparation",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BEATING_REMNANT": {
+    "id": "RELIC.BEATING_REMNANT",
+    "name": "BeatingRemnant",
+    "rarity": "Rare",
+    "vars": {
+      "MaxHpLoss": {
+        "base": 20
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.BEAUTIFUL_BRACELET": {
+    "id": "RELIC.BEAUTIFUL_BRACELET",
+    "name": "BeautifulBracelet",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 4
+      },
+      "Swift": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BELLOWS": {
+    "id": "RELIC.BELLOWS",
+    "name": "Bellows",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.BELT_BUCKLE": {
+    "id": "RELIC.BELT_BUCKLE",
+    "name": "BeltBuckle",
+    "rarity": "Shop",
+    "vars": {
+      "DexterityPower": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.BIG_HAT": {
+    "id": "RELIC.BIG_HAT",
+    "name": "BigHat",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.BIG_MUSHROOM": {
+    "id": "RELIC.BIG_MUSHROOM",
+    "name": "BigMushroom",
+    "rarity": "Event",
+    "vars": {
+      "MaxHp": {
+        "base": 20
+      },
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BIIIG_HUG": {
+    "id": "RELIC.BIIIG_HUG",
+    "name": "BiiigHug",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BING_BONG": {
+    "id": "RELIC.BING_BONG",
+    "name": "BingBong",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.BLACK_BLOOD": {
+    "id": "RELIC.BLACK_BLOOD",
+    "name": "BlackBlood",
+    "rarity": "Starter",
+    "vars": {
+      "Heal": {
+        "base": 12
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BLACK_STAR": {
+    "id": "RELIC.BLACK_STAR",
+    "name": "BlackStar",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.BLESSED_ANTLER": {
+    "id": "RELIC.BLESSED_ANTLER",
+    "name": "BlessedAntler",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BLOOD_SOAKED_ROSE": {
+    "id": "RELIC.BLOOD_SOAKED_ROSE",
+    "name": "BloodSoakedRose",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BLOOD_VIAL": {
+    "id": "RELIC.BLOOD_VIAL",
+    "name": "BloodVial",
+    "rarity": "Common",
+    "vars": {
+      "Heal": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BONE_FLUTE": {
+    "id": "RELIC.BONE_FLUTE",
+    "name": "BoneFlute",
+    "rarity": "Common",
+    "vars": {
+      "Block": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BONE_TEA": {
+    "id": "RELIC.BONE_TEA",
+    "name": "BoneTea",
+    "rarity": "Event",
+    "vars": {
+      "Combats": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BOOKMARK": {
+    "id": "RELIC.BOOKMARK",
+    "name": "Bookmark",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.BOOK_OF_FIVE_RINGS": {
+    "id": "RELIC.BOOK_OF_FIVE_RINGS",
+    "name": "BookOfFiveRings",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 5
+      },
+      "Heal": {
+        "base": 20
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BOOK_REPAIR_KNIFE": {
+    "id": "RELIC.BOOK_REPAIR_KNIFE",
+    "name": "BookRepairKnife",
+    "rarity": "Uncommon",
+    "vars": {
+      "Heal": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.BOOMING_CONCH": {
+    "id": "RELIC.BOOMING_CONCH",
+    "name": "BoomingConch",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      },
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BOUND_PHYLACTERY": {
+    "id": "RELIC.BOUND_PHYLACTERY",
+    "name": "BoundPhylactery",
+    "rarity": "Starter",
+    "vars": {
+      "Summon": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BOWLER_HAT": {
+    "id": "RELIC.BOWLER_HAT",
+    "name": "BowlerHat",
+    "rarity": "Uncommon",
+    "vars": {
+      "GoldIncrease": {
+        "base": 1.25
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.BREAD": {
+    "id": "RELIC.BREAD",
+    "name": "Bread",
+    "rarity": "Shop",
+    "vars": {
+      "GainEnergy": {
+        "base": 1
+      },
+      "LoseEnergy": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.BRILLIANT_SCARF": {
+    "id": "RELIC.BRILLIANT_SCARF",
+    "name": "BrilliantScarf",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BRIMSTONE": {
+    "id": "RELIC.BRIMSTONE",
+    "name": "Brimstone",
+    "rarity": "Shop",
+    "vars": {
+      "SelfStrength": {
+        "base": 2
+      },
+      "EnemyStrength": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.BRONZE_SCALES": {
+    "id": "RELIC.BRONZE_SCALES",
+    "name": "BronzeScales",
+    "rarity": "Common",
+    "vars": {
+      "ThornsPower": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.BURNING_BLOOD": {
+    "id": "RELIC.BURNING_BLOOD",
+    "name": "BurningBlood",
+    "rarity": "Starter",
+    "vars": {
+      "Heal": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.BURNING_STICKS": {
+    "id": "RELIC.BURNING_STICKS",
+    "name": "BurningSticks",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.BYRDPIP": {
+    "id": "RELIC.BYRDPIP",
+    "name": "Byrdpip",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.CALLING_BELL": {
+    "id": "RELIC.CALLING_BELL",
+    "name": "CallingBell",
+    "rarity": "Ancient",
+    "vars": {
+      "Relics": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.CANDELABRA": {
+    "id": "RELIC.CANDELABRA",
+    "name": "Candelabra",
+    "rarity": "Uncommon",
+    "vars": {
+      "Energy": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.CAPTAINS_WHEEL": {
+    "id": "RELIC.CAPTAINS_WHEEL",
+    "name": "CaptainsWheel",
+    "rarity": "Rare",
+    "vars": {
+      "Block": {
+        "base": 18
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.CAULDRON": {
+    "id": "RELIC.CAULDRON",
+    "name": "Cauldron",
+    "rarity": "Shop",
+    "vars": {
+      "Potions": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.CENTENNIAL_PUZZLE": {
+    "id": "RELIC.CENTENNIAL_PUZZLE",
+    "name": "CentennialPuzzle",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.CHANDELIER": {
+    "id": "RELIC.CHANDELIER",
+    "name": "Chandelier",
+    "rarity": "Rare",
+    "vars": {
+      "Energy": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.CHARONS_ASHES": {
+    "id": "RELIC.CHARONS_ASHES",
+    "name": "CharonsAshes",
+    "rarity": "Rare",
+    "vars": {
+      "Damage": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.CHEMICAL_X": {
+    "id": "RELIC.CHEMICAL_X",
+    "name": "ChemicalX",
+    "rarity": "Shop",
+    "vars": {
+      "Increase": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.CHOICES_PARADOX": {
+    "id": "RELIC.CHOICES_PARADOX",
+    "name": "ChoicesParadox",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.CHOSEN_CHEESE": {
+    "id": "RELIC.CHOSEN_CHEESE",
+    "name": "ChosenCheese",
+    "rarity": "Event",
+    "vars": {
+      "MaxHp": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.CIRCLET": {
+    "id": "RELIC.CIRCLET",
+    "name": "Circlet",
+    "rarity": "None",
+    "vars": null,
+    "merchant_cost": 1
+  },
+  "RELIC.CLAWS": {
+    "id": "RELIC.CLAWS",
+    "name": "Claws",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.CLOAK_CLASP": {
+    "id": "RELIC.CLOAK_CLASP",
+    "name": "CloakClasp",
+    "rarity": "Rare",
+    "vars": {
+      "Block": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.CRACKED_CORE": {
+    "id": "RELIC.CRACKED_CORE",
+    "name": "CrackedCore",
+    "rarity": "Starter",
+    "vars": {
+      "Lightning": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.CROSSBOW": {
+    "id": "RELIC.CROSSBOW",
+    "name": "Crossbow",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.CURSED_PEARL": {
+    "id": "RELIC.CURSED_PEARL",
+    "name": "CursedPearl",
+    "rarity": "Ancient",
+    "vars": {
+      "Gold": {
+        "base": 333
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DARKSTONE_PERIAPT": {
+    "id": "RELIC.DARKSTONE_PERIAPT",
+    "name": "DarkstonePeriapt",
+    "rarity": "Event",
+    "vars": {
+      "MaxHp": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DATA_DISK": {
+    "id": "RELIC.DATA_DISK",
+    "name": "DataDisk",
+    "rarity": "Common",
+    "vars": {
+      "FocusPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.DAUGHTER_OF_THE_WIND": {
+    "id": "RELIC.DAUGHTER_OF_THE_WIND",
+    "name": "DaughterOfTheWind",
+    "rarity": "Event",
+    "vars": {
+      "Block": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DELICATE_FROND": {
+    "id": "RELIC.DELICATE_FROND",
+    "name": "DelicateFrond",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.DEMON_TONGUE": {
+    "id": "RELIC.DEMON_TONGUE",
+    "name": "DemonTongue",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.DEPRECATED_RELIC": {
+    "id": "RELIC.DEPRECATED_RELIC",
+    "name": "DeprecatedRelic",
+    "rarity": "None",
+    "vars": null,
+    "merchant_cost": 1
+  },
+  "RELIC.DIAMOND_DIADEM": {
+    "id": "RELIC.DIAMOND_DIADEM",
+    "name": "DiamondDiadem",
+    "rarity": "Ancient",
+    "vars": {
+      "Block": {
+        "base": 20
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DINGY_RUG": {
+    "id": "RELIC.DINGY_RUG",
+    "name": "DingyRug",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.DISTINGUISHED_CAPE": {
+    "id": "RELIC.DISTINGUISHED_CAPE",
+    "name": "DistinguishedCape",
+    "rarity": "Ancient",
+    "vars": {
+      "Curses": {
+        "base": 2
+      },
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DIVINE_DESTINY": {
+    "id": "RELIC.DIVINE_DESTINY",
+    "name": "DivineDestiny",
+    "rarity": "Starter",
+    "vars": {
+      "Stars": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DIVINE_RIGHT": {
+    "id": "RELIC.DIVINE_RIGHT",
+    "name": "DivineRight",
+    "rarity": "Starter",
+    "vars": {
+      "Stars": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.DOLLYS_MIRROR": {
+    "id": "RELIC.DOLLYS_MIRROR",
+    "name": "DollysMirror",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.DOWSING_ROD": {
+    "id": "RELIC.DOWSING_ROD",
+    "name": "DowsingRod",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.DRAGON_FRUIT": {
+    "id": "RELIC.DRAGON_FRUIT",
+    "name": "DragonFruit",
+    "rarity": "Shop",
+    "vars": {
+      "MaxHp": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.DREAM_CATCHER": {
+    "id": "RELIC.DREAM_CATCHER",
+    "name": "DreamCatcher",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.DRIFTWOOD": {
+    "id": "RELIC.DRIFTWOOD",
+    "name": "Driftwood",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.DUSTY_TOME": {
+    "id": "RELIC.DUSTY_TOME",
+    "name": "DustyTome",
+    "rarity": "Ancient",
+    "vars": {
+      "AncientCard": {
+        "expr": "new StringVar(\"AncientCard\")"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ECTOPLASM": {
+    "id": "RELIC.ECTOPLASM",
+    "name": "Ectoplasm",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ELECTRIC_SHRYMP": {
+    "id": "RELIC.ELECTRIC_SHRYMP",
+    "name": "ElectricShrymp",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.EMBER_TEA": {
+    "id": "RELIC.EMBER_TEA",
+    "name": "EmberTea",
+    "rarity": "Event",
+    "vars": {
+      "Combats": {
+        "base": 5
+      },
+      "StrengthPower": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.EMOTION_CHIP": {
+    "id": "RELIC.EMOTION_CHIP",
+    "name": "EmotionChip",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.EMPTY_CAGE": {
+    "id": "RELIC.EMPTY_CAGE",
+    "name": "EmptyCage",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ETERNAL_FEATHER": {
+    "id": "RELIC.ETERNAL_FEATHER",
+    "name": "EternalFeather",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 5
+      },
+      "Heal": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.FAKE_ANCHOR": {
+    "id": "RELIC.FAKE_ANCHOR",
+    "name": "FakeAnchor",
+    "rarity": "Event",
+    "vars": {
+      "Block": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_BLOOD_VIAL": {
+    "id": "RELIC.FAKE_BLOOD_VIAL",
+    "name": "FakeBloodVial",
+    "rarity": "Event",
+    "vars": {
+      "Heal": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_HAPPY_FLOWER": {
+    "id": "RELIC.FAKE_HAPPY_FLOWER",
+    "name": "FakeHappyFlower",
+    "rarity": "Event",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Turns": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_LEES_WAFFLE": {
+    "id": "RELIC.FAKE_LEES_WAFFLE",
+    "name": "FakeLeesWaffle",
+    "rarity": "Event",
+    "vars": {
+      "Heal": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_MANGO": {
+    "id": "RELIC.FAKE_MANGO",
+    "name": "FakeMango",
+    "rarity": "Event",
+    "vars": {
+      "MaxHp": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_MERCHANTS_RUG": {
+    "id": "RELIC.FAKE_MERCHANTS_RUG",
+    "name": "FakeMerchantsRug",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.FAKE_ORICHALCUM": {
+    "id": "RELIC.FAKE_ORICHALCUM",
+    "name": "FakeOrichalcum",
+    "rarity": "Event",
+    "vars": {
+      "Block": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_SNECKO_EYE": {
+    "id": "RELIC.FAKE_SNECKO_EYE",
+    "name": "FakeSneckoEye",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_STRIKE_DUMMY": {
+    "id": "RELIC.FAKE_STRIKE_DUMMY",
+    "name": "FakeStrikeDummy",
+    "rarity": "Event",
+    "vars": {
+      "ExtraDamage": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FAKE_VENERABLE_TEA_SET": {
+    "id": "RELIC.FAKE_VENERABLE_TEA_SET",
+    "name": "FakeVenerableTeaSet",
+    "rarity": "Event",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 50
+  },
+  "RELIC.FENCING_MANUAL": {
+    "id": "RELIC.FENCING_MANUAL",
+    "name": "FencingManual",
+    "rarity": "Common",
+    "vars": {
+      "Forge": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.FESTIVE_POPPER": {
+    "id": "RELIC.FESTIVE_POPPER",
+    "name": "FestivePopper",
+    "rarity": "Common",
+    "vars": {
+      "Damage": {
+        "base": 9
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.FIDDLE": {
+    "id": "RELIC.FIDDLE",
+    "name": "Fiddle",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.FISHING_ROD": {
+    "id": "RELIC.FISHING_ROD",
+    "name": "FishingRod",
+    "rarity": "Ancient",
+    "vars": {
+      "Combats": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.FORGOTTEN_SOUL": {
+    "id": "RELIC.FORGOTTEN_SOUL",
+    "name": "ForgottenSoul",
+    "rarity": "Event",
+    "vars": {
+      "Damage": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.FRAGRANT_MUSHROOM": {
+    "id": "RELIC.FRAGRANT_MUSHROOM",
+    "name": "FragrantMushroom",
+    "rarity": "Event",
+    "vars": {
+      "HpLoss": {
+        "base": 15
+      },
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.FRESNEL_LENS": {
+    "id": "RELIC.FRESNEL_LENS",
+    "name": "FresnelLens",
+    "rarity": "Event",
+    "vars": {
+      "NimbleAmount": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.FROZEN_EGG": {
+    "id": "RELIC.FROZEN_EGG",
+    "name": "FrozenEgg",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.FUNERARY_MASK": {
+    "id": "RELIC.FUNERARY_MASK",
+    "name": "FuneraryMask",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.FUR_COAT": {
+    "id": "RELIC.FUR_COAT",
+    "name": "FurCoat",
+    "rarity": "Ancient",
+    "vars": {
+      "Combats": {
+        "base": 8
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.GALACTIC_DUST": {
+    "id": "RELIC.GALACTIC_DUST",
+    "name": "GalacticDust",
+    "rarity": "Uncommon",
+    "vars": {
+      "Stars": {
+        "base": 10
+      },
+      "Block": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.GAMBLING_CHIP": {
+    "id": "RELIC.GAMBLING_CHIP",
+    "name": "GamblingChip",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.GAME_PIECE": {
+    "id": "RELIC.GAME_PIECE",
+    "name": "GamePiece",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.GHOST_SEED": {
+    "id": "RELIC.GHOST_SEED",
+    "name": "GhostSeed",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.GIRYA": {
+    "id": "RELIC.GIRYA",
+    "name": "Girya",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.GLASS_EYE": {
+    "id": "RELIC.GLASS_EYE",
+    "name": "GlassEye",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.GLITTER": {
+    "id": "RELIC.GLITTER",
+    "name": "Glitter",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.GNARLED_HAMMER": {
+    "id": "RELIC.GNARLED_HAMMER",
+    "name": "GnarledHammer",
+    "rarity": "Shop",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "SharpAmount": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.GOLDEN_COMPASS": {
+    "id": "RELIC.GOLDEN_COMPASS",
+    "name": "GoldenCompass",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.GOLDEN_PEARL": {
+    "id": "RELIC.GOLDEN_PEARL",
+    "name": "GoldenPearl",
+    "rarity": "Ancient",
+    "vars": {
+      "Gold": {
+        "base": 150
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.GOLD_PLATED_CABLES": {
+    "id": "RELIC.GOLD_PLATED_CABLES",
+    "name": "GoldPlatedCables",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.GORGET": {
+    "id": "RELIC.GORGET",
+    "name": "Gorget",
+    "rarity": "Common",
+    "vars": {
+      "PlatingPower": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.GREMLIN_HORN": {
+    "id": "RELIC.GREMLIN_HORN",
+    "name": "GremlinHorn",
+    "rarity": "Uncommon",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.HAND_DRILL": {
+    "id": "RELIC.HAND_DRILL",
+    "name": "HandDrill",
+    "rarity": "Event",
+    "vars": {
+      "VulnerablePower": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.HAPPY_FLOWER": {
+    "id": "RELIC.HAPPY_FLOWER",
+    "name": "HappyFlower",
+    "rarity": "Common",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Turns": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.HEFTY_TABLET": {
+    "id": "RELIC.HEFTY_TABLET",
+    "name": "HeftyTablet",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.HELICAL_DART": {
+    "id": "RELIC.HELICAL_DART",
+    "name": "HelicalDart",
+    "rarity": "Rare",
+    "vars": {
+      "DexterityPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.HISTORY_COURSE": {
+    "id": "RELIC.HISTORY_COURSE",
+    "name": "HistoryCourse",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.HORN_CLEAT": {
+    "id": "RELIC.HORN_CLEAT",
+    "name": "HornCleat",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 14
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.ICE_CREAM": {
+    "id": "RELIC.ICE_CREAM",
+    "name": "IceCream",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.INFUSED_CORE": {
+    "id": "RELIC.INFUSED_CORE",
+    "name": "InfusedCore",
+    "rarity": "Starter",
+    "vars": {
+      "Lightning": {
+        "base": 3
+      },
+      "ExtraDamage": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.INTIMIDATING_HELMET": {
+    "id": "RELIC.INTIMIDATING_HELMET",
+    "name": "IntimidatingHelmet",
+    "rarity": "Rare",
+    "vars": {
+      "Block": {
+        "base": 4
+      },
+      "Energy": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.IRON_CLUB": {
+    "id": "RELIC.IRON_CLUB",
+    "name": "IronClub",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.IVORY_TILE": {
+    "id": "RELIC.IVORY_TILE",
+    "name": "IvoryTile",
+    "rarity": "Rare",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "EnergyThreshold": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.JEWELED_MASK": {
+    "id": "RELIC.JEWELED_MASK",
+    "name": "JeweledMask",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.JEWELRY_BOX": {
+    "id": "RELIC.JEWELRY_BOX",
+    "name": "JewelryBox",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.JOSS_PAPER": {
+    "id": "RELIC.JOSS_PAPER",
+    "name": "JossPaper",
+    "rarity": "Uncommon",
+    "vars": {
+      "ExhaustAmount": {
+        "base": 5
+      },
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.JUZU_BRACELET": {
+    "id": "RELIC.JUZU_BRACELET",
+    "name": "JuzuBracelet",
+    "rarity": "Common",
+    "vars": null,
+    "merchant_cost": 175
+  },
+  "RELIC.KALEIDOSCOPE": {
+    "id": "RELIC.KALEIDOSCOPE",
+    "name": "Kaleidoscope",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.KIFUDA": {
+    "id": "RELIC.KIFUDA",
+    "name": "Kifuda",
+    "rarity": "Shop",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.KUNAI": {
+    "id": "RELIC.KUNAI",
+    "name": "Kunai",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "DexterityPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.KUSARIGAMA": {
+    "id": "RELIC.KUSARIGAMA",
+    "name": "Kusarigama",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "Damage": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.LANTERN": {
+    "id": "RELIC.LANTERN",
+    "name": "Lantern",
+    "rarity": "Common",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.LARGE_CAPSULE": {
+    "id": "RELIC.LARGE_CAPSULE",
+    "name": "LargeCapsule",
+    "rarity": "Ancient",
+    "vars": {
+      "Relics": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.LASTING_CANDY": {
+    "id": "RELIC.LASTING_CANDY",
+    "name": "LastingCandy",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.LAVA_LAMP": {
+    "id": "RELIC.LAVA_LAMP",
+    "name": "LavaLamp",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.LAVA_ROCK": {
+    "id": "RELIC.LAVA_ROCK",
+    "name": "LavaRock",
+    "rarity": "Ancient",
+    "vars": {
+      "Relics": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.LEAD_PAPERWEIGHT": {
+    "id": "RELIC.LEAD_PAPERWEIGHT",
+    "name": "LeadPaperweight",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.LEAFY_POULTICE": {
+    "id": "RELIC.LEAFY_POULTICE",
+    "name": "LeafyPoultice",
+    "rarity": "Ancient",
+    "vars": {
+      "MaxHp": {
+        "base": 12
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.LEES_WAFFLE": {
+    "id": "RELIC.LEES_WAFFLE",
+    "name": "LeesWaffle",
+    "rarity": "Shop",
+    "vars": {
+      "MaxHp": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.LETTER_OPENER": {
+    "id": "RELIC.LETTER_OPENER",
+    "name": "LetterOpener",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "Damage": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.LIZARD_TAIL": {
+    "id": "RELIC.LIZARD_TAIL",
+    "name": "LizardTail",
+    "rarity": "Rare",
+    "vars": {
+      "Heal": {
+        "base": 50
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.LOOMING_FRUIT": {
+    "id": "RELIC.LOOMING_FRUIT",
+    "name": "LoomingFruit",
+    "rarity": "Ancient",
+    "vars": {
+      "MaxHp": {
+        "base": 31
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.LORDS_PARASOL": {
+    "id": "RELIC.LORDS_PARASOL",
+    "name": "LordsParasol",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.LOST_COFFER": {
+    "id": "RELIC.LOST_COFFER",
+    "name": "LostCoffer",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.LOST_WISP": {
+    "id": "RELIC.LOST_WISP",
+    "name": "LostWisp",
+    "rarity": "Event",
+    "vars": {
+      "Damage": {
+        "base": 8
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.LUCKY_FYSH": {
+    "id": "RELIC.LUCKY_FYSH",
+    "name": "LuckyFysh",
+    "rarity": "Uncommon",
+    "vars": {
+      "Gold": {
+        "base": 15
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.LUNAR_PASTRY": {
+    "id": "RELIC.LUNAR_PASTRY",
+    "name": "LunarPastry",
+    "rarity": "Rare",
+    "vars": {
+      "Stars": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.MANGO": {
+    "id": "RELIC.MANGO",
+    "name": "Mango",
+    "rarity": "Rare",
+    "vars": {
+      "MaxHp": {
+        "base": 14
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.MASSIVE_SCROLL": {
+    "id": "RELIC.MASSIVE_SCROLL",
+    "name": "MassiveScroll",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.MAW_BANK": {
+    "id": "RELIC.MAW_BANK",
+    "name": "MawBank",
+    "rarity": "Event",
+    "vars": {
+      "Gold": {
+        "base": 12
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.MEAL_TICKET": {
+    "id": "RELIC.MEAL_TICKET",
+    "name": "MealTicket",
+    "rarity": "Common",
+    "vars": {
+      "Heal": {
+        "base": 15
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.MEAT_CLEAVER": {
+    "id": "RELIC.MEAT_CLEAVER",
+    "name": "MeatCleaver",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.MEAT_ON_THE_BONE": {
+    "id": "RELIC.MEAT_ON_THE_BONE",
+    "name": "MeatOnTheBone",
+    "rarity": "Rare",
+    "vars": {
+      "HpThreshold": {
+        "base": 50
+      },
+      "Heal": {
+        "base": 12
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.MEMBERSHIP_CARD": {
+    "id": "RELIC.MEMBERSHIP_CARD",
+    "name": "MembershipCard",
+    "rarity": "Shop",
+    "vars": {
+      "Discount": {
+        "base": 50
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.MERCURY_HOURGLASS": {
+    "id": "RELIC.MERCURY_HOURGLASS",
+    "name": "MercuryHourglass",
+    "rarity": "Uncommon",
+    "vars": {
+      "Damage": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.METRONOME": {
+    "id": "RELIC.METRONOME",
+    "name": "Metronome",
+    "rarity": "Rare",
+    "vars": {
+      "Damage": {
+        "base": 30
+      },
+      "OrbCount": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.MINIATURE_CANNON": {
+    "id": "RELIC.MINIATURE_CANNON",
+    "name": "MiniatureCannon",
+    "rarity": "Uncommon",
+    "vars": {
+      "ExtraDamage": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.MINIATURE_TENT": {
+    "id": "RELIC.MINIATURE_TENT",
+    "name": "MiniatureTent",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.MINI_REGENT": {
+    "id": "RELIC.MINI_REGENT",
+    "name": "MiniRegent",
+    "rarity": "Rare",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.MOLTEN_EGG": {
+    "id": "RELIC.MOLTEN_EGG",
+    "name": "MoltenEgg",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.MR_STRUGGLES": {
+    "id": "RELIC.MR_STRUGGLES",
+    "name": "MrStruggles",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.MUMMIFIED_HAND": {
+    "id": "RELIC.MUMMIFIED_HAND",
+    "name": "MummifiedHand",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.MUSIC_BOX": {
+    "id": "RELIC.MUSIC_BOX",
+    "name": "MusicBox",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.MYSTIC_LIGHTER": {
+    "id": "RELIC.MYSTIC_LIGHTER",
+    "name": "MysticLighter",
+    "rarity": "Shop",
+    "vars": {
+      "Damage": {
+        "base": 9
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.NEOWS_BONES": {
+    "id": "RELIC.NEOWS_BONES",
+    "name": "NeowsBones",
+    "rarity": "Ancient",
+    "vars": {
+      "Relics": {
+        "base": 2
+      },
+      "Curses": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.NEOWS_SACRIFICE": {
+    "id": "RELIC.NEOWS_SACRIFICE",
+    "name": "NeowsSacrifice",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.NEOWS_TALISMAN": {
+    "id": "RELIC.NEOWS_TALISMAN",
+    "name": "NeowsTalisman",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.NEOWS_TORMENT": {
+    "id": "RELIC.NEOWS_TORMENT",
+    "name": "NeowsTorment",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.NEW_LEAF": {
+    "id": "RELIC.NEW_LEAF",
+    "name": "NewLeaf",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.NINJA_SCROLL": {
+    "id": "RELIC.NINJA_SCROLL",
+    "name": "NinjaScroll",
+    "rarity": "Shop",
+    "vars": {
+      "Shivs": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.NUNCHAKU": {
+    "id": "RELIC.NUNCHAKU",
+    "name": "Nunchaku",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 10
+      },
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.NUTRITIOUS_OYSTER": {
+    "id": "RELIC.NUTRITIOUS_OYSTER",
+    "name": "NutritiousOyster",
+    "rarity": "Ancient",
+    "vars": {
+      "MaxHp": {
+        "base": 11
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.NUTRITIOUS_SOUP": {
+    "id": "RELIC.NUTRITIOUS_SOUP",
+    "name": "NutritiousSoup",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.ODDLY_SMOOTH_STONE": {
+    "id": "RELIC.ODDLY_SMOOTH_STONE",
+    "name": "OddlySmoothStone",
+    "rarity": "Common",
+    "vars": {
+      "DexterityPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.OLD_COIN": {
+    "id": "RELIC.OLD_COIN",
+    "name": "OldCoin",
+    "rarity": "Rare",
+    "vars": {
+      "Gold": {
+        "base": 300
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.ORANGE_DOUGH": {
+    "id": "RELIC.ORANGE_DOUGH",
+    "name": "OrangeDough",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.ORICHALCUM": {
+    "id": "RELIC.ORICHALCUM",
+    "name": "Orichalcum",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.ORNAMENTAL_FAN": {
+    "id": "RELIC.ORNAMENTAL_FAN",
+    "name": "OrnamentalFan",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "Block": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.ORRERY": {
+    "id": "RELIC.ORRERY",
+    "name": "Orrery",
+    "rarity": "Shop",
+    "vars": {
+      "Cards": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.PAELS_BLOOD": {
+    "id": "RELIC.PAELS_BLOOD",
+    "name": "PaelsBlood",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_CLAW": {
+    "id": "RELIC.PAELS_CLAW",
+    "name": "PaelsClaw",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "EnchantmentName": {
+        "expr": "new StringVar(\"EnchantmentName\", ModelDb.Enchantment<Goopy>().Title.GetFormattedText())"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_EYE": {
+    "id": "RELIC.PAELS_EYE",
+    "name": "PaelsEye",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_FLESH": {
+    "id": "RELIC.PAELS_FLESH",
+    "name": "PaelsFlesh",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_GROWTH": {
+    "id": "RELIC.PAELS_GROWTH",
+    "name": "PaelsGrowth",
+    "rarity": "Ancient",
+    "vars": {
+      "EnchantmentName": {
+        "expr": "new StringVar(\"EnchantmentName\", ModelDb.Enchantment<Clone>().Title.GetFormattedText())"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_HORN": {
+    "id": "RELIC.PAELS_HORN",
+    "name": "PaelsHorn",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_LEGION": {
+    "id": "RELIC.PAELS_LEGION",
+    "name": "PaelsLegion",
+    "rarity": "Ancient",
+    "vars": {
+      "Turns": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_TEARS": {
+    "id": "RELIC.PAELS_TEARS",
+    "name": "PaelsTears",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_TOOTH": {
+    "id": "RELIC.PAELS_TOOTH",
+    "name": "PaelsTooth",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 5
+      },
+      "CardTitles": {
+        "expr": "new StringVar(\"CardTitles\")"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PAELS_WING": {
+    "id": "RELIC.PAELS_WING",
+    "name": "PaelsWing",
+    "rarity": "Ancient",
+    "vars": {
+      "Sacrifices": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PANDORAS_BOX": {
+    "id": "RELIC.PANDORAS_BOX",
+    "name": "PandorasBox",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.PANTOGRAPH": {
+    "id": "RELIC.PANTOGRAPH",
+    "name": "Pantograph",
+    "rarity": "Uncommon",
+    "vars": {
+      "Heal": {
+        "base": 25
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.PAPER_KRANE": {
+    "id": "RELIC.PAPER_KRANE",
+    "name": "PaperKrane",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.PAPER_PHROG": {
+    "id": "RELIC.PAPER_PHROG",
+    "name": "PaperPhrog",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.PARRYING_SHIELD": {
+    "id": "RELIC.PARRYING_SHIELD",
+    "name": "ParryingShield",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 10
+      },
+      "Damage": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.PEAR": {
+    "id": "RELIC.PEAR",
+    "name": "Pear",
+    "rarity": "Uncommon",
+    "vars": {
+      "MaxHp": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.PENDULUM": {
+    "id": "RELIC.PENDULUM",
+    "name": "Pendulum",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 1
+      },
+      "Turns": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.PEN_NIB": {
+    "id": "RELIC.PEN_NIB",
+    "name": "PenNib",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.PERMAFROST": {
+    "id": "RELIC.PERMAFROST",
+    "name": "Permafrost",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.PETRIFIED_TOAD": {
+    "id": "RELIC.PETRIFIED_TOAD",
+    "name": "PetrifiedToad",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.PHIAL_HOLSTER": {
+    "id": "RELIC.PHIAL_HOLSTER",
+    "name": "PhialHolster",
+    "rarity": "Ancient",
+    "vars": {
+      "PotionSlots": {
+        "base": 1
+      },
+      "Potions": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PHILOSOPHERS_STONE": {
+    "id": "RELIC.PHILOSOPHERS_STONE",
+    "name": "PhilosophersStone",
+    "rarity": "Ancient",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      },
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PHYLACTERY_UNBOUND": {
+    "id": "RELIC.PHYLACTERY_UNBOUND",
+    "name": "PhylacteryUnbound",
+    "rarity": "Starter",
+    "vars": {
+      "StartOfCombat": {
+        "base": 5
+      },
+      "StartOfTurn": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PLANISPHERE": {
+    "id": "RELIC.PLANISPHERE",
+    "name": "Planisphere",
+    "rarity": "Uncommon",
+    "vars": {
+      "Heal": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.POCKETWATCH": {
+    "id": "RELIC.POCKETWATCH",
+    "name": "Pocketwatch",
+    "rarity": "Rare",
+    "vars": {
+      "CardThreshold": {
+        "base": 3
+      },
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.POLLINOUS_CORE": {
+    "id": "RELIC.POLLINOUS_CORE",
+    "name": "PollinousCore",
+    "rarity": "Event",
+    "vars": {
+      "Cards": {
+        "base": 2
+      },
+      "Turns": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.POMANDER": {
+    "id": "RELIC.POMANDER",
+    "name": "Pomander",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.POTION_BELT": {
+    "id": "RELIC.POTION_BELT",
+    "name": "PotionBelt",
+    "rarity": "Common",
+    "vars": {
+      "PotionSlots": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.POWER_CELL": {
+    "id": "RELIC.POWER_CELL",
+    "name": "PowerCell",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.PRAYER_WHEEL": {
+    "id": "RELIC.PRAYER_WHEEL",
+    "name": "PrayerWheel",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.PRECARIOUS_SHEARS": {
+    "id": "RELIC.PRECARIOUS_SHEARS",
+    "name": "PrecariousShears",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      },
+      "Damage": {
+        "base": 16
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PRECISE_SCISSORS": {
+    "id": "RELIC.PRECISE_SCISSORS",
+    "name": "PreciseScissors",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PRESERVED_FOG": {
+    "id": "RELIC.PRESERVED_FOG",
+    "name": "PreservedFog",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PRISMATIC_GEM": {
+    "id": "RELIC.PRISMATIC_GEM",
+    "name": "PrismaticGem",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PUMPKIN_CANDLE": {
+    "id": "RELIC.PUMPKIN_CANDLE",
+    "name": "PumpkinCandle",
+    "rarity": "Ancient",
+    "vars": {
+      "CombatCount": {
+        "base": 5
+      },
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.PUNCH_DAGGER": {
+    "id": "RELIC.PUNCH_DAGGER",
+    "name": "PunchDagger",
+    "rarity": "Shop",
+    "vars": {
+      "Momentum": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.RADIANT_PEARL": {
+    "id": "RELIC.RADIANT_PEARL",
+    "name": "RadiantPearl",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.RAINBOW_RING": {
+    "id": "RELIC.RAINBOW_RING",
+    "name": "RainbowRing",
+    "rarity": "Rare",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      },
+      "DexterityPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.RAZOR_TOOTH": {
+    "id": "RELIC.RAZOR_TOOTH",
+    "name": "RazorTooth",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.RED_MASK": {
+    "id": "RELIC.RED_MASK",
+    "name": "RedMask",
+    "rarity": "Common",
+    "vars": {
+      "WeakPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.RED_SKULL": {
+    "id": "RELIC.RED_SKULL",
+    "name": "RedSkull",
+    "rarity": "Common",
+    "vars": {
+      "HpThreshold": {
+        "base": 50
+      },
+      "StrengthPower": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.REGALITE": {
+    "id": "RELIC.REGALITE",
+    "name": "Regalite",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.REGAL_PILLOW": {
+    "id": "RELIC.REGAL_PILLOW",
+    "name": "RegalPillow",
+    "rarity": "Common",
+    "vars": {
+      "Heal": {
+        "base": 15
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.REPTILE_TRINKET": {
+    "id": "RELIC.REPTILE_TRINKET",
+    "name": "ReptileTrinket",
+    "rarity": "Uncommon",
+    "vars": {
+      "StrengthPower": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.RINGING_TRIANGLE": {
+    "id": "RELIC.RINGING_TRIANGLE",
+    "name": "RingingTriangle",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.RING_OF_THE_DRAKE": {
+    "id": "RELIC.RING_OF_THE_DRAKE",
+    "name": "RingOfTheDrake",
+    "rarity": "Starter",
+    "vars": {
+      "Cards": {
+        "base": 2
+      },
+      "Turns": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.RING_OF_THE_SNAKE": {
+    "id": "RELIC.RING_OF_THE_SNAKE",
+    "name": "RingOfTheSnake",
+    "rarity": "Starter",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.RIPPLE_BASIN": {
+    "id": "RELIC.RIPPLE_BASIN",
+    "name": "RippleBasin",
+    "rarity": "Uncommon",
+    "vars": {
+      "Block": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.ROYAL_POISON": {
+    "id": "RELIC.ROYAL_POISON",
+    "name": "RoyalPoison",
+    "rarity": "Event",
+    "vars": {
+      "Damage": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.ROYAL_STAMP": {
+    "id": "RELIC.ROYAL_STAMP",
+    "name": "RoyalStamp",
+    "rarity": "Shop",
+    "vars": {
+      "Cards": {
+        "base": 1
+      },
+      "Enchantment": {
+        "expr": "new StringVar(\"Enchantment\", ModelDb.Enchantment<RoyallyApproved>().Title.GetFormattedText())"
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.RUINED_HELMET": {
+    "id": "RELIC.RUINED_HELMET",
+    "name": "RuinedHelmet",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.RUNIC_CAPACITOR": {
+    "id": "RELIC.RUNIC_CAPACITOR",
+    "name": "RunicCapacitor",
+    "rarity": "Shop",
+    "vars": {
+      "Repeat": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.RUNIC_PYRAMID": {
+    "id": "RELIC.RUNIC_PYRAMID",
+    "name": "RunicPyramid",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.SAI": {
+    "id": "RELIC.SAI",
+    "name": "Sai",
+    "rarity": "Ancient",
+    "vars": {
+      "Block": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SAND_CASTLE": {
+    "id": "RELIC.SAND_CASTLE",
+    "name": "SandCastle",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SCREAMING_FLAGON": {
+    "id": "RELIC.SCREAMING_FLAGON",
+    "name": "ScreamingFlagon",
+    "rarity": "Shop",
+    "vars": {
+      "Damage": {
+        "base": 20
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.SCROLL_BOXES": {
+    "id": "RELIC.SCROLL_BOXES",
+    "name": "ScrollBoxes",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.SEAL_OF_GOLD": {
+    "id": "RELIC.SEAL_OF_GOLD",
+    "name": "SealOfGold",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Gold": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SEA_GLASS": {
+    "id": "RELIC.SEA_GLASS",
+    "name": "SeaGlass",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 15
+      },
+      "Character": {
+        "expr": "new StringVar(\"Character\")"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SELF_FORMING_CLAY": {
+    "id": "RELIC.SELF_FORMING_CLAY",
+    "name": "SelfFormingClay",
+    "rarity": "Uncommon",
+    "vars": {
+      "BlockNextTurn": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.SERE_TALON": {
+    "id": "RELIC.SERE_TALON",
+    "name": "SereTalon",
+    "rarity": "Ancient",
+    "vars": {
+      "HpLoss": {
+        "base": 9
+      },
+      "Wishes": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SHOVEL": {
+    "id": "RELIC.SHOVEL",
+    "name": "Shovel",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.SHURIKEN": {
+    "id": "RELIC.SHURIKEN",
+    "name": "Shuriken",
+    "rarity": "Rare",
+    "vars": {
+      "Cards": {
+        "base": 3
+      },
+      "StrengthPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.SIGNET_RING": {
+    "id": "RELIC.SIGNET_RING",
+    "name": "SignetRing",
+    "rarity": "Ancient",
+    "vars": {
+      "Gold": {
+        "base": 888
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SILKEN_TRESS": {
+    "id": "RELIC.SILKEN_TRESS",
+    "name": "SilkenTress",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.SILVER_CRUCIBLE": {
+    "id": "RELIC.SILVER_CRUCIBLE",
+    "name": "SilverCrucible",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SLING_OF_COURAGE": {
+    "id": "RELIC.SLING_OF_COURAGE",
+    "name": "SlingOfCourage",
+    "rarity": "Shop",
+    "vars": {
+      "StrengthPower": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.SMALL_CAPSULE": {
+    "id": "RELIC.SMALL_CAPSULE",
+    "name": "SmallCapsule",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.SNECKO_EYE": {
+    "id": "RELIC.SNECKO_EYE",
+    "name": "SneckoEye",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SNECKO_SKULL": {
+    "id": "RELIC.SNECKO_SKULL",
+    "name": "SneckoSkull",
+    "rarity": "Common",
+    "vars": {
+      "PoisonPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.SOZU": {
+    "id": "RELIC.SOZU",
+    "name": "Sozu",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SPARKLING_ROUGE": {
+    "id": "RELIC.SPARKLING_ROUGE",
+    "name": "SparklingRouge",
+    "rarity": "Uncommon",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      },
+      "DexterityPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.SPIKED_GAUNTLETS": {
+    "id": "RELIC.SPIKED_GAUNTLETS",
+    "name": "SpikedGauntlets",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.STONE_CALENDAR": {
+    "id": "RELIC.STONE_CALENDAR",
+    "name": "StoneCalendar",
+    "rarity": "Rare",
+    "vars": {
+      "Damage": {
+        "base": 52
+      },
+      "DamageTurn": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.STONE_CRACKER": {
+    "id": "RELIC.STONE_CRACKER",
+    "name": "StoneCracker",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.STONE_HUMIDIFIER": {
+    "id": "RELIC.STONE_HUMIDIFIER",
+    "name": "StoneHumidifier",
+    "rarity": "Ancient",
+    "vars": {
+      "MaxHp": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.STORYBOOK": {
+    "id": "RELIC.STORYBOOK",
+    "name": "Storybook",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.STRAWBERRY": {
+    "id": "RELIC.STRAWBERRY",
+    "name": "Strawberry",
+    "rarity": "Common",
+    "vars": {
+      "MaxHp": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.STRIKE_DUMMY": {
+    "id": "RELIC.STRIKE_DUMMY",
+    "name": "StrikeDummy",
+    "rarity": "Common",
+    "vars": {
+      "ExtraDamage": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.STURDY_CLAMP": {
+    "id": "RELIC.STURDY_CLAMP",
+    "name": "SturdyClamp",
+    "rarity": "Rare",
+    "vars": {
+      "Block": {
+        "base": 10
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.SWORD_OF_JADE": {
+    "id": "RELIC.SWORD_OF_JADE",
+    "name": "SwordOfJade",
+    "rarity": "Event",
+    "vars": {
+      "StrengthPower": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SWORD_OF_STONE": {
+    "id": "RELIC.SWORD_OF_STONE",
+    "name": "SwordOfStone",
+    "rarity": "Event",
+    "vars": {
+      "Elites": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.SYMBIOTIC_VIRUS": {
+    "id": "RELIC.SYMBIOTIC_VIRUS",
+    "name": "SymbioticVirus",
+    "rarity": "Uncommon",
+    "vars": {
+      "Dark": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.TANXS_WHISTLE": {
+    "id": "RELIC.TANXS_WHISTLE",
+    "name": "TanxsWhistle",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.TEA_OF_DISCOURTESY": {
+    "id": "RELIC.TEA_OF_DISCOURTESY",
+    "name": "TeaOfDiscourtesy",
+    "rarity": "Event",
+    "vars": {
+      "Heal": {
+        "base": 1
+      },
+      "Combats": {
+        "base": 1
+      },
+      "DazedCount": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.THE_ABACUS": {
+    "id": "RELIC.THE_ABACUS",
+    "name": "TheAbacus",
+    "rarity": "Shop",
+    "vars": {
+      "Block": {
+        "base": 6
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.THE_BOOT": {
+    "id": "RELIC.THE_BOOT",
+    "name": "TheBoot",
+    "rarity": "Event",
+    "vars": {
+      "DamageMinimum": {
+        "base": 5
+      },
+      "DamageThreshold": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.THE_COURIER": {
+    "id": "RELIC.THE_COURIER",
+    "name": "TheCourier",
+    "rarity": "Rare",
+    "vars": {
+      "Discount": {
+        "base": 20
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.THROWING_AXE": {
+    "id": "RELIC.THROWING_AXE",
+    "name": "ThrowingAxe",
+    "rarity": "Ancient",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.TINGSHA": {
+    "id": "RELIC.TINGSHA",
+    "name": "Tingsha",
+    "rarity": "Uncommon",
+    "vars": {
+      "Damage": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.TINY_MAILBOX": {
+    "id": "RELIC.TINY_MAILBOX",
+    "name": "TinyMailbox",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.TOASTY_MITTENS": {
+    "id": "RELIC.TOASTY_MITTENS",
+    "name": "ToastyMittens",
+    "rarity": "Ancient",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.TOOLBOX": {
+    "id": "RELIC.TOOLBOX",
+    "name": "Toolbox",
+    "rarity": "Shop",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.TOUCH_OF_OROBAS": {
+    "id": "RELIC.TOUCH_OF_OROBAS",
+    "name": "TouchOfOrobas",
+    "rarity": "Ancient",
+    "vars": {
+      "StarterRelic": {
+        "expr": "new StringVar(\"StarterRelic\")"
+      },
+      "UpgradedRelic": {
+        "expr": "new StringVar(\"UpgradedRelic\")"
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.TOUGH_BANDAGES": {
+    "id": "RELIC.TOUGH_BANDAGES",
+    "name": "ToughBandages",
+    "rarity": "Rare",
+    "vars": {
+      "Block": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.TOXIC_EGG": {
+    "id": "RELIC.TOXIC_EGG",
+    "name": "ToxicEgg",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.TOY_BOX": {
+    "id": "RELIC.TOY_BOX",
+    "name": "ToyBox",
+    "rarity": "Ancient",
+    "vars": {
+      "Relics": {
+        "base": 5
+      },
+      "Combats": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.TRI_BOOMERANG": {
+    "id": "RELIC.TRI_BOOMERANG",
+    "name": "TriBoomerang",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.TUNGSTEN_ROD": {
+    "id": "RELIC.TUNGSTEN_ROD",
+    "name": "TungstenRod",
+    "rarity": "Rare",
+    "vars": {
+      "HpLossReduction": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 275
+  },
+  "RELIC.TUNING_FORK": {
+    "id": "RELIC.TUNING_FORK",
+    "name": "TuningFork",
+    "rarity": "Uncommon",
+    "vars": {
+      "Cards": {
+        "base": 10
+      },
+      "Block": {
+        "base": 7
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.TWISTED_FUNNEL": {
+    "id": "RELIC.TWISTED_FUNNEL",
+    "name": "TwistedFunnel",
+    "rarity": "Uncommon",
+    "vars": {
+      "PoisonPower": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 225
+  },
+  "RELIC.UNCEASING_TOP": {
+    "id": "RELIC.UNCEASING_TOP",
+    "name": "UnceasingTop",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.UNDYING_SIGIL": {
+    "id": "RELIC.UNDYING_SIGIL",
+    "name": "UndyingSigil",
+    "rarity": "Shop",
+    "vars": {
+      "DamageDecrease": {
+        "base": 0.5
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.UNSETTLING_LAMP": {
+    "id": "RELIC.UNSETTLING_LAMP",
+    "name": "UnsettlingLamp",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.VAJRA": {
+    "id": "RELIC.VAJRA",
+    "name": "Vajra",
+    "rarity": "Common",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.VAMBRACE": {
+    "id": "RELIC.VAMBRACE",
+    "name": "Vambrace",
+    "rarity": "Uncommon",
+    "vars": null,
+    "merchant_cost": 225
+  },
+  "RELIC.VELVET_CHOKER": {
+    "id": "RELIC.VELVET_CHOKER",
+    "name": "VelvetChoker",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 6
+      },
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.VENERABLE_TEA_SET": {
+    "id": "RELIC.VENERABLE_TEA_SET",
+    "name": "VenerableTeaSet",
+    "rarity": "Common",
+    "vars": {
+      "Energy": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.VERY_HOT_COCOA": {
+    "id": "RELIC.VERY_HOT_COCOA",
+    "name": "VeryHotCocoa",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.VEXING_PUZZLEBOX": {
+    "id": "RELIC.VEXING_PUZZLEBOX",
+    "name": "VexingPuzzlebox",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.VITRUVIAN_MINION": {
+    "id": "RELIC.VITRUVIAN_MINION",
+    "name": "VitruvianMinion",
+    "rarity": "Shop",
+    "vars": null,
+    "merchant_cost": 200
+  },
+  "RELIC.WAR_HAMMER": {
+    "id": "RELIC.WAR_HAMMER",
+    "name": "WarHammer",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.WAR_PAINT": {
+    "id": "RELIC.WAR_PAINT",
+    "name": "WarPaint",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.WHETSTONE": {
+    "id": "RELIC.WHETSTONE",
+    "name": "Whetstone",
+    "rarity": "Common",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    },
+    "merchant_cost": 175
+  },
+  "RELIC.WHISPERING_EARRING": {
+    "id": "RELIC.WHISPERING_EARRING",
+    "name": "WhisperingEarring",
+    "rarity": "Ancient",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.WHITE_BEAST_STATUE": {
+    "id": "RELIC.WHITE_BEAST_STATUE",
+    "name": "WhiteBeastStatue",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.WHITE_STAR": {
+    "id": "RELIC.WHITE_STAR",
+    "name": "WhiteStar",
+    "rarity": "Rare",
+    "vars": null,
+    "merchant_cost": 275
+  },
+  "RELIC.WINGED_BOOTS": {
+    "id": "RELIC.WINGED_BOOTS",
+    "name": "WingedBoots",
+    "rarity": "Ancient",
+    "vars": {
+      "Rooms": {
+        "base": 3
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.WING_CHARM": {
+    "id": "RELIC.WING_CHARM",
+    "name": "WingCharm",
+    "rarity": "Shop",
+    "vars": {
+      "SwiftAmount": {
+        "base": 1
+      }
+    },
+    "merchant_cost": 200
+  },
+  "RELIC.WONGOS_MYSTERY_TICKET": {
+    "id": "RELIC.WONGOS_MYSTERY_TICKET",
+    "name": "WongosMysteryTicket",
+    "rarity": "Event",
+    "vars": {
+      "Repeat": {
+        "base": 3
+      },
+      "RemainingCombats": {
+        "base": 5
+      }
+    },
+    "merchant_cost": 999999999
+  },
+  "RELIC.WONGO_CUSTOMER_APPRECIATION_BADGE": {
+    "id": "RELIC.WONGO_CUSTOMER_APPRECIATION_BADGE",
+    "name": "WongoCustomerAppreciationBadge",
+    "rarity": "Event",
+    "vars": null,
+    "merchant_cost": 999999999
+  },
+  "RELIC.YUMMY_COOKIE": {
+    "id": "RELIC.YUMMY_COOKIE",
+    "name": "YummyCookie",
+    "rarity": "Ancient",
+    "vars": {
+      "Cards": {
+        "base": 4
+      }
+    },
+    "merchant_cost": 999999999
+  }
+}

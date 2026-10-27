@@ -1,0 +1,119 @@
+{
+  "CHARACTER.DEFECT": {
+    "id": "CHARACTER.DEFECT",
+    "name": "Defect",
+    "starting_hp": 75,
+    "starting_gold": 99,
+    "max_energy": 3,
+    "starting_deck": [
+      "CARD.STRIKE_DEFECT",
+      "CARD.STRIKE_DEFECT",
+      "CARD.STRIKE_DEFECT",
+      "CARD.STRIKE_DEFECT",
+      "CARD.DEFEND_DEFECT",
+      "CARD.DEFEND_DEFECT",
+      "CARD.DEFEND_DEFECT",
+      "CARD.DEFEND_DEFECT",
+      "CARD.ZAP",
+      "CARD.DUALCAST"
+    ],
+    "starting_relics": [
+      "RELIC.CRACKED_CORE"
+    ],
+    "card_pool": "CARD_POOL.DEFECT_CARD_POOL"
+  },
+  "CHARACTER.IRONCLAD": {
+    "id": "CHARACTER.IRONCLAD",
+    "name": "Ironclad",
+    "starting_hp": 80,
+    "starting_gold": 99,
+    "max_energy": 3,
+    "starting_deck": [
+      "CARD.STRIKE_IRONCLAD",
+      "CARD.STRIKE_IRONCLAD",
+      "CARD.STRIKE_IRONCLAD",
+      "CARD.STRIKE_IRONCLAD",
+      "CARD.STRIKE_IRONCLAD",
+      "CARD.DEFEND_IRONCLAD",
+      "CARD.DEFEND_IRONCLAD",
+      "CARD.DEFEND_IRONCLAD",
+      "CARD.DEFEND_IRONCLAD",
+      "CARD.BASH"
+    ],
+    "starting_relics": [
+      "RELIC.BURNING_BLOOD"
+    ],
+    "card_pool": "CARD_POOL.IRONCLAD_CARD_POOL"
+  },
+  "CHARACTER.NECROBINDER": {
+    "id": "CHARACTER.NECROBINDER",
+    "name": "Necrobinder",
+    "starting_hp": 66,
+    "starting_gold": 99,
+    "max_energy": 3,
+    "starting_deck": [
+      "CARD.STRIKE_NECROBINDER",
+      "CARD.STRIKE_NECROBINDER",
+      "CARD.STRIKE_NECROBINDER",
+      "CARD.STRIKE_NECROBINDER",
+      "CARD.DEFEND_NECROBINDER",
+      "CARD.DEFEND_NECROBINDER",
+      "CARD.DEFEND_NECROBINDER",
+      "CARD.DEFEND_NECROBINDER",
+      "CARD.BODYGUARD",
+      "CARD.UNLEASH"
+    ],
+    "starting_relics": [
+      "RELIC.BOUND_PHYLACTERY"
+    ],
+    "card_pool": "CARD_POOL.NECROBINDER_CARD_POOL"
+  },
+  "CHARACTER.REGENT": {
+    "id": "CHARACTER.REGENT",
+    "name": "Regent",
+    "starting_hp": 75,
+    "starting_gold": 99,
+    "max_energy": 3,
+    "starting_deck": [
+      "CARD.STRIKE_REGENT",
+      "CARD.STRIKE_REGENT",
+      "CARD.STRIKE_REGENT",
+      "CARD.STRIKE_REGENT",
+      "CARD.DEFEND_REGENT",
+      "CARD.DEFEND_REGENT",
+      "CARD.DEFEND_REGENT",
+      "CARD.DEFEND_REGENT",
+      "CARD.FALLING_STAR",
+      "CARD.VENERATE"
+    ],
+    "starting_relics": [
+      "RELIC.DIVINE_RIGHT"
+    ],
+    "card_pool": "CARD_POOL.REGENT_CARD_POOL"
+  },
+  "CHARACTER.SILENT": {
+    "id": "CHARACTER.SILENT",
+    "name": "Silent",
+    "starting_hp": 70,
+    "starting_gold": 99,
+    "max_energy": 3,
+    "starting_deck": [
+      "CARD.STRIKE_SILENT",
+      "CARD.STRIKE_SILENT",
+      "CARD.STRIKE_SILENT",
+      "CARD.STRIKE_SILENT",
+      "CARD.STRIKE_SILENT",
+      "CARD.DEFEND_SILENT",
+      "CARD.DEFEND_SILENT",
+      "CARD.DEFEND_SILENT",
+      "CARD.DEFEND_SILENT",
+      "CARD.DEFEND_SILENT",
+      "CARD.NEUTRALIZE",
+      "CARD.SURVIVOR"
+    ],
+    "starting_relics": [
+      "RELIC.RING_OF_THE_SNAKE"
+    ],
+    "card_pool": "CARD_POOL.SILENT_CARD_POOL"
+  }
+}

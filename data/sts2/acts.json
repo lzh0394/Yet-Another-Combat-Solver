@@ -1,0 +1,32 @@
+{
+  "ACT.DEPRECATED_ACT": {
+    "id": "ACT.DEPRECATED_ACT",
+    "name": "DeprecatedAct",
+    "index": -1,
+    "is_default": false
+  },
+  "ACT.GLORY": {
+    "id": "ACT.GLORY",
+    "name": "Glory",
+    "index": 2,
+    "is_default": true
+  },
+  "ACT.HIVE": {
+    "id": "ACT.HIVE",
+    "name": "Hive",
+    "index": 1,
+    "is_default": true
+  },
+  "ACT.OVERGROWTH": {
+    "id": "ACT.OVERGROWTH",
+    "name": "Overgrowth",
+    "index": 0,
+    "is_default": true
+  },
+  "ACT.UNDERDOCKS": {
+    "id": "ACT.UNDERDOCKS",
+    "name": "Underdocks",
+    "index": 0,
+    "is_default": false
+  }
+}

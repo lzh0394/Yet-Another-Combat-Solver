@@ -1,0 +1,1491 @@
+{
+  "ENCOUNTER.AEONGLASS_BOSS": {
+    "id": "ENCOUNTER.AEONGLASS_BOSS",
+    "name": "AeonglassBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.AEONGLASS"
+    ],
+    "monsters": [
+      [
+        "MONSTER.AEONGLASS",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.AXEBOTS_NORMAL": {
+    "id": "ENCOUNTER.AXEBOTS_NORMAL",
+    "name": "AxebotsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.AXEBOT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.AXEBOT",
+        "front"
+      ]
+    ]
+  },
+  "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V1_ENCOUNTER": {
+    "id": "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V1_ENCOUNTER",
+    "name": "BattlewornDummyEventV1Encounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BATTLE_FRIEND_V1"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BATTLE_FRIEND_V1",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V2_ENCOUNTER": {
+    "id": "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V2_ENCOUNTER",
+    "name": "BattlewornDummyEventV2Encounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BATTLE_FRIEND_V2"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BATTLE_FRIEND_V2",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V3_ENCOUNTER": {
+    "id": "ENCOUNTER.BATTLEWORN_DUMMY_EVENT_V3_ENCOUNTER",
+    "name": "BattlewornDummyEventV3Encounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BATTLE_FRIEND_V3"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BATTLE_FRIEND_V3",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.BOWLBUGS_NORMAL": {
+    "id": "ENCOUNTER.BOWLBUGS_NORMAL",
+    "name": "BowlbugsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BOWLBUG_EGG",
+      "MONSTER.BOWLBUG_SILK",
+      "MONSTER.BOWLBUG_NECTAR",
+      "MONSTER.BOWLBUG_ROCK"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.BOWLBUGS_WEAK": {
+    "id": "ENCOUNTER.BOWLBUGS_WEAK",
+    "name": "BowlbugsWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.BOWLBUG_EGG",
+      "MONSTER.BOWLBUG_NECTAR",
+      "MONSTER.BOWLBUG_ROCK"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.BYGONE_EFFIGY_ELITE": {
+    "id": "ENCOUNTER.BYGONE_EFFIGY_ELITE",
+    "name": "BygoneEffigyElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BYGONE_EFFIGY"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BYGONE_EFFIGY",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.BYRDONIS_ELITE": {
+    "id": "ENCOUNTER.BYRDONIS_ELITE",
+    "name": "ByrdonisElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BYRDONIS"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BYRDONIS",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.CEREMONIAL_BEAST_BOSS": {
+    "id": "ENCOUNTER.CEREMONIAL_BEAST_BOSS",
+    "name": "CeremonialBeastBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CEREMONIAL_BEAST"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CEREMONIAL_BEAST",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.CHOMPERS_NORMAL": {
+    "id": "ENCOUNTER.CHOMPERS_NORMAL",
+    "name": "ChompersNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CHOMPER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CHOMPER",
+        null
+      ],
+      [
+        "MONSTER.CHOMPER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.CONSTRUCT_MENAGERIE_NORMAL": {
+    "id": "ENCOUNTER.CONSTRUCT_MENAGERIE_NORMAL",
+    "name": "ConstructMenagerieNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.PUNCH_CONSTRUCT",
+      "MONSTER.CUBEX_CONSTRUCT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.PUNCH_CONSTRUCT",
+        null
+      ],
+      [
+        "MONSTER.CUBEX_CONSTRUCT",
+        null
+      ],
+      [
+        "MONSTER.CUBEX_CONSTRUCT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.CORPSE_SLUGS_NORMAL": {
+    "id": "ENCOUNTER.CORPSE_SLUGS_NORMAL",
+    "name": "CorpseSlugsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CORPSE_SLUG"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.CORPSE_SLUGS_WEAK": {
+    "id": "ENCOUNTER.CORPSE_SLUGS_WEAK",
+    "name": "CorpseSlugsWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.CORPSE_SLUG"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.CUBEX_CONSTRUCT_NORMAL": {
+    "id": "ENCOUNTER.CUBEX_CONSTRUCT_NORMAL",
+    "name": "CubexConstructNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CUBEX_CONSTRUCT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CUBEX_CONSTRUCT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.CULTISTS_NORMAL": {
+    "id": "ENCOUNTER.CULTISTS_NORMAL",
+    "name": "CultistsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CALCIFIED_CULTIST",
+      "MONSTER.DAMP_CULTIST"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CALCIFIED_CULTIST",
+        null
+      ],
+      [
+        "MONSTER.DAMP_CULTIST",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.DECIMILLIPEDE_ELITE": {
+    "id": "ENCOUNTER.DECIMILLIPEDE_ELITE",
+    "name": "DecimillipedeElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.DECIMILLIPEDE_SEGMENT_FRONT",
+      "MONSTER.DECIMILLIPEDE_SEGMENT_MIDDLE",
+      "MONSTER.DECIMILLIPEDE_SEGMENT_BACK"
+    ],
+    "monsters": [
+      [
+        "MONSTER.DECIMILLIPEDE_SEGMENT_FRONT",
+        "segment1"
+      ],
+      [
+        "MONSTER.DECIMILLIPEDE_SEGMENT_MIDDLE",
+        "segment2"
+      ],
+      [
+        "MONSTER.DECIMILLIPEDE_SEGMENT_BACK",
+        "segment3"
+      ]
+    ]
+  },
+  "ENCOUNTER.DENSE_VEGETATION_EVENT_ENCOUNTER": {
+    "id": "ENCOUNTER.DENSE_VEGETATION_EVENT_ENCOUNTER",
+    "name": "DenseVegetationEventEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.WRIGGLER"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.DEPRECATED_ENCOUNTER": {
+    "id": "ENCOUNTER.DEPRECATED_ENCOUNTER",
+    "name": "DeprecatedEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [],
+    "monsters": null
+  },
+  "ENCOUNTER.DEVOTED_SCULPTOR_WEAK": {
+    "id": "ENCOUNTER.DEVOTED_SCULPTOR_WEAK",
+    "name": "DevotedSculptorWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.DEVOTED_SCULPTOR"
+    ],
+    "monsters": [
+      [
+        "MONSTER.DEVOTED_SCULPTOR",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.ENTOMANCER_ELITE": {
+    "id": "ENCOUNTER.ENTOMANCER_ELITE",
+    "name": "EntomancerElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.ENTOMANCER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.ENTOMANCER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.EXOSKELETONS_NORMAL": {
+    "id": "ENCOUNTER.EXOSKELETONS_NORMAL",
+    "name": "ExoskeletonsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.EXOSKELETON"
+    ],
+    "monsters": [
+      [
+        "MONSTER.EXOSKELETON",
+        "first"
+      ],
+      [
+        "MONSTER.EXOSKELETON",
+        "second"
+      ],
+      [
+        "MONSTER.EXOSKELETON",
+        "third"
+      ],
+      [
+        "MONSTER.EXOSKELETON",
+        "fourth"
+      ]
+    ]
+  },
+  "ENCOUNTER.EXOSKELETONS_WEAK": {
+    "id": "ENCOUNTER.EXOSKELETONS_WEAK",
+    "name": "ExoskeletonsWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.EXOSKELETON"
+    ],
+    "monsters": [
+      [
+        "MONSTER.EXOSKELETON",
+        "first"
+      ],
+      [
+        "MONSTER.EXOSKELETON",
+        "second"
+      ],
+      [
+        "MONSTER.EXOSKELETON",
+        "third"
+      ]
+    ]
+  },
+  "ENCOUNTER.FABRICATOR_NORMAL": {
+    "id": "ENCOUNTER.FABRICATOR_NORMAL",
+    "name": "FabricatorNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FABRICATOR",
+      "MONSTER.GUARDBOT",
+      "MONSTER.NOISEBOT",
+      "MONSTER.ZAPBOT",
+      "MONSTER.STABBOT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FABRICATOR",
+        "fabricator"
+      ]
+    ]
+  },
+  "ENCOUNTER.FAKE_MERCHANT_EVENT_ENCOUNTER": {
+    "id": "ENCOUNTER.FAKE_MERCHANT_EVENT_ENCOUNTER",
+    "name": "FakeMerchantEventEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FAKE_MERCHANT_MONSTER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FAKE_MERCHANT_MONSTER",
+        "merchant"
+      ]
+    ]
+  },
+  "ENCOUNTER.FLYCONID_NORMAL": {
+    "id": "ENCOUNTER.FLYCONID_NORMAL",
+    "name": "FlyconidNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LEAF_SLIME_M",
+      "MONSTER.TWIG_SLIME_M",
+      "MONSTER.FLYCONID"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.FOGMOG_NORMAL": {
+    "id": "ENCOUNTER.FOGMOG_NORMAL",
+    "name": "FogmogNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FOGMOG",
+      "MONSTER.EYE_WITH_TEETH"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FOGMOG",
+        "fogmog"
+      ]
+    ]
+  },
+  "ENCOUNTER.FOSSIL_STALKER_NORMAL": {
+    "id": "ENCOUNTER.FOSSIL_STALKER_NORMAL",
+    "name": "FossilStalkerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FOSSIL_STALKER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FOSSIL_STALKER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.FROG_KNIGHT_NORMAL": {
+    "id": "ENCOUNTER.FROG_KNIGHT_NORMAL",
+    "name": "FrogKnightNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FROG_KNIGHT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FROG_KNIGHT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.FUZZY_WURM_CRAWLER_WEAK": {
+    "id": "ENCOUNTER.FUZZY_WURM_CRAWLER_WEAK",
+    "name": "FuzzyWurmCrawlerWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.FUZZY_WURM_CRAWLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FUZZY_WURM_CRAWLER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.GLOBE_HEAD_NORMAL": {
+    "id": "ENCOUNTER.GLOBE_HEAD_NORMAL",
+    "name": "GlobeHeadNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.GLOBE_HEAD"
+    ],
+    "monsters": [
+      [
+        "MONSTER.GLOBE_HEAD",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.GREMLIN_MERC_NORMAL": {
+    "id": "ENCOUNTER.GREMLIN_MERC_NORMAL",
+    "name": "GremlinMercNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.GREMLIN_MERC",
+      "MONSTER.FAT_GREMLIN",
+      "MONSTER.SNEAKY_GREMLIN"
+    ],
+    "monsters": [
+      [
+        "MONSTER.GREMLIN_MERC",
+        "merc"
+      ]
+    ]
+  },
+  "ENCOUNTER.HAUNTED_SHIP_NORMAL": {
+    "id": "ENCOUNTER.HAUNTED_SHIP_NORMAL",
+    "name": "HauntedShipNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.HAUNTED_SHIP"
+    ],
+    "monsters": [
+      [
+        "MONSTER.HAUNTED_SHIP",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.HUNTER_KILLER_NORMAL": {
+    "id": "ENCOUNTER.HUNTER_KILLER_NORMAL",
+    "name": "HunterKillerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.HUNTER_KILLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.HUNTER_KILLER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.INFESTED_PRISMS_ELITE": {
+    "id": "ENCOUNTER.INFESTED_PRISMS_ELITE",
+    "name": "InfestedPrismsElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.INFESTED_PRISM"
+    ],
+    "monsters": [
+      [
+        "MONSTER.INFESTED_PRISM",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.INKLETS_NORMAL": {
+    "id": "ENCOUNTER.INKLETS_NORMAL",
+    "name": "InkletsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.INKLET"
+    ],
+    "monsters": [
+      [
+        "MONSTER.INKLET",
+        null
+      ],
+      [
+        "MONSTER.INKLET",
+        null
+      ],
+      [
+        "MONSTER.INKLET",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.KAISER_CRAB_BOSS": {
+    "id": "ENCOUNTER.KAISER_CRAB_BOSS",
+    "name": "KaiserCrabBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.CRUSHER",
+      "MONSTER.ROCKET"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CRUSHER",
+        "crusher"
+      ],
+      [
+        "MONSTER.ROCKET",
+        "rocket"
+      ]
+    ]
+  },
+  "ENCOUNTER.KNIGHTS_ELITE": {
+    "id": "ENCOUNTER.KNIGHTS_ELITE",
+    "name": "KnightsElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.FLAIL_KNIGHT",
+      "MONSTER.SPECTRAL_KNIGHT",
+      "MONSTER.MAGI_KNIGHT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.FLAIL_KNIGHT",
+        "first"
+      ],
+      [
+        "MONSTER.SPECTRAL_KNIGHT",
+        "second"
+      ],
+      [
+        "MONSTER.MAGI_KNIGHT",
+        "third"
+      ]
+    ]
+  },
+  "ENCOUNTER.KNOWLEDGE_DEMON_BOSS": {
+    "id": "ENCOUNTER.KNOWLEDGE_DEMON_BOSS",
+    "name": "KnowledgeDemonBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.KNOWLEDGE_DEMON"
+    ],
+    "monsters": [
+      [
+        "MONSTER.KNOWLEDGE_DEMON",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.LAGAVULIN_MATRIARCH_BOSS": {
+    "id": "ENCOUNTER.LAGAVULIN_MATRIARCH_BOSS",
+    "name": "LagavulinMatriarchBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LAGAVULIN_MATRIARCH"
+    ],
+    "monsters": [
+      [
+        "MONSTER.LAGAVULIN_MATRIARCH",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.LIVING_FOG_NORMAL": {
+    "id": "ENCOUNTER.LIVING_FOG_NORMAL",
+    "name": "LivingFogNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LIVING_FOG",
+      "MONSTER.GAS_BOMB"
+    ],
+    "monsters": [
+      [
+        "MONSTER.LIVING_FOG",
+        "livingFog"
+      ]
+    ]
+  },
+  "ENCOUNTER.LOUSE_PROGENITOR_NORMAL": {
+    "id": "ENCOUNTER.LOUSE_PROGENITOR_NORMAL",
+    "name": "LouseProgenitorNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LOUSE_PROGENITOR"
+    ],
+    "monsters": [
+      [
+        "MONSTER.LOUSE_PROGENITOR",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.MAWLER_NORMAL": {
+    "id": "ENCOUNTER.MAWLER_NORMAL",
+    "name": "MawlerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.MAWLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.MAWLER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.MECHA_KNIGHT_ELITE": {
+    "id": "ENCOUNTER.MECHA_KNIGHT_ELITE",
+    "name": "MechaKnightElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.MECHA_KNIGHT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.MECHA_KNIGHT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.MYSTERIOUS_KNIGHT_EVENT_ENCOUNTER": {
+    "id": "ENCOUNTER.MYSTERIOUS_KNIGHT_EVENT_ENCOUNTER",
+    "name": "MysteriousKnightEventEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.MYSTERIOUS_KNIGHT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.MYSTERIOUS_KNIGHT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.MYTES_NORMAL": {
+    "id": "ENCOUNTER.MYTES_NORMAL",
+    "name": "MytesNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.MYTE"
+    ],
+    "monsters": [
+      [
+        "MONSTER.MYTE",
+        "first"
+      ],
+      [
+        "MONSTER.MYTE",
+        "second"
+      ]
+    ]
+  },
+  "ENCOUNTER.NIBBITS_NORMAL": {
+    "id": "ENCOUNTER.NIBBITS_NORMAL",
+    "name": "NibbitsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.NIBBIT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.NIBBIT",
+        "front"
+      ],
+      [
+        "MONSTER.NIBBIT",
+        "back"
+      ]
+    ]
+  },
+  "ENCOUNTER.NIBBITS_WEAK": {
+    "id": "ENCOUNTER.NIBBITS_WEAK",
+    "name": "NibbitsWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.NIBBIT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.NIBBIT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.OVERGROWTH_CRAWLERS": {
+    "id": "ENCOUNTER.OVERGROWTH_CRAWLERS",
+    "name": "OvergrowthCrawlers",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SHRINKER_BEETLE",
+      "MONSTER.FUZZY_WURM_CRAWLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SHRINKER_BEETLE",
+        null
+      ],
+      [
+        "MONSTER.FUZZY_WURM_CRAWLER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.OVICOPTER_NORMAL": {
+    "id": "ENCOUNTER.OVICOPTER_NORMAL",
+    "name": "OvicopterNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.OVICOPTER",
+      "MONSTER.TOUGH_EGG"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.OWL_MAGISTRATE_NORMAL": {
+    "id": "ENCOUNTER.OWL_MAGISTRATE_NORMAL",
+    "name": "OwlMagistrateNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.OWL_MAGISTRATE"
+    ],
+    "monsters": [
+      [
+        "MONSTER.OWL_MAGISTRATE",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.PHANTASMAL_GARDENERS_ELITE": {
+    "id": "ENCOUNTER.PHANTASMAL_GARDENERS_ELITE",
+    "name": "PhantasmalGardenersElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.PHANTASMAL_GARDENER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.PHANTASMAL_GARDENER",
+        "first"
+      ],
+      [
+        "MONSTER.PHANTASMAL_GARDENER",
+        "second"
+      ],
+      [
+        "MONSTER.PHANTASMAL_GARDENER",
+        "third"
+      ],
+      [
+        "MONSTER.PHANTASMAL_GARDENER",
+        "fourth"
+      ]
+    ]
+  },
+  "ENCOUNTER.PHROG_PARASITE_ELITE": {
+    "id": "ENCOUNTER.PHROG_PARASITE_ELITE",
+    "name": "PhrogParasiteElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.PHROG_PARASITE",
+      "MONSTER.WRIGGLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.PHROG_PARASITE",
+        "phrog"
+      ]
+    ]
+  },
+  "ENCOUNTER.PUNCH_CONSTRUCT_NORMAL": {
+    "id": "ENCOUNTER.PUNCH_CONSTRUCT_NORMAL",
+    "name": "PunchConstructNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.PUNCH_CONSTRUCT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.PUNCH_CONSTRUCT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.PUNCH_OFF_EVENT_ENCOUNTER": {
+    "id": "ENCOUNTER.PUNCH_OFF_EVENT_ENCOUNTER",
+    "name": "PunchOffEventEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.PUNCH_CONSTRUCT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.PUNCH_CONSTRUCT",
+        null
+      ],
+      [
+        "MONSTER.PUNCH_CONSTRUCT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.QUEEN_BOSS": {
+    "id": "ENCOUNTER.QUEEN_BOSS",
+    "name": "QueenBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.QUEEN",
+      "MONSTER.TORCH_HEAD_AMALGAM"
+    ],
+    "monsters": [
+      [
+        "MONSTER.TORCH_HEAD_AMALGAM",
+        "amalgam"
+      ],
+      [
+        "MONSTER.QUEEN",
+        "queen"
+      ]
+    ]
+  },
+  "ENCOUNTER.RUBY_RAIDERS_NORMAL": {
+    "id": "ENCOUNTER.RUBY_RAIDERS_NORMAL",
+    "name": "RubyRaidersNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.AXE_RUBY_RAIDER",
+      "MONSTER.ASSASSIN_RUBY_RAIDER",
+      "MONSTER.BRUTE_RUBY_RAIDER",
+      "MONSTER.CROSSBOW_RUBY_RAIDER",
+      "MONSTER.TRACKER_RUBY_RAIDER"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.SCROLLS_OF_BITING_NORMAL": {
+    "id": "ENCOUNTER.SCROLLS_OF_BITING_NORMAL",
+    "name": "ScrollsOfBitingNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SCROLL_OF_BITING"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ],
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ],
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ],
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SCROLLS_OF_BITING_WEAK": {
+    "id": "ENCOUNTER.SCROLLS_OF_BITING_WEAK",
+    "name": "ScrollsOfBitingWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.SCROLL_OF_BITING"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ],
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ],
+      [
+        "MONSTER.SCROLL_OF_BITING",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SEAPUNK_NORMAL": {
+    "id": "ENCOUNTER.SEAPUNK_NORMAL",
+    "name": "SeapunkNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SEAPUNK",
+      "MONSTER.CALCIFIED_CULTIST"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CALCIFIED_CULTIST",
+        null
+      ],
+      [
+        "MONSTER.SEAPUNK",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SEAPUNK_WEAK": {
+    "id": "ENCOUNTER.SEAPUNK_WEAK",
+    "name": "SeapunkWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.SEAPUNK"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SEAPUNK",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SEWER_CLAM_NORMAL": {
+    "id": "ENCOUNTER.SEWER_CLAM_NORMAL",
+    "name": "SewerClamNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SEWER_CLAM"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SEWER_CLAM",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SHRINKER_BEETLE_WEAK": {
+    "id": "ENCOUNTER.SHRINKER_BEETLE_WEAK",
+    "name": "ShrinkerBeetleWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.SHRINKER_BEETLE"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SHRINKER_BEETLE",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SKULKING_COLONY_ELITE": {
+    "id": "ENCOUNTER.SKULKING_COLONY_ELITE",
+    "name": "SkulkingColonyElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SKULKING_COLONY"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SKULKING_COLONY",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SLIMED_BERSERKER_NORMAL": {
+    "id": "ENCOUNTER.SLIMED_BERSERKER_NORMAL",
+    "name": "SlimedBerserkerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SLIMED_BERSERKER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SLIMED_BERSERKER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SLIMES_NORMAL": {
+    "id": "ENCOUNTER.SLIMES_NORMAL",
+    "name": "SlimesNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LEAF_SLIME_S",
+      "MONSTER.TWIG_SLIME_S",
+      "MONSTER.TWIG_SLIME_M",
+      "MONSTER.LEAF_SLIME_M"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.SLIMES_WEAK": {
+    "id": "ENCOUNTER.SLIMES_WEAK",
+    "name": "SlimesWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.LEAF_SLIME_S",
+      "MONSTER.TWIG_SLIME_S",
+      "MONSTER.LEAF_SLIME_M",
+      "MONSTER.TWIG_SLIME_M"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.SLITHERING_STRANGLER_NORMAL": {
+    "id": "ENCOUNTER.SLITHERING_STRANGLER_NORMAL",
+    "name": "SlitheringStranglerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.LEAF_SLIME_S",
+      "MONSTER.TWIG_SLIME_S",
+      "MONSTER.LEAF_SLIME_M",
+      "MONSTER.TWIG_SLIME_M",
+      "MONSTER.SNAPPING_JAXFRUIT",
+      "MONSTER.SLITHERING_STRANGLER"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.SLUDGE_SPINNER_WEAK": {
+    "id": "ENCOUNTER.SLUDGE_SPINNER_WEAK",
+    "name": "SludgeSpinnerWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.SLUDGE_SPINNER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SLUDGE_SPINNER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SLUMBERING_BEETLE_NORMAL": {
+    "id": "ENCOUNTER.SLUMBERING_BEETLE_NORMAL",
+    "name": "SlumberingBeetleNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.BOWLBUG_ROCK",
+      "MONSTER.SLUMBERING_BEETLE",
+      "MONSTER.BOWLBUG_SILK"
+    ],
+    "monsters": [
+      [
+        "MONSTER.BOWLBUG_ROCK",
+        "first"
+      ],
+      [
+        "MONSTER.BOWLBUG_SILK",
+        "second"
+      ],
+      [
+        "MONSTER.SLUMBERING_BEETLE",
+        "third"
+      ]
+    ]
+  },
+  "ENCOUNTER.SNAPPING_JAXFRUIT_NORMAL": {
+    "id": "ENCOUNTER.SNAPPING_JAXFRUIT_NORMAL",
+    "name": "SnappingJaxfruitNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SNAPPING_JAXFRUIT",
+      "MONSTER.FLYCONID"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SNAPPING_JAXFRUIT",
+        null
+      ],
+      [
+        "MONSTER.FLYCONID",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SOUL_FYSH_BOSS": {
+    "id": "ENCOUNTER.SOUL_FYSH_BOSS",
+    "name": "SoulFyshBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SOUL_FYSH"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SOUL_FYSH",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SOUL_NEXUS_ELITE": {
+    "id": "ENCOUNTER.SOUL_NEXUS_ELITE",
+    "name": "SoulNexusElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SOUL_NEXUS"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SOUL_NEXUS",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.SPINY_TOAD_NORMAL": {
+    "id": "ENCOUNTER.SPINY_TOAD_NORMAL",
+    "name": "SpinyToadNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.SPINY_TOAD"
+    ],
+    "monsters": [
+      [
+        "MONSTER.SPINY_TOAD",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TERROR_EEL_ELITE": {
+    "id": "ENCOUNTER.TERROR_EEL_ELITE",
+    "name": "TerrorEelElite",
+    "room_type": "Elite",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.TERROR_EEL"
+    ],
+    "monsters": [
+      [
+        "MONSTER.TERROR_EEL",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TEST_SUBJECT_BOSS": {
+    "id": "ENCOUNTER.TEST_SUBJECT_BOSS",
+    "name": "TestSubjectBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.TEST_SUBJECT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.TEST_SUBJECT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.THE_ARCHITECT_EVENT_ENCOUNTER": {
+    "id": "ENCOUNTER.THE_ARCHITECT_EVENT_ENCOUNTER",
+    "name": "TheArchitectEventEncounter",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.ARCHITECT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.ARCHITECT",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.THE_INSATIABLE_BOSS": {
+    "id": "ENCOUNTER.THE_INSATIABLE_BOSS",
+    "name": "TheInsatiableBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.THE_INSATIABLE"
+    ],
+    "monsters": [
+      [
+        "MONSTER.THE_INSATIABLE",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.THE_KIN_BOSS": {
+    "id": "ENCOUNTER.THE_KIN_BOSS",
+    "name": "TheKinBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.KIN_FOLLOWER",
+      "MONSTER.KIN_PRIEST"
+    ],
+    "monsters": [
+      [
+        "MONSTER.KIN_FOLLOWER",
+        "slot1"
+      ],
+      [
+        "MONSTER.KIN_FOLLOWER",
+        "slot2"
+      ],
+      [
+        "MONSTER.KIN_PRIEST",
+        "leaderSlot"
+      ]
+    ]
+  },
+  "ENCOUNTER.THE_LOST_AND_FORGOTTEN_NORMAL": {
+    "id": "ENCOUNTER.THE_LOST_AND_FORGOTTEN_NORMAL",
+    "name": "TheLostAndForgottenNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.THE_LOST",
+      "MONSTER.THE_FORGOTTEN"
+    ],
+    "monsters": [
+      [
+        "MONSTER.THE_LOST",
+        null
+      ],
+      [
+        "MONSTER.THE_FORGOTTEN",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.THE_OBSCURA_NORMAL": {
+    "id": "ENCOUNTER.THE_OBSCURA_NORMAL",
+    "name": "TheObscuraNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.THE_OBSCURA",
+      "MONSTER.PARAFRIGHT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.THE_OBSCURA",
+        "obscura"
+      ]
+    ]
+  },
+  "ENCOUNTER.THIEVING_HOPPER_WEAK": {
+    "id": "ENCOUNTER.THIEVING_HOPPER_WEAK",
+    "name": "ThievingHopperWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.THIEVING_HOPPER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.THIEVING_HOPPER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TOADPOLES_WEAK": {
+    "id": "ENCOUNTER.TOADPOLES_WEAK",
+    "name": "ToadpolesWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.TOADPOLE"
+    ],
+    "monsters": [
+      [
+        "MONSTER.TOADPOLE",
+        null
+      ],
+      [
+        "MONSTER.TOADPOLE",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TUNNELER_NORMAL": {
+    "id": "ENCOUNTER.TUNNELER_NORMAL",
+    "name": "TunnelerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.TUNNELER",
+      "MONSTER.CHOMPER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.CHOMPER",
+        null
+      ],
+      [
+        "MONSTER.TUNNELER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TUNNELER_WEAK": {
+    "id": "ENCOUNTER.TUNNELER_WEAK",
+    "name": "TunnelerWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.TUNNELER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.TUNNELER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TURRET_OPERATOR_WEAK": {
+    "id": "ENCOUNTER.TURRET_OPERATOR_WEAK",
+    "name": "TurretOperatorWeak",
+    "room_type": "Monster",
+    "is_weak": true,
+    "all_possible_monsters": [
+      "MONSTER.LIVING_SHIELD",
+      "MONSTER.TURRET_OPERATOR"
+    ],
+    "monsters": [
+      [
+        "MONSTER.LIVING_SHIELD",
+        null
+      ],
+      [
+        "MONSTER.TURRET_OPERATOR",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.TWO_TAILED_RATS_NORMAL": {
+    "id": "ENCOUNTER.TWO_TAILED_RATS_NORMAL",
+    "name": "TwoTailedRatsNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.TWO_TAILED_RAT"
+    ],
+    "monsters": null
+  },
+  "ENCOUNTER.VANTOM_BOSS": {
+    "id": "ENCOUNTER.VANTOM_BOSS",
+    "name": "VantomBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.VANTOM"
+    ],
+    "monsters": [
+      [
+        "MONSTER.VANTOM",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.VINE_SHAMBLER_NORMAL": {
+    "id": "ENCOUNTER.VINE_SHAMBLER_NORMAL",
+    "name": "VineShamblerNormal",
+    "room_type": "Monster",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.VINE_SHAMBLER"
+    ],
+    "monsters": [
+      [
+        "MONSTER.VINE_SHAMBLER",
+        null
+      ]
+    ]
+  },
+  "ENCOUNTER.WATERFALL_GIANT_BOSS": {
+    "id": "ENCOUNTER.WATERFALL_GIANT_BOSS",
+    "name": "WaterfallGiantBoss",
+    "room_type": "Boss",
+    "is_weak": false,
+    "all_possible_monsters": [
+      "MONSTER.WATERFALL_GIANT"
+    ],
+    "monsters": [
+      [
+        "MONSTER.WATERFALL_GIANT",
+        null
+      ]
+    ]
+  }
+}

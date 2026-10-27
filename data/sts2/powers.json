@@ -1,0 +1,2023 @@
+{
+  "POWER.ACCELERANT_POWER": {
+    "id": "POWER.ACCELERANT_POWER",
+    "name": "AccelerantPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ACCURACY_POWER": {
+    "id": "POWER.ACCURACY_POWER",
+    "name": "AccuracyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ADAPTABLE_POWER": {
+    "id": "POWER.ADAPTABLE_POWER",
+    "name": "AdaptablePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.AFTERIMAGE_POWER": {
+    "id": "POWER.AFTERIMAGE_POWER",
+    "name": "AfterimagePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.AGGRESSION_POWER": {
+    "id": "POWER.AGGRESSION_POWER",
+    "name": "AggressionPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.AMBERGRIS_POWER": {
+    "id": "POWER.AMBERGRIS_POWER",
+    "name": "AmbergrisPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ANTICIPATE_POWER": {
+    "id": "POWER.ANTICIPATE_POWER",
+    "name": "AnticipatePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ARSENAL_POWER": {
+    "id": "POWER.ARSENAL_POWER",
+    "name": "ArsenalPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ARTIFACT_POWER": {
+    "id": "POWER.ARTIFACT_POWER",
+    "name": "ArtifactPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ASLEEP_POWER": {
+    "id": "POWER.ASLEEP_POWER",
+    "name": "AsleepPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.AUTOMATION_POWER": {
+    "id": "POWER.AUTOMATION_POWER",
+    "name": "AutomationPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "BaseCards": {
+        "base": 10
+      }
+    }
+  },
+  "POWER.BACK_ATTACK_LEFT_POWER": {
+    "id": "POWER.BACK_ATTACK_LEFT_POWER",
+    "name": "BackAttackLeftPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.BACK_ATTACK_RIGHT_POWER": {
+    "id": "POWER.BACK_ATTACK_RIGHT_POWER",
+    "name": "BackAttackRightPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.BARRICADE_POWER": {
+    "id": "POWER.BARRICADE_POWER",
+    "name": "BarricadePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "ApplierName": {
+        "expr": "new StringVar(\"ApplierName\")"
+      }
+    }
+  },
+  "POWER.BATTLEWORN_DUMMY_TIME_LIMIT_POWER": {
+    "id": "POWER.BATTLEWORN_DUMMY_TIME_LIMIT_POWER",
+    "name": "BattlewornDummyTimeLimitPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BEACON_OF_HOPE_POWER": {
+    "id": "POWER.BEACON_OF_HOPE_POWER",
+    "name": "BeaconOfHopePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.BIASED_COGNITION_POWER": {
+    "id": "POWER.BIASED_COGNITION_POWER",
+    "name": "BiasedCognitionPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BLACK_HOLE_POWER": {
+    "id": "POWER.BLACK_HOLE_POWER",
+    "name": "BlackHolePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BLOCK_NEXT_TURN_POWER": {
+    "id": "POWER.BLOCK_NEXT_TURN_POWER",
+    "name": "BlockNextTurnPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BLUR_POWER": {
+    "id": "POWER.BLUR_POWER",
+    "name": "BlurPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BORROWED_TIME_POWER": {
+    "id": "POWER.BORROWED_TIME_POWER",
+    "name": "BorrowedTimePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BUFFER_POWER": {
+    "id": "POWER.BUFFER_POWER",
+    "name": "BufferPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.BURROWED_POWER": {
+    "id": "POWER.BURROWED_POWER",
+    "name": "BurrowedPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.BURST_POWER": {
+    "id": "POWER.BURST_POWER",
+    "name": "BurstPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CACOPHONY_POWER": {
+    "id": "POWER.CACOPHONY_POWER",
+    "name": "CacophonyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Cards": {
+        "base": 33
+      }
+    }
+  },
+  "POWER.CALAMITY_POWER": {
+    "id": "POWER.CALAMITY_POWER",
+    "name": "CalamityPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CALCIFY_POWER": {
+    "id": "POWER.CALCIFY_POWER",
+    "name": "CalcifyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CALL_OF_THE_VOID_POWER": {
+    "id": "POWER.CALL_OF_THE_VOID_POWER",
+    "name": "CallOfTheVoidPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CHAINS_OF_BINDING_POWER": {
+    "id": "POWER.CHAINS_OF_BINDING_POWER",
+    "name": "ChainsOfBindingPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CHILD_OF_THE_STARS_POWER": {
+    "id": "POWER.CHILD_OF_THE_STARS_POWER",
+    "name": "ChildOfTheStarsPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CLARITY_POWER": {
+    "id": "POWER.CLARITY_POWER",
+    "name": "ClarityPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.COLOSSUS_POWER": {
+    "id": "POWER.COLOSSUS_POWER",
+    "name": "ColossusPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "DamageDecrease": {
+        "base": 0.5
+      }
+    }
+  },
+  "POWER.CONCOCT_POWER": {
+    "id": "POWER.CONCOCT_POWER",
+    "name": "ConcoctPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CONFUSED_POWER": {
+    "id": "POWER.CONFUSED_POWER",
+    "name": "ConfusedPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.CONQUEROR_POWER": {
+    "id": "POWER.CONQUEROR_POWER",
+    "name": "ConquerorPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CONSTRICT_POWER": {
+    "id": "POWER.CONSTRICT_POWER",
+    "name": "ConstrictPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CONSUMING_SHADOW_POWER": {
+    "id": "POWER.CONSUMING_SHADOW_POWER",
+    "name": "ConsumingShadowPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.COOLANT_POWER": {
+    "id": "POWER.COOLANT_POWER",
+    "name": "CoolantPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.COORDINATE_POWER": {
+    "id": "POWER.COORDINATE_POWER",
+    "name": "CoordinatePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CORROSIVE_WAVE_POWER": {
+    "id": "POWER.CORROSIVE_WAVE_POWER",
+    "name": "CorrosiveWavePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CORRUPTION_POWER": {
+    "id": "POWER.CORRUPTION_POWER",
+    "name": "CorruptionPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.COUNTDOWN_POWER": {
+    "id": "POWER.COUNTDOWN_POWER",
+    "name": "CountdownPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.COVERED_POWER": {
+    "id": "POWER.COVERED_POWER",
+    "name": "CoveredPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "Applier": {
+        "expr": "new StringVar(\"Applier\")"
+      }
+    }
+  },
+  "POWER.CRAB_RAGE_POWER": {
+    "id": "POWER.CRAB_RAGE_POWER",
+    "name": "CrabRagePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "StrengthPower": {
+        "base": 6
+      },
+      "Block": {
+        "base": 99
+      }
+    }
+  },
+  "POWER.CREATIVE_AI_POWER": {
+    "id": "POWER.CREATIVE_AI_POWER",
+    "name": "CreativeAiPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CRIMSON_MANTLE_POWER": {
+    "id": "POWER.CRIMSON_MANTLE_POWER",
+    "name": "CrimsonMantlePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "SelfDamage": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.CRUELTY_POWER": {
+    "id": "POWER.CRUELTY_POWER",
+    "name": "CrueltyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CRUSH_UNDER_POWER": {
+    "id": "POWER.CRUSH_UNDER_POWER",
+    "name": "CrushUnderPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CURIOUS_POWER": {
+    "id": "POWER.CURIOUS_POWER",
+    "name": "CuriousPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.CURL_UP_POWER": {
+    "id": "POWER.CURL_UP_POWER",
+    "name": "CurlUpPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DAMPEN_POWER": {
+    "id": "POWER.DAMPEN_POWER",
+    "name": "DampenPower",
+    "type": "Debuff",
+    "stack_type": "None",
+    "vars": null
+  },
+  "POWER.DANSE_MACABRE_POWER": {
+    "id": "POWER.DANSE_MACABRE_POWER",
+    "name": "DanseMacabrePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Energy": {
+        "base": 2
+      }
+    }
+  },
+  "POWER.DARK_EMBRACE_POWER": {
+    "id": "POWER.DARK_EMBRACE_POWER",
+    "name": "DarkEmbracePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DARK_SHACKLES_POWER": {
+    "id": "POWER.DARK_SHACKLES_POWER",
+    "name": "DarkShacklesPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEBILITATE_POWER": {
+    "id": "POWER.DEBILITATE_POWER",
+    "name": "DebilitatePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEMESNE_POWER": {
+    "id": "POWER.DEMESNE_POWER",
+    "name": "DemesnePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEMISE_POWER": {
+    "id": "POWER.DEMISE_POWER",
+    "name": "DemisePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEMON_FORM_POWER": {
+    "id": "POWER.DEMON_FORM_POWER",
+    "name": "DemonFormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEVOUR_LIFE_POWER": {
+    "id": "POWER.DEVOUR_LIFE_POWER",
+    "name": "DevourLifePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DEXTERITY_POWER": {
+    "id": "POWER.DEXTERITY_POWER",
+    "name": "DexterityPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DIE_FOR_YOU_POWER": {
+    "id": "POWER.DIE_FOR_YOU_POWER",
+    "name": "DieForYouPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.DISINTEGRATION_POWER": {
+    "id": "POWER.DISINTEGRATION_POWER",
+    "name": "DisintegrationPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DOOM_POWER": {
+    "id": "POWER.DOOM_POWER",
+    "name": "DoomPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DOUBLE_DAMAGE_POWER": {
+    "id": "POWER.DOUBLE_DAMAGE_POWER",
+    "name": "DoubleDamagePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DRAW_CARDS_NEXT_TURN_POWER": {
+    "id": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+    "name": "DrawCardsNextTurnPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DUPLICATION_POWER": {
+    "id": "POWER.DUPLICATION_POWER",
+    "name": "DuplicationPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.DYING_STAR_POWER": {
+    "id": "POWER.DYING_STAR_POWER",
+    "name": "DyingStarPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ECHO_FORM_POWER": {
+    "id": "POWER.ECHO_FORM_POWER",
+    "name": "EchoFormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ENERGY_NEXT_TURN_POWER": {
+    "id": "POWER.ENERGY_NEXT_TURN_POWER",
+    "name": "EnergyNextTurnPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ENFEEBLING_TOUCH_POWER": {
+    "id": "POWER.ENFEEBLING_TOUCH_POWER",
+    "name": "EnfeeblingTouchPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ENRAGE_POWER": {
+    "id": "POWER.ENRAGE_POWER",
+    "name": "EnragePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ENTROPY_POWER": {
+    "id": "POWER.ENTROPY_POWER",
+    "name": "EntropyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ENVENOM_POWER": {
+    "id": "POWER.ENVENOM_POWER",
+    "name": "EnvenomPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ESCAPE_ARTIST_POWER": {
+    "id": "POWER.ESCAPE_ARTIST_POWER",
+    "name": "EscapeArtistPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FADE_POWER": {
+    "id": "POWER.FADE_POWER",
+    "name": "FadePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FAN_OF_KNIVES_POWER": {
+    "id": "POWER.FAN_OF_KNIVES_POWER",
+    "name": "FanOfKnivesPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.FASTEN_POWER": {
+    "id": "POWER.FASTEN_POWER",
+    "name": "FastenPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FEEDING_FRENZY_POWER": {
+    "id": "POWER.FEEDING_FRENZY_POWER",
+    "name": "FeedingFrenzyPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FEEL_NO_PAIN_POWER": {
+    "id": "POWER.FEEL_NO_PAIN_POWER",
+    "name": "FeelNoPainPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FERAL_POWER": {
+    "id": "POWER.FERAL_POWER",
+    "name": "FeralPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FLAME_BARRIER_POWER": {
+    "id": "POWER.FLAME_BARRIER_POWER",
+    "name": "FlameBarrierPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FLANKING_POWER": {
+    "id": "POWER.FLANKING_POWER",
+    "name": "FlankingPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "Applier": {
+        "expr": "new StringVar(\"Applier\")"
+      }
+    }
+  },
+  "POWER.FLEX_POTION_POWER": {
+    "id": "POWER.FLEX_POTION_POWER",
+    "name": "FlexPotionPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FLUTTER_POWER": {
+    "id": "POWER.FLUTTER_POWER",
+    "name": "FlutterPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "DamageDecrease": {
+        "base": 50
+      }
+    }
+  },
+  "POWER.FOCUSED_STRIKE_POWER": {
+    "id": "POWER.FOCUSED_STRIKE_POWER",
+    "name": "FocusedStrikePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FOCUS_POWER": {
+    "id": "POWER.FOCUS_POWER",
+    "name": "FocusPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FORBIDDEN_GRIMOIRE_POWER": {
+    "id": "POWER.FORBIDDEN_GRIMOIRE_POWER",
+    "name": "ForbiddenGrimoirePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FOREGONE_CONCLUSION_POWER": {
+    "id": "POWER.FOREGONE_CONCLUSION_POWER",
+    "name": "ForegoneConclusionPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FRAIL_POWER": {
+    "id": "POWER.FRAIL_POWER",
+    "name": "FrailPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FREE_ATTACK_POWER": {
+    "id": "POWER.FREE_ATTACK_POWER",
+    "name": "FreeAttackPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FREE_POWER_POWER": {
+    "id": "POWER.FREE_POWER_POWER",
+    "name": "FreePowerPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FREE_SKILL_POWER": {
+    "id": "POWER.FREE_SKILL_POWER",
+    "name": "FreeSkillPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FRIENDSHIP_POWER": {
+    "id": "POWER.FRIENDSHIP_POWER",
+    "name": "FriendshipPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.FURNACE_POWER": {
+    "id": "POWER.FURNACE_POWER",
+    "name": "FurnacePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.GALVANIC_POWER": {
+    "id": "POWER.GALVANIC_POWER",
+    "name": "GalvanicPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "AfflictionTitle": {
+        "expr": "new StringVar(\"AfflictionTitle\", ModelDb.Affliction<Galvanized>().Title.GetFormattedText())"
+      }
+    }
+  },
+  "POWER.GENESIS_POWER": {
+    "id": "POWER.GENESIS_POWER",
+    "name": "GenesisPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.GIGANTIFICATION_POWER": {
+    "id": "POWER.GIGANTIFICATION_POWER",
+    "name": "GigantificationPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.GRAVITY_POWER": {
+    "id": "POWER.GRAVITY_POWER",
+    "name": "GravityPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.GUARDED_POWER": {
+    "id": "POWER.GUARDED_POWER",
+    "name": "GuardedPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "Applier": {
+        "expr": "new StringVar(\"Applier\")"
+      },
+      "DamageDecrease": {
+        "base": 0.5
+      }
+    }
+  },
+  "POWER.HAILSTORM_POWER": {
+    "id": "POWER.HAILSTORM_POWER",
+    "name": "HailstormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "FrostOrbs": {
+        "base": 1
+      }
+    }
+  },
+  "POWER.HAMMER_TIME_POWER": {
+    "id": "POWER.HAMMER_TIME_POWER",
+    "name": "HammerTimePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.HANG_POWER": {
+    "id": "POWER.HANG_POWER",
+    "name": "HangPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HARDENED_SHELL_POWER": {
+    "id": "POWER.HARDENED_SHELL_POWER",
+    "name": "HardenedShellPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HARD_TO_KILL_POWER": {
+    "id": "POWER.HARD_TO_KILL_POWER",
+    "name": "HardToKillPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HATCH_POWER": {
+    "id": "POWER.HATCH_POWER",
+    "name": "HatchPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HAUNT_POWER": {
+    "id": "POWER.HAUNT_POWER",
+    "name": "HauntPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HEIST_POWER": {
+    "id": "POWER.HEIST_POWER",
+    "name": "HeistPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HELICAL_DART_POWER": {
+    "id": "POWER.HELICAL_DART_POWER",
+    "name": "HelicalDartPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HELLO_WORLD_POWER": {
+    "id": "POWER.HELLO_WORLD_POWER",
+    "name": "HelloWorldPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HELLRAISER_POWER": {
+    "id": "POWER.HELLRAISER_POWER",
+    "name": "HellraiserPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.HEX_POWER": {
+    "id": "POWER.HEX_POWER",
+    "name": "HexPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.HIBERNATE_POWER": {
+    "id": "POWER.HIBERNATE_POWER",
+    "name": "HibernatePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HIGH_VOLTAGE_POWER": {
+    "id": "POWER.HIGH_VOLTAGE_POWER",
+    "name": "HighVoltagePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HOTFIX_POWER": {
+    "id": "POWER.HOTFIX_POWER",
+    "name": "HotfixPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.HYPERBEAM_FOCUS_DOWN_POWER": {
+    "id": "POWER.HYPERBEAM_FOCUS_DOWN_POWER",
+    "name": "HyperbeamFocusDownPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ILLUSION_POWER": {
+    "id": "POWER.ILLUSION_POWER",
+    "name": "IllusionPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.IMBALANCED_POWER": {
+    "id": "POWER.IMBALANCED_POWER",
+    "name": "ImbalancedPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.IMITATION_LEARNING_POWER": {
+    "id": "POWER.IMITATION_LEARNING_POWER",
+    "name": "ImitationLearningPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "TargetPlayer": {
+        "expr": "new StringVar(\"TargetPlayer\")"
+      }
+    }
+  },
+  "POWER.IMPROVEMENT_POWER": {
+    "id": "POWER.IMPROVEMENT_POWER",
+    "name": "ImprovementPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.INFERNO_POWER": {
+    "id": "POWER.INFERNO_POWER",
+    "name": "InfernoPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "SelfDamage": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.INFESTED_POWER": {
+    "id": "POWER.INFESTED_POWER",
+    "name": "InfestedPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.INFINITE_BLADES_POWER": {
+    "id": "POWER.INFINITE_BLADES_POWER",
+    "name": "InfiniteBladesPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.INTANGIBLE_POWER": {
+    "id": "POWER.INTANGIBLE_POWER",
+    "name": "IntangiblePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.INTERCEPT_POWER": {
+    "id": "POWER.INTERCEPT_POWER",
+    "name": "InterceptPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "Covering": {
+        "expr": "new StringVar(\"Covering\")"
+      }
+    }
+  },
+  "POWER.ITERATION_POWER": {
+    "id": "POWER.ITERATION_POWER",
+    "name": "IterationPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.JUGGERNAUT_POWER": {
+    "id": "POWER.JUGGERNAUT_POWER",
+    "name": "JuggernautPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.JUGGLING_POWER": {
+    "id": "POWER.JUGGLING_POWER",
+    "name": "JugglingPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.KNOCKDOWN_POWER": {
+    "id": "POWER.KNOCKDOWN_POWER",
+    "name": "KnockdownPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "Applier": {
+        "expr": "new StringVar(\"Applier\")"
+      }
+    }
+  },
+  "POWER.LEADERSHIP_POWER": {
+    "id": "POWER.LEADERSHIP_POWER",
+    "name": "LeadershipPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.LETHALITY_POWER": {
+    "id": "POWER.LETHALITY_POWER",
+    "name": "LethalityPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.LIGHTNING_ROD_POWER": {
+    "id": "POWER.LIGHTNING_ROD_POWER",
+    "name": "LightningRodPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.LOOP_POWER": {
+    "id": "POWER.LOOP_POWER",
+    "name": "LoopPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MACHINE_LEARNING_POWER": {
+    "id": "POWER.MACHINE_LEARNING_POWER",
+    "name": "MachineLearningPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MAGIC_BOMB_POWER": {
+    "id": "POWER.MAGIC_BOMB_POWER",
+    "name": "MagicBombPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MANGLE_POWER": {
+    "id": "POWER.MANGLE_POWER",
+    "name": "ManglePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MASTER_PLANNER_POWER": {
+    "id": "POWER.MASTER_PLANNER_POWER",
+    "name": "MasterPlannerPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.MAYHEM_POWER": {
+    "id": "POWER.MAYHEM_POWER",
+    "name": "MayhemPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MIND_ROT_POWER": {
+    "id": "POWER.MIND_ROT_POWER",
+    "name": "MindRotPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MINION_POWER": {
+    "id": "POWER.MINION_POWER",
+    "name": "MinionPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.MONARCHS_GAZE_POWER": {
+    "id": "POWER.MONARCHS_GAZE_POWER",
+    "name": "MonarchsGazePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MONARCHS_GAZE_STRENGTH_DOWN_POWER": {
+    "id": "POWER.MONARCHS_GAZE_STRENGTH_DOWN_POWER",
+    "name": "MonarchsGazeStrengthDownPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.MONOLOGUE_POWER": {
+    "id": "POWER.MONOLOGUE_POWER",
+    "name": "MonologuePower",
+    "type": "Buff",
+    "stack_type": null,
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      },
+      "StrengthApplied": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.NECRO_MASTERY_POWER": {
+    "id": "POWER.NECRO_MASTERY_POWER",
+    "name": "NecroMasteryPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.NEMESIS_POWER": {
+    "id": "POWER.NEMESIS_POWER",
+    "name": "NemesisPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.NEUROSURGE_POWER": {
+    "id": "POWER.NEUROSURGE_POWER",
+    "name": "NeurosurgePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.NIGHTMARE_POWER": {
+    "id": "POWER.NIGHTMARE_POWER",
+    "name": "NightmarePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Card": {
+        "expr": "new StringVar(\"Card\")"
+      }
+    }
+  },
+  "POWER.NOSTALGIA_POWER": {
+    "id": "POWER.NOSTALGIA_POWER",
+    "name": "NostalgiaPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.NOXIOUS_FUMES_POWER": {
+    "id": "POWER.NOXIOUS_FUMES_POWER",
+    "name": "NoxiousFumesPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.NO_BLOCK_POWER": {
+    "id": "POWER.NO_BLOCK_POWER",
+    "name": "NoBlockPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.NO_DRAW_POWER": {
+    "id": "POWER.NO_DRAW_POWER",
+    "name": "NoDrawPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.NO_ENERGY_GAIN_POWER": {
+    "id": "POWER.NO_ENERGY_GAIN_POWER",
+    "name": "NoEnergyGainPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.OBLIVION_POWER": {
+    "id": "POWER.OBLIVION_POWER",
+    "name": "OblivionPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ONE_FOR_ALL_POWER": {
+    "id": "POWER.ONE_FOR_ALL_POWER",
+    "name": "OneForAllPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ONE_TWO_PUNCH_POWER": {
+    "id": "POWER.ONE_TWO_PUNCH_POWER",
+    "name": "OneTwoPunchPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ORBIT_POWER": {
+    "id": "POWER.ORBIT_POWER",
+    "name": "OrbitPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Energy": {
+        "base": 4
+      }
+    }
+  },
+  "POWER.PAGESTORM_POWER": {
+    "id": "POWER.PAGESTORM_POWER",
+    "name": "PagestormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PAINFUL_STABS_POWER": {
+    "id": "POWER.PAINFUL_STABS_POWER",
+    "name": "PainfulStabsPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PALE_BLUE_DOT_POWER": {
+    "id": "POWER.PALE_BLUE_DOT_POWER",
+    "name": "PaleBlueDotPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "CardPlay": {
+        "base": 5
+      }
+    }
+  },
+  "POWER.PANACHE_POWER": {
+    "id": "POWER.PANACHE_POWER",
+    "name": "PanachePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "CardsLeft": {
+        "base": 5
+      }
+    }
+  },
+  "POWER.PAPER_CUTS_POWER": {
+    "id": "POWER.PAPER_CUTS_POWER",
+    "name": "PaperCutsPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PARRY_POWER": {
+    "id": "POWER.PARRY_POWER",
+    "name": "ParryPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PERSONAL_HIVE_POWER": {
+    "id": "POWER.PERSONAL_HIVE_POWER",
+    "name": "PersonalHivePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PHANTOM_BLADES_POWER": {
+    "id": "POWER.PHANTOM_BLADES_POWER",
+    "name": "PhantomBladesPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PIERCING_WAIL_POWER": {
+    "id": "POWER.PIERCING_WAIL_POWER",
+    "name": "PiercingWailPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PILLAR_OF_CREATION_POWER": {
+    "id": "POWER.PILLAR_OF_CREATION_POWER",
+    "name": "PillarOfCreationPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PLATING_POWER": {
+    "id": "POWER.PLATING_POWER",
+    "name": "PlatingPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Decrement": {
+        "base": 1
+      }
+    }
+  },
+  "POWER.PLOW_POWER": {
+    "id": "POWER.PLOW_POWER",
+    "name": "PlowPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.POISON_POWER": {
+    "id": "POWER.POISON_POWER",
+    "name": "PoisonPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.POSSESS_SPEED_POWER": {
+    "id": "POWER.POSSESS_SPEED_POWER",
+    "name": "PossessSpeedPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.POSSESS_STRENGTH_POWER": {
+    "id": "POWER.POSSESS_STRENGTH_POWER",
+    "name": "PossessStrengthPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.PREP_TIME_POWER": {
+    "id": "POWER.PREP_TIME_POWER",
+    "name": "PrepTimePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.PYRE_POWER": {
+    "id": "POWER.PYRE_POWER",
+    "name": "PyrePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RADIANCE_POWER": {
+    "id": "POWER.RADIANCE_POWER",
+    "name": "RadiancePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    }
+  },
+  "POWER.RAGE_POWER": {
+    "id": "POWER.RAGE_POWER",
+    "name": "RagePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RAMPART_POWER": {
+    "id": "POWER.RAMPART_POWER",
+    "name": "RampartPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RAVENOUS_POWER": {
+    "id": "POWER.RAVENOUS_POWER",
+    "name": "RavenousPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.REAPER_FORM_POWER": {
+    "id": "POWER.REAPER_FORM_POWER",
+    "name": "ReaperFormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.REATTACH_POWER": {
+    "id": "POWER.REATTACH_POWER",
+    "name": "ReattachPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.REBOUND_POWER": {
+    "id": "POWER.REBOUND_POWER",
+    "name": "ReboundPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.REFLECT_POWER": {
+    "id": "POWER.REFLECT_POWER",
+    "name": "ReflectPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.REGEN_POWER": {
+    "id": "POWER.REGEN_POWER",
+    "name": "RegenPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.REPTILE_TRINKET_POWER": {
+    "id": "POWER.REPTILE_TRINKET_POWER",
+    "name": "ReptileTrinketPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RETAIN_HAND_POWER": {
+    "id": "POWER.RETAIN_HAND_POWER",
+    "name": "RetainHandPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RINGING_POWER": {
+    "id": "POWER.RINGING_POWER",
+    "name": "RingingPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.RITUAL_POWER": {
+    "id": "POWER.RITUAL_POWER",
+    "name": "RitualPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.ROLLING_BOULDER_POWER": {
+    "id": "POWER.ROLLING_BOULDER_POWER",
+    "name": "RollingBoulderPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Damage": {
+        "base": 5
+      }
+    }
+  },
+  "POWER.ROYALTIES_POWER": {
+    "id": "POWER.ROYALTIES_POWER",
+    "name": "RoyaltiesPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.RUPTURE_POWER": {
+    "id": "POWER.RUPTURE_POWER",
+    "name": "RupturePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SANDPIT_POWER": {
+    "id": "POWER.SANDPIT_POWER",
+    "name": "SandpitPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SEEKING_EDGE_POWER": {
+    "id": "POWER.SEEKING_EDGE_POWER",
+    "name": "SeekingEdgePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.SELF_FORMING_CLAY_POWER": {
+    "id": "POWER.SELF_FORMING_CLAY_POWER",
+    "name": "SelfFormingClayPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SENTRY_MODE_POWER": {
+    "id": "POWER.SENTRY_MODE_POWER",
+    "name": "SentryModePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SERPENT_FORM_POWER": {
+    "id": "POWER.SERPENT_FORM_POWER",
+    "name": "SerpentFormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SETUP_STRIKE_POWER": {
+    "id": "POWER.SETUP_STRIKE_POWER",
+    "name": "SetupStrikePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SHACKLING_POTION_POWER": {
+    "id": "POWER.SHACKLING_POTION_POWER",
+    "name": "ShacklingPotionPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SHADOWMELD_POWER": {
+    "id": "POWER.SHADOWMELD_POWER",
+    "name": "ShadowmeldPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SHADOW_STEP_POWER": {
+    "id": "POWER.SHADOW_STEP_POWER",
+    "name": "ShadowStepPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SHRIEK_POWER": {
+    "id": "POWER.SHRIEK_POWER",
+    "name": "ShriekPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SHRINK_POWER": {
+    "id": "POWER.SHRINK_POWER",
+    "name": "ShrinkPower",
+    "type": "Debuff",
+    "stack_type": null,
+    "vars": {
+      "DamageDecrease": {
+        "base": 30
+      },
+      "ApplierName": {
+        "expr": "new StringVar(\"ApplierName\")"
+      }
+    }
+  },
+  "POWER.SHROUD_POWER": {
+    "id": "POWER.SHROUD_POWER",
+    "name": "ShroudPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SIC_EM_POWER": {
+    "id": "POWER.SIC_EM_POWER",
+    "name": "SicEmPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SIGNAL_BOOST_POWER": {
+    "id": "POWER.SIGNAL_BOOST_POWER",
+    "name": "SignalBoostPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SKITTISH_POWER": {
+    "id": "POWER.SKITTISH_POWER",
+    "name": "SkittishPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SLEIGHT_OF_FLESH_POWER": {
+    "id": "POWER.SLEIGHT_OF_FLESH_POWER",
+    "name": "SleightOfFleshPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SLIPPERY_POWER": {
+    "id": "POWER.SLIPPERY_POWER",
+    "name": "SlipperyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SLOTH_POWER": {
+    "id": "POWER.SLOTH_POWER",
+    "name": "SlothPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SLOW_POWER": {
+    "id": "POWER.SLOW_POWER",
+    "name": "SlowPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "SlowAmount": {
+        "base": 0
+      },
+      "DisplayAmount": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.SLUMBER_POWER": {
+    "id": "POWER.SLUMBER_POWER",
+    "name": "SlumberPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SMOGGY_POWER": {
+    "id": "POWER.SMOGGY_POWER",
+    "name": "SmoggyPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.SMOKESTACK_POWER": {
+    "id": "POWER.SMOKESTACK_POWER",
+    "name": "SmokestackPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SNEAKY_POWER": {
+    "id": "POWER.SNEAKY_POWER",
+    "name": "SneakyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SOAR_POWER": {
+    "id": "POWER.SOAR_POWER",
+    "name": "SoarPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "DamageDecrease": {
+        "base": 50
+      }
+    }
+  },
+  "POWER.SOULBOUND_POWER": {
+    "id": "POWER.SOULBOUND_POWER",
+    "name": "SoulboundPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SPECTRUM_SHIFT_POWER": {
+    "id": "POWER.SPECTRUM_SHIFT_POWER",
+    "name": "SpectrumShiftPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SPEEDSTER_POWER": {
+    "id": "POWER.SPEEDSTER_POWER",
+    "name": "SpeedsterPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SPEED_POTION_POWER": {
+    "id": "POWER.SPEED_POTION_POWER",
+    "name": "SpeedPotionPower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SPINNER_POWER": {
+    "id": "POWER.SPINNER_POWER",
+    "name": "SpinnerPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SPIRIT_OF_ASH_POWER": {
+    "id": "POWER.SPIRIT_OF_ASH_POWER",
+    "name": "SpiritOfAshPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STAMPEDE_POWER": {
+    "id": "POWER.STAMPEDE_POWER",
+    "name": "StampedePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STAR_NEXT_TURN_POWER": {
+    "id": "POWER.STAR_NEXT_TURN_POWER",
+    "name": "StarNextTurnPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STEAM_ERUPTION_POWER": {
+    "id": "POWER.STEAM_ERUPTION_POWER",
+    "name": "SteamEruptionPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STOCK_POWER": {
+    "id": "POWER.STOCK_POWER",
+    "name": "StockPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STORM_POWER": {
+    "id": "POWER.STORM_POWER",
+    "name": "StormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STRANGLE_POWER": {
+    "id": "POWER.STRANGLE_POWER",
+    "name": "StranglePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STRATAGEM_POWER": {
+    "id": "POWER.STRATAGEM_POWER",
+    "name": "StratagemPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.STRENGTH_POWER": {
+    "id": "POWER.STRENGTH_POWER",
+    "name": "StrengthPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SUBROUTINE_POWER": {
+    "id": "POWER.SUBROUTINE_POWER",
+    "name": "SubroutinePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SUCK_POWER": {
+    "id": "POWER.SUCK_POWER",
+    "name": "SuckPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SUMMON_NEXT_TURN_POWER": {
+    "id": "POWER.SUMMON_NEXT_TURN_POWER",
+    "name": "SummonNextTurnPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SURPRISE_POWER": {
+    "id": "POWER.SURPRISE_POWER",
+    "name": "SurprisePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.SURROUNDED_POWER": {
+    "id": "POWER.SURROUNDED_POWER",
+    "name": "SurroundedPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.SWIPE_POWER": {
+    "id": "POWER.SWIPE_POWER",
+    "name": "SwipePower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.SWORD_SAGE_POWER": {
+    "id": "POWER.SWORD_SAGE_POWER",
+    "name": "SwordSagePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.SYNCHRONIZE_POWER": {
+    "id": "POWER.SYNCHRONIZE_POWER",
+    "name": "SynchronizePower",
+    "type": null,
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TAG_TEAM_POWER": {
+    "id": "POWER.TAG_TEAM_POWER",
+    "name": "TagTeamPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TAINTED_POWER": {
+    "id": "POWER.TAINTED_POWER",
+    "name": "TaintedPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TANGLED_POWER": {
+    "id": "POWER.TANGLED_POWER",
+    "name": "TangledPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "Energy": {
+        "base": 1
+      }
+    }
+  },
+  "POWER.TANK_POWER": {
+    "id": "POWER.TANK_POWER",
+    "name": "TankPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": {
+      "DamageIncrease": {
+        "base": 1.5
+      },
+      "DamageDecrease": {
+        "base": 0.5
+      }
+    }
+  },
+  "POWER.TENDER_POWER": {
+    "id": "POWER.TENDER_POWER",
+    "name": "TenderPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TERRITORIAL_POWER": {
+    "id": "POWER.TERRITORIAL_POWER",
+    "name": "TerritorialPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.THE_BOMB_POWER": {
+    "id": "POWER.THE_BOMB_POWER",
+    "name": "TheBombPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Damage": {
+        "base": 40
+      }
+    }
+  },
+  "POWER.THE_GAMBIT_POWER": {
+    "id": "POWER.THE_GAMBIT_POWER",
+    "name": "TheGambitPower",
+    "type": "Debuff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.THE_HUNT_POWER": {
+    "id": "POWER.THE_HUNT_POWER",
+    "name": "TheHuntPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.THE_SEALED_THRONE_POWER": {
+    "id": "POWER.THE_SEALED_THRONE_POWER",
+    "name": "TheSealedThronePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.THIEVERY_POWER": {
+    "id": "POWER.THIEVERY_POWER",
+    "name": "ThieveryPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Gold": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.THORNS_POWER": {
+    "id": "POWER.THORNS_POWER",
+    "name": "ThornsPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.THUNDER_POWER": {
+    "id": "POWER.THUNDER_POWER",
+    "name": "ThunderPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TOOLS_OF_THE_TRADE_POWER": {
+    "id": "POWER.TOOLS_OF_THE_TRADE_POWER",
+    "name": "ToolsOfTheTradePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TORIC_TOUGHNESS_POWER": {
+    "id": "POWER.TORIC_TOUGHNESS_POWER",
+    "name": "ToricToughnessPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "Block": {
+        "base": 0
+      }
+    }
+  },
+  "POWER.TRACKING_POWER": {
+    "id": "POWER.TRACKING_POWER",
+    "name": "TrackingPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TRASH_TO_TREASURE_POWER": {
+    "id": "POWER.TRASH_TO_TREASURE_POWER",
+    "name": "TrashToTreasurePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.TYRANNY_POWER": {
+    "id": "POWER.TYRANNY_POWER",
+    "name": "TyrannyPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.UNDERWORLD_POWER": {
+    "id": "POWER.UNDERWORLD_POWER",
+    "name": "UnderworldPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.UNMOVABLE_POWER": {
+    "id": "POWER.UNMOVABLE_POWER",
+    "name": "UnmovablePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.VEILPIERCER_POWER": {
+    "id": "POWER.VEILPIERCER_POWER",
+    "name": "VeilpiercerPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.VICIOUS_POWER": {
+    "id": "POWER.VICIOUS_POWER",
+    "name": "ViciousPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.VIGOR_POWER": {
+    "id": "POWER.VIGOR_POWER",
+    "name": "VigorPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.VITAL_SPARK_POWER": {
+    "id": "POWER.VITAL_SPARK_POWER",
+    "name": "VitalSparkPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "AfflictionTitle": {
+        "expr": "new StringVar(\"AfflictionTitle\", ModelDb.Affliction<Tainted>().Title.GetFormattedText())"
+      }
+    }
+  },
+  "POWER.VOID_FORM_POWER": {
+    "id": "POWER.VOID_FORM_POWER",
+    "name": "VoidFormPower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.VULNERABLE_POWER": {
+    "id": "POWER.VULNERABLE_POWER",
+    "name": "VulnerablePower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "DamageIncrease": {
+        "base": 1.5
+      }
+    }
+  },
+  "POWER.WASTE_AWAY_POWER": {
+    "id": "POWER.WASTE_AWAY_POWER",
+    "name": "WasteAwayPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  },
+  "POWER.WEAK_POWER": {
+    "id": "POWER.WEAK_POWER",
+    "name": "WeakPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": {
+      "DamageDecrease": {
+        "base": 0.75
+      }
+    }
+  },
+  "POWER.WELL_LAID_PLANS_POWER": {
+    "id": "POWER.WELL_LAID_PLANS_POWER",
+    "name": "WellLaidPlansPower",
+    "type": "Buff",
+    "stack_type": "Single",
+    "vars": null
+  },
+  "POWER.WITHERING_PRESENCE_POWER": {
+    "id": "POWER.WITHERING_PRESENCE_POWER",
+    "name": "WitheringPresencePower",
+    "type": "Buff",
+    "stack_type": "Counter",
+    "vars": {
+      "CardsLeft": {
+        "base": 6
+      }
+    }
+  },
+  "POWER.WRAITH_FORM_POWER": {
+    "id": "POWER.WRAITH_FORM_POWER",
+    "name": "WraithFormPower",
+    "type": "Debuff",
+    "stack_type": "Counter",
+    "vars": null
+  }
+}

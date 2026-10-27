@@ -1,0 +1,666 @@
+{
+  "POTION.AMBERGRIS": {
+    "id": "POTION.AMBERGRIS",
+    "name": "Ambergris",
+    "rarity": "Event",
+    "target": "AnyPlayer",
+    "vars": {
+      "HealPercent": {
+        "base": 50
+      }
+    }
+  },
+  "POTION.ASHWATER": {
+    "id": "POTION.ASHWATER",
+    "name": "Ashwater",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.ATTACK_POTION": {
+    "id": "POTION.ATTACK_POTION",
+    "name": "AttackPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.BEETLE_JUICE": {
+    "id": "POTION.BEETLE_JUICE",
+    "name": "BeetleJuice",
+    "rarity": "Rare",
+    "target": "AnyEnemy",
+    "vars": {
+      "DamageDecrease": {
+        "base": 30
+      },
+      "Repeat": {
+        "base": 4
+      }
+    }
+  },
+  "POTION.BLESSING_OF_THE_FORGE": {
+    "id": "POTION.BLESSING_OF_THE_FORGE",
+    "name": "BlessingOfTheForge",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.BLOCK_POTION": {
+    "id": "POTION.BLOCK_POTION",
+    "name": "BlockPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "Block": {
+        "base": 12
+      }
+    }
+  },
+  "POTION.BLOOD_POTION": {
+    "id": "POTION.BLOOD_POTION",
+    "name": "BloodPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "HealPercent": {
+        "base": 20
+      }
+    }
+  },
+  "POTION.BONE_BREW": {
+    "id": "POTION.BONE_BREW",
+    "name": "BoneBrew",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Summon": {
+        "base": 15
+      }
+    }
+  },
+  "POTION.BOTTLED_POTENTIAL": {
+    "id": "POTION.BOTTLED_POTENTIAL",
+    "name": "BottledPotential",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 5
+      }
+    }
+  },
+  "POTION.CLARITY": {
+    "id": "POTION.CLARITY",
+    "name": "Clarity",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "ClarityPower": {
+        "base": 3
+      },
+      "Cards": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.COLORLESS_POTION": {
+    "id": "POTION.COLORLESS_POTION",
+    "name": "ColorlessPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.COSMIC_CONCOCTION": {
+    "id": "POTION.COSMIC_CONCOCTION",
+    "name": "CosmicConcoction",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.CUNNING_POTION": {
+    "id": "POTION.CUNNING_POTION",
+    "name": "CunningPotion",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.CURE_ALL": {
+    "id": "POTION.CURE_ALL",
+    "name": "CureAll",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "Cards": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.DEPRECATED_POTION": {
+    "id": "POTION.DEPRECATED_POTION",
+    "name": "DeprecatedPotion",
+    "rarity": "None",
+    "target": "AnyEnemy",
+    "vars": null
+  },
+  "POTION.DEXTERITY_POTION": {
+    "id": "POTION.DEXTERITY_POTION",
+    "name": "DexterityPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "DexterityPower": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.DISTILLED_CHAOS": {
+    "id": "POTION.DISTILLED_CHAOS",
+    "name": "DistilledChaos",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Repeat": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.DROPLET_OF_PRECOGNITION": {
+    "id": "POTION.DROPLET_OF_PRECOGNITION",
+    "name": "DropletOfPrecognition",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.DUPLICATOR": {
+    "id": "POTION.DUPLICATOR",
+    "name": "Duplicator",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.ENERGY_POTION": {
+    "id": "POTION.ENERGY_POTION",
+    "name": "EnergyPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "Energy": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.ENTROPIC_BREW": {
+    "id": "POTION.ENTROPIC_BREW",
+    "name": "EntropicBrew",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.ESSENCE_OF_DARKNESS": {
+    "id": "POTION.ESSENCE_OF_DARKNESS",
+    "name": "EssenceOfDarkness",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.EXPLOSIVE_AMPOULE": {
+    "id": "POTION.EXPLOSIVE_AMPOULE",
+    "name": "ExplosiveAmpoule",
+    "rarity": "Common",
+    "target": "AllEnemies",
+    "vars": {
+      "Damage": {
+        "base": 10
+      }
+    }
+  },
+  "POTION.FAIRY_IN_A_BOTTLE": {
+    "id": "POTION.FAIRY_IN_A_BOTTLE",
+    "name": "FairyInABottle",
+    "rarity": "Rare",
+    "target": "Self",
+    "vars": null
+  },
+  "POTION.FIRE_POTION": {
+    "id": "POTION.FIRE_POTION",
+    "name": "FirePotion",
+    "rarity": "Common",
+    "target": "AnyEnemy",
+    "vars": {
+      "Damage": {
+        "base": 20
+      }
+    }
+  },
+  "POTION.FLEX_POTION": {
+    "id": "POTION.FLEX_POTION",
+    "name": "FlexPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "StrengthPower": {
+        "base": 5
+      }
+    }
+  },
+  "POTION.FOCUS_POTION": {
+    "id": "POTION.FOCUS_POTION",
+    "name": "FocusPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "FocusPower": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.FORTIFIER": {
+    "id": "POTION.FORTIFIER",
+    "name": "Fortifier",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.FOUL_POTION": {
+    "id": "POTION.FOUL_POTION",
+    "name": "FoulPotion",
+    "rarity": "Event",
+    "target": null,
+    "vars": {
+      "Damage": {
+        "base": 12
+      },
+      "Gold": {
+        "base": 100
+      }
+    }
+  },
+  "POTION.FRUIT_JUICE": {
+    "id": "POTION.FRUIT_JUICE",
+    "name": "FruitJuice",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "MaxHp": {
+        "base": 5
+      }
+    }
+  },
+  "POTION.FYSH_OIL": {
+    "id": "POTION.FYSH_OIL",
+    "name": "FyshOil",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "StrengthPower": {
+        "base": 1
+      },
+      "DexterityPower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.GAMBLERS_BREW": {
+    "id": "POTION.GAMBLERS_BREW",
+    "name": "GamblersBrew",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.GHOST_IN_A_JAR": {
+    "id": "POTION.GHOST_IN_A_JAR",
+    "name": "GhostInAJar",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "IntangiblePower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.GIGANTIFICATION_POTION": {
+    "id": "POTION.GIGANTIFICATION_POTION",
+    "name": "GigantificationPotion",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "GigantificationPower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.GLOWWATER_POTION": {
+    "id": "POTION.GLOWWATER_POTION",
+    "name": "GlowwaterPotion",
+    "rarity": "Event",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 10
+      }
+    }
+  },
+  "POTION.HEART_OF_IRON": {
+    "id": "POTION.HEART_OF_IRON",
+    "name": "HeartOfIron",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "PlatingPower": {
+        "base": 7
+      }
+    }
+  },
+  "POTION.KINGS_COURAGE": {
+    "id": "POTION.KINGS_COURAGE",
+    "name": "KingsCourage",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Forge": {
+        "base": 15
+      }
+    }
+  },
+  "POTION.LIQUID_BRONZE": {
+    "id": "POTION.LIQUID_BRONZE",
+    "name": "LiquidBronze",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "ThornsPower": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.LIQUID_MEMORIES": {
+    "id": "POTION.LIQUID_MEMORIES",
+    "name": "LiquidMemories",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.LUCKY_TONIC": {
+    "id": "POTION.LUCKY_TONIC",
+    "name": "LuckyTonic",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "BufferPower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.MAZALETHS_GIFT": {
+    "id": "POTION.MAZALETHS_GIFT",
+    "name": "MazalethsGift",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "RitualPower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.OROBIC_ACID": {
+    "id": "POTION.OROBIC_ACID",
+    "name": "OrobicAcid",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.POISON_POTION": {
+    "id": "POTION.POISON_POTION",
+    "name": "PoisonPotion",
+    "rarity": "Common",
+    "target": "AnyEnemy",
+    "vars": {
+      "PoisonPower": {
+        "base": 6
+      }
+    }
+  },
+  "POTION.POTION_OF_BINDING": {
+    "id": "POTION.POTION_OF_BINDING",
+    "name": "PotionOfBinding",
+    "rarity": "Uncommon",
+    "target": "AllEnemies",
+    "vars": {
+      "VulnerablePower": {
+        "base": 1
+      },
+      "WeakPower": {
+        "base": 1
+      }
+    }
+  },
+  "POTION.POTION_OF_CAPACITY": {
+    "id": "POTION.POTION_OF_CAPACITY",
+    "name": "PotionOfCapacity",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Repeat": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.POTION_OF_DOOM": {
+    "id": "POTION.POTION_OF_DOOM",
+    "name": "PotionOfDoom",
+    "rarity": "Common",
+    "target": "AnyEnemy",
+    "vars": {
+      "DoomPower": {
+        "base": 33
+      }
+    }
+  },
+  "POTION.POTION_SHAPED_ROCK": {
+    "id": "POTION.POTION_SHAPED_ROCK",
+    "name": "PotionShapedRock",
+    "rarity": "Token",
+    "target": "AnyEnemy",
+    "vars": {
+      "Damage": {
+        "base": 15
+      }
+    }
+  },
+  "POTION.POT_OF_GHOULS": {
+    "id": "POTION.POT_OF_GHOULS",
+    "name": "PotOfGhouls",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.POWDERED_DEMISE": {
+    "id": "POTION.POWDERED_DEMISE",
+    "name": "PowderedDemise",
+    "rarity": "Uncommon",
+    "target": "AnyEnemy",
+    "vars": {
+      "Demise": {
+        "base": 9
+      }
+    }
+  },
+  "POTION.POWER_POTION": {
+    "id": "POTION.POWER_POTION",
+    "name": "PowerPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.RADIANT_TINCTURE": {
+    "id": "POTION.RADIANT_TINCTURE",
+    "name": "RadiantTincture",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Energy": {
+        "base": 1
+      },
+      "RadiancePower": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.REGEN_POTION": {
+    "id": "POTION.REGEN_POTION",
+    "name": "RegenPotion",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "RegenPower": {
+        "base": 5
+      }
+    }
+  },
+  "POTION.SHACKLING_POTION": {
+    "id": "POTION.SHACKLING_POTION",
+    "name": "ShacklingPotion",
+    "rarity": "Rare",
+    "target": "AllEnemies",
+    "vars": {
+      "StrengthPower": {
+        "base": 7
+      }
+    }
+  },
+  "POTION.SHIP_IN_A_BOTTLE": {
+    "id": "POTION.SHIP_IN_A_BOTTLE",
+    "name": "ShipInABottle",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Block": {
+        "base": 10
+      }
+    }
+  },
+  "POTION.SKILL_POTION": {
+    "id": "POTION.SKILL_POTION",
+    "name": "SkillPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.SNECKO_OIL": {
+    "id": "POTION.SNECKO_OIL",
+    "name": "SneckoOil",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 7
+      }
+    }
+  },
+  "POTION.SOLDIERS_STEW": {
+    "id": "POTION.SOLDIERS_STEW",
+    "name": "SoldiersStew",
+    "rarity": "Rare",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.SPEED_POTION": {
+    "id": "POTION.SPEED_POTION",
+    "name": "SpeedPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "DexterityPower": {
+        "base": 5
+      }
+    }
+  },
+  "POTION.STABLE_SERUM": {
+    "id": "POTION.STABLE_SERUM",
+    "name": "StableSerum",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": {
+      "Repeat": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.STAR_POTION": {
+    "id": "POTION.STAR_POTION",
+    "name": "StarPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "Stars": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.STRENGTH_POTION": {
+    "id": "POTION.STRENGTH_POTION",
+    "name": "StrengthPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "StrengthPower": {
+        "base": 2
+      }
+    }
+  },
+  "POTION.SWIFT_POTION": {
+    "id": "POTION.SWIFT_POTION",
+    "name": "SwiftPotion",
+    "rarity": "Common",
+    "target": "AnyPlayer",
+    "vars": {
+      "Cards": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.TOUCH_OF_INSANITY": {
+    "id": "POTION.TOUCH_OF_INSANITY",
+    "name": "TouchOfInsanity",
+    "rarity": "Uncommon",
+    "target": "AnyPlayer",
+    "vars": null
+  },
+  "POTION.VULNERABLE_POTION": {
+    "id": "POTION.VULNERABLE_POTION",
+    "name": "VulnerablePotion",
+    "rarity": "Common",
+    "target": "AnyEnemy",
+    "vars": {
+      "VulnerablePower": {
+        "base": 3
+      }
+    }
+  },
+  "POTION.WEAK_POTION": {
+    "id": "POTION.WEAK_POTION",
+    "name": "WeakPotion",
+    "rarity": "Common",
+    "target": "AnyEnemy",
+    "vars": {
+      "WeakPower": {
+        "base": 3
+      }
+    }
+  }
+}

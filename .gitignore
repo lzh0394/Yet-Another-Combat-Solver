@@ -1,0 +1,14 @@
+# Decompiled game source is rebuilt from the installed assembly, never committed.
+_research/decompiled-*/
+# Local probe output and scratch exports.
+artifacts/
+
+# .NET build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Python
+__pycache__/
+*.pyc

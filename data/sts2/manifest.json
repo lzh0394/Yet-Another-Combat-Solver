@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "game": {
+    "version": "v0.111.0",
+    "commit": "41cef1ea",
+    "main_assembly_hash": 222455745,
+    "dll_name": "sts2.dll",
+    "dll_size": 9757184,
+    "dll_sha256": "0861bfa1df347538d932f22d580e75420f08082792eb914e53b4882764acdbe9"
+  },
+  "source": {
+    "decompiler": "ilspycmd 9.1.0.7988",
+    "tree": "_research/decompiled-v0.111.0",
+    "files": 3538,
+    "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
+    "exported_at": "2026-10-27T08:00:09.793128+00:00"
+  },
+  "counts": {
+    "cards": 596,
+    "monsters": 120,
+    "powers": 265,
+    "relics": 299,
+    "potions": 65,
+    "encounters": 90,
+    "characters": 5,
+    "acts": 5
+  },
+  "assembly_counts": {
+    "cards": 603,
+    "monsters": 126,
+    "powers": 283,
+    "relics": 299,
+    "potions": 66,
+    "encounters": 98,
+    "characters": 8,
+    "acts": 5
+  },
+  "mock_counts": {
+    "cards": 7,
+    "monsters": 6,
+    "powers": 18,
+    "relics": 0,
+    "potions": 1,
+    "encounters": 8,
+    "characters": 0,
+    "acts": 0
+  },
+  "errors": [
+    {
+      "scope": "CARD.MAD_SCIENCE",
+      "error": "dynamic Type: TinkerTimeType"
+    }
+  ]
+}
