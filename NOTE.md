@@ -178,7 +178,12 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 `ironclad_raiders`（5 选 3、三个不同 raider 的招式）。
 
 **已知缺口**（轨迹与场景在 `harness/scenarios/known_gaps/`，不参与 CI）：
-Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌、A1 胜利后的能量口径。
+Ovicopter 的召唤生物 RNG、Thieving Hopper 偷牌、A1 胜利后的能量口径。
+
+Ovicopter 已做到“三只 `ToughEgg` 的生成顺序、初始 HP 与 `Rng.Niche` 消耗量与真机一致”，
+但它还差两处：`HATCH_POWER` 的金额是 `CurrentSide != Enemy ? 1 : 2` 的运行时表达式（真机落地为 1，
+引擎目前跳过未解析的 start effect），以及真机给每只被召唤生物分配的 `CombatId` 与引擎不同，
+导致 `rng.monsters[*]` 的 seed 不一致。
 
 Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里对**玩家侧**的 Debuff 置
 `SkipNextDurationTick`，而 `FrailPower` 和 Weak/Vulnerable 一样在敌方回合结束时递减——
