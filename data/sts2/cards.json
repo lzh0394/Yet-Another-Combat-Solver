@@ -2983,8 +2983,16 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "play_top",
+        "count": {
+          "x": "energy"
+        },
+        "exhaust": false
+      }
+    ],
     "calc": null
   },
   "CARD.CATASTROPHE": {
@@ -3088,7 +3096,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "upgrade",
@@ -3216,7 +3224,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -3224,6 +3232,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "exhaust_random",
+        "count": 1
       }
     ],
     "calc": null
@@ -3320,6 +3332,12 @@
         "amount": {
           "var": "Summon"
         }
+      },
+      {
+        "op": "exhaust_pick",
+        "from": "Draw",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -4078,7 +4096,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -4086,6 +4104,13 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Draw",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -5578,7 +5603,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -5586,8 +5611,10 @@
         "amount": {
           "var": "Damage"
         },
-        "hits": {
-          "expr": "((!cardPlay.Target.HasPower<VulnerablePower>()) ? 1 : 2)"
+        "hits_if": {
+          "power": "POWER.VULNERABLE_POWER",
+          "when": 1,
+          "else": 2
         }
       }
     ],
@@ -8570,7 +8597,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -8578,6 +8605,13 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -8998,8 +9032,14 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "play_top",
+        "count": 1,
+        "exhaust": true
+      }
+    ],
     "calc": null
   },
   "CARD.HAZE": {
@@ -9065,7 +9105,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -9073,6 +9113,13 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Draw",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -9536,7 +9583,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -9544,6 +9591,13 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -9635,8 +9689,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.HYPERBEAM": {
@@ -15643,13 +15704,11 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
-        "op": "draw",
-        "amount": {
-          "expr": "CardPile.MaxCardsInHand - base.Owner.PlayerCombatState.Hand.Cards.Count"
-        }
+        "op": "draw_to",
+        "amount": 10
       }
     ],
     "calc": null
@@ -15763,8 +15822,16 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "move_card",
+        "from": "Draw",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
+      }
+    ],
     "calc": null
   },
   "CARD.SECRET_WEAPON": {
@@ -15783,8 +15850,16 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "move_card",
+        "from": "Draw",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
+      }
+    ],
     "calc": null
   },
   "CARD.SEEKER_STRIKE": {
@@ -15809,7 +15884,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15817,6 +15892,13 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Draw",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
       }
     ],
     "calc": null
@@ -17287,7 +17369,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -17295,8 +17377,10 @@
         "amount": {
           "var": "Damage"
         },
-        "hits": {
-          "expr": "((!LostHpThisTurn(base.Owner.Creature)) ? 1 : base.DynamicVars.Repeat.IntValue)"
+        "hits_if": {
+          "player_lost_hp": true,
+          "var": "Repeat",
+          "else": 1
         }
       }
     ],
@@ -19084,7 +19168,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -19093,6 +19177,11 @@
           "var": "Damage"
         },
         "hits": 2
+      },
+      {
+        "op": "exhaust_random",
+        "count": 1,
+        "filter": "Attack"
       }
     ],
     "calc": null
@@ -19481,6 +19570,14 @@
         "op": "exhaust",
         "count": 1,
         "pick": "first"
+      },
+      {
+        "op": "exhaust_random",
+        "count": 1
+      },
+      {
+        "op": "exhaust_random",
+        "count": 1
       }
     ],
     "calc": null
@@ -19535,8 +19632,16 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "move_card",
+        "from": "Draw",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
+      }
+    ],
     "calc": null
   },
   "CARD.TWIN_STRIKE": {
@@ -20356,8 +20461,16 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "move_card",
+        "from": "Draw",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
+      }
+    ],
     "calc": null
   },
   "CARD.WISP": {

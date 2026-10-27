@@ -88,6 +88,9 @@ public sealed class EffectDef
     public string? From { get; set; }
     public string? To { get; set; }
     public JsonElement? Count { get; set; }
+    public bool? Exhaust { get; set; }
+    public string? Filter { get; set; }
+    public JsonElement? HitsIf { get; set; }
 
     public int IntAmount =>
         Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;

@@ -1421,7 +1421,12 @@ class Exporter:
                     if hm:
                         hits_open = close + hm.end()
                         hits_close = match_paren(body, hits_open - 1)
-                        op["hits"] = amount(body[hits_open : hits_close])
+                        hits_expr = body[hits_open : hits_close].strip()
+                        cond = self._conditional_hits(body, hits_expr)
+                        if cond is not None:
+                            op["hits_if"] = cond
+                        else:
+                            op["hits"] = amount(hits_expr)
                     ops.append(op)
                 elif cmd == "CreatureCmd" and name == "GainBlock" and len(args) >= 2:
                     ops.append({"op": "block", "target": "self", "amount": amount(args[1])})
@@ -1463,7 +1468,20 @@ class Exporter:
                         }
                     )
                 elif cmd == "CardPileCmd" and name == "Draw" and len(args) >= 2:
+                    if "MaxCardsInHand" in args[1] or "MaxCardsInHand" in body[max(0, m.start() - 400) : m.start()]:
+                        ops.append({"op": "draw_to", "amount": 10})
+                    else:
+                        ops.append({"op": "draw", "amount": amount(args[1])})
+                elif cmd == "CardPileCmd" and name == "DrawWithoutBlockingOnOtherPlayers" and len(args) >= 2:
                     ops.append({"op": "draw", "amount": amount(args[1])})
+                elif cmd == "CardPileCmd" and name == "AutoPlayFromDrawPile" and len(args) >= 3:
+                    ops.append(
+                        {
+                            "op": "play_top",
+                            "count": amount(args[2]),
+                            "exhaust": "forceExhaust: true" in body[open_pos:close],
+                        }
+                    )
                 elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
                     ops.append({"op": "energy", "amount": amount(args[0])})
                 elif cmd == "OrbCmd" and name == "Channel" and m.group(3):
@@ -1545,6 +1563,12 @@ class Exporter:
                 elif cmd == "CardCmd" and name == "Upgrade" and any(op.get("op") == "upgrade" for op in ops):
                     # The upgrade was already emitted by the selection (or loop) above.
                     pass
+                elif cmd == "CardCmd" and name == "Exhaust" and "CombatCardSelection.NextItem" in body:
+                    filt = re.search(r"Type\s*==\s*CardType\.(\w+)", body)
+                    op = {"op": "exhaust_random", "count": 1}
+                    if filt:
+                        op["filter"] = filt.group(1)
+                    ops.append(op)
                 elif cmd == "CardCmd" and name in ("Discard", "Exhaust") and any(
                     op.get("op") in ("discard", "exhaust") for op in ops
                 ):
@@ -1555,6 +1579,45 @@ class Exporter:
                 handled.append((m.start(), close))
             except Exception:
                 ops.append({"op": f"{cmd}.{name}", "unresolved": True})
+
+        # Separated form: `CardModel c = (await CardSelectCmd.FromCombatPile(...)).FirstOrDefault();`
+        # followed later by `CardPileCmd.Add(c, PileType.X)` or `CardCmd.Exhaust(ctx, c)`.
+        for sel in re.finditer(r"CardSelectCmd\.FromCombatPile\(", body):
+            open_pos = sel.end() - 1
+            close = match_paren(body, open_pos)
+            if close < 0:
+                continue
+            pargs = split_top(body[open_pos + 1 : close])
+            joined = body[sel.start() : close]
+            src = "Draw"
+            for a in pargs:
+                pm = re.search(r"PileType\.(\w+)", a)
+                if pm:
+                    src = pm.group(1)
+                    break
+            count = 1
+            cm = re.search(r"CardSelectorPrefs\([^,]*,\s*(\d+)", joined)
+            if cm:
+                count = int(cm.group(1))
+            vm = re.search(r"(\w+)\s*=\s*(?:\(\s*)?(?:await\s+)?$", body[: sel.start()])
+            var = vm.group(1) if vm else ""
+            handled.append((sel.start(), close))
+            if not var:
+                continue
+            rest = body[close:]
+            am = re.search(r"CardPileCmd\.Add\(\s*" + re.escape(var) + r"\s*,\s*PileType\.(\w+)", rest)
+            if am:
+                dst = am.group(1)
+                ops.append({"op": "move_card", "from": src, "to": dst, "count": count, "pick": "first"})
+                add_open = body.find("(", close + am.start()) if am else -1
+                add_close = match_paren(body, add_open) if add_open >= 0 else -1
+                if add_close > 0:
+                    handled.append((close + am.start(), add_close))
+                continue
+            em = re.search(r"CardCmd\.Exhaust\([^;]*\b" + re.escape(var) + r"\b", rest)
+            if em:
+                ops.append({"op": "exhaust_pick", "from": src, "count": count, "pick": "first"})
+                continue
 
         unsupported: list[str] = []
         for m in re.finditer(r"(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
@@ -1575,6 +1638,24 @@ class Exporter:
             if residue:
                 unsupported.append("unparsed-body")
         return ops or None, not unsupported
+
+    def _conditional_hits(self, body: str, name: str) -> dict | None:
+        """Dismantle/Spite: the hit count is a ternary over combat state."""
+        m = re.search(r"int\s+" + re.escape(name) + r"\s*=\s*\(?\s*\(?\s*!?\s*([^;]+?)\)?\s*\?\s*(\d+)\s*:\s*([^;]+?)\);", body)
+        if not m:
+            return None
+        cond, when, otherwise = m.group(1), int(m.group(2)), m.group(3).strip()
+        power = re.search(r"HasPower<\s*(\w+)\s*>", cond)
+        if power and "Vulnerable" in cond:
+            return {"power": "POWER.VULNERABLE_POWER", "when": when, "else": int(otherwise) if otherwise.isdigit() else 1}
+        if "LostHpThisTurn" in cond:
+            var = re.search(r"DynamicVars\.(\w+)", otherwise)
+            return {
+                "player_lost_hp": True,
+                "var": var.group(1) if var else "Repeat",
+                "else": int(otherwise) if otherwise.isdigit() else 1,
+            }
+        return None
 
     def _effect_amount(self, expr: str, info: ClassInfo):
         e = expr.strip()

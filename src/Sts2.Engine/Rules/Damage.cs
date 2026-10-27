@@ -66,6 +66,10 @@ public static class Damage
             loss -= absorbed;
         }
         target.Hp = Math.Max(0, target.Hp - loss);
+        if (loss > 0 && target is PlayerState hurt)
+        {
+            combat.PlayerLostHpThisTurn = true;
+        }
 
         // PaperCutsPower.AfterDamageGiven: the scroll's powered attack also cuts the player's max HP.
         if (loss > 0 && source is MonsterInstance scroll && target is PlayerState player)

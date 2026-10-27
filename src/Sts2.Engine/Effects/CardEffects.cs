@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Sts2.Engine.Combat;
 using Sts2.Engine.Data;
 using Sts2.Engine.Model;
@@ -42,6 +43,10 @@ public static class CardEffects
             {
                 int amount = Amount(combat, card, effect.Amount, target);
                 int hits = effect.Hits is null ? 1 : Amount(combat, card, effect.Hits, target);
+                if (effect.HitsIf is { } hitsIf)
+                {
+                    hits = ConditionalHits(combat, card, hitsIf, target);
+                }
                 foreach (MonsterInstance monster in DamageTargets(combat, card, effect, target))
                 {
                     for (int i = 0; i < hits && monster.IsAlive; i++)
@@ -91,6 +96,76 @@ public static class CardEffects
             case "draw":
                 combat.DrawCards(Amount(combat, card, effect.Amount, target));
                 break;
+
+            case "draw_to":
+            {
+                int cap = effect.IntAmount == 0 ? 10 : effect.IntAmount;
+                combat.DrawCards(Math.Max(0, cap - combat.Player.Hand.Count));
+                break;
+            }
+
+            case "exhaust_pick":
+            {
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
+                List<CardInstance> source = Pile(combat.Player, effect.From ?? "Draw");
+                for (int i = 0; i < count && source.Count > 0; i++)
+                {
+                    CardInstance picked = source[0];
+                    source.RemoveAt(0);
+                    combat.Player.ExhaustPile.Add(picked);
+                }
+                break;
+            }
+
+            case "exhaust_random":
+            {
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
+                for (int i = 0; i < count; i++)
+                {
+                    List<CardInstance> pool = effect.Filter is null
+                        ? combat.Player.Hand
+                        : combat.Player.Hand.Where(c => string.Equals(c.Def.Type, effect.Filter, StringComparison.OrdinalIgnoreCase)).ToList();
+                    if (pool.Count == 0)
+                    {
+                        break;
+                    }
+                    int index = combat.Rng.CombatCardSelection.NextInt(pool.Count);
+                    CardInstance picked = pool[index];
+                    combat.Player.Hand.Remove(picked);
+                    combat.Player.ExhaustPile.Add(picked);
+                }
+                break;
+            }
+
+            case "play_top":
+            {
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
+                bool exhaust = effect.Exhaust ?? true;
+                for (int i = 0; i < count; i++)
+                {
+                    if (combat.Player.DrawPile.Count == 0)
+                    {
+                        break;
+                    }
+                    CardInstance top = combat.Player.DrawPile[0];
+                    combat.Player.DrawPile.RemoveAt(0);
+                    combat.Player.PlayPile.Add(top);
+                    if (top.Def.EffectComplete)
+                    {
+                        Resolve(combat, top, null);
+                    }
+                    combat.Player.PlayPile.Remove(top);
+                    if (exhaust)
+                    {
+                        combat.Player.ExhaustPile.Add(top);
+                    }
+                    else
+                    {
+                        combat.Player.DiscardPile.Add(top);
+                    }
+                }
+                break;
+            }
 
             case "discard":
             case "exhaust":
@@ -271,6 +346,28 @@ public static class CardEffects
         "owner_strength" => combat.Player.PowerAmount("STRENGTH_POWER"),
         _ => throw new CombatException($"{card.Entry}: unsupported calc multiplier {mult}"),
     };
+
+    /// <summary>Dismantle/Spite style hit counts: the count depends on combat state, not on a constant.</summary>
+    private static int ConditionalHits(Combat.Combat combat, CardInstance card, JsonElement spec, MonsterInstance? target)
+    {
+        if (spec.TryGetProperty("power", out JsonElement power) && power.ValueKind == JsonValueKind.String)
+        {
+            string id = PowerIds.Normalize(power.GetString() ?? "");
+            bool matched = target is not null && target.PowerAmount(id) > 0;
+            return matched
+                ? spec.TryGetProperty("when", out JsonElement when) ? (int)when.GetDouble() : 2
+                : spec.TryGetProperty("else", out JsonElement otherwise) ? (int)otherwise.GetDouble() : 1;
+        }
+        if (spec.TryGetProperty("player_lost_hp", out JsonElement lost) && lost.ValueKind == JsonValueKind.True)
+        {
+            if (combat.PlayerLostHpThisTurn && spec.TryGetProperty("var", out JsonElement var) && var.ValueKind == JsonValueKind.String)
+            {
+                return (int)card.Var(var.GetString() ?? "");
+            }
+            return spec.TryGetProperty("else", out JsonElement fallback) ? (int)fallback.GetDouble() : 1;
+        }
+        return 1;
+    }
 
     private static List<CardInstance> Pile(PlayerState player, string pile) => pile switch
     {

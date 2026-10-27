@@ -357,7 +357,19 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 ### 22. 覆盖报告（M5）
 
 `tools/coverage_report.py` 把 `data/sts2/*.json` 的静态覆盖与 `sts2 smoke` 的运行覆盖合并成
-`docs/coverage.md`：卡牌 596 张里结构化 470（可打出 439、不可打出 31，冒烟 0 失败）、
+另外三类 op 让结构化覆盖到 **488/596**：
+
+- `move_card` 的分离写法：`CardModel c = (await CardSelectCmd.FromCombatPile(...)).FirstOrDefault();` 之后
+  再 `CardPileCmd.Add(c, PileType.X)` 或 `CardCmd.Exhaust(ctx, c)`（Headbutt/Hologram/SecretTechnique/Cleanse/
+  Graveblast/CosmicIndifference/Charge/SeekerStrike/Tutor/Wish 等 18 张）。引擎的 `move_card`/`exhaust_pick`
+  只按“源堆、目标堆、数量、首选一张”处理，不建模玩家的自由选择。
+- `draw_to`（Scrawl/Anointed：抽到手牌上限 10）、`play_top`（Havoc/Cascade：AutoPlayFromDrawPile，`forceExhaust`
+  决定自动打出的牌进消耗堆还是弃牌堆）、`exhaust_random`（Cinder/Thrash：`Rng.CombatCardSelection.NextItem`
+  选一张消耗，Thrash 还带 `Type == Attack` 过滤）。
+- `hits_if`（Dismantle：目标有易伤时打 2 段；Spite：本回合掉过血时按 Repeat 段数）——`PlayerLostHpThisTurn`
+  在玩家回合开始清零、受未格挡伤害时置位。
+
+`docs/coverage.md`：卡牌 596 张里结构化 488（可打出 457、不可打出 31，冒烟 0 失败）、
 怪物招式 389 条里完整解析 334、能力 265、遗物 299、遭遇 90（冒烟 64 个可启动）。
 CI 在冒烟之后刷新这份报告。
 

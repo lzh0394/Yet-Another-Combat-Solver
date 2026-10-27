@@ -551,6 +551,7 @@ public sealed class Combat
     {
         Turn++;
         Round++;
+        PlayerLostHpThisTurn = false;
         Player.Block = 0;
         Player.Energy = Player.MaxEnergy;
         if (HasRelic("BOUND_PHYLACTERY"))
@@ -1005,6 +1006,9 @@ public sealed class Combat
 
     /// <summary>Energy spent by the most recent X-cost card.</summary>
     public int LastXValue { get; private set; }
+
+    /// <summary>Spite: tracks whether the player took unblocked damage this turn.</summary>
+    public bool PlayerLostHpThisTurn { get; set; }
 
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;
