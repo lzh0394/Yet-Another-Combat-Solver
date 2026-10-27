@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T15:14:01.762424+00:00"
+    "exported_at": "2026-10-27T15:18:51.049209+00:00"
   },
   "counts": {
     "cards": 596,
@@ -58,10 +58,6 @@
     "CARD.ALCHEMIZE": [
       "PotionCmd.TryToProcure"
     ],
-    "CARD.BEAT_DOWN": [
-      "CardCmd.AutoPlay",
-      "CardCmd.AutoPlay"
-    ],
     "CARD.BEGONE": [
       "CardSelectCmd.FromHand",
       "CardCmd.Transform"
@@ -74,9 +70,6 @@
     ],
     "CARD.BONE_SHARDS": [
       "CreatureCmd.Kill"
-    ],
-    "CARD.CATASTROPHE": [
-      "CardCmd.AutoPlay"
     ],
     "CARD.CHARGE": [
       "CardCmd.TransformTo"
@@ -97,8 +90,7 @@
       "unknown"
     ],
     "CARD.DECISIONS_DECISIONS": [
-      "CardSelectCmd.FromHand",
-      "CardCmd.AutoPlay"
+      "CardSelectCmd.FromHand"
     ],
     "CARD.DEPRECATED_CARD": [
       "CardPileCmd.RemoveFromDeck"
@@ -111,9 +103,6 @@
     ],
     "CARD.DRAIN_POWER": [
       "CardCmd.Preview"
-    ],
-    "CARD.EIDOLON": [
-      "CardCmd.AutoPlay"
     ],
     "CARD.ENLIGHTENMENT": [
       "unparsed-body"
@@ -163,9 +152,6 @@
     ],
     "CARD.IMITATION_LEARNING": [
       "unresolved-amount"
-    ],
-    "CARD.KNIFE_TRAP": [
-      "CardCmd.AutoPlay"
     ],
     "CARD.MAD_SCIENCE": [
       "unparsed-body"
@@ -252,9 +238,6 @@
     ],
     "CARD.TRANSFIGURE": [
       "CardSelectCmd.FromHand"
-    ],
-    "CARD.UPROAR": [
-      "CardCmd.AutoPlay"
     ],
     "CARD.VOID_FORM": [
       "PlayerCmd.EndTurn"

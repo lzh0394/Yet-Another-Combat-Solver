@@ -1268,8 +1268,20 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": 1,
+        "target": "target"
+      },
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": 1
+      }
+    ],
     "calc": null
   },
   "CARD.BEAT_INTO_SHAPE": {
@@ -3079,8 +3091,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": {
+          "var": "Cards"
+        }
+      }
+    ],
     "calc": null
   },
   "CARD.CELESTIAL_MIGHT": {
@@ -5007,6 +5027,13 @@
       {
         "op": "draw",
         "amount": 1
+      },
+      {
+        "op": "auto_play",
+        "pile": "hand",
+        "count": {
+          "var": "Repeat"
+        }
       }
     ],
     "calc": null
@@ -6219,8 +6246,14 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": 1
+      }
+    ],
     "calc": null
   },
   "CARD.END_OF_DAYS": {
@@ -10583,12 +10616,18 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "upgrade",
         "target": "all",
         "count": 9999
+      },
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": 1,
+        "upgrade": true
       }
     ],
     "calc": {
@@ -20143,7 +20182,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -20152,6 +20191,11 @@
           "var": "Damage"
         },
         "hits": 2
+      },
+      {
+        "op": "auto_play",
+        "pile": "draw",
+        "count": 1
       }
     ],
     "calc": null

@@ -1680,6 +1680,20 @@ class Exporter:
                 elif cmd == "CardCmd" and name == "Upgrade" and any(op.get("op") == "upgrade" for op in ops):
                     # The upgrade was already emitted by the selection (or loop) above.
                     pass
+                elif cmd == "CardCmd" and name == "AutoPlay":
+                    window = body[max(0, m.start() - 500) : m.start() + 300]
+                    pile = "draw" if "DrawPile" in window else ("hand" if "Hand" in window else "draw")
+                    count: object = 1
+                    lm = re.search(r"for\s*\([^;]*;[^;]*<\s*(?:base\.)?DynamicVars\.(\w+)", window)
+                    if lm:
+                        count = {"var": lm.group(1)}
+                    args = split_top(body[m.end() : match_paren(body, m.end() - 1)]) if match_paren(body, m.end() - 1) > 0 else []
+                    op = {"op": "auto_play", "pile": pile, "count": count}
+                    if len(args) >= 3 and "target" in args[2]:
+                        op["target"] = "target"
+                    if "Upgrade(" in window:
+                        op["upgrade"] = True
+                    ops.append(op)
                 elif cmd == "CardCmd" and name == "Exhaust" and "CombatCardSelection.NextItem" in body:
                     filt = re.search(r"Type\s*==\s*CardType\.(\w+)", body)
                     op = {"op": "exhaust_random", "count": 1}

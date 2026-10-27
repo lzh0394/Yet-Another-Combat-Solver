@@ -61,6 +61,36 @@ public static class CardEffects
                 Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "auto_play":
+            {
+                int count = Amount(combat, card, effect.Count, target);
+                List<CardInstance> pile = effect.Pile == "hand" ? combat.Player.Hand : combat.Player.DrawPile;
+                for (int i = 0; i < count; i++)
+                {
+                    if (pile.Count == 0)
+                    {
+                        break;
+                    }
+                    CardInstance auto = pile[0];
+                    pile.RemoveAt(0);
+                    if (effect.Upgrade == true)
+                    {
+                        auto = new CardInstance(auto.Def, Math.Max(1, auto.Upgrade));
+                    }
+                    MonsterInstance? autoTarget = effect.Target == "target" ? target : combat.Enemies.FirstOrDefault(e => e.IsAlive);
+                    Resolve(combat, auto, autoTarget);
+                    if (auto.HasKeyword("Exhaust"))
+                    {
+                        combat.Player.ExhaustPile.Add(auto);
+                    }
+                    else
+                    {
+                        combat.Player.DiscardPile.Add(auto);
+                    }
+                }
+                break;
+            }
+
             case "discard_hand":
             {
                 int discarded = combat.Player.Hand.Count;
