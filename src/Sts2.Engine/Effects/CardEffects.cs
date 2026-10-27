@@ -137,6 +137,32 @@ public static class CardEffects
                 break;
             }
 
+            case "energy_current":
+                combat.Player.Energy += combat.Player.Energy;
+                break;
+
+            case "gold":
+                // Gold is a run-level resource; combat parity does not model it.
+                break;
+
+            case "max_hp":
+            {
+                int amount = Amount(combat, card, effect.Amount, target);
+                combat.Player.MaxHp = Math.Max(1, combat.Player.MaxHp + amount);
+                combat.Player.Hp = Math.Max(0, Math.Min(combat.Player.MaxHp, combat.Player.Hp + amount));
+                break;
+            }
+
+            case "stun":
+            {
+                MonsterInstance? stunned = target ?? combat.Enemies.FirstOrDefault(m => m.IsAlive);
+                if (stunned is not null)
+                {
+                    stunned.SkipNextTurn = true;
+                }
+                break;
+            }
+
             case "orb_remove":
             {
                 int amount = Math.Max(0, Amount(combat, card, effect.Amount, target));
@@ -433,6 +459,16 @@ public static class CardEffects
             decimal baseValue = card.Var(calc.Base);
             decimal extra = card.Var(calc.Extra);
             return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target));
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("block", out System.Text.Json.JsonElement blockFlag) && blockFlag.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            return combat.Player.Block;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("negate", out System.Text.Json.JsonElement negated))
+        {
+            return -Amount(combat, card, negated, target);
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("x", out System.Text.Json.JsonElement which))

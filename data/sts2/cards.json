@@ -2288,7 +2288,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "energy",
@@ -2300,6 +2300,14 @@
         "op": "draw",
         "amount": {
           "var": "Cards"
+        }
+      },
+      {
+        "op": "max_hp",
+        "amount": {
+          "negate": {
+            "var": "MaxHp"
+          }
         }
       }
     ],
@@ -5757,13 +5765,10 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
-        "op": "energy",
-        "amount": {
-          "expr": "base.Owner.PlayerCombatState.Energy"
-        }
+        "op": "energy_current"
       }
     ],
     "calc": null
@@ -6949,13 +6954,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
           "var": "Damage"
+        }
+      },
+      {
+        "op": "max_hp",
+        "amount": {
+          "var": "MaxHp"
         }
       }
     ],
@@ -8905,13 +8916,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
           "var": "Damage"
+        }
+      },
+      {
+        "op": "gold",
+        "amount": {
+          "var": "Gold"
         }
       }
     ],
@@ -20419,7 +20436,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -20427,6 +20444,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "stun",
+        "target": "target"
       }
     ],
     "calc": null

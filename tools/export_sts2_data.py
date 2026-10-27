@@ -1266,6 +1266,11 @@ class Exporter:
                             "count": self._effect_amount(args[2], owner),
                         }
                     )
+                elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3 and args[2].strip() == "creature.Block":
+                    power = ""
+                    if m.group(3):
+                        power = "POWER." + camel_to_screaming(m.group(3).strip("<> ").split(".")[-1])
+                    ops.append({"op": "power", "target": "self", "power": power, "amount": {"block": True}})
                 elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
                     power = (m.group(3) or "").strip("<> ")
                     if not power:
@@ -1467,6 +1472,14 @@ class Exporter:
                             "amount": amount(args[2]),
                         }
                     )
+                elif cmd == "CardPileCmd" and name == "Draw" and len(args) == 1:
+                    # Single-argument overload: draw one card (often inside a `for` over DynamicVars.Cards).
+                    count: object = 1
+                    window = body[max(0, m.start() - 300) : m.start()]
+                    lm = re.search(r"for\s*\([^)]*DynamicVars\.(\w+)\.(?:IntValue|BaseValue)", window)
+                    if lm:
+                        count = {"var": lm.group(1)}
+                    ops.append({"op": "draw", "amount": count})
                 elif cmd == "CardPileCmd" and name == "Draw" and len(args) >= 2:
                     if "MaxCardsInHand" in args[1] or "MaxCardsInHand" in body[max(0, m.start() - 400) : m.start()]:
                         ops.append({"op": "draw_to", "amount": 10})
@@ -1483,7 +1496,20 @@ class Exporter:
                         }
                     )
                 elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
-                    ops.append({"op": "energy", "amount": amount(args[0])})
+                    if "PlayerCombatState.Energy" in args[0]:
+                        ops.append({"op": "energy_current"})
+                    else:
+                        ops.append({"op": "energy", "amount": amount(args[0])})
+                elif cmd == "PlayerCmd" and name == "GainGold" and args:
+                    ops.append({"op": "gold", "amount": amount(args[0])})
+                elif cmd == "CreatureCmd" and name == "Stun" and args:
+                    ops.append({"op": "stun", "target": "target"})
+                elif cmd == "CreatureCmd" and name in ("GainMaxHp", "LoseMaxHp") and len(args) >= 2:
+                    # GainMaxHp(creature, n) vs LoseMaxHp(ctx, creature, n, isFromCard: true)
+                    value = amount(args[2] if name == "LoseMaxHp" and len(args) >= 3 else args[1])
+                    if name == "LoseMaxHp":
+                        value = -value if isinstance(value, (int, float)) else {"negate": value}
+                    ops.append({"op": "max_hp", "amount": value})
                 elif cmd == "OrbCmd" and name == "Channel" and m.group(3):
                     ops.append({"op": "channel", "orb": m.group(3).strip("<> ").split(".")[-1].replace("Orb", "").upper()})
                 elif cmd == "OrbCmd" and name == "RemoveSlots" and len(args) >= 2:
