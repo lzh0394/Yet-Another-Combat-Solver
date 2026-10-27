@@ -369,7 +369,7 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 - `hits_if`（Dismantle：目标有易伤时打 2 段；Spite：本回合掉过血时按 Repeat 段数）——`PlayerLostHpThisTurn`
   在玩家回合开始清零、受未格挡伤害时置位。
 
-`docs/coverage.md`：卡牌 596 张里结构化 503（可打出 472、不可打出 31，冒烟 0 失败）、
+`docs/coverage.md`：卡牌 596 张里结构化 505（可打出 474、不可打出 31，冒烟 0 失败）、
 怪物招式 389 条里完整解析 334、能力 265、遗物 299、遭遇 90（冒烟 64 个可启动）。
 CI 在冒烟之后刷新这份报告。
 

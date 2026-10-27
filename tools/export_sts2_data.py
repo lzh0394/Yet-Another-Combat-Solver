@@ -1519,13 +1519,38 @@ class Exporter:
                     if name == "LoseMaxHp":
                         value = -value if isinstance(value, (int, float)) else {"negate": value}
                     ops.append({"op": "max_hp", "amount": value})
-                elif cmd == "OrbCmd" and name == "Channel" and m.group(3):
-                    ops.append({"op": "channel", "orb": m.group(3).strip("<> ").split(".")[-1].replace("Orb", "").upper()})
+                elif cmd == "OrbCmd" and name == "Channel":
+                    orb_kind = "RANDOM"
+                    if m.group(3):
+                        orb_kind = m.group(3).strip("<> ").split(".")[-1].replace("Orb", "").upper()
+                    elif "GetRandomOrb(" in body:
+                        orb_kind = "RANDOM"
+                    else:
+                        unsupported.append(f"{cmd}.{name}")
+                        continue
+                    loop = re.search(r"for\s*\(\s*int\s+\w+\s*=\s*0\s*;\s*\w+\s*<\s*(\d+)\s*;[^)]*\)", body[max(0, m.start() - 300) : m.start()])
+                    op = {"op": "channel", "orb": orb_kind}
+                    if loop:
+                        op["count"] = int(loop.group(1))
+                    ops.append(op)
                 elif cmd == "OrbCmd" and name == "RemoveSlots" and len(args) >= 2:
                     ops.append({"op": "orb_remove", "amount": amount(args[1])})
-                elif cmd == "OrbCmd" and name == "Passive" and "OfType<LightningOrb>" in body:
-                    upgraded_extra = 1 if re.search(r"if\s*\(\s*base\.IsUpgraded\s*\)[^}]*OrbCmd\.Passive", body, re.S) else 0
-                    ops.append({"op": "orb_passive", "orb": "LIGHTNING", "count": 1, "extra_if_upgraded": upgraded_extra})
+                elif cmd == "OrbCmd" and name == "Passive":
+                    kind = None
+                    for orb_name, kind_name in (("LightningOrb", "LIGHTNING"), ("FrostOrb", "FROST"), ("DarkOrb", "DARK")):
+                        if f"OfType<{orb_name}>" in body or f"is {orb_name}" in body:
+                            kind = kind_name
+                            break
+                    if kind is None:
+                        unsupported.append(f"{cmd}.{name}")
+                        continue
+                    tri = re.search(r"triggerCount\s*=\s*\(\(!base\.IsUpgraded\)\s*\?\s*(\d+)\s*:\s*(\d+)\)", body)
+                    if tri:
+                        count, extra = int(tri.group(1)), int(tri.group(2)) - int(tri.group(1))
+                    else:
+                        extra = 1 if re.search(r"if\s*\(\s*base\.IsUpgraded\s*\)[^}]*OrbCmd\.Passive", body, re.S) else 0
+                        count = 1
+                    ops.append({"op": "orb_passive", "orb": kind, "count": count, "extra_if_upgraded": extra})
                 elif cmd == "OrbCmd" and name == "EvokeNext" and args:
                     dequeue = "dequeue: false" not in body[open_pos:close]
                     ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})

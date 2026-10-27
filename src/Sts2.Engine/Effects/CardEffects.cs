@@ -320,8 +320,18 @@ public static class CardEffects
             }
 
             case "channel":
-                combat.ChannelOrb(effect.Orb ?? throw new CombatException($"{card.Entry}: channel op without orb"));
+            {
+                string orb = effect.Orb ?? throw new CombatException($"{card.Entry}: channel op without orb");
+                int count = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
+                for (int i = 0; i < count; i++)
+                {
+                    string kind = orb == "RANDOM"
+                        ? new[] { "LIGHTNING", "FROST", "DARK" }[combat.Rng.CombatOrbs.NextInt(3)]
+                        : orb;
+                    combat.ChannelOrb(kind);
+                }
                 break;
+            }
 
             case "evoke":
             {

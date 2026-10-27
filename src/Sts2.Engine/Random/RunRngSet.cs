@@ -49,6 +49,7 @@ public sealed class RunRngSet
     public Rng CombatCardSelection => _rngs[RunRngType.CombatCardSelection];
     public Rng CombatEnergyCosts => _rngs[RunRngType.CombatEnergyCosts];
     public Rng Niche => _rngs[RunRngType.Niche];
+    public Rng CombatOrbs => _rngs[RunRngType.CombatOrbs];
 
     public static string StreamName(RunRngType type) => StringHash.SnakeCase(type.ToString());
 

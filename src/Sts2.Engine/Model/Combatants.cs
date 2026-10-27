@@ -49,7 +49,7 @@ public sealed class PlayerState : ICombatant
     public int Energy { get; set; }
     public int MaxEnergy { get; set; }
     public int Stars { get; set; }
-    public List<string> Orbs { get; } = new();
+    public List<OrbState> Orbs { get; } = new();
     public int OstyHp { get; set; }
     public int OstyMaxHp { get; set; }
     public bool OstyAlive => OstyHp > 0;
@@ -150,4 +150,11 @@ public static class PowerIds
 {
     public static string Normalize(string id) =>
         id.StartsWith("POWER.", StringComparison.Ordinal) ? id["POWER.".Length..] : id;
+}
+
+/// <summary>One channelled orb. Dark orbs carry a charge that the passive keeps growing.</summary>
+public sealed class OrbState
+{
+    public string Kind { get; set; } = "";
+    public int Charge { get; set; }
 }

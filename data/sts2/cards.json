@@ -3134,8 +3134,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": [],
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "RANDOM"
+      }
+    ],
     "calc": null
   },
   "CARD.CHARGE": {
@@ -4566,11 +4571,17 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "channel",
         "orb": "DARK"
+      },
+      {
+        "op": "orb_passive",
+        "orb": "DARK",
+        "count": 1,
+        "extra_if_upgraded": 1
       }
     ],
     "calc": null
@@ -8346,7 +8357,8 @@
       },
       {
         "op": "channel",
-        "orb": "FROST"
+        "orb": "FROST",
+        "count": 2
       }
     ],
     "calc": null
@@ -11695,7 +11707,8 @@
       },
       {
         "op": "channel",
-        "orb": "PLASMA"
+        "orb": "PLASMA",
+        "count": 3
       }
     ],
     "calc": null

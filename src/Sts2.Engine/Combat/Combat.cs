@@ -340,7 +340,7 @@ public sealed class Combat
         {
             EvokeFrontOrb(dequeue: true);
         }
-        Player.Orbs.Add(orb);
+        Player.Orbs.Add(new OrbState { Kind = orb });
     }
 
     public void EvokeFrontOrb(bool dequeue)
@@ -349,10 +349,19 @@ public sealed class Combat
         {
             return;
         }
-        string orb = Player.Orbs[0];
-        if (orb == "LIGHTNING")
+        OrbState orb = Player.Orbs[0];
+        switch (orb.Kind)
         {
-            TriggerOrbDamage(8);
+            case "LIGHTNING":
+                TriggerOrbDamage(8);
+                break;
+            case "FROST":
+                Player.Block = (int)Math.Min(Player.Block + 5, 999999999m);
+                break;
+            case "DARK":
+                TriggerOrbDamage(orb.Charge);
+                orb.Charge = 0;
+                break;
         }
         if (dequeue)
         {
@@ -362,28 +371,38 @@ public sealed class Combat
 
     private void TriggerOrbPassives()
     {
-        foreach (string orb in Player.Orbs.ToList())
+        foreach (OrbState orb in Player.Orbs.ToList())
         {
-            if (orb == "LIGHTNING")
-            {
+            TriggerOrbPassive(orb);
+        }
+    }
+
+    private void TriggerOrbPassive(OrbState orb)
+    {
+        switch (orb.Kind)
+        {
+            case "LIGHTNING":
                 TriggerOrbDamage(3);
-            }
+                break;
+            case "FROST":
+                Player.Block = (int)Math.Min(Player.Block + 3, 999999999m);
+                break;
+            case "DARK":
+                orb.Charge += 6;
+                break;
         }
     }
 
     /// <summary>OrbCmd.Passive: trigger the passive of every orb of one kind (Tesla Coil).</summary>
     public void TriggerOrbPassives(string? orbKind)
     {
-        foreach (string orb in Player.Orbs.ToList())
+        foreach (OrbState orb in Player.Orbs.ToList())
         {
-            if (orbKind is not null && orb != orbKind)
+            if (orbKind is not null && orb.Kind != orbKind)
             {
                 continue;
             }
-            if (orb == "LIGHTNING")
-            {
-                TriggerOrbDamage(3);
-            }
+            TriggerOrbPassive(orb);
         }
     }
 
