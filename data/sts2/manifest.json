@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T12:50:44.714587+00:00"
+    "exported_at": "2026-10-27T14:49:36.344770+00:00"
   },
   "counts": {
     "cards": 596,
@@ -50,5 +50,255 @@
       "scope": "CARD.MAD_SCIENCE",
       "error": "dynamic Type: TinkerTimeType"
     }
-  ]
+  ],
+  "unstructured_cards": {
+    "CARD.ABUNDANCE": [
+      "CardSelectCmd.FromChooseACardScreen"
+    ],
+    "CARD.ALCHEMIZE": [
+      "PotionCmd.TryToProcure"
+    ],
+    "CARD.ASHEN_STRIKE": [
+      "unknown"
+    ],
+    "CARD.BEAT_DOWN": [
+      "CardCmd.AutoPlay",
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.BEGONE": [
+      "CardSelectCmd.FromHand",
+      "CardCmd.Transform"
+    ],
+    "CARD.BLADE_OF_INK": [
+      "CardCmd.Enchant"
+    ],
+    "CARD.BLIGHT_STRIKE": [
+      "unresolved-amount"
+    ],
+    "CARD.BONE_SHARDS": [
+      "CreatureCmd.Kill"
+    ],
+    "CARD.BULLY": [
+      "unknown"
+    ],
+    "CARD.CATASTROPHE": [
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.CHARGE": [
+      "CardCmd.TransformTo"
+    ],
+    "CARD.CLEANSE": [
+      "CardCmd.Exhaust"
+    ],
+    "CARD.COMPACT": [
+      "CardCmd.Transform"
+    ],
+    "CARD.CRASH_LANDING": [
+      "CardPileCmd.AddGeneratedCardsToCombat"
+    ],
+    "CARD.CRESCENT_SPEAR": [
+      "unknown"
+    ],
+    "CARD.DEATH_MARCH": [
+      "unknown"
+    ],
+    "CARD.DECISIONS_DECISIONS": [
+      "CardSelectCmd.FromHand",
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.DEPRECATED_CARD": [
+      "CardPileCmd.RemoveFromDeck"
+    ],
+    "CARD.DISCOVERY": [
+      "CardSelectCmd.FromChooseACardScreen"
+    ],
+    "CARD.DODGE_AND_ROLL": [
+      "unresolved-amount"
+    ],
+    "CARD.DRAIN_POWER": [
+      "CardCmd.Preview"
+    ],
+    "CARD.EIDOLON": [
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.ENLIGHTENMENT": [
+      "unparsed-body"
+    ],
+    "CARD.EXPERTISE": [
+      "CardCmd.ApplySingleTurnRetain"
+    ],
+    "CARD.EXPOSE": [
+      "CreatureCmd.LoseBlock",
+      "PowerCmd.Remove"
+    ],
+    "CARD.FIEND_FIRE": [
+      "CardCmd.Exhaust",
+      "unresolved-hits"
+    ],
+    "CARD.FISTICUFFS": [
+      "unresolved-amount"
+    ],
+    "CARD.FLAK_CANNON": [
+      "CardCmd.Exhaust"
+    ],
+    "CARD.FRANTIC_ESCAPE": [
+      "unresolved-amount"
+    ],
+    "CARD.GANG_UP": [
+      "unknown"
+    ],
+    "CARD.GLIMMER": [
+      "CardSelectCmd.FromHand",
+      "CardPileCmd.Add"
+    ],
+    "CARD.GLIMPSE_BEYOND": [
+      "CardPileCmd.AddGeneratedCardsToCombat"
+    ],
+    "CARD.GLITTERSTREAM": [
+      "unresolved-amount"
+    ],
+    "CARD.GOLD_AXE": [
+      "unknown"
+    ],
+    "CARD.GUARDS": [
+      "CardSelectCmd.FromHand",
+      "CardCmd.Transform"
+    ],
+    "CARD.HAND_TRICK": [
+      "CardSelectCmd.FromHand",
+      "CardCmd.ApplySingleTurnSly"
+    ],
+    "CARD.HANG": [
+      "unresolved-amount"
+    ],
+    "CARD.HELIX_DRILL": [
+      "unknown"
+    ],
+    "CARD.HIDDEN_GEM": [
+      "CardCmd.Preview"
+    ],
+    "CARD.IMITATION_LEARNING": [
+      "unresolved-amount"
+    ],
+    "CARD.KNIFE_TRAP": [
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.MAD_SCIENCE": [
+      "unparsed-body"
+    ],
+    "CARD.MEMENTO_MORI": [
+      "unknown"
+    ],
+    "CARD.MIND_BLAST": [
+      "unknown"
+    ],
+    "CARD.MIRAGE": [
+      "unknown"
+    ],
+    "CARD.MISERY": [
+      "PowerCmd.FindExistingInstanceForStacking",
+      "unresolved-amount",
+      "unresolved-amount"
+    ],
+    "CARD.MURDER": [
+      "unknown"
+    ],
+    "CARD.NIGHTMARE": [
+      "CardSelectCmd.FromHand"
+    ],
+    "CARD.OMNISLICE": [
+      "unresolved-amount"
+    ],
+    "CARD.PERFECTED_STRIKE": [
+      "unknown"
+    ],
+    "CARD.PHOTON_CUT": [
+      "CardPileCmd.Add",
+      "CardSelectCmd.FromHand"
+    ],
+    "CARD.PRECISE_CUT": [
+      "unknown"
+    ],
+    "CARD.PRIMAL_FORCE": [
+      "CardCmd.Transform"
+    ],
+    "CARD.PULL_FROM_BELOW": [
+      "unknown"
+    ],
+    "CARD.QUASAR": [
+      "CardSelectCmd.FromChooseACardScreen"
+    ],
+    "CARD.RADIATE": [
+      "unknown"
+    ],
+    "CARD.RATTLE": [
+      "unknown"
+    ],
+    "CARD.REBOOT": [
+      "CardPileCmd.Add",
+      "CardPileCmd.Shuffle"
+    ],
+    "CARD.REND": [
+      "unknown"
+    ],
+    "CARD.SACRIFICE": [
+      "CreatureCmd.Kill"
+    ],
+    "CARD.SCRAPE": [
+      "CardCmd.Discard"
+    ],
+    "CARD.SEANCE": [
+      "CardCmd.TransformTo"
+    ],
+    "CARD.SECOND_WIND": [
+      "CardCmd.Exhaust"
+    ],
+    "CARD.SOUL_STORM": [
+      "unknown"
+    ],
+    "CARD.SOVEREIGN_BLADE": [
+      "unknown"
+    ],
+    "CARD.SPLASH": [
+      "CardSelectCmd.FromChooseACardScreen"
+    ],
+    "CARD.STOKE": [
+      "CardCmd.Exhaust",
+      "CardPileCmd.AddGeneratedCardsToCombat"
+    ],
+    "CARD.STORM_OF_STEEL": [
+      "CardCmd.Discard"
+    ],
+    "CARD.SUMMON_FORTH": [
+      "CardPileCmd.Add"
+    ],
+    "CARD.SUPERMASSIVE": [
+      "unknown"
+    ],
+    "CARD.SYNCHRONIZE": [
+      "unknown"
+    ],
+    "CARD.TEAR_ASUNDER": [
+      "unknown"
+    ],
+    "CARD.THE_SMITH": [
+      "unparsed-body"
+    ],
+    "CARD.THINKING_AHEAD": [
+      "CardSelectCmd.FromHand",
+      "CardPileCmd.Add"
+    ],
+    "CARD.TIMES_UP": [
+      "unknown"
+    ],
+    "CARD.TRANSFIGURE": [
+      "CardSelectCmd.FromHand"
+    ],
+    "CARD.UPROAR": [
+      "CardCmd.AutoPlay"
+    ],
+    "CARD.VOID_FORM": [
+      "PlayerCmd.EndTurn"
+    ]
+  }
 }

@@ -1056,7 +1056,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -1065,11 +1065,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "orbs"
+      }
+    }
   },
   "CARD.BARRICADE": {
     "id": "CARD.BARRICADE",
@@ -7360,7 +7366,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -7369,11 +7375,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "attacks_played"
+      }
+    }
   },
   "CARD.FISTICUFFS": {
     "id": "CARD.FISTICUFFS",
@@ -7621,7 +7633,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -7630,11 +7642,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "hand"
+      }
+    }
   },
   "CARD.FLICK_FLACK": {
     "id": "CARD.FLICK_FLACK",
@@ -8555,7 +8573,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "attacks_played"
+      }
+    }
   },
   "CARD.GO_FOR_THE_EYES": {
     "id": "CARD.GO_FOR_THE_EYES",
@@ -9533,7 +9557,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "discard",
@@ -10559,7 +10583,13 @@
         "count": 9999
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedShivs": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "exhaust"
+      }
+    }
   },
   "CARD.KNOCKDOWN": {
     "id": "CARD.KNOCKDOWN",
@@ -11090,7 +11120,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -11099,11 +11129,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "attacks_played"
+      }
+    }
   },
   "CARD.MACHINE_LEARNING": {
     "id": "CARD.MACHINE_LEARNING",
@@ -12670,18 +12706,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "power",
         "target": "target",
         "power": "POWER.DOOM_POWER",
         "amount": {
-          "expr": "calculated:CalculatedDoom"
+          "calc": "CalculatedDoom"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDoom": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "target_doom"
+      }
+    }
   },
   "CARD.NULL": {
     "id": "CARD.NULL",
@@ -13469,7 +13511,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "strikes_in_all_piles"
+      }
+    }
   },
   "CARD.PHANTOM_BLADES": {
     "id": "CARD.PHANTOM_BLADES",
@@ -13984,7 +14032,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
@@ -17147,7 +17195,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "draw"
+      }
+    }
   },
   "CARD.SOVEREIGN_BLADE": {
     "id": "CARD.SOVEREIGN_BLADE",

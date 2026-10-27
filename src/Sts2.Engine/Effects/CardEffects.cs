@@ -518,8 +518,27 @@ public static class CardEffects
         "target_vulnerable" => target?.PowerAmount("VULNERABLE_POWER") ?? 0,
         "target_doom" => target?.PowerAmount("DOOM_POWER") ?? 0,
         "owner_strength" => combat.Player.PowerAmount("STRENGTH_POWER"),
+        "hand_skills" => combat.Player.Hand.Count(c => c.Def.Type == "Skill"),
+        "hand_attacks" => combat.Player.Hand.Count(c => c.Def.Type == "Attack"),
+        "attacks_played" => combat.AttacksPlayedThisTurn,
+        "strikes_in_all_piles" => CountTag(combat, "Strike"),
+        "defends_in_all_piles" => CountTag(combat, "Defend"),
         _ => throw new CombatException($"{card.Entry}: unsupported calc multiplier {mult}"),
     };
+
+    private static int CountTag(Combat.Combat combat, string tag)
+    {
+        int count = 0;
+        foreach (List<CardInstance> pile in new[]
+                 {
+                     combat.Player.Hand, combat.Player.DrawPile, combat.Player.DiscardPile,
+                     combat.Player.ExhaustPile, combat.Player.PlayPile,
+                 })
+        {
+            count += pile.Count(c => c.Entry.Contains(tag, StringComparison.OrdinalIgnoreCase));
+        }
+        return count;
+    }
 
     /// <summary>Dismantle/Spite style hit counts: the count depends on combat state, not on a constant.</summary>
     private static int ConditionalHits(Combat.Combat combat, CardInstance card, JsonElement spec, MonsterInstance? target)

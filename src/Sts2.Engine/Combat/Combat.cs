@@ -223,6 +223,10 @@ public sealed class Combat
         Player.PlayPile.Add(card);
 
         CardEffects.Resolve(this, card, targetMonster);
+        if (string.Equals(card.Def.Type, "Attack", StringComparison.OrdinalIgnoreCase))
+        {
+            AttacksPlayedThisTurn++;
+        }
         Enemies.RemoveAll(e => !e.IsAlive);
 
         LastActionType = "play";
@@ -593,6 +597,7 @@ public sealed class Combat
         Turn++;
         Round++;
         PlayerLostHpThisTurn = false;
+        AttacksPlayedThisTurn = 0;
         Player.Block = 0;
         Player.Energy = Player.MaxEnergy;
         if (HasRelic("BOUND_PHYLACTERY"))
@@ -1050,6 +1055,9 @@ public sealed class Combat
 
     /// <summary>Spite: tracks whether the player took unblocked damage this turn.</summary>
     public bool PlayerLostHpThisTurn { get; set; }
+
+    /// <summary>Attack cards played (and finished) during the current player turn.</summary>
+    public int AttacksPlayedThisTurn { get; set; }
 
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;

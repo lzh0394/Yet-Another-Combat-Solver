@@ -735,7 +735,7 @@ class Exporter:
             # Ally-targeted cards whose damage is routed through the chosen ally are not modelled
             # (the engine has no ally targets); keep them unstructured instead of mis-resolving.
             effects_complete = False
-        calc = self._parse_calc(info.prop_expr("CanonicalVars") or "")
+        calc = self._parse_calc(info.src.render(info.prop_expr("CanonicalVars") or ""))
         # Body Slam style cards deal damage equal to the player's current block.
         if isinstance(calc.get("CalculatedDamage"), dict) and calc["CalculatedDamage"].get("mult") == "owner_block":
             for op in effects or []:
@@ -1385,6 +1385,12 @@ class Exporter:
         "PileType.Draw": "draw",
         "PileType.Discard": "discard",
         "PileType.Exhaust": "exhaust",
+        "Cards.Count((CardModel c) => c.Type == CardType.Skill)": "hand_skills",
+        "Cards.Count((CardModel c) => c.Type == CardType.Attack)": "hand_attacks",
+        ".Cards.Count": "draw",
+        "History.CardPlaysFinished.Count": "attacks_played",
+        "AllCards.Count((CardModel c) => c.Tags.Contains(CardTag.Strike))": "strikes_in_all_piles",
+        "AllCards.Count((CardModel c) => c.Tags.Contains(CardTag.Defend))": "defends_in_all_piles",
         "target?.Block": "target_block",
         "target?.GetPowerAmount<VulnerablePower>": "target_vulnerable",
         "target?.GetPowerAmount<DoomPower>": "target_doom",
@@ -1413,6 +1419,14 @@ class Exporter:
                 local_amounts[lm.group(1)] = self._effect_amount(lm.group(2), ctx)
             except Exception:
                 pass
+
+        def mark(call_re: str) -> None:
+            """Mark every match of call_re as covered (the op already describes it)."""
+            for mm in re.finditer(call_re, body):
+                open_paren = mm.end() - 1
+                close_paren = match_paren(body, open_paren)
+                if close_paren > 0:
+                    handled.append((mm.start(), close_paren))
 
         def amount(arg: str):
             key = arg.strip()
@@ -1625,6 +1639,7 @@ class Exporter:
                         count = int(pm.group(1))
                     kind = "exhaust" if "ExhaustSelectionPrompt" in args[0] else "discard"
                     ops.append({"op": kind, "count": count, "pick": "first"})
+                    mark(r"CardCmd\.(?:Discard|Exhaust)\s*\(")
                 elif cmd == "CreatureCmd" and name == "Damage" and len(args) >= 3:
                     # Direct self damage (Bloodletting and friends): unblockable HP loss.
                     target = "self" if any("base.Owner.Creature" in a for a in args[:3]) else "unknown"
@@ -1644,6 +1659,7 @@ class Exporter:
                     if pm:
                         count = int(pm.group(1))
                     ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
+                    mark(r"CardCmd\.(?:Discard|Exhaust)\s*\(")
                 elif cmd == "CreatureCmd" and name in ("TriggerAnim", "PlayVfx", "PlaySound", "TriggerAnimations"):
                     # Presentation-only commands; they carry no combat state.
                     pass
