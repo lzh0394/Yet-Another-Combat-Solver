@@ -58,7 +58,8 @@ public static class Invariants
     {
         foreach (PowerInstance power in combatant.Powers)
         {
-            if (power.Amount <= 0)
+            // ShrinkPower uses -1 as the "infinite duration" marker.
+            if (power.Amount <= 0 && power.Id != Combat.Combat.ShrinkPower)
             {
                 Fail($"{combatant.Id}: power {power.Id} has amount {power.Amount}");
             }

@@ -13,6 +13,9 @@ public sealed class PowerInstance
 
     public string Id { get; }
     public int Amount { get; set; }
+
+    /// <summary>Applied during the enemy side's turn; skips the very next end-of-side tick.</summary>
+    public bool Fresh { get; set; }
 }
 
 public sealed class RelicInstance
@@ -89,10 +92,17 @@ public sealed class MonsterInstance : ICombatant
 
     /// <summary>RitualPower skips the first end-of-side tick after it is applied.</summary>
     public bool JustAppliedRitual { get; set; }
+
+    /// <summary>Move executed before the current one (CannotRepeat filtering).</summary>
+    public string? LastPerformed { get; set; }
     public int Hp { get; set; }
     public int MaxHp { get; set; }
     public int Block { get; set; }
     public string? Slot { get; set; }
+    public int? StarterIdx { get; set; }
+
+    /// <summary>The next enemy-side turn is skipped (stunned after BurrowedPower breaks).</summary>
+    public bool SkipNextTurn { get; set; }
     public List<PowerInstance> Powers { get; } = new();
 
     /// <summary>State the monster is currently in (a branch state before the first move is rolled).</summary>

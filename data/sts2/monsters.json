@@ -4,6 +4,23 @@
     "name": "Aeonglass",
     "min_hp": 512,
     "max_hp": 512,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.",
+        "amount": {
+          "expr": "base.Creature"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "EBB_MOVE",
     "moves": {
       "EBB_MOVE": {
@@ -136,6 +153,17 @@
     "name": "Axebot",
     "min_hp": null,
     "max_hp": null,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STOCK_POWER",
+        "amount": {
+          "expr": "_stockOverrideAmount ?? 2"
+        }
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "BOOT_UP_MOVE": {
@@ -314,6 +342,15 @@
     "name": "BattleFriendV1",
     "min_hp": 75,
     "max_hp": 75,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BATTLEWORN_DUMMY_TIME_LIMIT_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "NOTHING_MOVE",
     "moves": {
       "NOTHING_MOVE": {
@@ -331,6 +368,15 @@
     "name": "BattleFriendV2",
     "min_hp": 150,
     "max_hp": 150,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BATTLEWORN_DUMMY_TIME_LIMIT_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "NOTHING_MOVE",
     "moves": {
       "NOTHING_MOVE": {
@@ -348,6 +394,15 @@
     "name": "BattleFriendV3",
     "min_hp": 300,
     "max_hp": 300,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BATTLEWORN_DUMMY_TIME_LIMIT_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "NOTHING_MOVE",
     "moves": {
       "NOTHING_MOVE": {
@@ -386,6 +441,8 @@
     "name": "BowlbugEgg",
     "min_hp": 21,
     "max_hp": 22,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "BITE_MOVE",
     "moves": {
       "BITE_MOVE": {
@@ -491,6 +548,15 @@
     "name": "BowlbugRock",
     "min_hp": 45,
     "max_hp": 48,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.IMBALANCED_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "HEADBUTT_MOVE",
     "moves": {
       "HEADBUTT_MOVE": {
@@ -530,6 +596,16 @@
         "branches": [
           "DIZZY_MOVE",
           "HEADBUTT_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "DIZZY_MOVE",
+            "expr": "IsOffBalance"
+          },
+          {
+            "branch": "HEADBUTT_MOVE",
+            "expr": "!IsOffBalance"
+          }
         ]
       }
     }
@@ -635,6 +711,15 @@
     "name": "BygoneEffigy",
     "min_hp": 127,
     "max_hp": 127,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SLOW_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SLEEP_MOVE",
     "moves": {
       "SLEEP_MOVE": {
@@ -707,6 +792,15 @@
     "name": "Byrdonis",
     "min_hp": 81,
     "max_hp": 84,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TERRITORIAL_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SWOOP_MOVE",
     "moves": {
       "PECK_MOVE": {
@@ -958,6 +1052,15 @@
     "name": "Chomper",
     "min_hp": 60,
     "max_hp": 64,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "CLAMP_MOVE",
     "moves": {
       "CLAMP_MOVE": {
@@ -1000,6 +1103,15 @@
     "name": "CorpseSlug",
     "min_hp": 25,
     "max_hp": 27,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RAVENOUS_POWER",
+        "amount": 4
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "WHIP_SLAP_MOVE": {
@@ -1115,6 +1227,21 @@
     "name": "Crusher",
     "min_hp": 209,
     "max_hp": 209,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BACK_ATTACK_LEFT_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CRAB_RAGE_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "THRASH_MOVE",
     "moves": {
       "THRASH_MOVE": {
@@ -1246,6 +1373,20 @@
     "name": "CubexConstruct",
     "min_hp": 65,
     "max_hp": 65,
+    "start_effects": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": 13
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "CHARGE_UP_MOVE",
     "moves": {
       "CHARGE_UP_MOVE": {
@@ -1400,6 +1541,15 @@
     "name": "DecimillipedeSegmentBack",
     "min_hp": 40,
     "max_hp": 46,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REATTACH_POWER",
+        "amount": 25
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "WRITHE_MOVE": {
@@ -1506,6 +1656,16 @@
           "WRITHE_MOVE",
           "BULK_MOVE",
           "CONSTRICT_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -1515,6 +1675,15 @@
     "name": "DecimillipedeSegmentFront",
     "min_hp": 40,
     "max_hp": 46,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REATTACH_POWER",
+        "amount": 25
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "WRITHE_MOVE": {
@@ -1621,6 +1790,16 @@
           "WRITHE_MOVE",
           "BULK_MOVE",
           "CONSTRICT_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -1630,6 +1809,15 @@
     "name": "DecimillipedeSegmentMiddle",
     "min_hp": 40,
     "max_hp": 46,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REATTACH_POWER",
+        "amount": 25
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "WRITHE_MOVE": {
@@ -1736,6 +1924,16 @@
           "WRITHE_MOVE",
           "BULK_MOVE",
           "CONSTRICT_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -1814,6 +2012,15 @@
     "name": "Entomancer",
     "min_hp": 145,
     "max_hp": 145,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PERSONAL_HIVE_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "BEES_MOVE",
     "moves": {
       "PHEROMONE_SPIT_MOVE": {
@@ -1894,6 +2101,15 @@
     "name": "Exoskeleton",
     "min_hp": 24,
     "max_hp": 28,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HARD_TO_KILL_POWER",
+        "amount": 9
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "INIT_MOVE",
     "moves": {
       "SKITTER_MOVE": {
@@ -1960,6 +2176,14 @@
         "branches": [
           "SKITTER_MOVE",
           "MANDIBLES_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       },
       "INIT_MOVE": {
@@ -1969,6 +2193,24 @@
           "MANDIBLES_MOVE",
           "ENRAGE_MOVE",
           "RAND"
+        ],
+        "conditions": [
+          {
+            "branch": "SKITTER_MOVE",
+            "expr": "base.Creature.SlotName == \"first\""
+          },
+          {
+            "branch": "MANDIBLES_MOVE",
+            "expr": "base.Creature.SlotName == \"second\""
+          },
+          {
+            "branch": "ENRAGE_MOVE",
+            "expr": "base.Creature.SlotName == \"third\""
+          },
+          {
+            "branch": "RAND",
+            "expr": "base.Creature.SlotName == \"fourth\""
+          }
         ]
       }
     }
@@ -1978,6 +2220,15 @@
     "name": "EyeWithTeeth",
     "min_hp": 6,
     "max_hp": 6,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ILLUSION_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "DISTRACT_MOVE",
     "moves": {
       "DISTRACT_MOVE": {
@@ -2062,6 +2313,14 @@
         "branches": [
           "FABRICATE_MOVE",
           "FABRICATING_STRIKE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CanRepeat",
+          "CanRepeat"
         ]
       },
       "fabricateBranch": {
@@ -2069,6 +2328,16 @@
         "branches": [
           "RAND",
           "DISINTEGRATE_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "RAND",
+            "expr": "CanFabricate"
+          },
+          {
+            "branch": "DISINTEGRATE_MOVE",
+            "expr": "!CanFabricate"
+          }
         ]
       }
     }
@@ -2175,6 +2444,18 @@
           "SPEW_COINS_MOVE",
           "THROW_RELIC_MOVE",
           "ENRAGE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       },
       "RAND_ATTACK_MOVE": {
@@ -2183,6 +2464,16 @@
           "SWIPE_MOVE",
           "SPEW_COINS_MOVE",
           "THROW_RELIC_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -2292,6 +2583,16 @@
           "WAR_CHANT",
           "FLAIL_MOVE",
           "RAM_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CanRepeatXTimes",
+          "CanRepeatXTimes"
         ]
       }
     }
@@ -2377,6 +2678,16 @@
           "VULNERABLE_SPORES_MOVE",
           "FRAIL_SPORES_MOVE",
           "SMASH_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       },
       "INITIAL": {
@@ -2384,6 +2695,14 @@
         "branches": [
           "FRAIL_SPORES_MOVE",
           "SMASH_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -2490,6 +2809,14 @@
         "branches": [
           "SWIPE_RANDOM_MOVE",
           "HEADBUTT_MOVE"
+        ],
+        "weights": [
+          0.4,
+          0.6
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -2499,6 +2826,15 @@
     "name": "FossilStalker",
     "min_hp": 51,
     "max_hp": 53,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SUCK_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "LATCH_MOVE",
     "moves": {
       "TACKLE_MOVE": {
@@ -2576,6 +2912,16 @@
           "LATCH_MOVE",
           "TACKLE_MOVE",
           "LASH_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CanRepeatXTimes",
+          "CanRepeatXTimes",
+          "CanRepeatXTimes"
         ]
       }
     }
@@ -2585,6 +2931,15 @@
     "name": "FrogKnight",
     "min_hp": 191,
     "max_hp": 191,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": 15
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "TONGUE_LASH",
     "moves": {
       "FOR_THE_QUEEN": {
@@ -2680,6 +3035,16 @@
         "branches": [
           "TONGUE_LASH",
           "BEETLE_CHARGE"
+        ],
+        "conditions": [
+          {
+            "branch": "TONGUE_LASH",
+            "expr": "HasBeetleCharged || base.Creature.CurrentHp >= base.Creature.MaxHp / 2"
+          },
+          {
+            "branch": "BEETLE_CHARGE",
+            "expr": "!HasBeetleCharged && base.Creature.CurrentHp < base.Creature.MaxHp / 2"
+          }
         ]
       }
     }
@@ -2757,6 +3122,15 @@
     "name": "GasBomb",
     "min_hp": 7,
     "max_hp": 7,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MINION_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "EXPLODE_MOVE",
     "moves": {
       "EXPLODE_MOVE": {
@@ -2786,6 +3160,15 @@
     "name": "GlobeHead",
     "min_hp": 148,
     "max_hp": 148,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.GALVANIC_POWER",
+        "amount": 6
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SHOCKING_SLAP",
     "moves": {
       "THUNDER_STRIKE": {
@@ -2873,6 +3256,23 @@
     "name": "GremlinMerc",
     "min_hp": 47,
     "max_hp": 49,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SURPRISE_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.",
+        "amount": {
+          "expr": "base.Creature"
+        }
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "GIMME_MOVE",
     "moves": {
       "GIMME_MOVE": {
@@ -2960,6 +3360,8 @@
     "name": "Guardbot",
     "min_hp": 16,
     "max_hp": 20,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "GUARD_MOVE",
     "moves": {
       "GUARD_MOVE": {
@@ -3125,6 +3527,14 @@
         "branches": [
           "BITE_MOVE",
           "PUNCTURE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CanRepeatXTimes"
         ]
       }
     }
@@ -3134,6 +3544,15 @@
     "name": "InfestedPrism",
     "min_hp": 161,
     "max_hp": 161,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VITAL_SPARK_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "JAB_MOVE",
     "moves": {
       "JAB_MOVE": {
@@ -3248,6 +3667,15 @@
     "name": "Inklet",
     "min_hp": 11,
     "max_hp": 17,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SLIPPERY_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "JAB_MOVE",
     "moves": {
       "JAB_MOVE": {
@@ -3315,6 +3743,14 @@
         "branches": [
           "PIERCING_GAZE_MOVE",
           "WHIRLWIND_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -3324,6 +3760,15 @@
     "name": "KinFollower",
     "min_hp": 58,
     "max_hp": 59,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MINION_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "QUICK_SLASH_MOVE",
     "moves": {
       "QUICK_SLASH_MOVE": {
@@ -3596,6 +4041,16 @@
         "branches": [
           "CURSE_OF_KNOWLEDGE_MOVE",
           "SLAP_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "CURSE_OF_KNOWLEDGE_MOVE",
+            "expr": "_curseOfKnowledgeCounter < 3"
+          },
+          {
+            "branch": "SLAP_MOVE",
+            "expr": "_curseOfKnowledgeCounter >= 3"
+          }
         ]
       }
     }
@@ -3605,6 +4060,8 @@
     "name": "LagavulinMatriarch",
     "min_hp": 222,
     "max_hp": 222,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "SLEEP_MOVE",
     "moves": {
       "SLEEP_MOVE": {
@@ -3726,6 +4183,16 @@
         "branches": [
           "SLEEP_MOVE",
           "SLASH_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "SLEEP_MOVE",
+            "expr": "base.Creature.HasPower<AsleepPower>()"
+          },
+          {
+            "branch": "SLASH_MOVE",
+            "expr": "!base.Creature.HasPower<AsleepPower>()"
+          }
         ]
       }
     }
@@ -3817,6 +4284,14 @@
         "branches": [
           "TACKLE_MOVE",
           "GOOP_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -3907,6 +4382,15 @@
     "name": "LivingShield",
     "min_hp": 55,
     "max_hp": 55,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RAMPART_POWER",
+        "amount": 25
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SHIELD_SLAM_MOVE",
     "moves": {
       "SHIELD_SLAM_MOVE": {
@@ -3934,6 +4418,16 @@
         "branches": [
           "SHIELD_SLAM_MOVE",
           "SMASH_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "SHIELD_SLAM_MOVE",
+            "expr": "GetAllyCount() > 0"
+          },
+          {
+            "branch": "SMASH_MOVE",
+            "expr": "GetAllyCount() == 0"
+          }
         ]
       },
       "SMASH_MOVE": {
@@ -3972,6 +4466,15 @@
     "name": "LouseProgenitor",
     "min_hp": 134,
     "max_hp": 136,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CURL_UP_POWER",
+        "amount": 14
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "WEB_CANNON_MOVE",
     "moves": {
       "WEB_CANNON_MOVE": {
@@ -4240,6 +4743,16 @@
           "RIP_AND_TEAR_MOVE",
           "ROAR_MOVE",
           "CLAW_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CanRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -4249,6 +4762,15 @@
     "name": "MechaKnight",
     "min_hp": 300,
     "max_hp": 300,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "CHARGE_MOVE",
     "moves": {
       "CHARGE_MOVE": {
@@ -4378,6 +4900,21 @@
     "name": "MysteriousKnight",
     "min_hp": 101,
     "max_hp": 101,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": 6
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": 6
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "RAM_MOVE",
     "moves": {
       "WAR_CHANT": {
@@ -4445,6 +4982,16 @@
           "WAR_CHANT",
           "FLAIL_MOVE",
           "RAM_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CanRepeatXTimes",
+          "CanRepeatXTimes"
         ]
       }
     }
@@ -4602,6 +5149,20 @@
         ],
         "branches_conditional": [
           "BUTT_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "BUTT_MOVE",
+            "expr": "((Nibbit)base.Creature.Monster).IsAlone"
+          },
+          {
+            "branch": "HISS_MOVE",
+            "expr": "!((Nibbit)base.Creature.Monster).IsFront"
+          },
+          {
+            "branch": "SLICE_MOVE",
+            "expr": "((Nibbit)base.Creature.Monster).IsFront"
+          }
         ]
       }
     }
@@ -4611,6 +5172,8 @@
     "name": "Noisebot",
     "min_hp": 18,
     "max_hp": 23,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "NOISE_MOVE",
     "moves": {
       "NOISE_MOVE": {
@@ -4671,6 +5234,8 @@
     "name": "Ovicopter",
     "min_hp": 124,
     "max_hp": 130,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "LAY_EGGS_MOVE",
     "moves": {
       "LAY_EGGS_MOVE": {
@@ -4765,6 +5330,16 @@
         "branches": [
           "LAY_EGGS_MOVE",
           "NUTRITIONAL_PASTE_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "LAY_EGGS_MOVE",
+            "expr": "CanLay"
+          },
+          {
+            "branch": "NUTRITIONAL_PASTE_MOVE",
+            "expr": "!CanLay"
+          }
         ]
       }
     }
@@ -4888,6 +5463,15 @@
     "name": "Parafright",
     "min_hp": 21,
     "max_hp": 21,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ILLUSION_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SLAM_MOVE",
     "moves": {
       "SLAM_MOVE": {
@@ -4917,6 +5501,15 @@
     "name": "PhantasmalGardener",
     "min_hp": 26,
     "max_hp": 31,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SKITTISH_POWER",
+        "amount": 6
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "INIT_MOVE",
     "moves": {
       "BITE_MOVE": {
@@ -5005,6 +5598,15 @@
     "name": "PhrogParasite",
     "min_hp": 61,
     "max_hp": 64,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.INFESTED_POWER",
+        "amount": 4
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "INFECT_MOVE",
     "moves": {
       "INFECT_MOVE": {
@@ -5045,6 +5647,14 @@
         "branches": [
           "INFECT_MOVE",
           "LASH_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -5054,6 +5664,15 @@
     "name": "PunchConstruct",
     "min_hp": 55,
     "max_hp": 55,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "READY_MOVE": {
@@ -5130,6 +5749,8 @@
     "name": "Queen",
     "min_hp": 400,
     "max_hp": 400,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "PUPPET_STRINGS_MOVE",
     "moves": {
       "PUPPET_STRINGS_MOVE": {
@@ -5187,6 +5808,16 @@
         "branches": [
           "BURN_BRIGHT_FOR_ME_MOVE",
           "OFF_WITH_YOUR_HEAD_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "BURN_BRIGHT_FOR_ME_MOVE",
+            "expr": "!HasAmalgamDied"
+          },
+          {
+            "branch": "OFF_WITH_YOUR_HEAD_MOVE",
+            "expr": "HasAmalgamDied"
+          }
         ]
       },
       "BURN_BRIGHT_FOR_ME_MOVE": {
@@ -5223,6 +5854,16 @@
         "branches": [
           "BURN_BRIGHT_FOR_ME_MOVE",
           "OFF_WITH_YOUR_HEAD_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "BURN_BRIGHT_FOR_ME_MOVE",
+            "expr": "!HasAmalgamDied"
+          },
+          {
+            "branch": "OFF_WITH_YOUR_HEAD_MOVE",
+            "expr": "HasAmalgamDied"
+          }
         ]
       },
       "OFF_WITH_YOUR_HEAD_MOVE": {
@@ -5291,6 +5932,27 @@
     "name": "Rocket",
     "min_hp": 199,
     "max_hp": 199,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SURROUNDED_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BACK_ATTACK_RIGHT_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CRAB_RAGE_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "TARGETING_RETICLE_MOVE",
     "moves": {
       "TARGETING_RETICLE_MOVE": {
@@ -5391,7 +6053,21 @@
     "name": "ScrollOfBiting",
     "min_hp": 30,
     "max_hp": 37,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PAPER_CUTS_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "CHOMP",
+      "CHEW",
+      "MORE_TEETH"
+    ],
     "moves": {
       "CHOMP": {
         "kind": "MoveState",
@@ -5457,6 +6133,14 @@
         "branches": [
           "CHOMP",
           "CHEW"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CanRepeatXTimes"
         ]
       }
     }
@@ -5466,6 +6150,8 @@
     "name": "Seapunk",
     "min_hp": 44,
     "max_hp": 46,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "SEA_KICK_MOVE",
     "moves": {
       "SEA_KICK_MOVE": {
@@ -5542,6 +6228,17 @@
     "name": "SewerClam",
     "min_hp": 56,
     "max_hp": 56,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": {
+          "expr": "valueIfAscension"
+        }
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "JET_MOVE",
     "moves": {
       "PRESSURIZE_MOVE": {
@@ -5687,6 +6384,15 @@
     "name": "SkulkingColony",
     "min_hp": 75,
     "max_hp": 75,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HARDENED_SHELL_POWER",
+        "amount": 20
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "ZOOM_MOVE",
     "moves": {
       "ZOOM_MOVE": {
@@ -5949,6 +6655,14 @@
         "branches": [
           "THWACK",
           "LASH"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CanRepeat",
+          "CanRepeat"
         ]
       }
     }
@@ -6044,6 +6758,16 @@
           "OIL_SPRAY_MOVE",
           "SLAM_MOVE",
           "RAGE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -6053,6 +6777,21 @@
     "name": "SlumberingBeetle",
     "min_hp": 86,
     "max_hp": 86,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": 15
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SLUMBER_POWER",
+        "amount": 3
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SNORE_MOVE",
     "moves": {
       "SNORE_MOVE": {
@@ -6101,6 +6840,16 @@
         "branches": [
           "SNORE_MOVE",
           "ROLL_OUT_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "SNORE_MOVE",
+            "expr": "base.Creature.HasPower<SlumberPower>()"
+          },
+          {
+            "branch": "ROLL_OUT_MOVE",
+            "expr": "!base.Creature.HasPower<SlumberPower>()"
+          }
         ]
       }
     }
@@ -6110,6 +6859,8 @@
     "name": "SnappingJaxfruit",
     "min_hp": 31,
     "max_hp": 33,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "ENERGY_ORB_MOVE",
     "moves": {
       "ENERGY_ORB_MOVE": {
@@ -6303,6 +7054,8 @@
     "name": "SoulNexus",
     "min_hp": 234,
     "max_hp": 234,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "SOUL_BURN_MOVE",
     "moves": {
       "SOUL_BURN_MOVE": {
@@ -6386,6 +7139,16 @@
           "SOUL_BURN_MOVE",
           "MAELSTROM_MOVE",
           "DRAIN_LIFE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -6461,6 +7224,14 @@
         "branches": [
           "SOUL_SLASH",
           "SOUL_FLAME"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CanRepeatXTimes",
+          "CannotRepeat"
         ]
       }
     }
@@ -6544,6 +7315,8 @@
     "name": "Stabbot",
     "min_hp": 18,
     "max_hp": 23,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "STAB_MOVE",
     "moves": {
       "STAB_MOVE": {
@@ -6603,6 +7376,15 @@
     "name": "TerrorEel",
     "min_hp": 140,
     "max_hp": 140,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SHRIEK_POWER",
+        "amount": 70
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "CRASH_MOVE",
     "moves": {
       "CRASH_MOVE": {
@@ -6692,6 +7474,21 @@
     "name": "TestSubject",
     "min_hp": 100,
     "max_hp": 100,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ADAPTABLE_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENRAGE_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "BITE_MOVE",
     "moves": {
       "RESPAWN_MOVE": {
@@ -6859,6 +7656,16 @@
         "branches": [
           "MULTI_CLAW_MOVE",
           "PHASE3_LACERATE_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "MULTI_CLAW_MOVE",
+            "expr": "Respawns < 2"
+          },
+          {
+            "branch": "PHASE3_LACERATE_MOVE",
+            "expr": "Respawns >= 2"
+          }
         ]
       }
     }
@@ -6868,6 +7675,15 @@
     "name": "TheAdversaryMkOne",
     "min_hp": 100,
     "max_hp": 100,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 0
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "SMASH_MOVE",
     "moves": {
       "SMASH_MOVE": {
@@ -6946,6 +7762,15 @@
     "name": "TheAdversaryMkThree",
     "min_hp": 300,
     "max_hp": 300,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "CRASH_MOVE",
     "moves": {
       "CRASH_MOVE": {
@@ -7024,6 +7849,15 @@
     "name": "TheAdversaryMkTwo",
     "min_hp": 200,
     "max_hp": 200,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARTIFACT_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "BASH_MOVE",
     "moves": {
       "BASH_MOVE": {
@@ -7102,6 +7936,15 @@
     "name": "TheForgotten",
     "min_hp": 106,
     "max_hp": 106,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.POSSESS_SPEED_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "MIASMA",
     "moves": {
       "MIASMA": {
@@ -7124,9 +7967,7 @@
             "op": "power",
             "target": "player",
             "power": "POWER.DEXTERITY_POWER",
-            "amount": {
-              "expr": "-DebilitatingSmogDexStealAmount"
-            }
+            "amount": -2
           },
           {
             "op": "block",
@@ -7284,6 +8125,15 @@
     "name": "TheLost",
     "min_hp": 93,
     "max_hp": 93,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.POSSESS_STRENGTH_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "DEBILITATING_SMOG",
     "moves": {
       "DEBILITATING_SMOG": {
@@ -7303,9 +8153,7 @@
             "op": "power",
             "target": "player",
             "power": "POWER.STRENGTH_POWER",
-            "amount": {
-              "expr": "-DebilitatingSmogStrengthStealAmount"
-            }
+            "amount": -2
           },
           {
             "op": "power",
@@ -7430,6 +8278,16 @@
           "PIERCING_GAZE_MOVE",
           "SAIL_MOVE",
           "HARDENING_STRIKE_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat"
         ]
       }
     }
@@ -7439,6 +8297,15 @@
     "name": "ThievingHopper",
     "min_hp": 79,
     "max_hp": 79,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ESCAPE_ARTIST_POWER",
+        "amount": 5
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "THIEVERY_MOVE",
     "moves": {
       "THIEVERY_MOVE": {
@@ -7568,9 +8435,7 @@
             "op": "power",
             "target": "self",
             "power": "POWER.THORNS_POWER",
-            "amount": {
-              "expr": "-SpikenAmount"
-            }
+            "amount": -2
           },
           {
             "op": "damage",
@@ -7624,6 +8489,16 @@
         "branches": [
           "WHIRL_MOVE",
           "SPIKEN_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "WHIRL_MOVE",
+            "expr": "!((Toadpole)base.Creature.Monster).IsFront"
+          },
+          {
+            "branch": "SPIKEN_MOVE",
+            "expr": "((Toadpole)base.Creature.Monster).IsFront"
+          }
         ]
       }
     }
@@ -7633,6 +8508,15 @@
     "name": "TorchHeadAmalgam",
     "min_hp": 199,
     "max_hp": 199,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MINION_POWER",
+        "amount": 1
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "STRONG_TACKLE_MOVE",
     "moves": {
       "STRONG_TACKLE_MOVE": {
@@ -7742,6 +8626,17 @@
     "name": "ToughEgg",
     "min_hp": 14,
     "max_hp": 18,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HATCH_POWER",
+        "amount": {
+          "expr": "num"
+        }
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "HATCH_MOVE",
     "moves": {
       "HATCH_MOVE": {
@@ -8027,6 +8922,14 @@
         "branches": [
           "POKEY_POUNCE_MOVE",
           "STICKY_SHOT_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CanRepeatXTimes",
+          "CannotRepeat"
         ]
       }
     }
@@ -8065,6 +8968,8 @@
     "name": "TwoTailedRat",
     "min_hp": 17,
     "max_hp": 21,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": null,
     "moves": {
       "SCRATCH_MOVE": {
@@ -8145,6 +9050,18 @@
           "DISEASE_BITE_MOVE",
           "SCREECH_MOVE",
           "CALL_FOR_BACKUP_MOVE"
+        ],
+        "weights": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "repeat_types": [
+          "CannotRepeat",
+          "CannotRepeat",
+          "CannotRepeat",
+          "CanRepeat"
         ]
       }
     }
@@ -8154,6 +9071,15 @@
     "name": "Vantom",
     "min_hp": 173,
     "max_hp": 173,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SLIPPERY_POWER",
+        "amount": 8
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "INK_BLOT_MOVE",
     "moves": {
       "INK_BLOT_MOVE": {
@@ -8324,6 +9250,8 @@
     "name": "WaterfallGiant",
     "min_hp": 240,
     "max_hp": 240,
+    "start_effects": null,
+    "start_effect_complete": true,
     "initial_state": "PRESSURIZE_MOVE",
     "moves": {
       "PRESSURIZE_MOVE": {
@@ -8606,6 +9534,24 @@
           "WRIGGLE_MOVE",
           "NASTY_BITE_MOVE",
           "WRIGGLE_MOVE"
+        ],
+        "conditions": [
+          {
+            "branch": "NASTY_BITE_MOVE",
+            "expr": "base.Creature.SlotName == \"wriggler1\""
+          },
+          {
+            "branch": "WRIGGLE_MOVE",
+            "expr": "base.Creature.SlotName == \"wriggler2\""
+          },
+          {
+            "branch": "NASTY_BITE_MOVE",
+            "expr": "base.Creature.SlotName == \"wriggler3\""
+          },
+          {
+            "branch": "WRIGGLE_MOVE",
+            "expr": "base.Creature.SlotName == \"wriggler4\""
+          }
         ]
       }
     }
@@ -8615,6 +9561,15 @@
     "name": "Zapbot",
     "min_hp": 18,
     "max_hp": 23,
+    "start_effects": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HIGH_VOLTAGE_POWER",
+        "amount": 2
+      }
+    ],
+    "start_effect_complete": true,
     "initial_state": "ZAP",
     "moves": {
       "ZAP": {

@@ -41,6 +41,20 @@ if (args.Length > 0 && args[0] == "rng-verify")
     return failures == 0 ? 0 : 1;
 }
 
+if (args.Length > 0 && args[0] == "rng-probe")
+{
+    string seedText = args[1];
+    string entry = args[2];
+    ulong runSeed = StringHash.Deterministic(seedText);
+    ulong entryHash = StringHash.Deterministic(entry);
+    for (int floor = 0; floor <= 3; floor++)
+    {
+        Rng rng = new(unchecked(runSeed + (ulong)floor + entryHash));
+        Console.WriteLine($"floor {floor}: roll={rng.NextInt(3)} next={rng.NextInt(3)} {rng.NextInt(3)}");
+    }
+    return 0;
+}
+
 if (args.Length > 0 && args[0] == "run")
 {
     string? scenarioPath = null;

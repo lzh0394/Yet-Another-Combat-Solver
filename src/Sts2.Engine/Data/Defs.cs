@@ -39,8 +39,11 @@ public sealed class MonsterDef
     public int? MinHp { get; set; }
     public int? MaxHp { get; set; }
     public string? InitialState { get; set; }
+    public List<string>? InitialStates { get; set; }
     public Dictionary<string, MoveDef> Moves { get; set; } = new();
     public string? MovesSource { get; set; }
+    public List<EffectDef>? StartEffects { get; set; }
+    public bool StartEffectComplete { get; set; }
 
     [JsonIgnore]
     public string Entry => Id.StartsWith("MONSTER.", StringComparison.Ordinal) ? Id["MONSTER.".Length..] : Id;
@@ -58,6 +61,15 @@ public sealed class MoveDef
     public JsonElement? BranchesConditional { get; set; }
     public List<EffectDef>? Effects { get; set; }
     public bool EffectComplete { get; set; }
+    public List<ConditionDef>? Conditions { get; set; }
+    public List<float>? Weights { get; set; }
+    public List<string>? RepeatTypes { get; set; }
+}
+
+public sealed class ConditionDef
+{
+    public string Branch { get; set; } = "";
+    public string Expr { get; set; } = "";
 }
 
 public sealed class EffectDef
@@ -87,6 +99,17 @@ public sealed class EncounterDef
     public bool IsWeak { get; set; }
     public List<string> AllPossibleMonsters { get; set; } = new();
     public List<List<string?>>? Monsters { get; set; }
+    public StarterRngDef? StarterRng { get; set; }
+
+    [JsonIgnore]
+    public string Entry => Id.StartsWith("ENCOUNTER.", StringComparison.Ordinal) ? Id["ENCOUNTER.".Length..] : Id;
+}
+
+/// <summary>EncounterModel.Rng.NextInt(range) seeds each spawn's StarterMoveIdx offset.</summary>
+public sealed class StarterRngDef
+{
+    public int Range { get; set; }
+    public List<int> Offsets { get; set; } = new();
 }
 
 public sealed class CharacterDef

@@ -914,7 +914,62 @@ class Exporter:
         if registered:
             states = {sid: st for sid, st in states.items() if sid in registered}
 
+        # Predicate lambdas and weights attached to branch states, in source order.
+        for m in re.finditer(r"(\w+)\.Add(State|Branch)\s*\(", body):
+            src_id = var_to_id.get(m.group(1))
+            if src_id not in states:
+                continue
+            open_pos = m.end() - 1
+            close = match_paren(body, open_pos)
+            args = split_top(body[open_pos + 1 : close])
+            if len(args) < 2:
+                continue
+            dst_id = var_to_id.get(args[0].strip()) or self._literal_str(owner or info, args[0])
+            if not dst_id:
+                continue
+            st = states[src_id]
+            if m.group(2) == "State":
+                lambda_src = args[1].strip()
+                lm = re.match(r"\(\)\s*=>\s*", lambda_src)
+                expr = lambda_src[lm.end() :].strip() if lm else lambda_src
+                expr = (owner or info).src.render(expr)
+                st.setdefault("conditions", []).append({"branch": dst_id, "expr": expr})
+            else:
+                weight = 1.0
+                repeat = "CanRepeat"
+                for arg in args[1:]:
+                    arg_s = arg.strip()
+                    wm = re.search(r"()\s*=>\s*([0-9.]+)f", arg_s)
+                    fm = re.fullmatch(r"([0-9.]+)f", arg_s)
+                    im = re.fullmatch(r"[0-9]+", arg_s)
+                    if wm:
+                        weight = float(wm.group(2))
+                    elif fm:
+                        weight = float(fm.group(1))
+                    elif im:
+                        # AddBranch(state, int maxRepeats): weight stays 1, repeat is capped.
+                        repeat = "CanRepeatXTimes"
+                    elif "CannotRepeat" in arg_s:
+                        repeat = "CannotRepeat"
+                    elif "CanRepeatXTimes" in arg_s:
+                        repeat = "CanRepeatXTimes"
+                st.setdefault("weights", []).append(weight)
+                st.setdefault("repeat_types", []).append(repeat)
+
+        s_owner, s_body = self._find_method(info, "AfterAddedToRoom")
+        if s_body is not None:
+            try:
+                start_effects, start_complete = self._move_effects(info, "AfterAddedToRoom")
+            except Exception as e:
+                start_effects, start_complete = None, False
+                self.error(mid, f"start effects: {type(e).__name__}: {e}")
+            entry["start_effects"] = start_effects
+            entry["start_effect_complete"] = start_complete
+
         entry["initial_state"] = self._initial_state(info, body, var_to_id)
+        initial_states = self._initial_states(info, body, var_to_id)
+        if initial_states is not None:
+            entry["initial_states"] = initial_states
         entry["moves"] = states
         return entry
 
@@ -984,6 +1039,42 @@ class Exporter:
         if tm:
             return var_to_id.get(tm.group(2)) or var_to_id.get(tm.group(1))
         return None
+
+    def _initial_states(self, info: ClassInfo, body: str, var_to_id: dict[str, str]) -> list[str] | None:
+        """Switch-expression initial states: `return (StarterMoveIdx % 3) switch { 0 => new ..., ... }`."""
+        m = re.search(r"return\s+\([^)]*StarterMoveIdx[^)]*\)\s*switch\s*\{", body)
+        if not m:
+            return None
+        open_pos = body.find("{", m.end() - 1)
+        close = match_brace(body, open_pos)
+        arms = split_top(body[open_pos + 1 : close])
+        by_index: dict[int, str] = {}
+        next_index = 0
+        for arm in arms:
+            arm = arm.strip()
+            if not arm:
+                continue
+            am = re.match(r"(\d+|_)\s*=>\s*new\s+MonsterMoveStateMachine\s*\(", arm)
+            if not am:
+                return None
+            open_paren = arm.find("(", am.end() - 1)
+            close_paren = match_paren(arm, open_paren)
+            args = split_top(arm[open_paren + 1 : close_paren])
+            if len(args) < 2:
+                return None
+            state_var = args[1].strip()
+            state = var_to_id.get(state_var)
+            if state is None:
+                return None
+            if am.group(1) == "_":
+                by_index[next_index] = state
+            else:
+                by_index[int(am.group(1))] = state
+            next_index += 1
+        if not by_index:
+            return None
+        size = max(by_index) + 1
+        return [by_index.get(i, by_index[max(by_index)]) for i in range(size)]
 
     def _intent(self, info: ClassInfo, token: str) -> dict:
         m = re.match(r"new\s+([A-Za-z_]\w*)\s*\(", token.strip())
@@ -1097,7 +1188,13 @@ class Exporter:
         return ops or None, complete
 
     def _effect_amount(self, expr: str, info: ClassInfo):
-        resolved = self.resolver.resolve(expr, info)
+        e = expr.strip()
+        if e.startswith("-"):
+            inner = self._effect_amount(e[1:].strip(), info)
+            if isinstance(inner, (int, float)):
+                return -inner
+            return inner
+        resolved = self.resolver.resolve(e, info)
         if "base" in resolved and isinstance(resolved["base"], (int, float)):
             return resolved["base"]
         if "value" in resolved and isinstance(resolved["value"], (int, float)):
@@ -1236,6 +1333,9 @@ class Exporter:
         }
         body = self._find_method_body(info, "GenerateMonsters")
         entry["monsters"] = self._encounter_slots(info, body) if body else None
+        starter_rng = self._starter_rng(body) if body else None
+        if starter_rng is not None:
+            entry["starter_rng"] = starter_rng
         return entry
 
     def _all_monster_ids(self, info: ClassInfo) -> list[str]:
@@ -1292,6 +1392,22 @@ class Exporter:
             options = [c for c in self.table.by_name.get(cur.base, []) if c.namespace == cur.namespace]
             cur = options[0] if options else None
         return None
+
+    def _starter_rng(self, body: str) -> dict | None:
+        """`num = (var.StarterMoveIdx = base.Rng.NextInt(N)); var2.StarterMoveIdx = (num + k) % N;`"""
+        base = re.search(
+            r"\(\s*(\w+)\.StarterMoveIdx\s*=\s*base\.Rng\.NextInt\((\d+)\)\s*\)", body
+        )
+        if not base:
+            return None
+        base_var, size = base.group(1), int(base.group(2))
+        offsets: dict[str, int] = {base_var: 0}
+        for m in re.finditer(r"(\w+)\.StarterMoveIdx\s*=\s*\(\s*num\s*\+\s*(\d+)\s*\)\s*%\s*(\d+)\s*;", body):
+            offsets[m.group(1)] = int(m.group(2))
+        nums = re.findall(r"num\s*=\s*\(\s*(\w+)\.StarterMoveIdx", body)
+        if nums:
+            offsets[nums[0]] = 0
+        return {"range": size, "offsets": list(offsets.values())}
 
     def _encounter_slots(self, info: ClassInfo, body: str) -> list | None:
         var_to_monster: dict[str, str] = {}

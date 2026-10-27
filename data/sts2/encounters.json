@@ -265,7 +265,15 @@
         "MONSTER.DECIMILLIPEDE_SEGMENT_BACK",
         "segment3"
       ]
-    ]
+    ],
+    "starter_rng": {
+      "range": 3,
+      "offsets": [
+        0,
+        1,
+        2
+      ]
+    }
   },
   "ENCOUNTER.DENSE_VEGETATION_EVENT_ENCOUNTER": {
     "id": "ENCOUNTER.DENSE_VEGETATION_EVENT_ENCOUNTER",
@@ -958,7 +966,15 @@
         "MONSTER.SCROLL_OF_BITING",
         null
       ]
-    ]
+    ],
+    "starter_rng": {
+      "range": 3,
+      "offsets": [
+        0,
+        1,
+        2
+      ]
+    }
   },
   "ENCOUNTER.SCROLLS_OF_BITING_WEAK": {
     "id": "ENCOUNTER.SCROLLS_OF_BITING_WEAK",
@@ -981,7 +997,15 @@
         "MONSTER.SCROLL_OF_BITING",
         null
       ]
-    ]
+    ],
+    "starter_rng": {
+      "range": 3,
+      "offsets": [
+        0,
+        1,
+        2
+      ]
+    }
   },
   "ENCOUNTER.SEAPUNK_NORMAL": {
     "id": "ENCOUNTER.SEAPUNK_NORMAL",

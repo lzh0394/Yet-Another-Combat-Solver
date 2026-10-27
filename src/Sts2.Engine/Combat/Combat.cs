@@ -25,6 +25,10 @@ public sealed class Combat
     public const string StrengthPower = "STRENGTH_POWER";
     public const string ShrinkPower = "SHRINK_POWER";
     public const string RitualPower = "RITUAL_POWER";
+    public const string ThornsPower = "THORNS_POWER";
+    public const string RampartPower = "RAMPART_POWER";
+    public const string PaperCutsPower = "PAPER_CUTS_POWER";
+    public const string BurrowedPower = "BURROWED_POWER";
 
     private readonly DataPack _data;
 
@@ -71,18 +75,38 @@ public sealed class Combat
         EncounterDef encounter = data.Encounter(scenario.Encounter);
         List<(string Id, string? Slot)> spawns = encounter.Monsters?.Select(m => (m[0] ?? throw new CombatException("monster id missing"), m.Count > 1 ? m[1] : null)).ToList()
             ?? throw new CombatException($"encounter {encounter.Id} has no monster list (only all_possible_monsters)");
+        Rng encounterRng = new(unchecked(Rng.Seed + 1UL + StringHash.Deterministic(encounter.Entry)));
+        int? starterBase = encounter.StarterRng is { } starterRng ? encounterRng.NextInt(starterRng.Range) : null;
         int combatId = 1;
+        int spawnIndex = 0;
         foreach ((string id, string? slot) in spawns)
         {
-            MonsterInstance monster = new(data.Monster(id), combatId++)
+            MonsterDef spawnDef = data.Monster(id);
+            MonsterInstance monster = new(spawnDef, combatId++)
             {
                 Slot = slot,
             };
+            if (starterBase is { } baseIndex && encounter.StarterRng is { } sr && spawnIndex < sr.Offsets.Count)
+            {
+                monster.StarterIdx = (baseIndex + sr.Offsets[spawnIndex]) % sr.Range;
+            }
             RollHp(monster);
+            monster.CurrentState = spawnDef.InitialStates is { Count: > 0 } states && monster.StarterIdx is { } si
+                ? states[si % states.Count]
+                : spawnDef.InitialState ?? "";
             monster.Rng = new Rng(Rng.Seed + (ulong)monster.CombatId);
             Enemies.Add(monster);
+            spawnIndex++;
+            if (monster.Def.StartEffectComplete)
+            {
+                foreach (EffectDef effect in monster.Def.StartEffects ?? new List<EffectDef>())
+                {
+                    ApplyEffect(monster, effect);
+                }
+            }
         }
 
+        GrantRampart();
         foreach (MonsterInstance monster in Enemies)
         {
             RollMove(monster);
@@ -93,6 +117,10 @@ public sealed class Combat
         DrawCards(5);
     }
 
+    private CombatSide _side = CombatSide.Player;
+
+    public string Side => PlayerDead ? "Enemy" : _side == CombatSide.Enemy ? "Enemy" : "Player";
+
     public DataPack Data => _data;
     public Scenario Scenario { get; }
     public HookSet Hooks { get; }
@@ -101,7 +129,8 @@ public sealed class Combat
     public List<MonsterInstance> Enemies { get; } = new();
     public int Turn { get; private set; }
     public int Round { get; private set; }
-    public bool CombatOver => Enemies.All(e => !e.IsAlive);
+    public bool PlayerDead => Player.Hp <= 0;
+    public bool CombatOver => Enemies.All(e => !e.IsAlive) || PlayerDead;
     public string LastActionType { get; private set; } = "start";
     public int? LastIndex { get; private set; }
     public int? LastSlot { get; private set; }
@@ -128,11 +157,13 @@ public sealed class Combat
 
         MonsterInstance? targetMonster = ResolveTarget(card, target);
 
+        _side = CombatSide.Player;
         Player.Energy -= card.CostsX ? Player.Energy : cost;
         Player.Hand.Remove(card);
         Player.PlayPile.Add(card);
 
         CardEffects.Resolve(this, card, targetMonster);
+        Enemies.RemoveAll(e => !e.IsAlive);
 
         LastActionType = "play";
         LastIndex = actionIndex;
@@ -196,6 +227,8 @@ public sealed class Combat
         Player.PlayPile.Clear();
         Player.ExhaustPile.Clear();
         Player.Energy = 0;
+        Player.Block = 0;
+        Player.Powers.Clear();
         foreach (RelicInstance relic in Player.Relics)
         {
             if (relic.Id == "RELIC.BURNING_BLOOD" || relic.Id == "BURNING_BLOOD")
@@ -247,14 +280,28 @@ public sealed class Combat
 
         // player end of turn: no powers in the slice
         // enemy turn
+        foreach (MonsterInstance monster in Enemies)
+        {
+            if (monster.PowerAmount(BurrowedPower) == 0)
+            {
+                monster.Block = 0;
+            }
+        }
+        _side = CombatSide.Enemy;
         foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive).ToList())
         {
+            if (monster.SkipNextTurn)
+            {
+                monster.SkipNextTurn = false;
+                continue;
+            }
             ExecuteMonsterTurn(monster);
-            AdvanceMove(monster);
-            if (CombatOver)
+            Enemies.RemoveAll(e => !e.IsAlive);
+            if (PlayerDead || CombatOver)
             {
                 break;
             }
+            AdvanceMove(monster);
         }
 
         if (!CombatOver)
@@ -287,6 +334,19 @@ public sealed class Combat
         LastCard = null;
         LastTarget = null;
 
+        if (PlayerDead)
+        {
+            // Defeat: the player side is torn down, combat ends on the enemy side.
+            Player.Powers.Clear();
+            Player.Block = 0;
+            LastActionType = "end_turn";
+            LastIndex = actionIndex;
+            LastSlot = null;
+            LastCard = null;
+            LastTarget = null;
+            Invariants.Check(this);
+            return;
+        }
         if (CombatOver)
         {
             Enemies.RemoveAll(e => !e.IsAlive);
@@ -294,6 +354,7 @@ public sealed class Combat
             return;
         }
 
+        _side = CombatSide.Player;
         StartPlayerTurn();
         Invariants.Check(this);
     }
@@ -304,10 +365,28 @@ public sealed class Combat
         Round++;
         Player.Block = 0;
         Player.Energy = Player.MaxEnergy;
+        GrantRampart();
         DrawCards(5);
         foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive))
         {
             RollMove(monster);
+        }
+    }
+
+    /// <summary>RampartPower.AfterSideTurnStart: shield monsters grant their block to TurretOperators.</summary>
+    private void GrantRampart()
+    {
+        foreach (MonsterInstance shield in Enemies.Where(e => e.IsAlive))
+        {
+            int amount = shield.PowerAmount(RampartPower);
+            if (amount <= 0)
+            {
+                continue;
+            }
+            foreach (MonsterInstance turret in Enemies.Where(e => e.IsAlive && e.Def.Entry == "TURRET_OPERATOR"))
+            {
+                turret.Block = (int)Math.Min(turret.Block + amount, 999999999m);
+            }
         }
     }
 
@@ -429,7 +508,14 @@ public sealed class Combat
 
     private void RollMove(MonsterInstance monster)
     {
-        if (!monster.PerformedFirstMove && monster.Def.Moves.TryGetValue(monster.Def.InitialState ?? "", out MoveDef? initial) && initial.Kind == "MoveState")
+        if (monster.CurrentState.Length > 0
+            && monster.Def.Moves.TryGetValue(monster.CurrentState, out MoveDef? current)
+            && current.Kind == "MoveState")
+        {
+            return;
+        }
+        if (!monster.PerformedFirstMove && monster.CurrentState.Length == 0
+            && monster.Def.Moves.TryGetValue(monster.Def.InitialState ?? "", out MoveDef? initial) && initial.Kind == "MoveState")
         {
             monster.CurrentState = monster.Def.InitialState!;
             return;
@@ -441,8 +527,8 @@ public sealed class Combat
     }
 
     /// <summary>
-    /// Branch resolution. Conditional branches need predicates that the data package does not keep;
-    /// for the slice we encode Nibbit's conditions directly and fall back to the first branch.
+    /// Branch resolution from exported predicates/weights. Conditions are evaluated in source order
+    /// (first true branch wins); unknown predicates throw instead of silently diverging.
     /// </summary>
     private string ResolveBranches(MonsterInstance monster)
     {
@@ -458,21 +544,45 @@ public sealed class Combat
         List<string> branches = state.Branches ?? new List<string>();
         if (state.Kind == "RandomBranchState" && branches.Count > 0)
         {
-            float total = branches.Count;
-            float value = Rng.MonsterAi.NextFloat(total);
+            if (state.Weights is { Count: > 0 } weights && weights.Count == branches.Count)
+            {
+                List<string>? repeats = state.RepeatTypes;
+                List<float> effective = new(weights.Count);
+                for (int i = 0; i < weights.Count; i++)
+                {
+                    bool cannotRepeat = repeats is { Count: > 0 } r
+                        && i < r.Count
+                        && r[i] == "CannotRepeat"
+                        && monster.LastPerformed == branches[i];
+                    effective.Add(cannotRepeat ? 0f : weights[i]);
+                }
+                if (effective.Sum() <= 0f)
+                {
+                    effective = weights;
+                }
+                float total = effective.Sum();
+                float roll = Rng.MonsterAi.NextFloat(total);
+                for (int i = 0; i < branches.Count; i++)
+                {
+                    roll -= effective[i];
+                    if (roll <= 0f)
+                    {
+                        return branches[i];
+                    }
+                }
+                return branches[^1];
+            }
+            float value = Rng.MonsterAi.NextFloat(branches.Count);
             int index = Math.Clamp((int)value, 0, branches.Count - 1);
             return branches[index];
         }
-        if (state.Kind == "ConditionalBranchState" && monster.Def.Entry == "NIBBIT")
+
+        foreach (ConditionDef condition in state.Conditions ?? new List<ConditionDef>())
         {
-            // Nibbit.cs: alone => BUTT_MOVE; otherwise front => SLICE_MOVE, back => HISS_MOVE.
-            bool alone = Enemies.Count(e => e.IsAlive) == 1;
-            if (alone)
+            if (EvalCondition(monster, condition.Expr) && monster.Def.Moves.ContainsKey(condition.Branch))
             {
-                return "BUTT_MOVE";
+                return condition.Branch;
             }
-            bool front = monster.Slot is null or "front";
-            return front ? "SLICE_MOVE" : "HISS_MOVE";
         }
 
         if (branches.Count == 0)
@@ -482,8 +592,66 @@ public sealed class Combat
         return branches[0];
     }
 
+    /// <summary>
+    /// Mini evaluator for the predicates monsters use on branch states. Only the shapes that
+    /// actually occur in the game data are supported; anything else is an explicit error.
+    /// </summary>
+    private bool EvalCondition(MonsterInstance monster, string expr)
+    {
+        string e = expr.Trim();
+        bool negate = false;
+        while (e.StartsWith("!", StringComparison.Ordinal))
+        {
+            negate = !negate;
+            e = e[1..].Trim().TrimStart('(').TrimEnd(')').Trim();
+        }
+
+        bool result;
+        System.Text.RegularExpressions.Match slot =
+            System.Text.RegularExpressions.Regex.Match(e, "SlotName\\s*==\\s*\"([^\"]*)\"");
+        System.Text.RegularExpressions.Match allies =
+            System.Text.RegularExpressions.Regex.Match(e, "GetAllyCount\\(\\)\\s*(>=|<=|==|>|<)\\s*(\\d+)");
+        if (slot.Success)
+        {
+            result = string.Equals(monster.Slot ?? "", slot.Groups[1].Value, StringComparison.Ordinal);
+        }
+        else if (allies.Success)
+        {
+            int count = Enemies.Count(m => m.IsAlive && !ReferenceEquals(m, monster));
+            int rhs = int.Parse(allies.Groups[2].Value);
+            result = allies.Groups[1].Value switch
+            {
+                ">" => count > rhs,
+                "<" => count < rhs,
+                ">=" => count >= rhs,
+                "<=" => count <= rhs,
+                _ => count == rhs,
+            };
+        }
+        else if (e.Contains("IsAlone", StringComparison.Ordinal))
+        {
+            result = Enemies.Count(m => m.IsAlive) == 1;
+        }
+        else if (e.Contains("IsFront", StringComparison.Ordinal))
+        {
+            // Encounters without explicit slot names place the first spawn in front.
+            result = monster.Slot switch
+            {
+                "front" => true,
+                "back" => false,
+                _ => Enemies.IndexOf(monster) == 0,
+            };
+        }
+        else
+        {
+            throw new CombatException($"unhandled branch condition for {monster.Def.Entry}: {expr}");
+        }
+        return negate ? !result : result;
+    }
+
     private void AdvanceMove(MonsterInstance monster)
     {
+        monster.LastPerformed = monster.CurrentState;
         MoveDef state = monster.State;
         if (state.FollowUp is { Length: > 0 } next)
         {
@@ -525,9 +693,10 @@ public sealed class Combat
                     for (int i = 0; i < repeats; i++)
                     {
                         Rules.Damage.Attack(this, monster, Player, intent.Damage ?? 0);
-                        if (Player.Hp <= 0)
+                        Player.Hp = Math.Max(0, Player.Hp);
+                        if (PlayerDead)
                         {
-                            throw new CombatException("player died (defeat handling not implemented)");
+                            break;
                         }
                     }
                     break;
@@ -559,10 +728,7 @@ public sealed class Combat
         {
             case "damage":
                 Rules.Damage.Attack(this, monster, Player, amount);
-                if (Player.Hp <= 0)
-                {
-                    throw new CombatException("player died (defeat handling not implemented)");
-                }
+                Player.Hp = Math.Max(0, Player.Hp);
                 break;
             case "block":
                 monster.Block = (int)Math.Min(monster.Block + amount, 999999999m);
@@ -573,9 +739,22 @@ public sealed class Combat
             case "power":
             {
                 string power = effect.Power ?? throw new CombatException($"power effect without id on {monster.Def.Entry}");
+                if (effect.Amount is not { ValueKind: System.Text.Json.JsonValueKind.Number })
+                {
+                    throw new CombatException($"unresolved power amount on {monster.Def.Entry}: {power}");
+                }
                 ICombatant target = effect.Target == "player" ? Player : monster;
                 target.AddPower(power, amount);
-                if (power == RitualPower && target == monster)
+                if (_side == CombatSide.Enemy)
+                {
+                    string normalized = PowerIds.Normalize(power);
+                    PowerInstance? applied = target.Powers.FirstOrDefault(p => p.Id == normalized);
+                    if (applied is not null)
+                    {
+                        applied.Fresh = true;
+                    }
+                }
+                if (PowerIds.Normalize(power) == RitualPower && target == monster)
                 {
                     monster.JustAppliedRitual = true;
                 }
@@ -592,6 +771,11 @@ public sealed class Combat
         {
             if (power.Id is VulnerablePower or WeakPower)
             {
+                if (power.Fresh)
+                {
+                    power.Fresh = false;
+                    continue;
+                }
                 power.Amount--;
                 if (power.Amount <= 0)
                 {

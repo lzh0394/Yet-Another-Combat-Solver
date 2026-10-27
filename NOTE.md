@@ -116,3 +116,20 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
   `ironclad_fuzzy_wurm_crawler_weak`。`ironclad_exoskeletons_weak` 起暴露已知缺口：条件分支谓词
   （SlotName/IsAlone 等）没有导出，引擎目前对所有条件分支取第一个分支；RandomBranchState 用
   `Rng.MonsterAi.NextFloat(total)` 且默认权重相等（权重未导出）。后续需要把条件表达式与权重写进数据包。
+
+## 11. 弱遭遇铺开记录（M5，进行中）
+
+导出器新增（`tools/export_sts2_data.py`）：
+- 怪物招式 `effects`：按源码顺序解析 `DamageCmd.Attack`（damage/player）、`CreatureCmd.GainBlock(base.Creature, …)`（block/self）、`CreatureCmd.Heal`（heal/self）、`PowerCmd.Apply<T>`（power；目标由第二参判定 self/player）。无法静态求值的金额写成 `{"expr": …}`，由引擎在运行时拒绝，而不是猜。
+- 条件分支 `conditions`（`ConditionalBranchState.AddState(var, () => expr)`，表达式保留源码文本）、随机分支 `weights`/`repeat_types`、开场效果 `start_effects`（`AfterAddedToRoom`）。
+- `AddBranch(state, int)` 是 `maxRepeats` 重载，不是权重；只有浮点字面量才是权重（`ScrollOfBiting` 的 `AddBranch(moveState2, 2)` 因此是权重 1）。
+- 多初始状态：`return (StarterMoveIdx % 3) switch { … }` 导出成 `initial_states` 数组；遭遇里的 `num = (var.StarterMoveIdx = base.Rng.NextInt(3))` 导出成 `starter_rng {range, offsets}`。
+
+引擎新增（`src/Sts2.Engine`）：
+- 遭遇 RNG：`Rng(seed + 1 + XXH64(encounter.Entry))`（首层 `TotalFloor=1`），每个 spawn 的 `StarterIdx = (num + offsets[i]) % range`。
+- `EvalCondition` 支持 `SlotName == "…"`、`GetAllyCount()` 比较、`IsAlone`、`IsFront`（无槽位时首个 spawn 视为前排）；未知谓词抛异常。
+- 力量/易伤/虚弱/Shrink(×0.7)/Ritual/Thorns/Rampart/PaperCuts/BurrowedPower 语义；`Fresh` 标记让敌方回合施加的 Debuff 跳过当回合 tick（与真机一致）。
+- 敌方回合开头清空格挡（`BurrowedPower` 例外），玩家死亡时清玩家能力并停在敌方侧，胜利时清空牌堆/能力并触发 Burning Blood。
+- 怪物 `SkipNextTurn`（Burrowed 破盾后眩晕一回合）。
+
+已 0 差异的对拍向量（`tests/vectors/real/` ↔ `artifacts/engine/`）：nibbits（脚本 10 行）、nibbits_auto、seapunk、fuzzy_wurm_crawler、exoskeletons、toadpoles、devoted_sculptor、sludge_spinner、turret_operator、shrinker_beetle、scrolls_of_biting、tunneler。`thieving_hopper` 仍缺偷牌（CardDebuffIntent）实现。

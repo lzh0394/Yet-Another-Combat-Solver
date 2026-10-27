@@ -15,7 +15,7 @@ public static class Snapshots
             Action = action,
             Round = combat.Round,
             Turn = combat.Turn,
-            Side = "Player",
+            Side = combat.Side,
             CombatOver = combat.CombatOver,
             Player = Player(combat),
             Piles = Piles(combat),

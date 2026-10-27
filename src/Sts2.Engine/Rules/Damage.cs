@@ -36,10 +36,40 @@ public static class Damage
 
     public static void Attack(Combat.Combat combat, ICombatant source, ICombatant target, decimal baseDamage)
     {
+        // ThornsPower.BeforeDamageReceived: a powered attack into the owner damages the dealer first.
+        int thorns = target.PowerAmount(Combat.Combat.ThornsPower);
+        if (thorns > 0 && source is PlayerState && !ReferenceEquals(source, target))
+        {
+            int extra = Apply(source.Block, source.Hp, thorns, out int sourceBlock);
+            source.Block = sourceBlock;
+            source.Hp = Math.Max(0, source.Hp - extra);
+        }
         decimal amount = Modify(combat, source, target, baseDamage);
+        int blockBefore = target.Block;
         int loss = Apply(target.Block, target.Hp, amount, out int block);
         target.Block = block;
+
+        // BurrowedPower.AfterBlockBroken: breaking the burrow stuns the monster for a turn.
+        if (target is MonsterInstance burrower && blockBefore > 0 && block == 0
+            && amount >= blockBefore && burrower.PowerAmount(Combat.Combat.BurrowedPower) > 0)
+        {
+            burrower.Powers.RemoveAll(p => p.Id == Combat.Combat.BurrowedPower);
+            burrower.Block = 0;
+            burrower.CurrentState = "BITE_MOVE";
+            burrower.SkipNextTurn = true;
+        }
         target.Hp = Math.Max(0, target.Hp - loss);
+
+        // PaperCutsPower.AfterDamageGiven: the scroll's powered attack also cuts the player's max HP.
+        if (loss > 0 && source is MonsterInstance scroll && target is PlayerState player)
+        {
+            int cuts = scroll.PowerAmount(Combat.Combat.PaperCutsPower);
+            if (cuts > 0)
+            {
+                player.MaxHp = Math.Max(1, player.MaxHp - cuts);
+                player.Hp = Math.Min(player.Hp, player.MaxHp);
+            }
+        }
     }
 
     /// <summary>CreatureCmd.GainBlock after ModifyBlock (no block powers in the slice).</summary>
