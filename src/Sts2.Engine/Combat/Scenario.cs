@@ -18,6 +18,9 @@ public sealed class Scenario
     public List<DeckCard>? Deck { get; set; }
     public List<ScenarioAction> Actions { get; set; } = new();
 
+    /// <summary>Seed for the deterministic random policy shared by the engine and the parity mod.</summary>
+    public ulong PolicySeed { get; set; }
+
     /// <summary>Source-generated options so the CLI keeps working under native AOT.</summary>
     public static JsonSerializerOptions JsonOptions => Data.JsonDefaults.Options;
 }

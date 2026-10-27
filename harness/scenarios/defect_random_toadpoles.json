@@ -1,0 +1,130 @@
+{
+  "character": "DEFECT",
+  "seed": "PARITY-R33",
+  "ascension": 0,
+  "encounter": "TOADPOLES_WEAK",
+  "room_type": "Monster",
+  "policy_seed": 1033,
+  "actions": [
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    }
+  ]
+}

@@ -480,6 +480,7 @@ W2 = sansb 的 `ironclad_toadpoles_uniform_v1`（68/80 HP、无遗物、两个 T
 | 进阶对拍（M7） | `… run --scenario harness/scenarios/ironclad_nibbits_a10.json …` | A4/A5/A9/A10 逐字段一致 |
 | 性能与 AOT（M7） | `dotnet publish src/Sts2.Cli -c Release -r win-x64 -p:PublishAot=true` | 21.6 µs/场（约 46k 场/秒） |
 | 五角色（M5） | `… run --scenario harness/scenarios/silent_nibbits_auto.json …` | Ironclad、Silent、Regent、Defect、Necrobinder 起手牌组均 0 差异 |
+| 随机策略（M5） | `… run --scenario harness/scenarios/defect_random_toadpoles.json …` | 5 角色 × 4 弱遭遇共 20 个随机序列场景，逐字段 0 差异 |
 | 本地 Web（M8） | `dotnet run --project src/Sts2.Cli -- web --port 5080` | 浏览器人机对弈；`python tools/check_web.py` 冒烟 7 项 |
 
 回放页只读快照：回合/HP/格挡/能量、敌人意图、手牌与五牌堆、逐步动作日志；方向键翻页，

@@ -1,0 +1,130 @@
+{
+  "character": "NECROBINDER",
+  "seed": "PARITY-R43",
+  "ascension": 0,
+  "encounter": "TOADPOLES_WEAK",
+  "room_type": "Monster",
+  "policy_seed": 1043,
+  "actions": [
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    }
+  ]
+}

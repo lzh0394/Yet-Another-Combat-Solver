@@ -1,0 +1,130 @@
+{
+  "character": "NECROBINDER",
+  "seed": "PARITY-R40",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "policy_seed": 1040,
+  "actions": [
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    }
+  ]
+}

@@ -112,6 +112,9 @@ if (args.Length > 0 && args[0] == "run")
             case "auto_turn":
                 combat.AutoTurn(index);
                 break;
+            case "random_play":
+                combat.RandomPlay(scenario.PolicySeed, index, index);
+                break;
             default:
                 throw new InvalidOperationException($"action type not implemented: {action.Type}");
         }
@@ -177,6 +180,7 @@ if (args.Length > 0 && args[0] == "bench")
                 case "play": combat.PlayCard(action.Slot, action.Card, action.Target, action.Index); break;
                 case "end_turn": combat.EndTurn(action.Index); break;
                 case "auto_turn": combat.AutoTurn(action.Index); break;
+                case "random_play": combat.RandomPlay(scenario.PolicySeed, action.Index ?? 0, action.Index); break;
                 default: throw new InvalidOperationException($"action type not implemented: {action.Type}");
             }
             if (combat.CombatOver)

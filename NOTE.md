@@ -257,3 +257,43 @@ JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布�
 - **已通过**：`silent_nibbits_auto`（PARITY-10，9 行，含弃牌选择、Weak、蛇戒起手）、`regent_nibbits_auto`（PARITY-13，5 行，含星辰起手、星辰费用、Falling Star 的易伤+虚弱）。
 - **Osty（Necrobinder）**：`OstyCmd.Summon(...)` → `{op: summon, amount}`；引擎把 Osty 建模成玩家的 HP 池（`PlayerState.OstyHp/OstyMaxHp`），`BOUND_PHYLACTERY` 开局召唤 1 HP、之后每个玩家回合开始再召唤 1（`AfterEnergyResetLate`），存活时召唤改为“上限 +N 且治疗 N”。`DieForYouPower` 的语义是**溢出**而非全免：敌方 powered 攻击的未格挡伤害先扣 Osty HP，Osty 死后剩余部分才落到玩家（真机首回合 12 伤害 → Osty 6 点全吃、玩家掉 6；实测确认）。`UNLEASH`/`PROTECTOR`/`SQUEEZE` 的 `CalculatedDamageVar` 按 `base + ExtraDamage × multiplier` 计算（Osty 当前 HP / Osty 上限 / 其它 OstyAttack 卡数），Osty 不在场时整张卡不结算。`necrobinder_nibbits_auto`（PARITY-12，6 行）0 差异。
 - 结构化卡牌 **429**/596；剩余 167 张主要卡在 `CardSelectCmd` 的其它变体（升级/变形/选牌入手）、`OrbCmd` 的其它球、`ForgeCmd` 与自定义命令。
+
+## 18. 随机策略与五角色 × 四遭遇（M5，进行中）
+
+成功标准 2 要求“5 角色 × Overgrowth 4 个弱遭遇，随机动作序列与真机轨迹零差异”。
+`auto_turn` 是贪心策略（总打最左手可出的牌），覆盖面太窄，因此新增了一个**确定性随机策略**，
+真机 mod 与引擎各实现一份完全相同的算法。
+
+**策略契约**（`harness/Sts2.ParityMod/ParityDriver.cs` 与 `src/Sts2.Engine/Combat/Combat.cs`）：
+
+- 场景 JSON 增加 `policy_seed`（整数）。
+- 动作类型 `random_play`：每次决策用 `new MegaRandom(policy_seed + decisionIndex)` 抽一次
+  `Next(候选数)`，其中 `decisionIndex` 是该动作在 `actions` 数组里的下标。
+- 候选集 = 手牌中满足下列条件的槽位（按手牌顺序）：费用付得起（X 费要求能量 > 0）、
+  星辰够付、`AnyEnemy` 目标存在存活敌人。
+- 没有候选时改为结束回合（与真机 `PlayerCmd.EndTurn` 一致）。
+
+因为两边的 RNG 只由 `policy_seed + decisionIndex` 决定，**不消耗游戏自身的 RNG 流**，
+所以策略选择不会污染伤害、洗牌与怪物 AI 的随机序列，也不需要在两侧同步额外状态。
+
+**真机侧的两个细节**：
+
+- 快照里的 `can_play` 必须包含星辰校验（`FALLING_STAR` 0 费 2 星、只有 1 星时不可打出），
+  引擎的 `Snapshots.CanPlay` 与 `RandomPlay` 的候选过滤都补上了这条。
+- `CardSelectCmd` 的弃牌选择在真机里走“首张”选择器，弃牌堆是**追加**到末尾
+  （`DiscardPile.Add`），不是插到 0 号位；引擎此前插 0 号位，在 Silent 的
+  `SURVIVOR` 连续弃牌时才暴露出来（`silent_random_nibbits` 第 3 行起就分叉）。
+
+**回合末击杀的结算**：闪电球被动在 `EndTurn` 里打死最后一个敌人时，真机的
+`EndCombatInternal` 会在驱动等待下一回合的期间跑完——牌堆清空、格挡归零、Burning Blood 治疗、
+`side` 回到 `Player`。引擎在 `EndTurn` 的 `CombatOver` 分支里补了 `SettleAfterVictory()`，
+并在其中把 `_side` 设回 `Player`；否则 `defect_random_*` 的最后一帧会差一个 `side` 字段。
+
+**产物**：`harness/scenarios/{character}_random_{encounter}.json` 20 个（5 角色 ×
+NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各不相同，
+40 个 `random_play` 上限），真机轨迹在 `tests/vectors/real/`，全部与引擎逐字段一致
+（每局 13–29 帧，战斗结束后截断）。顶层场景总数 45，`compare_values.py` 仍是 0 差异。
+
+**仍未满足的部分**：成功标准 2 的“每局 ≥ 200 步”目前没有达到——一个弱遭遇战斗在 15–30 个
+动作内结束，20 个场景合计约 400 帧。要做到单局 200 步，需要让一局连续打多场遭遇
+（每次重新建 `RunState`，玩家 HP 与牌堆不跨场保留），这条还没做。

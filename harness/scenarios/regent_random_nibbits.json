@@ -1,0 +1,130 @@
+{
+  "character": "REGENT",
+  "seed": "PARITY-R20",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "policy_seed": 1020,
+  "actions": [
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    }
+  ]
+}

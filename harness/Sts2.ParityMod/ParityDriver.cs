@@ -117,6 +117,7 @@ internal sealed class ParityDriver
         RunManager.Instance.RunLocationTargetedBuffer.OnLocationChanged(runState.RunLocation);
         RunManager.Instance.MapSelectionSynchronizer.OnLocationChanged(runState.MapLocation);
 
+        _policySeed = scenario["policy_seed"]?.GetValue<ulong>() ?? 0UL;
         var encounterId = IdOf(scenario["encounter"]?.GetValue<string>() ?? "NIBBITS_WEAK", "ENCOUNTER");
         var encounter = ModelDb.GetById<EncounterModel>(encounterId).ToMutable();
         var roomType = ParseEnum<RoomType>(scenario["room_type"]?.GetValue<string>() ?? "Monster");
@@ -169,6 +170,8 @@ internal sealed class ParityDriver
 
         Log.Info("[parity] scenario complete, " + (actions.Count) + " actions requested");
     }
+
+    private ulong _policySeed;
 
     private async Task ExecuteAction(Player player, CombatState combatState, JsonObject action)
     {
@@ -233,6 +236,55 @@ internal sealed class ParityDriver
                 await WaitUntil(() => !CombatManager.Instance.IsInProgress
                     || (player.PlayerCombatState is { Phase: PlayerTurnPhase.Play } pcs && pcs.TurnNumber > turn),
                     "next player turn after auto " + turn);
+                break;
+            }
+            case "random_play":
+            {
+                var hand = PileType.Hand.GetPile(player).Cards;
+                var candidates = new List<(CardModel Card, Creature? Target)>();
+                foreach (var candidate in hand)
+                {
+                    if (!candidate.CanPlay(out _, out _))
+                    {
+                        continue;
+                    }
+                    Creature? resolved = candidate.TargetType switch
+                    {
+                        TargetType.AnyEnemy => combatState.Enemies.FirstOrDefault(c => c.IsAlive),
+                        TargetType.AnyPlayer => player.Creature,
+                        _ => null,
+                    };
+                    if (candidate.TargetType == TargetType.AnyEnemy && resolved == null)
+                    {
+                        continue;
+                    }
+                    candidates.Add((candidate, resolved));
+                }
+
+                int decision = action["index"]?.GetValue<int>() ?? 0;
+                if (candidates.Count == 0)
+                {
+                    int turn = player.PlayerCombatState!.TurnNumber;
+                    PlayerCmd.EndTurn(player, canBackOut: false);
+                    await WaitUntil(() => !CombatManager.Instance.IsInProgress
+                        || (player.PlayerCombatState is { Phase: PlayerTurnPhase.Play } pcs && pcs.TurnNumber > turn),
+                        "next player turn after random " + turn);
+                    break;
+                }
+
+                // Deterministic policy shared with the engine: MegaRandom(policySeed + decisionIndex).
+                var rng = new MegaRandom(_policySeed + (ulong)decision);
+                var pick = candidates[rng.Next(candidates.Count)];
+                Log.Info("[parity] random playing " + pick.Card.Id.Entry);
+                var (energy, stars) = await pick.Card.SpendResources();
+                var resources = new ResourceInfo
+                {
+                    EnergySpent = energy,
+                    EnergyValue = energy,
+                    StarsSpent = stars,
+                    StarValue = stars,
+                };
+                await pick.Card.OnPlayWrapper(new BlockingPlayerChoiceContext(), pick.Target, isAutoPlay: false, resources);
                 break;
             }
             case "potion":

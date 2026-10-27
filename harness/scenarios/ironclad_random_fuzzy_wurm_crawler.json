@@ -1,0 +1,130 @@
+{
+  "character": "IRONCLAD",
+  "seed": "PARITY-R02",
+  "ascension": 0,
+  "encounter": "FUZZY_WURM_CRAWLER_WEAK",
+  "room_type": "Monster",
+  "policy_seed": 1002,
+  "actions": [
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    },
+    {
+      "type": "random_play"
+    }
+  ]
+}

@@ -104,7 +104,9 @@ public static class Snapshots
         };
         if (combat is not null)
         {
-            view.CanPlay = card.Cost >= 0 && (card.CostsX ? combat.Player.Energy > 0 : combat.Player.Energy >= card.Cost);
+            view.CanPlay = card.Cost >= 0
+                && (card.CostsX ? combat.Player.Energy > 0 : combat.Player.Energy >= card.Cost)
+                && (card.StarCost <= 0 || combat.Player.Stars >= card.StarCost);
         }
         return view;
     }

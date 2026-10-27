@@ -104,7 +104,7 @@ public static class CardEffects
                     }
                     else
                     {
-                        combat.Player.DiscardPile.Insert(0, chosen);
+                        combat.Player.DiscardPile.Add(chosen);
                     }
                 }
                 break;

@@ -165,6 +165,15 @@ def validate_transcript(out: Path, scenario: dict) -> int:
     if errors:
         die(f"transcript contains a driver error: {errors[0].get('error', '')[:500]}")
     snapshots = [line for line in lines if line.get("type") == "snapshot"]
+    # The game keeps one more action alive while EndCombatInternal unwinds; trim trailing rows so the
+    # transcript ends exactly at the first combat_over snapshot (the engine stops there too).
+    for i, snap in enumerate(snapshots):
+        if snap.get("combat_over"):
+            snapshots = snapshots[: i + 1]
+            break
+    lines = [line for line in lines if line.get("type") != "snapshot"] + snapshots
+    joined = "\n".join(json.dumps(line, ensure_ascii=False, separators=(",", ":")) for line in lines)
+    out.write_text(joined + "\n", encoding="utf-8")
     if not snapshots:
         die("transcript has no snapshots")
     if snapshots[0].get("action", {}).get("type") != "start":

@@ -254,6 +254,40 @@ public sealed class Combat
     /// playable (first alive enemy for enemy-targeted cards), then end the turn. The whole turn is
     /// one action, so the caller emits a single snapshot afterwards.
     /// </summary>
+
+    /// <summary>
+    /// Deterministic random policy shared with the parity mod: pick one of the currently playable
+    /// hand slots with MegaRandom(policySeed + decisionIndex), or end the turn when nothing is playable.
+    /// </summary>
+    public void RandomPlay(ulong policySeed, int decisionIndex, int? actionIndex)
+    {
+        List<int> slots = new();
+        for (int i = 0; i < Player.Hand.Count; i++)
+        {
+            CardInstance card = Player.Hand[i];
+            bool cost = card.Cost >= 0 && (card.CostsX ? Player.Energy > 0 : Player.Energy >= card.Cost);
+            bool stars = card.StarCost <= 0 || Player.Stars >= card.StarCost;
+            bool target = card.TargetType != "AnyEnemy" || Enemies.Any(e => e.IsAlive);
+            if (cost && stars && target)
+            {
+                slots.Add(i);
+            }
+        }
+
+        if (slots.Count == 0)
+        {
+            EndTurn(actionIndex);
+            return;
+        }
+
+        Random.MegaRandom rng = new(policySeed + (ulong)decisionIndex);
+        int slot = slots[rng.Next(slots.Count)];
+        string? targetId = Player.Hand[slot].TargetType == "AnyEnemy"
+            ? Enemies.First(e => e.IsAlive).Def.Entry
+            : null;
+        PlayCard(slot, null, targetId, actionIndex);
+    }
+
     public void AutoTurn(int? actionIndex)
     {
         if (CombatOver)
@@ -353,6 +387,9 @@ public sealed class Combat
 
     private void SettleAfterVictory()
     {
+        // EndCombatInternal leaves the combat on the player side, even if the killing blow happened
+        // during the enemy side's turn (e.g. a lightning orb passive at end of turn).
+        _side = CombatSide.Player;
         Player.Hand.Clear();
         Player.DrawPile.Clear();
         Player.DiscardPile.Clear();
@@ -493,6 +530,9 @@ public sealed class Combat
         if (CombatOver)
         {
             Enemies.RemoveAll(e => !e.IsAlive);
+            // The real game runs EndCombatInternal while the driver waits for the next turn, so the
+            // snapshot after this action already shows cleared piles and out-of-combat relic hooks.
+            SettleAfterVictory();
             Invariants.Check(this);
             return;
         }
