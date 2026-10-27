@@ -569,7 +569,7 @@ public sealed class Combat
         // Duration debuffs on the player tick at the end of the player's own turn. The real game's
         // SkipNextDurationTick only suppresses the tick that would otherwise run in the same
         // enemy turn as the application; the player's end-of-turn tick still decrements.
-        TickDurations(Player, honorFresh: false);
+        // Player-side duration debuffs tick at the end of the enemy turn (see TickDurations).
 
         // ConstrictPower.AfterSideTurnEnd fires when the owner's own side ends its turn. It is
         // Unpowered damage from the owner to itself, so block absorbs it and no powers modify it.
@@ -630,6 +630,7 @@ public sealed class Combat
             {
                 TickDurations(monster);
             }
+            TickDurations(Player);
             foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive))
             {
                 int ritual = monster.PowerAmount(RitualPower);
@@ -1325,16 +1326,22 @@ public sealed class Combat
                     break;
                 }
                 ICombatant target = effect.Target == "player" ? Player : monster;
+                string normalizedId = PowerIds.Normalize(power);
+                bool existed = target.Powers.Any(p => p.Id == normalizedId);
                 TryApplyPower(target, power, amount);
                 // PowerCmd.Apply sets SkipNextDurationTick when a Debuff lands on a player-side
-                // creature, regardless of whose turn it is.
+                // creature — but only on the application that *creates* the instance. Stacking onto
+                // an existing instance leaves the flag alone, which is why a second application in
+                // the same round still loses a stack at that round's enemy-turn end.
                 if (target is PlayerState)
                 {
-                    string normalized = PowerIds.Normalize(power);
-                    PowerInstance? applied = target.Powers.FirstOrDefault(p => p.Id == normalized);
+                    PowerInstance? applied = target.Powers.FirstOrDefault(p => p.Id == normalizedId);
                     if (applied is not null)
                     {
-                        applied.Fresh = true;
+                        if (!existed)
+                        {
+                            applied.Fresh = true;
+                        }
                         applied.Applier ??= monster.Def.Entry;
                     }
                 }
