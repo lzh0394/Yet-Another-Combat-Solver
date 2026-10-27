@@ -353,7 +353,14 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 `SummonIntent` 的近似与 power 实例解析都不是逐字段对拍过的语义（没有对应真机轨迹），只保证
 “遭遇能跑通、不静默失败”；`harness/scenarios/known_gaps/` 里仍保留 thieving_hopper 的偷牌缺口。
 
-### 21. 会话级对拍结果（M5，进行中）
+### 22. 覆盖报告（M5）
+
+`tools/coverage_report.py` 把 `data/sts2/*.json` 的静态覆盖与 `sts2 smoke` 的运行覆盖合并成
+`docs/coverage.md`：卡牌 596 张里结构化 466（可打出 435、不可打出 31，冒烟 0 失败）、
+怪物招式 389 条里完整解析 334、能力 265、遗物 299、遭遇 90（冒烟 64 个可启动）。
+CI 在冒烟之后刷新这份报告。
+
+## 21. 会话级对拍结果（M5，进行中）
 
 | 会话 | 帧数 | 动作数 | 结果 |
 |---|---|---|---|

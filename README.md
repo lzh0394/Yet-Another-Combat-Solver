@@ -486,6 +486,8 @@ W2 = sansb 的 `ironclad_toadpoles_uniform_v1`（68/80 HP、无遗物、两个 T
 | 会话对拍（M5） | `… run --scenario harness/scenarios/necrobinder_session.json …` | 5 角色各 16 场连续遭遇，200–380 动作/局，逐字段 0 差异 |
 | 本地 Web（M8） | `dotnet run --project src/Sts2.Cli -- web --port 5080` | 浏览器人机对弈；`python tools/check_web.py` 冒烟 7 项 |
 
+覆盖现状见 [docs/coverage.md](docs/coverage.md)（由 `python tools/coverage_report.py --smoke artifacts/smoke.txt` 生成，CI 每次都会刷新）。
+
 回放页只读快照：回合/HP/格挡/能量、敌人意图、手牌与五牌堆、逐步动作日志；方向键翻页，
 无外部 CSS/JS/字体，可直接双击打开或放进静态站点。
 

@@ -84,7 +84,13 @@ jobs:
         run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors
 
       - name: Coverage smoke (structured cards, encounters)
-        run: dotnet run --project src/Sts2.Cli -c Release --no-build -- smoke --pack data/sts2
+        run: |
+          mkdir -p artifacts
+          dotnet run --project src/Sts2.Cli -c Release --no-build -- smoke --pack data/sts2 | tee artifacts/smoke.txt
+
+      - name: Coverage report
+        run: python tools/coverage_report.py --smoke artifacts/smoke.txt --out artifacts/coverage.md
+
 
       - name: Local web smoke test
         run: python tools/check_web.py
