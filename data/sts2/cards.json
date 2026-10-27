@@ -11205,14 +11205,16 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "power",
         "target": "target",
         "power": "POWER.STRENGTH_POWER",
         "amount": {
-          "expr": "powerAmount"
+          "negate": {
+            "x": "energy"
+          }
         }
       },
       {
@@ -13577,7 +13579,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -13587,10 +13589,8 @@
         }
       },
       {
-        "op": "draw",
-        "amount": {
-          "expr": "base.Owner"
-        }
+        "op": "draw_until",
+        "filter": "Attack"
       }
     ],
     "calc": null

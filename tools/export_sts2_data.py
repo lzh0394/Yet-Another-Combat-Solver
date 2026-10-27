@@ -1401,6 +1401,9 @@ class Exporter:
             key = arg.strip()
             if key in local_amounts:
                 return local_amounts[key]
+            neg = re.match(r"^-\s*(\w+)$", key)
+            if neg and neg.group(1) in local_amounts:
+                return {"negate": local_amounts[neg.group(1)]}
             return self._effect_amount(arg, ctx)
 
         ops: list[dict] = []
@@ -1472,6 +1475,12 @@ class Exporter:
                             "amount": amount(args[2]),
                         }
                     )
+                elif cmd == "CardPileCmd" and name == "Draw" and ("while" in body[m.start() : m.start() + 400] or "do" in body[max(0, m.start() - 200) : m.start()]):
+                    filt = re.search(r"Type\s*==\s*CardType\.(\w+)", body[m.start() : m.start() + 500])
+                    op = {"op": "draw_until"}
+                    if filt:
+                        op["filter"] = filt.group(1)
+                    ops.append(op)
                 elif cmd == "CardPileCmd" and name == "Draw" and len(args) == 1:
                     # Single-argument overload: draw one card (often inside a `for` over DynamicVars.Cards).
                     count: object = 1

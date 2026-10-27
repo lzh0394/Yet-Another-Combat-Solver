@@ -4,10 +4,10 @@
 
 ## 卡牌
 
-- 总数 596，结构化（`effect_complete: true`）**495**
-- 其中可打出 464、不可打出 31
-- 引擎冒烟：464 张可打出、31 张不可打出、0 张失败
-- op 分布：`power` 251、`damage` 151、`block` 68、`draw` 37、`add_card` 24、`channel` 22、`energy` 20、`move_card` 11、`discard` 9、`upgrade` 9、`stars` 9、`hp_loss` 9、`summon` 8、`evoke` 6、`exhaust_random` 4、`exhaust` 3、`max_hp` 2、`orb_slots` 2、`play_top` 2、`heal` 2、`orb_passive` 2、`orb_remove` 1、`energy_current` 1、`gold` 1、`draw_to` 1、`discard_all` 1、`stun` 1
+- 总数 596，结构化（`effect_complete: true`）**497**
+- 其中可打出 466、不可打出 31
+- 引擎冒烟：466 张可打出、31 张不可打出、0 张失败
+- op 分布：`power` 253、`damage` 152、`block` 68、`draw` 37、`add_card` 24、`channel` 22、`energy` 20、`move_card` 11、`discard` 9、`upgrade` 9、`stars` 9、`hp_loss` 9、`summon` 8、`evoke` 6、`exhaust_random` 4、`exhaust` 3、`max_hp` 2、`orb_slots` 2、`play_top` 2、`heal` 2、`orb_passive` 2、`orb_remove` 1、`energy_current` 1、`gold` 1、`draw_until` 1、`draw_to` 1、`discard_all` 1、`stun` 1
 
 ## 怪物招式
 

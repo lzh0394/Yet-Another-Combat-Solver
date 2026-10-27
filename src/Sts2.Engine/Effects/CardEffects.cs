@@ -97,6 +97,34 @@ public static class CardEffects
                 combat.DrawCards(Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "draw_until":
+            {
+                int guard = 0;
+                while (combat.Player.DrawPile.Count > 0 || combat.Player.DiscardPile.Count > 0)
+                {
+                    if (combat.Player.DrawPile.Count == 0)
+                    {
+                        combat.DrawCards(0);
+                    }
+                    if (combat.Player.DrawPile.Count == 0)
+                    {
+                        break;
+                    }
+                    CardInstance next = combat.Player.DrawPile[0];
+                    combat.DrawCards(1);
+                    if (effect.Filter is null)
+                    {
+                        break;
+                    }
+                    bool still = string.Equals(next.Def.Type, effect.Filter, StringComparison.OrdinalIgnoreCase);
+                    if (!still || ++guard > 60)
+                    {
+                        break;
+                    }
+                }
+                break;
+            }
+
             case "draw_to":
             {
                 int cap = effect.IntAmount == 0 ? 10 : effect.IntAmount;
