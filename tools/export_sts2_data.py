@@ -1042,8 +1042,15 @@ class Exporter:
         return None
 
     def _initial_states(self, info: ClassInfo, body: str, var_to_id: dict[str, str]) -> list[str] | None:
-        """Switch-expression initial states: `return (StarterMoveIdx % 3) switch { 0 => new ..., ... }`."""
-        m = re.search(r"return\s+\([^)]*StarterMoveIdx[^)]*\)\s*switch\s*\{", body)
+        """Switch-expression initial states: `return (StarterMoveIdx % 3) switch { 0 => new ..., ... }`,
+        including the form wrapped in `new MonsterMoveStateMachine(list, (X % 3) switch { 0 => state, ... })`."""
+        m = re.search(
+            r"return\s+(?:new\s+MonsterMoveStateMachine\s*\(\s*\w+\s*,\s*)?"
+            r"\(\s*\(?[^)]*StarterMove\w*[^)]*\)?\s*%\s*\d+\s*\)?\s*switch\s*\{",
+            body,
+        )
+        if not m:
+            m = re.search(r"\(\s*StarterMove\w*\s*%\s*\d+\s*\)\s*switch\s*\{", body)
         if not m:
             return None
         open_pos = body.find("{", m.end() - 1)
@@ -1055,15 +1062,19 @@ class Exporter:
             arm = arm.strip()
             if not arm:
                 continue
-            am = re.match(r"(\d+|_)\s*=>\s*new\s+MonsterMoveStateMachine\s*\(", arm)
+            am = re.match(r"(\d+|_)\s*=>\s*(.+)$", arm, re.S)
             if not am:
                 return None
-            open_paren = arm.find("(", am.end() - 1)
-            close_paren = match_paren(arm, open_paren)
-            args = split_top(arm[open_paren + 1 : close_paren])
-            if len(args) < 2:
-                return None
-            state_var = args[1].strip()
+            value = am.group(2).strip()
+            if value.startswith("new "):
+                open_paren = value.find("(")
+                close_paren = match_paren(value, open_paren)
+                args = split_top(value[open_paren + 1 : close_paren])
+                if len(args) < 2:
+                    return None
+                state_var = args[1].strip()
+            else:
+                state_var = value
             state = var_to_id.get(state_var)
             if state is None:
                 return None

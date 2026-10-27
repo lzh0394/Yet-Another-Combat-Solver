@@ -1126,6 +1126,11 @@
     ],
     "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "WHIP_SLAP_MOVE",
+      "GLOMP_MOVE",
+      "GOOP_MOVE"
+    ],
     "moves": {
       "WHIP_SLAP_MOVE": {
         "kind": "MoveState",
@@ -1564,6 +1569,11 @@
     ],
     "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "WRITHE_MOVE",
+      "BULK_MOVE",
+      "CONSTRICT_MOVE"
+    ],
     "moves": {
       "WRITHE_MOVE": {
         "kind": "MoveState",
@@ -1698,6 +1708,11 @@
     ],
     "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "WRITHE_MOVE",
+      "BULK_MOVE",
+      "CONSTRICT_MOVE"
+    ],
     "moves": {
       "WRITHE_MOVE": {
         "kind": "MoveState",
@@ -1832,6 +1847,11 @@
     ],
     "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "WRITHE_MOVE",
+      "BULK_MOVE",
+      "CONSTRICT_MOVE"
+    ],
     "moves": {
       "WRITHE_MOVE": {
         "kind": "MoveState",
@@ -9051,6 +9071,11 @@
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": null,
+    "initial_states": [
+      "SCRATCH_MOVE",
+      "DISEASE_BITE_MOVE",
+      "SCREECH_MOVE"
+    ],
     "moves": {
       "SCRATCH_MOVE": {
         "kind": "MoveState",

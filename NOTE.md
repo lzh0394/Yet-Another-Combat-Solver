@@ -156,3 +156,30 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 - 新增 0 差异向量：`ironclad_cards_showcase`（Iron Wave/Pommel Strike/Uppercut/Thunderclap/Shrug It Off）、
   `ironclad_slimes_weak_auto`（动态生成 + Slimed）。CI 现在重放 `harness/scenarios/` 下全部场景，
   跳过 `KNOWN_GAPS` 中的 `ironclad_thieving_hopper_weak`（缺 CardDebuff 偷牌）。
+
+## 13. 动态遭遇生成（M5，进行中）
+
+`encounters.json` 里 `monsters: null` 的 12 个遭遇需要在运行时按 RNG 选怪，引擎用
+`src/Sts2.Engine/Combat/EncounterGenerators.cs` 复刻（顺序与源码一致，否则 RNG 消耗不同）：
+
+- `SLIMES_WEAK`（已有）、`SLIMES_NORMAL`（先 `NextBool` 决定小史莱姆顺序，再两个中史莱姆）、
+  `CORPSE_SLUGS_WEAK/NORMAL`（一次 `NextInt(3)`，初始招按 +1 轮转）、
+  `BOWLBUGS_WEAK/NORMAL`（Rock 固定槽位，工人按上限 1 抽）、`FLYCONID_NORMAL`、
+  `SLITHERING_STRANGLER_NORMAL`（三种副怪之一 + 本体）、`RUBY_RAIDERS_NORMAL`（5 选 3 不重复）、
+  `OVICOPTER_NORMAL`、`TWO_TAILED_RATS_NORMAL`（3 只、初始招轮转、槽位 third/fourth/fifth）、
+  `PUNCH_OFF_EVENT_ENCOUNTER`（两只构造体各 `NextInt(2,10)` 扣血，第一只 FAST_PUNCH 起手）、
+  `SCROLLS_OF_BITING_WEAK/NORMAL`（第 4 只固定 `MORE_TEETH`）。
+- 生成器的优先级高于 `monsters` 列表：有些遭遇（如第四只卷轴）需要逐只初始状态，扁平列表表达不了。
+  `EncounterSpawn` 可带 `Starter`/`HpReduction`/`InitialState`。
+- 另外从源码补了怪物 `(StarterMoveIdx % 3) switch` 形式的 `initial_states`（CorpseSlug、
+  TwoTailedRat、ScrollOfBiting、Decimillipede 三段），此前这些怪物的初始状态为空。
+
+新增 0 差异向量：`ironclad_slimes_normal`（4 只怪、先 `NextBool` 再抽中史莱姆）、
+`ironclad_raiders`（5 选 3、三个不同 raider 的招式）。
+
+**已知缺口**（轨迹与场景在 `harness/scenarios/known_gaps/`，不参与 CI）：
+`RavenousPower`（同侧死亡 +力量并眩晕）、玩家侧 Debuff 的递减时机、Flyconid/Strangler 的
+持续伤害差异、Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌。
+
+计划口径（成功标准 3）允许“未结构化/未实现”显式报错；这些缺口目前表现为对拍差异或
+`CombatException`，不会静默通过。

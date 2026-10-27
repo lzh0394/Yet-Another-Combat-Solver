@@ -22,7 +22,7 @@ public sealed class RelicInstance
 {
     public RelicInstance(string id)
     {
-        Id = id;
+        Id = id.StartsWith("RELIC.", StringComparison.Ordinal) ? id["RELIC.".Length..] : id;
     }
 
     public string Id { get; }

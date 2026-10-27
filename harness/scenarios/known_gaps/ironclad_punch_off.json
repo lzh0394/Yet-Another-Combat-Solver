@@ -1,0 +1,31 @@
+{
+  "character": "IRONCLAD",
+  "encounter": "PUNCH_OFF_EVENT_ENCOUNTER",
+  "seed": "PARITY-7",
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

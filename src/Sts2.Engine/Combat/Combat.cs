@@ -74,29 +74,43 @@ public sealed class Combat
 
         EncounterDef encounter = data.Encounter(scenario.Encounter);
         Rng encounterRng = new(unchecked(Rng.Seed + 1UL + StringHash.Deterministic(encounter.Entry)));
-        List<(string Id, string? Slot)>? spawns = encounter.Monsters?
-            .Select(m => (m[0] ?? throw new CombatException("monster id missing"), m.Count > 1 ? m[1] : null))
+        // Recipes win over the packaged list: some encounters need per-spawn starter indices or
+        // fixed initial states that the flat JSON list cannot express (e.g. the fourth Scroll of Biting).
+        List<EncounterSpawn>? spawns = EncounterGenerators.Generate(encounter.Entry, data, encounterRng);
+        spawns ??= encounter.Monsters?
+            .Select(m => new EncounterSpawn(m[0] ?? throw new CombatException("monster id missing"), m.Count > 1 ? m[1] : null))
             .ToList();
-        spawns ??= EncounterGenerators.Generate(encounter.Entry, data, encounterRng)
-            ?? throw new CombatException($"encounter {encounter.Id} has no monster list and no generator");
+        if (spawns is null)
+        {
+            throw new CombatException($"encounter {encounter.Id} has no monster list and no generator");
+        }
         int? starterBase = encounter.StarterRng is { } starterRng ? encounterRng.NextInt(starterRng.Range) : null;
         int combatId = 1;
         int spawnIndex = 0;
-        foreach ((string id, string? slot) in spawns)
+        foreach (EncounterSpawn spawn in spawns)
         {
-            MonsterDef spawnDef = data.Monster(id);
+            MonsterDef spawnDef = data.Monster(spawn.Id);
             MonsterInstance monster = new(spawnDef, combatId++)
             {
-                Slot = slot,
+                Slot = spawn.Slot,
             };
-            if (starterBase is { } baseIndex && encounter.StarterRng is { } sr && spawnIndex < sr.Offsets.Count)
+            if (spawn.Starter is { } explicitStarter)
+            {
+                monster.StarterIdx = explicitStarter;
+            }
+            else if (starterBase is { } baseIndex && encounter.StarterRng is { } sr && spawnIndex < sr.Offsets.Count)
             {
                 monster.StarterIdx = (baseIndex + sr.Offsets[spawnIndex]) % sr.Range;
             }
             RollHp(monster);
-            monster.CurrentState = spawnDef.InitialStates is { Count: > 0 } states && monster.StarterIdx is { } si
-                ? states[si % states.Count]
-                : spawnDef.InitialState ?? "";
+            if (spawn.HpReduction > 0)
+            {
+                monster.Hp = Math.Max(1, monster.Hp - spawn.HpReduction);
+            }
+            monster.CurrentState = spawn.InitialState
+                ?? (spawnDef.InitialStates is { Count: > 0 } states && monster.StarterIdx is { } si
+                    ? states[si % states.Count]
+                    : spawnDef.InitialState ?? "");
             monster.Rng = new Rng(Rng.Seed + (ulong)monster.CombatId);
             Enemies.Add(monster);
             spawnIndex++;
@@ -281,7 +295,6 @@ public sealed class Combat
         Player.DiscardPile.AddRange(Player.Hand);
         Player.Hand.Clear();
 
-        // player end of turn: no powers in the slice
         // enemy turn
         foreach (MonsterInstance monster in Enemies)
         {
