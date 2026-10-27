@@ -191,7 +191,7 @@
       }
     ],
     "start_effect_complete": true,
-    "initial_state": "BOOT_UP_MOVE",
+    "initial_state": "HAMMER_UPPERCUT_MOVE",
     "moves": {
       "BOOT_UP_MOVE": {
         "kind": "MoveState",
@@ -5953,6 +5953,13 @@
           }
         ],
         "effect_complete": true
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "TOXIC_MOVE",
+          "SUCK_MOVE"
+        ]
       }
     }
   },
@@ -6564,6 +6571,15 @@
           }
         ],
         "effect_complete": true
+      },
+      "INIT_MOVE": {
+        "kind": "ConditionalBranchState",
+        "branches": [
+          "FLAIL_MOVE",
+          "BITE_MOVE",
+          "LASH_MOVE",
+          "ENLARGE_MOVE"
+        ]
       }
     }
   },
@@ -6668,7 +6684,7 @@
       }
     ],
     "start_effect_complete": true,
-    "initial_state": null,
+    "initial_state": "READY_MOVE",
     "moves": {
       "READY_MOVE": {
         "kind": "MoveState",
@@ -6846,7 +6862,9 @@
             "target": "unknown",
             "power": "POWER.STRENGTH_POWER",
             "amount": {
-              "expr": "strengthAmount"
+              "base": 1,
+              "ascension": 1,
+              "level": "DEADLY_ENEMIES"
             }
           },
           {
@@ -7306,7 +7324,9 @@
         "target": "self",
         "power": "POWER.PLATING_POWER",
         "amount": {
-          "expr": "valueIfAscension"
+          "base": 8,
+          "ascension": 9,
+          "level": "TOUGH_ENEMIES"
         }
       }
     ],
@@ -10084,7 +10104,7 @@
         "target": "self",
         "power": "POWER.HATCH_POWER",
         "amount": {
-          "expr": "num"
+          "expr": "((base.CombatState.CurrentSide != CombatSide.Enemy) ? 1 : 2)"
         }
       }
     ],
@@ -10495,7 +10515,7 @@
     },
     "start_effects": null,
     "start_effect_complete": true,
-    "initial_state": "RAND",
+    "initial_state": null,
     "initial_states": [
       "SCRATCH_MOVE",
       "DISEASE_BITE_MOVE",

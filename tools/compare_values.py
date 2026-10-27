@@ -155,8 +155,12 @@ def compare_monster(mid: str, exported: dict, oracle: dict, out: dict) -> None:
         out["diffs"].append(f"{mid}.initial_state: {exported['initial_state']!r} != {oracle.get('initial_state')!r}")
     emoves = exported.get("moves") or {}
     omoves = oracle.get("moves") or {}
-    if set(emoves) != set(omoves):
-        out["diffs"].append(f"{mid}.moves keys: {sorted(set(emoves) ^ set(omoves))}")
+    # Branch states (ConditionalBranchState/RandomBranchState) are engine bookkeeping: the oracle
+    # only enumerates concrete MoveStates, so compare the MoveState keys only.
+    e_keys = {k for k, v in emoves.items() if v.get("kind") == "MoveState"}
+    o_keys = {k for k, v in omoves.items() if v.get("kind") == "MoveState"}
+    if e_keys != o_keys:
+        out["diffs"].append(f"{mid}.moves keys: {sorted(e_keys ^ o_keys)}")
     for move_id in sorted(set(emoves) & set(omoves)):
         em, om = emoves[move_id], omoves[move_id]
         if em.get("kind") != om.get("kind"):

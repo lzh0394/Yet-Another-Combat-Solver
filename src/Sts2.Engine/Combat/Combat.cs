@@ -835,11 +835,52 @@ public sealed class Combat
                 _ => Enemies.IndexOf(monster) == 0,
             };
         }
+        else if (e.Contains("CanFabricate", StringComparison.Ordinal)
+            && System.Text.RegularExpressions.Regex.IsMatch(e, "^(CanFabricate|!CanFabricate)$"))
+        {
+            // Fabricator summons while fewer than four allies are alive.
+            result = Enemies.Count(m => m.IsAlive && !ReferenceEquals(m, monster)) < 4;
+        }
+        else if (e.Contains("CanLay", StringComparison.Ordinal)
+            && System.Text.RegularExpressions.Regex.IsMatch(e, "^(CanLay|!CanLay)$"))
+        {
+            result = Enemies.Count(m => m.IsAlive && !ReferenceEquals(m, monster)) <= 3;
+        }
+        else if (System.Text.RegularExpressions.Regex.Match(e, @"HasPower<\s*(\w+)\s*>") is { Success: true } hasPower)
+        {
+            string powerId = PowerIds.Normalize(CamelToScreaming(hasPower.Groups[1].Value));
+            result = monster.PowerAmount(powerId) > 0;
+        }
+        else if (e.Contains("IsOffBalance", StringComparison.Ordinal))
+        {
+            // The off-balance flag flips only inside the unmodeled charge/knock-down moves; the
+            // entry state is balanced, so the default is false.
+            result = false;
+        }
+        else if (e.Contains("HasBeetleCharged", StringComparison.Ordinal))
+        {
+            result = e.Contains("CurrentHp", StringComparison.Ordinal) && monster.Hp * 2 >= monster.MaxHp;
+        }
         else
         {
             throw new CombatException($"unhandled branch condition for {monster.Def.Entry}: {expr}");
         }
         return negate ? !result : result;
+    }
+
+    private static string CamelToScreaming(string name)
+    {
+        System.Text.StringBuilder sb = new();
+        for (int i = 0; i < name.Length; i++)
+        {
+            char c = name[i];
+            if (char.IsUpper(c) && i > 0 && (!char.IsUpper(name[i - 1]) || (i + 1 < name.Length && char.IsLower(name[i + 1]))))
+            {
+                sb.Append('_');
+            }
+            sb.Append(char.ToUpperInvariant(c));
+        }
+        return sb.ToString();
     }
 
     private void AdvanceMove(MonsterInstance monster)
@@ -908,6 +949,10 @@ public sealed class Combat
                     }
                     break;
                 }
+                case "Sleep":
+                case "Hidden":
+                    // Sleep/Hidden turns are pure no-ops for the board state.
+                    break;
                 default:
                     throw new CombatException($"intent {intent.Type} not implemented for {monster.Def.Entry}");
             }

@@ -936,6 +936,7 @@ class Exporter:
             for st in states.values():
                 if "branches" in st:
                     st["branches_conditional"] = True
+        all_states = dict(states)
         registered = self._registered_states(body, var_to_id)
         if registered:
             states = {sid: st for sid, st in states.items() if sid in registered}
@@ -996,6 +997,16 @@ class Exporter:
         initial_states = self._initial_states(info, body, var_to_id)
         if initial_states is not None:
             entry["initial_states"] = initial_states
+        # The entry state and anything it branches to must exist even when it was never added to the
+        # registered list (e.g. Myte starts on an unregistered ConditionalBranchState).
+        referenced = set(states)
+        for st in states.values():
+            referenced.update(st.get("branches") or ())
+        if entry["initial_state"]:
+            referenced.add(entry["initial_state"])
+        for sid in list(referenced):
+            if sid not in states and sid in all_states:
+                states[sid] = all_states[sid]
         entry["moves"] = states
         return entry
 
@@ -1049,7 +1060,9 @@ class Exporter:
             return None
         # Several returns mean the entry state depends on a runtime branch (e.g. Axebot's boot-up
         # variant); take the first one so the monster stays playable and document it as approximate.
-        rm = returns[0]
+        # Multiple returns mean the entry state depends on a runtime branch; the game records the
+        # last return (the fallback path), so mirror that instead of the first one.
+        rm = returns[-1]
         open_pos = rm.end() - 1
         close = match_paren(body, open_pos)
         args = split_top(body[open_pos + 1 : close])
@@ -1058,6 +1071,14 @@ class Exporter:
         second = args[1].strip()
         if second in var_to_id:
             return var_to_id[second]
+        q = find_top_level(second, "?")
+        if q > 0:
+            colon = find_top_level(second[q + 1 :], ":")
+            if colon > 0:
+                # `StartsWithFastPunch ? moveState3 : moveState`: the false branch is the A0 default.
+                fallback = second[q + 2 + colon :].strip()
+                if fallback in var_to_id:
+                    return var_to_id[fallback]
         if second.startswith("new "):
             inner = second[second.find("(") + 1 :]
             return self._literal_str(info, split_top(inner)[0]) if inner else None
@@ -1252,7 +1273,7 @@ class Exporter:
                             "op": "power",
                             "target": tgt,
                             "power": "POWER." + camel_to_screaming(power.split(".")[-1]),
-                            "amount": self._effect_amount(args[2], owner),
+                            "amount": locals_.get(args[2].strip()) or self._effect_amount(args[2], owner),
                         }
                     )
                 handled.append((m.start(), close))

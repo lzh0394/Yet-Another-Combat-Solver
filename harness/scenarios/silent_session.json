@@ -1,0 +1,2007 @@
+{
+  "character": "SILENT",
+  "seed": "PARITY-SESSION-1",
+  "policy_seed": 2100,
+  "encounters": [
+    {
+      "encounter": "NIBBITS_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "SEAPUNK_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "FUZZY_WURM_CRAWLER_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "TOADPOLES_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "NIBBITS_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "SEAPUNK_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "FUZZY_WURM_CRAWLER_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "TOADPOLES_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "NIBBITS_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "SEAPUNK_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "FUZZY_WURM_CRAWLER_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "TOADPOLES_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "NIBBITS_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "SEAPUNK_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "FUZZY_WURM_CRAWLER_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    },
+    {
+      "encounter": "TOADPOLES_WEAK",
+      "actions": [
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        },
+        {
+          "type": "random_play"
+        }
+      ]
+    }
+  ]
+}

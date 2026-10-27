@@ -324,3 +324,31 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 两侧行为一致即可对拍；如果以后要模拟真实 run 的跨场状态，需要引擎引入 run 级状态。
 
 **录制命令**：`python harness/run_session.py harness/scenarios/ironclad_session.json --no-build`。
+
+### 20. 遭遇覆盖与条件谓词（M5，进行中）
+
+`sts2 smoke --pack data/sts2` 会遍历所有 `RoomType == Monster` 的遭遇：建场、跑 12 个随机动作，
+捕获异常。当前 **58 个可启动 / 6 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`
+与 `DEPRECATED_ENCOUNTER` 属于事件/废弃内容，已在冒烟里显式排除）。
+
+为让这批遭遇能起步，引擎补了几条**近似谓词**（`Combat.EvalCondition`）：
+
+- `CanFabricate` → 存活队友 < 4；`CanLay` → 存活队友 ≤ 3（与源码的 `GetTeammatesOf(...).Count` 对应）。
+- `IsOffBalance` → 恒 false（该标志只在未建模的充能/击倒招式里翻转；起始态是平衡态）。
+- `HasBeetleCharged` → 若表达式含 `CurrentHp` 则退化为 `Hp*2 >= MaxHp`，否则 false。
+- `base.Creature.HasPower<XPower>()` → `PowerAmount(X_POWER) > 0`。
+- `Sleep`/`Hidden` 意图 → 空过一回合。
+
+仍显式不支持的 6 个：4 个 `Summon` 意图（FABRICATOR、FOGMOG、THE_OBSCURA、TWO_TAILED_RAT）与
+GREMLIN_MERC/THIEVING_HOPPER 的未解析 power 效果。它们会以 `NotSupportedException` 报出，不静默。
+
+### 21. 会话级对拍结果（M5，进行中）
+
+| 会话 | 帧数 | 动作数 | 结果 |
+|---|---|---|---|
+| ironclad_session | 220 | 204 | 逐字段一致 |
+| silent_session | 396 | 380 | 逐字段一致 |
+| regent_session | 216 | 200 | 逐字段一致 |
+
+会话都是 16 场（4 个弱遭遇 × 4 轮），每场 40 个 `random_play` 上限。defect/necrobinder 两个会话
+的录制脚本仍在后台跑，完成后补进来。

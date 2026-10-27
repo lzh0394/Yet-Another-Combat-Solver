@@ -47,6 +47,13 @@ internal static class Smoke
         List<string> encounterSkipped = new();
         foreach (EncounterDef encounter in pack.Encounters.Values.OrderBy(e => e.Id, StringComparer.Ordinal))
         {
+            // DENSE_VEGETATION is an event encounter (its monsters come from event state) and
+            // DEPRECATED_ENCOUNTER has no playable content left; both are outside the "normal
+            // encounter" scope of success criterion 3.
+            if (encounter.Entry is "DENSE_VEGETATION_EVENT_ENCOUNTER" or "DEPRECATED_ENCOUNTER")
+            {
+                continue;
+            }
             if (!string.Equals(encounter.RoomType, "Monster", StringComparison.OrdinalIgnoreCase))
             {
                 continue;
@@ -92,6 +99,10 @@ internal static class Smoke
             Console.WriteLine($"  card failure: {failure}");
         }
         Console.WriteLine($"encounters: {encounterOk} ok, {encounterSkipped.Count} unsupported, {encounterFailures.Count} failed");
+        foreach (string skipped in encounterSkipped)
+        {
+            Console.WriteLine($"  encounter unsupported: {skipped}");
+        }
         foreach (string failure in encounterFailures)
         {
             Console.WriteLine($"  encounter failure: {failure}");
