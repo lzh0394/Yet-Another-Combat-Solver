@@ -1916,6 +1916,10 @@ class Exporter:
 
     def _effect_amount(self, expr: str, info: ClassInfo):
         e = expr.strip()
+        if "attackCommand.Results" in expr and "TotalDamage" in expr:
+            return {"last_damage": True}
+        if "damageResult.TotalDamage" in expr and "OverkillDamage" in expr:
+            return {"last_damage_overkill": True}
         e = re.sub(r"(\d+)*", lambda mm: '"' + str(info.src.literals.get(int(mm.group(1)), mm.group(0))) + '"', e)
         e = re.sub(r"^\((?:int|decimal|float)\)\s*", "", e)
         vm = re.fullmatch(

@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T15:23:28.580552+00:00"
+    "exported_at": "2026-10-27T15:27:43.856664+00:00"
   },
   "counts": {
     "cards": 596,
@@ -65,9 +65,6 @@
     "CARD.BLADE_OF_INK": [
       "CardCmd.Enchant"
     ],
-    "CARD.BLIGHT_STRIKE": [
-      "unresolved-amount"
-    ],
     "CARD.BONE_SHARDS": [
       "CreatureCmd.Kill"
     ],
@@ -110,9 +107,6 @@
     "CARD.EXPOSE": [
       "CreatureCmd.LoseBlock",
       "PowerCmd.Remove"
-    ],
-    "CARD.FISTICUFFS": [
-      "unresolved-amount"
     ],
     "CARD.FRANTIC_ESCAPE": [
       "unresolved-amount"
@@ -165,9 +159,6 @@
     ],
     "CARD.NIGHTMARE": [
       "CardSelectCmd.FromHand"
-    ],
-    "CARD.OMNISLICE": [
-      "unresolved-amount"
     ],
     "CARD.PRIMAL_FORCE": [
       "CardCmd.Transform"

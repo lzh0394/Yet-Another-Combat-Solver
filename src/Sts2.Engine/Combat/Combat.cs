@@ -1068,6 +1068,12 @@ public sealed class Combat
     /// <summary>Cards removed by the most recent whole-hand discard (Storm of Steel).</summary>
     public int LastDiscardedCount { get; set; }
 
+    /// <summary>Unblocked damage dealt by the most recent card damage effect (Blight Strike / Omnislice).</summary>
+    public int LastDamageDealt { get; set; }
+
+    /// <summary>Overkill damage from that same effect.</summary>
+    public int LastDamageOverkill { get; set; }
+
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;
 

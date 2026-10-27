@@ -47,13 +47,24 @@ public static class CardEffects
                 {
                     hits = ConditionalHits(combat, card, hitsIf, target);
                 }
+                int dealt = 0;
+                int overkill = 0;
                 foreach (MonsterInstance monster in DamageTargets(combat, card, effect, target))
                 {
                     for (int i = 0; i < hits && monster.IsAlive; i++)
                     {
+                        int hpBefore = monster.Hp;
+                        int blockBefore = monster.Block;
                         Damage.Attack(combat, combat.Player, monster, amount);
+                        dealt += Math.Max(0, hpBefore - monster.Hp);
+                        if (monster.Hp <= 0 && amount > blockBefore + hpBefore)
+                        {
+                            overkill += amount - blockBefore - hpBefore;
+                        }
                     }
                 }
+                combat.LastDamageDealt = dealt;
+                combat.LastDamageOverkill = overkill;
                 break;
             }
 
@@ -707,6 +718,18 @@ public static class CardEffects
             decimal baseValue = card.Var(calc.Base);
             decimal extra = card.Var(calc.Extra);
             return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target));
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("last_damage", out System.Text.Json.JsonElement lastDamage) &&
+            lastDamage.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            return combat.LastDamageDealt;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("last_damage_overkill", out System.Text.Json.JsonElement lastDamageOverkill) &&
+            lastDamageOverkill.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            return combat.LastDamageDealt + combat.LastDamageOverkill;
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("scale", out System.Text.Json.JsonElement scaleName))

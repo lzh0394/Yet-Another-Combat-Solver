@@ -1681,7 +1681,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -1695,7 +1695,7 @@
         "target": "target",
         "power": "POWER.DOOM_POWER",
         "amount": {
-          "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage)"
+          "last_damage": true
         }
       }
     ],
@@ -7443,7 +7443,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -7456,7 +7456,7 @@
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage + r.OverkillDamage)"
+          "last_damage": true
         }
       }
     ],
@@ -12925,7 +12925,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "hp_loss",
@@ -12938,7 +12938,7 @@
         "op": "hp_loss",
         "target": "unknown",
         "amount": {
-          "expr": "damageResult.TotalDamage + damageResult.OverkillDamage"
+          "last_damage_overkill": true
         }
       }
     ],
