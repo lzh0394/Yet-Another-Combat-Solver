@@ -16,6 +16,9 @@ public sealed class PowerInstance
 
     /// <summary>Applied during the enemy side's turn; skips the very next end-of-side tick.</summary>
     public bool Fresh { get; set; }
+
+    /// <summary>Monster entry that applied this debuff, when it matters (ConstrictPower).</summary>
+    public string? Applier { get; set; }
 }
 
 public sealed class RelicInstance

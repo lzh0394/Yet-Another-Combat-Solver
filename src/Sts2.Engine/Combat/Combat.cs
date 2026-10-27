@@ -30,6 +30,7 @@ public sealed class Combat
     public const string RampartPower = "RAMPART_POWER";
     public const string PaperCutsPower = "PAPER_CUTS_POWER";
     public const string BurrowedPower = "BURROWED_POWER";
+    public const string ConstrictPower = "CONSTRICT_POWER";
 
     private readonly DataPack _data;
     private readonly EncounterDef _encounter;
@@ -518,6 +519,26 @@ public sealed class Combat
         Player.Hand.Clear();
         Player.Hand.AddRange(retained);
 
+        // ConstrictPower.AfterSideTurnEnd fires when the owner's own side ends its turn. It is
+        // Unpowered damage from the owner to itself, so block absorbs it and no powers modify it.
+        int constrict = Player.PowerAmount(ConstrictPower);
+        if (constrict > 0)
+        {
+            int constrictLoss = Rules.Damage.Apply(Player.Block, Player.Hp, constrict, out int blockAfterConstrict);
+            Player.Block = blockAfterConstrict;
+            Player.Hp = Math.Max(0, Player.Hp - constrictLoss);
+            if (constrictLoss > 0)
+            {
+                PlayerLostHpThisTurn = true;
+            }
+            if (PlayerDead)
+            {
+                _side = CombatSide.Enemy;
+                LastActionType = "end_turn";
+                return;
+            }
+        }
+
         // enemy turn
         foreach (MonsterInstance monster in Enemies)
         {
@@ -535,7 +556,13 @@ public sealed class Combat
                 continue;
             }
             ExecuteMonsterTurn(monster);
-            Enemies.RemoveAll(e => !e.IsAlive);
+            int removed = Enemies.RemoveAll(e => !e.IsAlive);
+            if (removed > 0)
+            {
+                // ConstrictPower.AfterDeath: the debuff goes away with the monster that applied it.
+                Player.Powers.RemoveAll(p => p.Id == ConstrictPower
+                    && !Enemies.Any(e => e.IsAlive && e.Def.Entry == p.Applier));
+            }
             if (PlayerDead || CombatOver)
             {
                 break;
@@ -1177,6 +1204,7 @@ public sealed class Combat
                     if (applied is not null)
                     {
                         applied.Fresh = true;
+                        applied.Applier ??= monster.Def.Entry;
                     }
                 }
                 if (PowerIds.Normalize(power) == RitualPower && target == monster)

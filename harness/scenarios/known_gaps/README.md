@@ -19,10 +19,12 @@ python tools/compare_snapshots.py \
 | `ironclad_thieving_hopper_weak` | `CardDebuffIntent` 偷牌（按稀有度从抽/弃牌堆选卡移出战斗），逃脱时带走 |
 | `ironclad_corpse_slugs_weak` | `RavenousPower`：同侧怪物死亡时存活者 +4 力量并眩晕一回合（`CreatureCmd.Stun`） |
 | `ironclad_punch_off` | 玩家侧 Debuff 的层数递减时机（真机在玩家回合结束时递减，引擎目前在敌方回合结束统一递减） |
-| `ironclad_strangler` | 同上（玩家侧 Debuff 持续时间导致伤害差异） |
 | `ironclad_ovicopter` | Ovicopter 的召唤（ToughEgg）与 `Rng.Niche` 消耗顺序 |
 | `ironclad_nibbits_a1` | 胜利结算时的能量：真机保留击杀后剩余 1 点，引擎按 A4/A5/A9/A10 的样本清零；A1 之外所有样本都恰好花光能量，无法区分两种口径 |
 
 > `ironclad_flyconid` 已在第 18 轮修复并移回顶层：真机在玩家侧施加 Debuff 时置
 > `SkipNextDurationTick`，而 Frail 也需要在敌方回合结束递减（引擎此前只递减 Weak/Vulnerable，
 > 导致玩家身上的 Frail 永不过期）。充能球、Osty、星辰三个场景也早已修好并移回顶层。
+
+> `ironclad_strangler` 已在第 19 轮修复：`ConstrictPower.AfterSideTurnEnd` 在**拥有者自己一侧**回合结束时
+> 造成等量 Unpowered 伤害（可被格挡，由拥有者对自己结算），施加者死亡时移除该 Debuff。

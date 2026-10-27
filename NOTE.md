@@ -178,12 +178,16 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 `ironclad_raiders`（5 选 3、三个不同 raider 的招式）。
 
 **已知缺口**（轨迹与场景在 `harness/scenarios/known_gaps/`，不参与 CI）：
-`RavenousPower`（同侧死亡 +力量并眩晕）、`ConstrictPower`（Strangler 的持续伤害）、
-Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌、A1 胜利后的能量口径。
+`RavenousPower`（同侧死亡 +力量并眩晕）、Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌、
+A1 胜利后的能量口径。
 
 Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里对**玩家侧**的 Debuff 置
 `SkipNextDurationTick`，而 `FrailPower` 和 Weak/Vulnerable 一样在敌方回合结束时递减——
 引擎此前只递减 Weak/Vulnerable，玩家身上的 Frail 会永不过期。
+
+Strangler 的 `ConstrictPower` 也在第 19 轮补上：`AfterSideTurnEnd` 只在**拥有者自己一侧**结束回合时
+结算（玩家侧回合结束→玩家回合末结算），伤害是 Unpowered、可被格挡、由拥有者对自己结算；
+`AfterDeath` 里施加者死亡时移除该 Debuff（引擎在 `PowerInstance.Applier` 记录施加者 entry）。
 
 计划口径（成功标准 3）允许“未结构化/未实现”显式报错；这些缺口目前表现为对拍差异或
 `CombatException`，不会静默通过。
