@@ -180,6 +180,27 @@ public static class CardEffects
                 break;
             }
 
+            case "discard_all":
+                while (combat.Player.Hand.Count > 0)
+                {
+                    CardInstance held = combat.Player.Hand[0];
+                    combat.Player.Hand.RemoveAt(0);
+                    combat.Player.DiscardPile.Add(held);
+                }
+                break;
+
+            case "orb_slots":
+                combat.OrbCapacity += Amount(combat, card, effect.Amount);
+                break;
+
+            case "power_modify":
+                if (effect.Power is null || effect.Power.EndsWith("UNRESOLVED", StringComparison.Ordinal))
+                {
+                    throw new CombatException($"{card.Entry}: unresolved power_modify");
+                }
+                combat.Player.AddPower(effect.Power, Amount(combat, card, effect.Amount));
+                break;
+
             case "hp_loss":
                 // Unblockable self-damage (Bloodletting et al.); power hooks do not apply.
                 combat.Player.Hp = Math.Max(0, combat.Player.Hp - Amount(combat, card, effect.Amount));

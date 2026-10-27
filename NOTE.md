@@ -329,7 +329,8 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 
 新支持的 op：`hp_loss`（Bloodletting 式不可格挡自伤）、`add_card`（Anger 式克隆本卡入堆）、
 `CardSelectCmd.FromHand` 的弃牌/消耗（按提示词区分）、`upgrade`（Armaments/Apotheosis 式手牌升级）、
-`move_card`（Dredge 式从弃牌堆挑牌回手）、`{"x":"energy"}`（X 费卡的 X 值）。
+`move_card`（Dredge 式从弃牌堆挑牌回手）、`{"x":"energy"}`（X 费卡的 X 值）、`discard_all`（弃整手）、
+`orb_slots`（Capacitor 式扩球位）、`power_modify`、以及 `<Type>.CreateInHand` 生成的衍生卡（Shiv 系列）。
 
 `sts2 smoke --pack data/sts2` 会遍历所有 `RoomType == Monster` 的遭遇：建场、跑 12 个随机动作，
 捕获异常。当前 **64 个可启动 / 0 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`

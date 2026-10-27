@@ -54,6 +54,7 @@ public sealed class Combat
         }
 
         Player.Energy = scenario.Energy ?? Player.MaxEnergy;
+        OrbCapacity = Player.Id == "DEFECT" ? 3 : 0;
 
         foreach (string relic in scenario.Relics ?? character.StartingRelics)
         {
@@ -330,7 +331,8 @@ public sealed class Combat
         }
     }
 
-    private int OrbCapacity => Player.Id == "DEFECT" ? 3 : 0;
+    /// <summary>Number of orb slots; Defect starts with three and cards such as Capacitor add more.</summary>
+    public int OrbCapacity { get; set; }
 
     public void ChannelOrb(string orb)
     {

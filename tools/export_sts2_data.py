@@ -1292,6 +1292,13 @@ class Exporter:
             except Exception:
                 ops.append({"op": f"{cmd}.{name}", "unresolved": True, "error": str(sys.exc_info()[1])})
 
+        for m in re.finditer(r"(\w+)\.CreateInHand\s*\(", body):
+            kind = m.group(1)
+            count = 1
+            if re.search(r"for\s*\([^)]*<\s*base\.DynamicVars\.Cards", body):
+                count = {"var": "Cards"}
+            ops.append({"op": "add_card", "card": "CARD." + camel_to_screaming(kind), "pile": "Hand", "count": count})
+
         unsupported: list[str] = []
         for m in re.finditer(r"\b(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
             cmd = m.group(1)
@@ -1419,6 +1426,13 @@ class Exporter:
                         ops.append({"op": "upgrade", "target": "all", "count": 9999})
                     else:
                         ops.append({"op": "upgrade", "target": "hand", "count": 1, "pick": "first"})
+                elif cmd == "CardCmd" and name == "Discard" and args and ".Cards" in args[1] and "FromHand" not in body:
+                    ops.append({"op": "discard_all", "target": "hand"})
+                elif cmd == "OrbCmd" and name == "AddSlots" and args:
+                    ops.append({"op": "orb_slots", "amount": amount(args[-1])})
+                elif cmd == "PowerCmd" and name == "ModifyAmount":
+                    pm2 = re.search(r"ModifyAmount<\s*(\w+)\s*>", body[open_pos - 60 : close + 1])
+                    ops.append({"op": "power_modify", "power": "POWER." + camel_to_screaming(pm2.group(1)) if pm2 else "POWER.UNRESOLVED", "amount": amount(args[-1])})
                 elif cmd == "CardSelectCmd" and name == "FromHand" and args:
                     # Named-argument form: FromHand(prefs: new CardSelectorPrefs(..., N), context: ...).
                     count = 1

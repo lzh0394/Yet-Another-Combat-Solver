@@ -2838,8 +2838,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "orb_slots",
+        "amount": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.CAPTURE_SPIRIT": {
     "id": "CARD.CAPTURE_SPIRIT",
@@ -7546,7 +7553,15 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power_modify",
+        "power": "POWER.UNRESOLVED",
+        "amount": {
+          "expr": "this"
+        }
+      }
+    ]
   },
   "CARD.FRIENDSHIP": {
     "id": "CARD.FRIENDSHIP",
@@ -9459,6 +9474,13 @@
     "multimodal": false,
     "effect_complete": false,
     "effect": [
+      {
+        "op": "power_modify",
+        "power": "POWER.UNRESOLVED",
+        "amount": {
+          "expr": "this"
+        }
+      },
       {
         "op": "power",
         "target": "self",
@@ -11480,6 +11502,13 @@
         }
       },
       {
+        "op": "power_modify",
+        "power": "POWER.UNRESOLVED",
+        "amount": {
+          "expr": "this"
+        }
+      },
+      {
         "op": "power",
         "target": "unknown",
         "power": "POWER.",
@@ -11511,8 +11540,14 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "orb_slots",
+        "amount": {
+          "var": "Repeat"
+        }
+      },
       {
         "op": "draw",
         "amount": {
@@ -15611,8 +15646,12 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "discard_all",
+        "target": "hand"
+      },
       {
         "op": "power",
         "target": "self",
