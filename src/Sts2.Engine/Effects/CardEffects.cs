@@ -492,6 +492,56 @@ public static class CardEffects
                 combat.SummonOsty(Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "end_turn":
+                combat.RequestEndTurn = true;
+                break;
+            case "lose_block":
+            {
+                if (effect.Target == "all_enemies")
+                {
+                    foreach (MonsterInstance m in combat.Enemies.ToList())
+                    {
+                        m.Block = 0;
+                    }
+                }
+                else if (target is not null)
+                {
+                    target.Block = 0;
+                }
+                else
+                {
+                    combat.Player.Block = 0;
+                }
+                break;
+            }
+            case "remove_power":
+            {
+                string id = PowerIds.Normalize(effect.Power ?? "");
+                if (effect.Target == "all_enemies")
+                {
+                    foreach (MonsterInstance m in combat.Enemies)
+                    {
+                        m.Powers.RemoveAll(power => power.Id == id);
+                    }
+                }
+                else if (target is not null)
+                {
+                    target.Powers.RemoveAll(power => power.Id == id);
+                }
+                break;
+            }
+            case "kill_osty":
+                combat.KillOsty();
+                break;
+            case "draw_retained":
+            {
+                int count = Math.Max(0, Amount(combat, card, effect.Amount, target));
+                foreach (CardInstance drawn in combat.DrawCards(count))
+                {
+                    drawn.RetainThisTurn = true;
+                }
+                break;
+            }
             case "stars":
             {
                 int gained = Amount(combat, card, effect.Amount, target);

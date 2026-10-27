@@ -2022,7 +2022,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -2037,6 +2037,9 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "kill_osty"
       }
     ],
     "calc": null
@@ -5944,7 +5947,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -6746,10 +6749,10 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
-        "op": "draw",
+        "op": "draw_retained",
         "amount": 1
       }
     ],
@@ -6778,8 +6781,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "lose_block",
+        "target": "target"
+      },
+      {
+        "op": "remove_power",
+        "power": "POWER.ARTIFACT_POWER",
+        "target": "target"
+      },
       {
         "op": "power",
         "target": "target",
@@ -15709,6 +15721,9 @@
     "effect_complete": false,
     "effect": [
       {
+        "op": "kill_osty"
+      },
+      {
         "op": "block",
         "target": "self",
         "amount": {
@@ -20453,7 +20468,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "power",
@@ -20462,6 +20477,9 @@
         "amount": {
           "var": "VoidFormPower"
         }
+      },
+      {
+        "op": "end_turn"
       }
     ],
     "calc": null

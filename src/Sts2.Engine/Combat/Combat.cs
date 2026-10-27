@@ -246,6 +246,8 @@ public sealed class Combat
         }
 
         Player.PlayPile.Remove(card);
+        bool endTurn = RequestEndTurn;
+        RequestEndTurn = false;
         if (card.Keywords.Contains("Exhaust", StringComparer.Ordinal))
         {
             Player.ExhaustPile.Add(card);
@@ -256,6 +258,10 @@ public sealed class Combat
         }
 
         Invariants.Check(this);
+        if (endTurn && !CombatOver)
+        {
+            EndTurn(actionIndex);
+        }
     }
 
     /// <summary>
@@ -494,8 +500,9 @@ public sealed class Combat
         List<CardInstance> retained = new();
         foreach (CardInstance card in Player.Hand)
         {
-            if (card.HasKeyword("Retain"))
+            if (card.RetainThisTurn || card.HasKeyword("Retain"))
             {
+                card.RetainThisTurn = false;
                 retained.Add(card);
             }
             else if (card.HasKeyword("Ethereal"))
@@ -1084,6 +1091,14 @@ public sealed class Combat
     public int StarsGainedTotal { get; set; }
     public int DamageReceivedEvents { get; set; }
     public int AttacksReceivedEvents { get; set; }
+
+    /// <summary>Set by card effects (Void Form) to end the turn after the card resolves.</summary>
+    public bool RequestEndTurn { get; set; }
+
+    public void KillOsty()
+    {
+        Player.OstyHp = 0;
+    }
 
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;

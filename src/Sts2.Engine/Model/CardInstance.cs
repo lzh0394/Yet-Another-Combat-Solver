@@ -27,6 +27,9 @@ public sealed class CardInstance
 
     public string TargetType => Def.Target ?? "None";
 
+    /// <summary>Retain for the current turn only (Expertise); cleared when the turn ends.</summary>
+    public bool RetainThisTurn { get; set; }
+
     private readonly HashSet<string> _extraKeywords = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>Combat-only keyword added by effects such as Sculpting Strike (Ethereal) or Snap (Retain).</summary>

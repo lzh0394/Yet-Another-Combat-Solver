@@ -1679,6 +1679,24 @@ class Exporter:
                         count = int(pm.group(1))
                     ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
                     mark(r"CardCmd\.(?:Discard|Exhaust)\s*\(")
+                elif cmd == "PlayerCmd" and name == "EndTurn":
+                    ops.append({"op": "end_turn"})
+                elif cmd == "CreatureCmd" and name == "LoseBlock" and len(args) >= 2:
+                    ops.append({"op": "lose_block", "target": "target" if "cardPlay.Target" in args[1] else "self"})
+                elif cmd == "PowerCmd" and name == "Remove" and args:
+                    power = (m.group(3) or "").strip("<> ")
+                    tgt = "target" if "cardPlay.Target" in args[0] else "self"
+                    ops.append(
+                        {
+                            "op": "remove_power",
+                            "power": "POWER." + camel_to_screaming(power.split(".")[-1]),
+                            "target": tgt,
+                        }
+                    )
+                elif cmd == "CreatureCmd" and name == "Kill" and args:
+                    ops.append({"op": "kill_osty"})
+                elif cmd in ("CardCmd",) and name in ("Preview",):
+                    pass
                 elif cmd == "CreatureCmd" and name in ("TriggerAnim", "PlayVfx", "PlaySound", "TriggerAnimations"):
                     # Presentation-only commands; they carry no combat state.
                     pass
@@ -1768,6 +1786,16 @@ class Exporter:
             if g_close > 0:
                 handled.append((gamble.start(), g_close))
             ops.append({"op": "discard_hand_draw", "count": {"hand": True}})
+
+        # Expertise: the cards drawn by the effect are retained for this turn only.
+        if "CardCmd.ApplySingleTurnRetain" in body:
+            for opx in ops:
+                if opx["op"] == "draw":
+                    opx["op"] = "draw_retained"
+            for mm in re.finditer(r"CardCmd\s*\.\s*ApplySingleTurnRetain\s*\(", body):
+                close = match_paren(body, mm.end() - 1)
+                if close > 0:
+                    handled.append((mm.start(), close))
 
         # All For One: after the damage, every 0-cost card in the discard pile returns to hand.
         if re.search(r"PileType\.Discard\.GetPile\([^)]*\)\.Cards\s*\.Where\(Filter\)", body):
