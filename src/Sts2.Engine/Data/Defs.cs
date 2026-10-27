@@ -81,6 +81,8 @@ public sealed class EffectDef
     public string? Power { get; set; }
     public JsonElement? Hits { get; set; }
     public string? Card { get; set; }
+    public string? Orb { get; set; }
+    public bool? Dequeue { get; set; }
     public string? Pile { get; set; }
     public JsonElement? Count { get; set; }
 

@@ -102,6 +102,21 @@ public static class CardEffects
                 break;
             }
 
+            case "channel":
+                combat.ChannelOrb(effect.Orb ?? throw new CombatException($"{card.Entry}: channel op without orb"));
+                break;
+
+            case "evoke":
+            {
+                int count = effect.Count is null ? 1 : Amount(card, effect.Count);
+                bool dequeue = effect.Dequeue ?? true;
+                for (int i = 0; i < count; i++)
+                {
+                    combat.EvokeFrontOrb(dequeue && i == count - 1);
+                }
+                break;
+            }
+
             case "stars":
                 combat.Player.Stars += Amount(card, effect.Amount);
                 break;

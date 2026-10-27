@@ -143,6 +143,11 @@ public sealed class Combat
         Turn = 1;
         Round = 1;
         DrawCards(5);
+        if (HasRelic("CRACKED_CORE"))
+        {
+            // Cracked Core channels a Lightning orb when combat starts.
+            ChannelOrb("LIGHTNING");
+        }
         if (HasRelic("DIVINE_RIGHT"))
         {
             // Divine Right grants three stars when combat starts.
@@ -265,6 +270,61 @@ public sealed class Combat
         EndTurn(actionIndex);
     }
 
+    private int OrbCapacity => Player.Id == "DEFECT" ? 3 : 0;
+
+    public void ChannelOrb(string orb)
+    {
+        if (Player.Orbs.Count >= OrbCapacity)
+        {
+            EvokeFrontOrb(dequeue: true);
+        }
+        Player.Orbs.Add(orb);
+    }
+
+    public void EvokeFrontOrb(bool dequeue)
+    {
+        if (Player.Orbs.Count == 0)
+        {
+            return;
+        }
+        string orb = Player.Orbs[0];
+        if (orb == "LIGHTNING")
+        {
+            TriggerOrbDamage(8);
+        }
+        if (dequeue)
+        {
+            Player.Orbs.RemoveAt(0);
+        }
+    }
+
+    private void TriggerOrbPassives()
+    {
+        foreach (string orb in Player.Orbs.ToList())
+        {
+            if (orb == "LIGHTNING")
+            {
+                TriggerOrbDamage(3);
+            }
+        }
+    }
+
+    /// <summary>Lightning is an unpowered hit: no strength, no vulnerable multiplier, random target.</summary>
+    private void TriggerOrbDamage(int amount)
+    {
+        List<MonsterInstance> alive = Enemies.Where(e => e.IsAlive).ToList();
+        if (alive.Count == 0)
+        {
+            return;
+        }
+        int index = Rng.CombatTargets.NextInt(alive.Count);
+        MonsterInstance target = alive[index];
+        int block = Rules.Damage.Apply(target.Block, target.Hp, amount, out int newBlock);
+        target.Block = newBlock;
+        target.Hp = Math.Max(0, target.Hp - block);
+        Enemies.RemoveAll(e => !e.IsAlive);
+    }
+
     private bool HasRelic(string entry)
         => Player.Relics.Any(r => r.Id == entry || r.Id == "RELIC." + entry);
 
@@ -322,6 +382,8 @@ public sealed class Combat
         {
             throw new CombatException("combat is over");
         }
+
+        TriggerOrbPassives();
 
         // discard hand; Ethereal cards exhaust instead
         foreach (CardInstance card in Player.Hand)

@@ -899,6 +899,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "LIGHTNING"
       }
     ]
   },
@@ -2951,8 +2955,13 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "FROST"
+      }
+    ]
   },
   "CARD.CINDER": {
     "id": "CARD.CINDER",
@@ -3183,6 +3192,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "FROST"
       }
     ]
   },
@@ -3553,6 +3566,10 @@
     "effect_complete": true,
     "effect": [
       {
+        "op": "channel",
+        "orb": "DARK"
+      },
+      {
         "op": "power",
         "target": "self",
         "power": "POWER.CONSUMING_SHADOW_POWER",
@@ -3662,6 +3679,10 @@
     "multimodal": false,
     "effect_complete": true,
     "effect": [
+      {
+        "op": "channel",
+        "orb": "FROST"
+      },
       {
         "op": "draw",
         "amount": {
@@ -4165,7 +4186,12 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "DARK"
+      }
+    ]
   },
   "CARD.DARK_EMBRACE": {
     "id": "CARD.DARK_EMBRACE",
@@ -5533,8 +5559,19 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": false
+      },
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": true
+      }
+    ]
   },
   "CARD.DUAL_WIELD": {
     "id": "CARD.DUAL_WIELD",
@@ -7451,8 +7488,13 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "PLASMA"
+      }
+    ]
   },
   "CARD.GAMMA_BLAST": {
     "id": "CARD.GAMMA_BLAST",
@@ -7706,6 +7748,10 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "FROST"
       }
     ]
   },
@@ -7736,6 +7782,10 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "GLASS"
       }
     ]
   },
@@ -8746,6 +8796,10 @@
         "target": "self",
         "power": "POWER.HIBERNATE_POWER",
         "amount": 1
+      },
+      {
+        "op": "channel",
+        "orb": "FROST"
       }
     ]
   },
@@ -9074,6 +9128,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "FROST"
       }
     ]
   },
@@ -9093,8 +9151,13 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "PLASMA"
+      }
+    ]
   },
   "CARD.IMITATION_LEARNING": {
     "id": "CARD.IMITATION_LEARNING",
@@ -10759,6 +10822,10 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "PLASMA"
       }
     ]
   },
@@ -11255,8 +11322,14 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": true
+      }
+    ]
   },
   "CARD.MURDER": {
     "id": "CARD.MURDER",
@@ -11751,6 +11824,10 @@
         "amount": {
           "var": "WeakPower"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "DARK"
       }
     ]
   },
@@ -13373,8 +13450,14 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": true
+      }
+    ]
   },
   "CARD.QUASAR": {
     "id": "CARD.QUASAR",
@@ -13485,8 +13568,21 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "LIGHTNING"
+      },
+      {
+        "op": "channel",
+        "orb": "FROST"
+      },
+      {
+        "op": "channel",
+        "orb": "DARK"
+      }
+    ]
   },
   "CARD.RALLY": {
     "id": "CARD.RALLY",
@@ -13915,6 +14011,10 @@
           "var": "Damage"
         },
         "hits": 2
+      },
+      {
+        "op": "channel",
+        "orb": "GLASS"
       }
     ]
   },
@@ -15013,6 +15113,10 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "channel",
+        "orb": "DARK"
       }
     ]
   },
@@ -15138,7 +15242,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15146,6 +15250,16 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": false
+      },
+      {
+        "op": "evoke",
+        "count": 1,
+        "dequeue": true
       }
     ]
   },
@@ -16076,6 +16190,10 @@
     "multimodal": false,
     "effect_complete": true,
     "effect": [
+      {
+        "op": "channel",
+        "orb": "GLASS"
+      },
       {
         "op": "power",
         "target": "self",
@@ -17498,8 +17616,13 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "LIGHTNING"
+      }
+    ]
   },
   "CARD.TERRAFORMING": {
     "id": "CARD.TERRAFORMING",
@@ -18879,8 +19002,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "LIGHTNING"
+      }
+    ]
   },
   "CARD.WASTE_AWAY": {
     "id": "CARD.WASTE_AWAY",
@@ -19229,7 +19357,12 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "channel",
+        "orb": "LIGHTNING"
+      }
+    ]
   }
 }

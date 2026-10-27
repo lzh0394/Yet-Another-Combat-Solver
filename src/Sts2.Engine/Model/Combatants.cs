@@ -49,6 +49,7 @@ public sealed class PlayerState : ICombatant
     public int Energy { get; set; }
     public int MaxEnergy { get; set; }
     public int Stars { get; set; }
+    public List<string> Orbs { get; } = new();
     public List<PowerInstance> Powers { get; } = new();
     public List<RelicInstance> Relics { get; } = new();
     public List<string?> Potions { get; } = new() { null, null, null };

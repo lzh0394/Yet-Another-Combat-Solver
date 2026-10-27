@@ -1264,7 +1264,7 @@ class Exporter:
 
         ops: list[dict] = []
         handled: list[tuple[int, int]] = []
-        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd|CardSelectCmd|CardCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd|CardSelectCmd|CardCmd|OrbCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
         for m in pat.finditer(body):
             cmd, name = m.group(1), m.group(2)
             open_pos = m.end() - 1
@@ -1326,6 +1326,11 @@ class Exporter:
                     ops.append({"op": "draw", "amount": amount(args[1])})
                 elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
                     ops.append({"op": "energy", "amount": amount(args[0])})
+                elif cmd == "OrbCmd" and name == "Channel" and m.group(3):
+                    ops.append({"op": "channel", "orb": m.group(3).strip("<> ").split(".")[-1].replace("Orb", "").upper()})
+                elif cmd == "OrbCmd" and name == "EvokeNext" and args:
+                    dequeue = "dequeue: false" not in body[open_pos:close]
+                    ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})
                 elif cmd == "PlayerCmd" and name == "GainStars" and args:
                     ops.append({"op": "stars", "amount": amount(args[0])})
                 elif cmd == "CardSelectCmd" and name in ("FromHandForDiscard", "FromHandForExhaust") and len(args) >= 3:
@@ -1337,6 +1342,9 @@ class Exporter:
                         count = int(pm.group(1))
                     ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
                 elif cmd == "CreatureCmd" and name in ("TriggerAnim", "PlayVfx", "PlaySound", "TriggerAnimations"):
+                    # Presentation-only commands; they carry no combat state.
+                    pass
+                elif cmd == "Cmd" and name == "CustomScaledWait":
                     # Presentation-only commands; they carry no combat state.
                     pass
                 elif cmd == "CardCmd" and name in ("Discard", "Exhaust") and any(
