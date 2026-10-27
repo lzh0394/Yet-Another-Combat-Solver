@@ -106,6 +106,7 @@ public sealed class CalcDef
     public string Base { get; set; } = "CalculationBase";
     public string Extra { get; set; } = "CalculationExtra";
     public string Mult { get; set; } = "";
+    public int? Plus { get; set; }
 }
 
 public sealed class HpAscensionDef

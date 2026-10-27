@@ -117,11 +117,13 @@ public static class CardEffects
             case "discard_hand":
             {
                 int discarded = combat.Player.Hand.Count;
+                combat.CardsDiscardedTotal += discarded;
                 while (combat.Player.Hand.Count > 0)
                 {
                     CardInstance tossed = combat.Player.Hand[0];
                     combat.Player.Hand.RemoveAt(0);
                     combat.Player.DiscardPile.Add(tossed);
+                    combat.CardsDiscardedTotal++;
                 }
                 combat.LastDiscardedCount = discarded;
                 break;
@@ -491,8 +493,12 @@ public static class CardEffects
                 break;
 
             case "stars":
-                combat.Player.Stars += Amount(combat, card, effect.Amount, target);
+            {
+                int gained = Amount(combat, card, effect.Amount, target);
+                combat.Player.Stars += gained;
+                combat.StarsGainedTotal += Math.Max(0, gained);
                 break;
+            }
 
             case "energy":
                 combat.Player.Energy += Amount(combat, card, effect.Amount, target);
@@ -576,6 +582,7 @@ public static class CardEffects
                     added = new CardInstance(added.Def, Math.Max(1, added.Upgrade));
                 }
                 combat.AddCardToPile(added, effect.Pile, count);
+                combat.CardsGeneratedTotal += count;
                 break;
             }
 
@@ -637,6 +644,13 @@ public static class CardEffects
         "attacks_played" => combat.AttacksPlayedThisTurn,
         "strikes_in_all_piles" => CountTag(combat, "Strike"),
         "defends_in_all_piles" => CountTag(combat, "Defend"),
+        "card_plays" => combat.CardsPlayedTotal,
+        "draws" => combat.CardsDrawnTotal,
+        "discards" => combat.CardsDiscardedTotal,
+        "generated" => combat.CardsGeneratedTotal,
+        "stars_gained" => combat.StarsGainedTotal,
+        "damage_received" => combat.DamageReceivedEvents,
+        "attacks_received" => combat.AttacksReceivedEvents,
         _ => throw new CombatException($"{card.Entry}: unsupported calc multiplier {mult}"),
     };
 
@@ -687,6 +701,7 @@ public static class CardEffects
 
     private static int Amount(Combat.Combat combat, CardInstance card, System.Text.Json.JsonElement? element, MonsterInstance? target = null)
     {
+
         if (element is null)
         {
             return 0;
@@ -717,7 +732,7 @@ public static class CardEffects
             }
             decimal baseValue = card.Var(calc.Base);
             decimal extra = card.Var(calc.Extra);
-            return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target));
+            return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target)) + (calc.Plus ?? 0);
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("last_damage", out System.Text.Json.JsonElement lastDamage) &&
@@ -734,7 +749,12 @@ public static class CardEffects
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("scale", out System.Text.Json.JsonElement scaleName))
         {
-            return (int)CalcMultiplier(combat, card, scaleName.GetString() ?? "", target);
+            int scaled = (int)CalcMultiplier(combat, card, scaleName.GetString() ?? "", target);
+            if (value.TryGetProperty("plus", out System.Text.Json.JsonElement plusValue))
+            {
+                scaled += plusValue.GetInt32();
+            }
+            return scaled;
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("block", out System.Text.Json.JsonElement blockFlag) && blockFlag.ValueKind == System.Text.Json.JsonValueKind.True)

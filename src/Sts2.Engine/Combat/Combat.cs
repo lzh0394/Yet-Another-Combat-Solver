@@ -190,6 +190,7 @@ public sealed class Combat
 
     public void PlayCard(int? slot, string? cardId, string? target, int? actionIndex)
     {
+        CardsPlayedTotal++;
         if (CombatOver)
         {
             throw new CombatException("combat is over");
@@ -647,6 +648,7 @@ public sealed class Combat
             Player.DrawPile.RemoveAt(0);
             Player.Hand.Add(card);
             drawn.Add(card);
+            CardsDrawnTotal++;
         }
         return drawn;
     }
@@ -1073,6 +1075,15 @@ public sealed class Combat
 
     /// <summary>Overkill damage from that same effect.</summary>
     public int LastDamageOverkill { get; set; }
+
+    // Combat history counters (CombatManager.History entries the cards can read).
+    public int CardsPlayedTotal { get; set; }
+    public int CardsDrawnTotal { get; set; }
+    public int CardsDiscardedTotal { get; set; }
+    public int CardsGeneratedTotal { get; set; }
+    public int StarsGainedTotal { get; set; }
+    public int DamageReceivedEvents { get; set; }
+    public int AttacksReceivedEvents { get; set; }
 
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;

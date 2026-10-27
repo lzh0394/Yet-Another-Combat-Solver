@@ -1324,7 +1324,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedForge": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "damage_received"
+      }
+    }
   },
   "CARD.BECKON": {
     "id": "CARD.BECKON",
@@ -4867,17 +4873,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "draws"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "draws"
+      }
+    }
   },
   "CARD.DEBILITATE": {
     "id": "CARD.DEBILITATE",
@@ -8208,17 +8220,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "damage_received"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "damage_received"
+      }
+    }
   },
   "CARD.GATHER_LIGHT": {
     "id": "CARD.GATHER_LIGHT",
@@ -11618,17 +11636,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "discards"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "discards"
+      }
+    }
   },
   "CARD.METAMORPHOSIS": {
     "id": "CARD.METAMORPHOSIS",
@@ -12316,17 +12340,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "draws"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "draws"
+      }
+    }
   },
   "CARD.NECRO_MASTERY": {
     "id": "CARD.NECRO_MASTERY",
@@ -14398,7 +14428,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -14407,11 +14437,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "card_plays"
+      }
+    }
   },
   "CARD.PURITY": {
     "id": "CARD.PURITY",
@@ -14614,7 +14650,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -14623,11 +14659,17 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "stars_gained"
+      }
+    }
   },
   "CARD.RAGE": {
     "id": "CARD.RAGE",
@@ -14787,7 +14829,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -14796,11 +14838,18 @@
           "var": "OstyDamage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "attacks_received",
+        "plus": 1
+      }
+    }
   },
   "CARD.REANIMATE": {
     "id": "CARD.REANIMATE",
@@ -18442,17 +18491,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "generated"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "generated"
+      }
+    }
   },
   "CARD.SUPPRESS": {
     "id": "CARD.SUPPRESS",
@@ -18932,7 +18987,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -18941,11 +18996,18 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "calc": "CalculatedHits"
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedHits": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "damage_received",
+        "plus": 1
+      }
+    }
   },
   "CARD.TEMPEST": {
     "id": "CARD.TEMPEST",

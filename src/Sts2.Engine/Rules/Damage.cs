@@ -44,6 +44,14 @@ public static class Damage
             source.Block = sourceBlock;
             source.Hp = Math.Max(0, source.Hp - extra);
         }
+        if (target is PlayerState playerTarget)
+        {
+            combat.DamageReceivedEvents++;
+            if (source is MonsterInstance)
+            {
+                combat.AttacksReceivedEvents++;
+            }
+        }
         decimal amount = Modify(combat, source, target, baseDamage);
         int blockBefore = target.Block;
         int loss = Apply(target.Block, target.Hp, amount, out int block);

@@ -745,7 +745,10 @@ class Exporter:
         if calc_mult and calc_mult != "owner_block":
             for op in effects or []:
                 if op.get("op") == "damage" and isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage":
-                    op["amount"] = {"scale": calc_mult}
+                    amount = {"scale": calc_mult}
+                    if calc["CalculatedDamage"].get("plus"):
+                        amount["plus"] = 1
+                    op["amount"] = amount
         if any(isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage"
                for op in effects or []) and camel_to_screaming(info.name) not in osty_formulas:
             effects_complete = False
@@ -1380,7 +1383,10 @@ class Exporter:
                 name = "CalculatedBlock"
             else:
                 continue
-            out[name] = {"base": "CalculationBase", "extra": "CalculationExtra", "mult": token}
+            entry = {"base": "CalculationBase", "extra": "CalculationExtra", "mult": token}
+            if re.match(r"\s*1\s*\+\s", body):
+                entry["plus"] = 1
+            out[name] = entry
         return out
 
     MULTIPLIERS = {
@@ -1396,6 +1402,14 @@ class Exporter:
         "History.CardPlaysFinished.Count": "attacks_played",
         "AllCards.Count((CardModel c) => c.Tags.Contains(CardTag.Strike))": "strikes_in_all_piles",
         "AllCards.Count((CardModel c) => c.Tags.Contains(CardTag.Defend))": "defends_in_all_piles",
+        "CardPlaysFinished.Count": "card_plays",
+        "OfType<CardDrawnEntry>": "draws",
+        "OfType<CardDiscardedEntry>": "discards",
+        "OfType<DamageReceivedEntry>": "damage_received",
+        "OfType<CardGeneratedEntry>": "generated",
+        "OfType<StarsModifiedEntry>": "stars_gained",
+        "OfType<CreatureAttackedEntry>": "attacks_received",
+        "OfType<CardPlayFinishedEntry>": "card_plays",
         "target?.Block": "target_block",
         "target?.GetPowerAmount<VulnerablePower>": "target_vulnerable",
         "target?.GetPowerAmount<DoomPower>": "target_doom",
