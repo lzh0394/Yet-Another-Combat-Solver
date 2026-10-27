@@ -8,13 +8,6 @@ namespace Sts2.Engine.Data;
 /// </summary>
 public sealed class DataPack
 {
-    private static readonly JsonSerializerOptions Options = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-        PropertyNameCaseInsensitive = false,
-        ReadCommentHandling = JsonCommentHandling.Skip,
-    };
-
     private DataPack(string directory)
     {
         Directory = directory;
@@ -40,12 +33,12 @@ public sealed class DataPack
         return new DataPack(full)
         {
             Manifest = ReadElement(Path.Combine(full, "manifest.json")),
-            Cards = ReadMap<CardDef>(full, "cards"),
-            Monsters = ReadMap<MonsterDef>(full, "monsters"),
-            Encounters = ReadMap<EncounterDef>(full, "encounters"),
-            Characters = ReadMap<CharacterDef>(full, "characters"),
-            Powers = ReadMap<PowerDef>(full, "powers"),
-            Relics = ReadMap<RelicDef>(full, "relics"),
+            Cards = ReadMap(full, "cards", PackJsonContext.Default.DictionaryStringCardDef),
+            Monsters = ReadMap(full, "monsters", PackJsonContext.Default.DictionaryStringMonsterDef),
+            Encounters = ReadMap(full, "encounters", PackJsonContext.Default.DictionaryStringEncounterDef),
+            Characters = ReadMap(full, "characters", PackJsonContext.Default.DictionaryStringCharacterDef),
+            Powers = ReadMap(full, "powers", PackJsonContext.Default.DictionaryStringPowerDef),
+            Relics = ReadMap(full, "relics", PackJsonContext.Default.DictionaryStringRelicDef),
         };
     }
 
@@ -74,7 +67,8 @@ public sealed class DataPack
         throw new KeyNotFoundException($"{prefix}{idOrEntry} not in the data package");
     }
 
-    private static Dictionary<string, T> ReadMap<T>(string directory, string name)
+    private static Dictionary<string, T> ReadMap<T>(
+        string directory, string name, System.Text.Json.Serialization.Metadata.JsonTypeInfo<Dictionary<string, T>> typeInfo)
     {
         string path = Path.Combine(directory, name + ".json");
         if (!File.Exists(path))
@@ -82,8 +76,7 @@ public sealed class DataPack
             return new Dictionary<string, T>();
         }
         using FileStream stream = File.OpenRead(path);
-        return JsonSerializer.Deserialize<Dictionary<string, T>>(stream, Options)
-            ?? new Dictionary<string, T>();
+        return JsonSerializer.Deserialize(stream, typeInfo) ?? new Dictionary<string, T>();
     }
 
     private static JsonElement ReadElement(string path)

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "game": {
     "version": "v0.111.0",
     "commit": "41cef1ea",
@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T11:00:55.264796+00:00"
+    "exported_at": "2026-10-26T07:33:20+00:00"
   },
   "counts": {
     "cards": 596,

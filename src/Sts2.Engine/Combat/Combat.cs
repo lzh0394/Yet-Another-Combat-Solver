@@ -46,6 +46,12 @@ public sealed class Combat
             MaxEnergy = scenario.MaxEnergy ?? character.MaxEnergy,
         };
         Player.Hp = scenario.Hp ?? Player.MaxHp;
+        // Ascension: TightBelt (A4+) removes one potion slot; AscendersBane (A5+) adds a curse.
+        if (Rules.Ascension.Active("TIGHT_BELT", scenario.Ascension) && Player.Potions.Count > 1)
+        {
+            Player.Potions.RemoveAt(Player.Potions.Count - 1);
+        }
+
         Player.Energy = scenario.Energy ?? Player.MaxEnergy;
 
         foreach (string relic in scenario.Relics ?? character.StartingRelics)
@@ -67,6 +73,11 @@ public sealed class Combat
             {
                 deck.Add(new CardInstance(data.Card(id)));
             }
+        }
+
+        if (Rules.Ascension.Active("ASCENDERS_BANE", scenario.Ascension))
+        {
+            deck.Add(new CardInstance(data.Card("CARD.ASCENDERS_BANE")));
         }
 
         Player.DrawPile.AddRange(deck);
@@ -291,8 +302,18 @@ public sealed class Combat
             throw new CombatException("combat is over");
         }
 
-        // discard hand
-        Player.DiscardPile.AddRange(Player.Hand);
+        // discard hand; Ethereal cards exhaust instead
+        foreach (CardInstance card in Player.Hand)
+        {
+            if (card.Keywords.Contains("Ethereal"))
+            {
+                Player.ExhaustPile.Add(card);
+            }
+            else
+            {
+                Player.DiscardPile.Add(card);
+            }
+        }
         Player.Hand.Clear();
 
         // enemy turn
@@ -505,6 +526,11 @@ public sealed class Combat
     {
         int min = monster.Def.MinHp ?? 1;
         int max = monster.Def.MaxHp ?? min;
+        if (monster.Def.HpAscension is { } asc && Rules.Ascension.Active(asc.Level, Scenario.Ascension))
+        {
+            min = asc.Min;
+            max = asc.Max;
+        }
         List<int> candidates = new();
         for (int hp = min; hp <= max; hp++)
         {
@@ -739,7 +765,7 @@ public sealed class Combat
 
     private void ApplyEffect(MonsterInstance monster, EffectDef effect)
     {
-        int amount = effect.IntAmount;
+        int amount = (int)Rules.Ascension.Amount(effect.Amount, Scenario.Ascension);
         switch (effect.Op)
         {
             case "damage":
@@ -780,7 +806,9 @@ public sealed class Combat
             case "power":
             {
                 string power = effect.Power ?? throw new CombatException($"power effect without id on {monster.Def.Entry}");
-                if (effect.Amount is not { ValueKind: System.Text.Json.JsonValueKind.Number })
+                if (effect.Amount is not { } powerAmount
+                    || (powerAmount.ValueKind != System.Text.Json.JsonValueKind.Number
+                        && !Rules.Ascension.IsAscensionObject(powerAmount)))
                 {
                     throw new CombatException($"unresolved power amount on {monster.Def.Entry}: {power}");
                 }

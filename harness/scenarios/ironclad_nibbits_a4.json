@@ -1,0 +1,32 @@
+{
+  "character": "IRONCLAD",
+  "encounter": "NIBBITS_WEAK",
+  "seed": "PARITY-A4",
+  "ascension": 4,
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

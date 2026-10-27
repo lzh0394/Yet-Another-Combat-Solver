@@ -607,8 +607,8 @@
     "star_cost": null,
     "keywords": [
       "Eternal",
-      "Ethereal",
-      "Unplayable"
+      "Unplayable",
+      "Ethereal"
     ],
     "keywords_upgraded": [
       "Eternal",
@@ -667,8 +667,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Exhaust",
-      "Innate"
+      "Innate",
+      "Exhaust"
     ],
     "keywords_upgraded": [
       "Exhaust",
@@ -1868,8 +1868,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Exhaust",
-      "Innate"
+      "Innate",
+      "Exhaust"
     ],
     "keywords_upgraded": [
       "Exhaust",
@@ -3133,8 +3133,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Ethereal",
-      "Unplayable"
+      "Unplayable",
+      "Ethereal"
     ],
     "keywords_upgraded": [
       "Ethereal",
@@ -7114,10 +7114,10 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
+      "Unplayable",
       "Eternal",
-      "Ethereal",
       "Innate",
-      "Unplayable"
+      "Ethereal"
     ],
     "keywords_upgraded": [
       "Eternal",
@@ -12760,8 +12760,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Retain",
-      "Unplayable"
+      "Unplayable",
+      "Retain"
     ],
     "keywords_upgraded": [
       "Retain",
@@ -13213,8 +13213,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Exhaust",
-      "Retain"
+      "Retain",
+      "Exhaust"
     ],
     "keywords_upgraded": [
       "Exhaust",
@@ -18690,8 +18690,8 @@
     "costs_x": false,
     "star_cost": null,
     "keywords": [
-      "Ethereal",
-      "Unplayable"
+      "Unplayable",
+      "Ethereal"
     ],
     "keywords_upgraded": [
       "Ethereal",

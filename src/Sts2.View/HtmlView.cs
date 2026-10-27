@@ -12,15 +12,14 @@ namespace Sts2.View;
 /// </summary>
 public static class HtmlView
 {
-    public static readonly JsonSerializerOptions JsonOptions = new()
+    public static JsonSerializerOptions JsonOptions { get; } = new(ViewJsonDefaults.Options)
     {
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
         Encoder = JavaScriptEncoder.Default,
     };
 
     public static string Render(IReadOnlyList<Snapshot> snapshots, string title)
     {
-        string json = JsonSerializer.Serialize(snapshots, JsonOptions)
+        string json = JsonSerializer.Serialize(snapshots, ViewJsonContext.Default.ListSnapshot)
             .Replace("</", "<\\/", StringComparison.Ordinal)
             .Replace("<!--", "<\\!--", StringComparison.Ordinal);
 
@@ -54,7 +53,7 @@ public static class HtmlView
             {
                 continue;
             }
-            Snapshot? snapshot = JsonSerializer.Deserialize<Snapshot>(line, options);
+            Snapshot? snapshot = JsonSerializer.Deserialize(line, ViewJsonContext.Default.Snapshot);
             if (snapshot is not null)
             {
                 snapshots.Add(snapshot);

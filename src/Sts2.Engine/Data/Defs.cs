@@ -38,6 +38,7 @@ public sealed class MonsterDef
     public string Name { get; set; } = "";
     public int? MinHp { get; set; }
     public int? MaxHp { get; set; }
+    public HpAscensionDef? HpAscension { get; set; }
     public string? InitialState { get; set; }
     public List<string>? InitialStates { get; set; }
     public Dictionary<string, MoveDef> Moves { get; set; } = new();
@@ -85,6 +86,13 @@ public sealed class EffectDef
 
     public int IntAmount =>
         Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;
+}
+
+public sealed class HpAscensionDef
+{
+    public string Level { get; set; } = "";
+    public int Min { get; set; }
+    public int Max { get; set; }
 }
 
 public sealed class IntentDef

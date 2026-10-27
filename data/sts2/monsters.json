@@ -4,6 +4,11 @@
     "name": "Aeonglass",
     "min_hp": 512,
     "max_hp": 512,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 535,
+      "max": 535
+    },
     "start_effects": [
       {
         "op": "power",
@@ -41,7 +46,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 22
+            "amount": {
+              "base": 22,
+              "ascension": 26,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
@@ -66,7 +75,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -89,7 +102,11 @@
             "op": "add_card",
             "card": "CARD.WITHER",
             "pile": "Discard",
-            "count": 1
+            "count": {
+              "base": 1,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -130,6 +147,11 @@
     "name": "AssassinRubyRaider",
     "min_hp": 18,
     "max_hp": 23,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 19,
+      "max": 24
+    },
     "initial_state": "KILLSHOT_MOVE",
     "moves": {
       "KILLSHOT_MOVE": {
@@ -147,7 +169,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -188,7 +214,11 @@
           {
             "op": "block",
             "target": "self",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -216,7 +246,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -239,7 +273,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -263,6 +301,11 @@
     "name": "AxeRubyRaider",
     "min_hp": 20,
     "max_hp": 22,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 21,
+      "max": 23
+    },
     "initial_state": "SWING_1",
     "moves": {
       "SWING_1": {
@@ -283,12 +326,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -311,12 +362,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -336,7 +395,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -447,6 +510,11 @@
     "name": "BowlbugEgg",
     "min_hp": 21,
     "max_hp": 22,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 23,
+      "max": 24
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "BITE_MOVE",
@@ -469,12 +537,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -486,6 +562,11 @@
     "name": "BowlbugNectar",
     "min_hp": 35,
     "max_hp": 38,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 36,
+      "max": 39
+    },
     "initial_state": "THRASH_MOVE",
     "moves": {
       "THRASH_MOVE": {
@@ -522,7 +603,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -554,6 +639,11 @@
     "name": "BowlbugRock",
     "min_hp": 45,
     "max_hp": 48,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 46,
+      "max": 49
+    },
     "start_effects": [
       {
         "op": "power",
@@ -580,7 +670,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -621,6 +715,11 @@
     "name": "BowlbugSilk",
     "min_hp": 40,
     "max_hp": 43,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 41,
+      "max": 44
+    },
     "initial_state": "TOXIC_SPIT_MOVE",
     "moves": {
       "THRASH_MOVE": {
@@ -638,7 +737,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -669,6 +772,11 @@
     "name": "BruteRubyRaider",
     "min_hp": 30,
     "max_hp": 33,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 31,
+      "max": 34
+    },
     "initial_state": "BEAT_MOVE",
     "moves": {
       "BEAT_MOVE": {
@@ -686,7 +794,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -717,6 +829,11 @@
     "name": "BygoneEffigy",
     "min_hp": 127,
     "max_hp": 127,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 132,
+      "max": 132
+    },
     "start_effects": [
       {
         "op": "power",
@@ -786,7 +903,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -798,6 +919,11 @@
     "name": "Byrdonis",
     "min_hp": 81,
     "max_hp": 84,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 90,
+      "max": 90
+    },
     "start_effects": [
       {
         "op": "power",
@@ -824,7 +950,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -844,7 +974,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -873,6 +1007,11 @@
     "name": "CalcifiedCultist",
     "min_hp": 38,
     "max_hp": 41,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 39,
+      "max": 42
+    },
     "initial_state": "INCANTATION_MOVE",
     "moves": {
       "INCANTATION_MOVE": {
@@ -909,7 +1048,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -921,6 +1064,11 @@
     "name": "CeremonialBeast",
     "min_hp": 252,
     "max_hp": 252,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 262,
+      "max": 262
+    },
     "initial_state": "STAMP_MOVE",
     "moves": {
       "STAMP_MOVE": {
@@ -937,7 +1085,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.PLOW_POWER",
-            "amount": 150
+            "amount": {
+              "base": 150,
+              "ascension": 160,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -960,7 +1112,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 20,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1017,7 +1173,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1040,13 +1200,21 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1058,6 +1226,11 @@
     "name": "Chomper",
     "min_hp": 60,
     "max_hp": 64,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 63,
+      "max": 67
+    },
     "start_effects": [
       {
         "op": "power",
@@ -1084,7 +1257,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1116,12 +1293,21 @@
     "name": "CorpseSlug",
     "min_hp": 25,
     "max_hp": 27,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 27,
+      "max": 29
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.RAVENOUS_POWER",
-        "amount": 4
+        "amount": {
+          "base": 4,
+          "ascension": 5,
+          "level": "DEADLY_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -1167,7 +1353,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1198,6 +1388,11 @@
     "name": "CrossbowRubyRaider",
     "min_hp": 18,
     "max_hp": 21,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 19,
+      "max": 22
+    },
     "initial_state": "RELOAD_MOVE",
     "moves": {
       "FIRE_MOVE": {
@@ -1215,7 +1410,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1245,6 +1444,11 @@
     "name": "Crusher",
     "min_hp": 209,
     "max_hp": 209,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 219,
+      "max": 219
+    },
     "start_effects": [
       {
         "op": "power",
@@ -1277,7 +1481,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1297,7 +1505,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1320,7 +1532,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1351,7 +1567,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1374,7 +1594,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
@@ -1391,6 +1615,11 @@
     "name": "CubexConstruct",
     "min_hp": 65,
     "max_hp": 65,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 70,
+      "max": 70
+    },
     "start_effects": [
       {
         "op": "block",
@@ -1444,7 +1673,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1473,7 +1706,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1499,7 +1736,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1511,6 +1752,11 @@
     "name": "DampCultist",
     "min_hp": 51,
     "max_hp": 53,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 52,
+      "max": 54
+    },
     "initial_state": "INCANTATION_MOVE",
     "moves": {
       "INCANTATION_MOVE": {
@@ -1527,7 +1773,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.RITUAL_POWER",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1547,7 +1797,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 1
+            "amount": {
+              "base": 1,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1559,6 +1813,11 @@
     "name": "DecimillipedeSegmentBack",
     "min_hp": 40,
     "max_hp": 46,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 46,
+      "max": 52
+    },
     "start_effects": [
       {
         "op": "power",
@@ -1590,7 +1849,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1613,7 +1876,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1642,7 +1909,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1698,6 +1969,11 @@
     "name": "DecimillipedeSegmentFront",
     "min_hp": 40,
     "max_hp": 46,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 46,
+      "max": 52
+    },
     "start_effects": [
       {
         "op": "power",
@@ -1729,7 +2005,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1752,7 +2032,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1781,7 +2065,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1837,6 +2125,11 @@
     "name": "DecimillipedeSegmentMiddle",
     "min_hp": 40,
     "max_hp": 46,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 46,
+      "max": 52
+    },
     "start_effects": [
       {
         "op": "power",
@@ -1868,7 +2161,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -1891,7 +2188,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1920,7 +2221,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -1997,6 +2302,11 @@
     "name": "DevotedSculptor",
     "min_hp": 162,
     "max_hp": 162,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 172,
+      "max": 172
+    },
     "initial_state": "FORBIDDEN_INCANTATION_MOVE",
     "moves": {
       "FORBIDDEN_INCANTATION_MOVE": {
@@ -2033,7 +2343,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2045,6 +2359,11 @@
     "name": "Entomancer",
     "min_hp": 145,
     "max_hp": 145,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 165,
+      "max": 165
+    },
     "start_effects": [
       {
         "op": "power",
@@ -2102,7 +2421,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2122,7 +2445,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 20,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2134,6 +2461,11 @@
     "name": "Exoskeleton",
     "min_hp": 24,
     "max_hp": 28,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 26,
+      "max": 30
+    },
     "start_effects": [
       {
         "op": "power",
@@ -2180,7 +2512,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2291,6 +2627,11 @@
     "name": "Fabricator",
     "min_hp": 150,
     "max_hp": 150,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 155,
+      "max": 155
+    },
     "initial_state": "fabricateBranch",
     "moves": {
       "FABRICATE_MOVE": {
@@ -2323,7 +2664,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 21,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2343,7 +2688,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2387,6 +2736,11 @@
     "name": "FakeMerchantMonster",
     "min_hp": 165,
     "max_hp": 165,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 175,
+      "max": 175
+    },
     "initial_state": "SWIPE_MOVE",
     "moves": {
       "SWIPE_MOVE": {
@@ -2404,7 +2758,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2447,7 +2805,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -2523,6 +2885,11 @@
     "name": "FatGremlin",
     "min_hp": 13,
     "max_hp": 17,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 14,
+      "max": 18
+    },
     "initial_state": "SPAWNED_MOVE",
     "moves": {
       "SPAWNED_MOVE": {
@@ -2556,6 +2923,11 @@
     "name": "FlailKnight",
     "min_hp": 101,
     "max_hp": 101,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 108,
+      "max": 108
+    },
     "initial_state": "RAM_MOVE",
     "moves": {
       "WAR_CHANT": {
@@ -2592,7 +2964,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2612,7 +2988,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2642,6 +3022,11 @@
     "name": "Flyconid",
     "min_hp": 47,
     "max_hp": 49,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 51,
+      "max": 53
+    },
     "initial_state": "INITIAL",
     "moves": {
       "VULNERABLE_SPORES_MOVE": {
@@ -2681,7 +3066,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -2707,7 +3096,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2752,6 +3145,11 @@
     "name": "Fogmog",
     "min_hp": 74,
     "max_hp": 74,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 78,
+      "max": 78
+    },
     "initial_state": "ILLUSION_MOVE",
     "moves": {
       "ILLUSION_MOVE": {
@@ -2784,7 +3182,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -2813,7 +3215,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -2839,7 +3245,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2866,6 +3276,11 @@
     "name": "FossilStalker",
     "min_hp": 51,
     "max_hp": 53,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 54,
+      "max": 56
+    },
     "start_effects": [
       {
         "op": "power",
@@ -2895,7 +3310,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -2921,7 +3340,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2941,7 +3364,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -2971,12 +3398,21 @@
     "name": "FrogKnight",
     "min_hp": 191,
     "max_hp": 191,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 199,
+      "max": 199
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.PLATING_POWER",
-        "amount": 15
+        "amount": {
+          "base": 15,
+          "ascension": 19,
+          "level": "TOUGH_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -3016,7 +3452,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 21
+            "amount": {
+              "base": 21,
+              "ascension": 23,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3039,7 +3479,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3065,7 +3509,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 35
+            "amount": {
+              "base": 35,
+              "ascension": 40,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3094,6 +3542,11 @@
     "name": "FuzzyWurmCrawler",
     "min_hp": 55,
     "max_hp": 57,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 58,
+      "max": 59
+    },
     "initial_state": "FIRST_ACID_GOOP",
     "moves": {
       "FIRST_ACID_GOOP": {
@@ -3111,7 +3564,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3131,7 +3588,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3162,6 +3623,11 @@
     "name": "GasBomb",
     "min_hp": 7,
     "max_hp": 7,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 8,
+      "max": 8
+    },
     "start_effects": [
       {
         "op": "power",
@@ -3188,7 +3654,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3200,12 +3670,21 @@
     "name": "GlobeHead",
     "min_hp": 148,
     "max_hp": 148,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 158,
+      "max": 158
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.GALVANIC_POWER",
-        "amount": 6
+        "amount": {
+          "base": 6,
+          "ascension": 8,
+          "level": "DEADLY_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -3226,7 +3705,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3249,7 +3732,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3278,7 +3765,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3296,6 +3787,11 @@
     "name": "GremlinMerc",
     "min_hp": 47,
     "max_hp": 49,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 51,
+      "max": 53
+    },
     "start_effects": [
       {
         "op": "power",
@@ -3330,7 +3826,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3353,7 +3853,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "TOUGH_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3382,7 +3886,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "TOUGH_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3400,6 +3908,11 @@
     "name": "Guardbot",
     "min_hp": 16,
     "max_hp": 20,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 17,
+      "max": 21
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "GUARD_MOVE",
@@ -3429,6 +3942,11 @@
     "name": "HauntedShip",
     "min_hp": 63,
     "max_hp": 63,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 67,
+      "max": 67
+    },
     "initial_state": "HAUNT_MOVE",
     "moves": {
       "SWIPE_MOVE": {
@@ -3446,7 +3964,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3466,7 +3988,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3507,6 +4033,11 @@
     "name": "HunterKiller",
     "min_hp": 121,
     "max_hp": 121,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 126,
+      "max": 126
+    },
     "initial_state": "TENDERIZING_GOOP_MOVE",
     "moves": {
       "TENDERIZING_GOOP_MOVE": {
@@ -3543,7 +4074,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3563,7 +4098,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3590,12 +4129,21 @@
     "name": "InfestedPrism",
     "min_hp": 161,
     "max_hp": 161,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 171,
+      "max": 171
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.VITAL_SPARK_POWER",
-        "amount": 2
+        "amount": {
+          "base": 2,
+          "ascension": 3,
+          "level": "DEADLY_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -3616,7 +4164,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3639,12 +4191,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3664,7 +4224,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3690,18 +4254,30 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 20
+            "amount": {
+              "base": 20,
+              "ascension": 22,
+              "level": "TOUGH_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.VITAL_SPARK_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3713,6 +4289,11 @@
     "name": "Inklet",
     "min_hp": 11,
     "max_hp": 17,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 12,
+      "max": 18
+    },
     "start_effects": [
       {
         "op": "power",
@@ -3739,7 +4320,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3759,7 +4344,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3779,7 +4368,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3806,6 +4399,11 @@
     "name": "KinFollower",
     "min_hp": 58,
     "max_hp": 59,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 62,
+      "max": 63
+    },
     "start_effects": [
       {
         "op": "power",
@@ -3832,7 +4430,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3852,7 +4454,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3871,7 +4477,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3883,6 +4493,11 @@
     "name": "KinPriest",
     "min_hp": 190,
     "max_hp": 190,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 199,
+      "max": 199
+    },
     "initial_state": "ORB_OF_FRAILTY_MOVE",
     "moves": {
       "ORB_OF_FRAILTY_MOVE": {
@@ -3903,7 +4518,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3932,7 +4551,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -3958,7 +4581,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3977,7 +4604,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -3989,6 +4620,11 @@
     "name": "KnowledgeDemon",
     "min_hp": 379,
     "max_hp": 379,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 399,
+      "max": 399
+    },
     "initial_state": "CURSE_OF_KNOWLEDGE_MOVE",
     "moves": {
       "CURSE_OF_KNOWLEDGE_MOVE": {
@@ -4018,7 +4654,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4038,7 +4678,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4064,7 +4708,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "heal",
@@ -4077,7 +4725,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4106,6 +4758,11 @@
     "name": "LagavulinMatriarch",
     "min_hp": 222,
     "max_hp": 222,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 233,
+      "max": 233
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "SLEEP_MOVE",
@@ -4137,7 +4794,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 19
+            "amount": {
+              "base": 19,
+              "ascension": 21,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4160,12 +4821,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 14,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4185,7 +4854,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4248,6 +4921,11 @@
     "name": "LeafSlimeM",
     "min_hp": 32,
     "max_hp": 35,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 33,
+      "max": 36
+    },
     "initial_state": "STICKY_SHOT",
     "moves": {
       "CLUMP_SHOT": {
@@ -4265,7 +4943,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4297,6 +4979,11 @@
     "name": "LeafSlimeS",
     "min_hp": 11,
     "max_hp": 15,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 12,
+      "max": 16
+    },
     "initial_state": "RAND",
     "moves": {
       "TACKLE_MOVE": {
@@ -4314,7 +5001,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4361,6 +5052,11 @@
     "name": "LivingFog",
     "min_hp": 80,
     "max_hp": 80,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 82,
+      "max": 82
+    },
     "initial_state": "ADVANCED_GAS_MOVE",
     "moves": {
       "ADVANCED_GAS_MOVE": {
@@ -4381,7 +5077,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -4410,7 +5110,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4430,7 +5134,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4442,6 +5150,11 @@
     "name": "LivingShield",
     "min_hp": 55,
     "max_hp": 55,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 65,
+      "max": 65
+    },
     "start_effects": [
       {
         "op": "power",
@@ -4508,7 +5221,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -4526,12 +5243,21 @@
     "name": "LouseProgenitor",
     "min_hp": 134,
     "max_hp": 136,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 138,
+      "max": 141
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.CURL_UP_POWER",
-        "amount": 14
+        "amount": {
+          "base": 14,
+          "ascension": 18,
+          "level": "TOUGH_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -4555,7 +5281,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -4581,7 +5311,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4602,13 +5336,21 @@
           {
             "op": "block",
             "target": "self",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 18,
+              "level": "TOUGH_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4620,6 +5362,11 @@
     "name": "MagiKnight",
     "min_hp": 82,
     "max_hp": 82,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 89,
+      "max": 89
+    },
     "initial_state": "POWER_SHIELD_MOVE",
     "moves": {
       "POWER_SHIELD_MOVE": {
@@ -4640,12 +5387,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 9,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4684,7 +5439,11 @@
           {
             "op": "block",
             "target": "self",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 9,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4704,7 +5463,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 35
+            "amount": {
+              "base": 35,
+              "ascension": 40,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4724,7 +5487,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4736,6 +5503,11 @@
     "name": "Mawler",
     "min_hp": 72,
     "max_hp": 72,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 76,
+      "max": 76
+    },
     "initial_state": "CLAW_MOVE",
     "moves": {
       "RIP_AND_TEAR_MOVE": {
@@ -4753,7 +5525,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4792,7 +5568,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4822,6 +5602,11 @@
     "name": "MechaKnight",
     "min_hp": 300,
     "max_hp": 300,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 320,
+      "max": 320
+    },
     "start_effects": [
       {
         "op": "power",
@@ -4848,7 +5633,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 25
+            "amount": {
+              "base": 25,
+              "ascension": 30,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4872,7 +5661,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "add_card",
@@ -4925,7 +5718,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 35
+            "amount": {
+              "base": 35,
+              "ascension": 40,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -4966,6 +5763,11 @@
     "name": "MysteriousKnight",
     "min_hp": 101,
     "max_hp": 101,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 108,
+      "max": 108
+    },
     "start_effects": [
       {
         "op": "power",
@@ -5017,7 +5819,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5037,7 +5843,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5067,6 +5877,11 @@
     "name": "Myte",
     "min_hp": 61,
     "max_hp": 67,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 64,
+      "max": 69
+    },
     "initial_state": "INIT_MOVE",
     "moves": {
       "TOXIC_MOVE": {
@@ -5104,7 +5919,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5127,13 +5946,21 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5145,6 +5972,11 @@
     "name": "Nibbit",
     "min_hp": 42,
     "max_hp": 46,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 44,
+      "max": 48
+    },
     "initial_state": "INIT_MOVE",
     "moves": {
       "BUTT_MOVE": {
@@ -5162,7 +5994,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5185,12 +6021,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5209,7 +6053,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5245,6 +6093,11 @@
     "name": "Noisebot",
     "min_hp": 18,
     "max_hp": 23,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 19,
+      "max": 24
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "NOISE_MOVE",
@@ -5307,6 +6160,11 @@
     "name": "Ovicopter",
     "min_hp": 124,
     "max_hp": 130,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 126,
+      "max": 132
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "LAY_EGGS_MOVE",
@@ -5345,7 +6203,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5368,7 +6230,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -5393,7 +6259,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5422,6 +6292,11 @@
     "name": "OwlMagistrate",
     "min_hp": 231,
     "max_hp": 231,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 247,
+      "max": 247
+    },
     "initial_state": "MAGISTRATE_SCRUTINY",
     "moves": {
       "MAGISTRATE_SCRUTINY": {
@@ -5439,7 +6314,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5459,7 +6338,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5501,7 +6384,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 33
+            "amount": {
+              "base": 33,
+              "ascension": 36,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -5562,7 +6449,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5574,12 +6465,21 @@
     "name": "PhantasmalGardener",
     "min_hp": 26,
     "max_hp": 31,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 27,
+      "max": 32
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.SKITTISH_POWER",
-        "amount": 6
+        "amount": {
+          "base": 6,
+          "ascension": 7,
+          "level": "TOUGH_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -5600,7 +6500,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5620,7 +6524,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5659,7 +6567,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5671,6 +6583,11 @@
     "name": "PhrogParasite",
     "min_hp": 61,
     "max_hp": 64,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 66,
+      "max": 68
+    },
     "start_effects": [
       {
         "op": "power",
@@ -5717,7 +6634,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5744,6 +6665,11 @@
     "name": "PunchConstruct",
     "min_hp": 55,
     "max_hp": 55,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 60,
+      "max": 60
+    },
     "start_effects": [
       {
         "op": "power",
@@ -5788,7 +6714,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5811,7 +6741,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -5829,6 +6763,11 @@
     "name": "Queen",
     "min_hp": 400,
     "max_hp": 400,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 419,
+      "max": 419
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "PUPPET_STRINGS_MOVE",
@@ -5961,7 +6900,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -5981,7 +6924,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6012,6 +6959,11 @@
     "name": "Rocket",
     "min_hp": 199,
     "max_hp": 199,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 209,
+      "max": 209
+    },
     "start_effects": [
       {
         "op": "power",
@@ -6050,7 +7002,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6070,7 +7026,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 20,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6089,7 +7049,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6109,7 +7073,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 31
+            "amount": {
+              "base": 31,
+              "ascension": 35,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6133,6 +7101,11 @@
     "name": "ScrollOfBiting",
     "min_hp": 30,
     "max_hp": 37,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 33,
+      "max": 39
+    },
     "start_effects": [
       {
         "op": "power",
@@ -6164,7 +7137,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6184,7 +7161,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 5
+            "amount": {
+              "base": 5,
+              "ascension": 6,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6230,6 +7211,11 @@
     "name": "Seapunk",
     "min_hp": 44,
     "max_hp": 46,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 47,
+      "max": 49
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "SEA_KICK_MOVE",
@@ -6249,7 +7235,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6290,13 +7280,21 @@
           {
             "op": "block",
             "target": "self",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "TOUGH_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 1
+            "amount": {
+              "base": 1,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6308,6 +7306,11 @@
     "name": "SewerClam",
     "min_hp": 56,
     "max_hp": 56,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 58,
+      "max": 58
+    },
     "start_effects": [
       {
         "op": "power",
@@ -6355,7 +7358,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6367,6 +7374,11 @@
     "name": "ShrinkerBeetle",
     "min_hp": 38,
     "max_hp": 40,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 40,
+      "max": 42
+    },
     "initial_state": "SHRINKER_MOVE",
     "moves": {
       "SHRINKER_MOVE": {
@@ -6403,7 +7415,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6423,7 +7439,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6464,6 +7484,11 @@
     "name": "SkulkingColony",
     "min_hp": 75,
     "max_hp": 75,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 80,
+      "max": 80
+    },
     "start_effects": [
       {
         "op": "power",
@@ -6490,7 +7515,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6510,7 +7539,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6533,13 +7566,21 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6559,7 +7600,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6571,6 +7616,11 @@
     "name": "SlimedBerserker",
     "min_hp": 261,
     "max_hp": 261,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 281,
+      "max": 281
+    },
     "initial_state": "VOMIT_ICHOR_MOVE",
     "moves": {
       "VOMIT_ICHOR_MOVE": {
@@ -6636,7 +7686,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 30
+            "amount": {
+              "base": 30,
+              "ascension": 33,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6656,7 +7710,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6668,6 +7726,11 @@
     "name": "SlitheringStrangler",
     "min_hp": 53,
     "max_hp": 55,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 54,
+      "max": 56
+    },
     "initial_state": "CONSTRICT",
     "moves": {
       "CONSTRICT": {
@@ -6707,7 +7770,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
@@ -6732,7 +7799,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 12
+            "amount": {
+              "base": 12,
+              "ascension": 13,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6759,6 +7830,11 @@
     "name": "SludgeSpinner",
     "min_hp": 37,
     "max_hp": 39,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 41,
+      "max": 42
+    },
     "initial_state": "OIL_SPRAY_MOVE",
     "moves": {
       "OIL_SPRAY_MOVE": {
@@ -6779,7 +7855,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -6805,7 +7885,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -6828,7 +7912,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -6864,12 +7952,21 @@
     "name": "SlumberingBeetle",
     "min_hp": 86,
     "max_hp": 86,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 89,
+      "max": 89
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.PLATING_POWER",
-        "amount": 15
+        "amount": {
+          "base": 15,
+          "ascension": 18,
+          "level": "TOUGH_ENEMIES"
+        }
       },
       {
         "op": "power",
@@ -6911,7 +8008,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -6946,6 +8047,11 @@
     "name": "SnappingJaxfruit",
     "min_hp": 31,
     "max_hp": 33,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 34,
+      "max": 36
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "ENERGY_ORB_MOVE",
@@ -6968,7 +8074,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -6986,6 +8096,11 @@
     "name": "SneakyGremlin",
     "min_hp": 10,
     "max_hp": 14,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 11,
+      "max": 15
+    },
     "initial_state": "SPAWNED_MOVE",
     "moves": {
       "SPAWNED_MOVE": {
@@ -7015,7 +8130,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 9
+            "amount": {
+              "base": 9,
+              "ascension": 10,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7027,6 +8146,11 @@
     "name": "SoulFysh",
     "min_hp": 211,
     "max_hp": 211,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 221,
+      "max": 221
+    },
     "initial_state": "BECKON_MOVE",
     "moves": {
       "BECKON_MOVE": {
@@ -7057,7 +8181,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7081,7 +8209,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": false
@@ -7123,7 +8255,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7141,6 +8277,11 @@
     "name": "SoulNexus",
     "min_hp": 234,
     "max_hp": 234,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 254,
+      "max": 254
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "SOUL_BURN_MOVE",
@@ -7160,7 +8301,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 29
+            "amount": {
+              "base": 29,
+              "ascension": 31,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7180,7 +8325,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7203,7 +8352,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7245,6 +8398,11 @@
     "name": "SpectralKnight",
     "min_hp": 93,
     "max_hp": 93,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 97,
+      "max": 97
+    },
     "initial_state": "HEX",
     "moves": {
       "HEX": {
@@ -7281,7 +8439,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 17,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7301,7 +8463,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7328,6 +8494,11 @@
     "name": "SpinyToad",
     "min_hp": 116,
     "max_hp": 119,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 121,
+      "max": 124
+    },
     "initial_state": "PROTRUDING_SPIKES_MOVE",
     "moves": {
       "PROTRUDING_SPIKES_MOVE": {
@@ -7364,7 +8535,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 23
+            "amount": {
+              "base": 23,
+              "ascension": 25,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7390,7 +8565,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7402,6 +8581,11 @@
     "name": "Stabbot",
     "min_hp": 18,
     "max_hp": 23,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 19,
+      "max": 24
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "STAB_MOVE",
@@ -7424,7 +8608,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7463,12 +8651,21 @@
     "name": "TerrorEel",
     "min_hp": 140,
     "max_hp": 140,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 150,
+      "max": 150
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.SHRIEK_POWER",
-        "amount": 70
+        "amount": {
+          "base": 70,
+          "ascension": 75,
+          "level": "TOUGH_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -7489,7 +8686,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7512,7 +8713,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7561,6 +8766,11 @@
     "name": "TestSubject",
     "min_hp": 100,
     "max_hp": 100,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 111,
+      "max": 111
+    },
     "start_effects": [
       {
         "op": "power",
@@ -7572,7 +8782,11 @@
         "op": "power",
         "target": "self",
         "power": "POWER.ENRAGE_POWER",
-        "amount": 2
+        "amount": {
+          "base": 2,
+          "ascension": 3,
+          "level": "DEADLY_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -7621,7 +8835,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 20
+            "amount": {
+              "base": 20,
+              "ascension": 22,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7644,7 +8862,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -7670,7 +8892,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7690,7 +8916,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7733,13 +8963,21 @@
             "op": "add_card",
             "card": "CARD.BURN",
             "pile": "Discard",
-            "count": 3
+            "count": {
+              "base": 3,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -7855,6 +9093,11 @@
     "name": "TheAdversaryMkThree",
     "min_hp": 300,
     "max_hp": 300,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 300,
+      "max": 300
+    },
     "start_effects": [
       {
         "op": "power",
@@ -7942,6 +9185,11 @@
     "name": "TheAdversaryMkTwo",
     "min_hp": 200,
     "max_hp": 200,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 200,
+      "max": 200
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8029,6 +9277,11 @@
     "name": "TheForgotten",
     "min_hp": 106,
     "max_hp": 106,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 111,
+      "max": 111
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8060,7 +9313,11 @@
             "op": "power",
             "target": "player",
             "power": "POWER.DEXTERITY_POWER",
-            "amount": -2
+            "amount": {
+              "base": 2,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
@@ -8071,7 +9328,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.DEXTERITY_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8105,6 +9366,11 @@
     "name": "TheInsatiable",
     "min_hp": 321,
     "max_hp": 321,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 341,
+      "max": 341
+    },
     "initial_state": "LIQUIFY_GROUND_MOVE",
     "moves": {
       "LIQUIFY_GROUND_MOVE": {
@@ -8147,7 +9413,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8167,7 +9437,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8187,7 +9461,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 28
+            "amount": {
+              "base": 28,
+              "ascension": 31,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8206,7 +9484,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 3,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8218,6 +9500,11 @@
     "name": "TheLost",
     "min_hp": 93,
     "max_hp": 93,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 99,
+      "max": 99
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8246,13 +9533,21 @@
             "op": "power",
             "target": "player",
             "power": "POWER.STRENGTH_POWER",
-            "amount": -2
+            "amount": {
+              "base": 2,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
-            "amount": 2
+            "amount": {
+              "base": 2,
+              "ascension": 2,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8272,7 +9567,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8284,6 +9583,11 @@
     "name": "TheObscura",
     "min_hp": 123,
     "max_hp": 123,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 129,
+      "max": 129
+    },
     "initial_state": "ILLUSION_MOVE",
     "moves": {
       "ILLUSION_MOVE": {
@@ -8313,7 +9617,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8355,12 +9663,20 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "block",
             "target": "self",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8390,6 +9706,11 @@
     "name": "ThievingHopper",
     "min_hp": 79,
     "max_hp": 79,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 84,
+      "max": 84
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8427,7 +9748,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 17
+            "amount": {
+              "base": 17,
+              "ascension": 19,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8447,7 +9772,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8467,7 +9796,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 21
+            "amount": {
+              "base": 21,
+              "ascension": 23,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8510,6 +9843,11 @@
     "name": "Toadpole",
     "min_hp": 21,
     "max_hp": 25,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 22,
+      "max": 26
+    },
     "initial_state": "INIT_MOVE",
     "moves": {
       "SPIKE_SPIT_MOVE": {
@@ -8533,7 +9871,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8553,7 +9895,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8601,6 +9947,11 @@
     "name": "TorchHeadAmalgam",
     "min_hp": 199,
     "max_hp": 199,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 211,
+      "max": 211
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8627,7 +9978,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 26
+            "amount": {
+              "base": 26,
+              "ascension": 32,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8647,7 +10002,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 18
+            "amount": {
+              "base": 18,
+              "ascension": 22,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8667,7 +10026,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8687,7 +10050,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8707,7 +10074,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8719,6 +10090,11 @@
     "name": "ToughEgg",
     "min_hp": 14,
     "max_hp": 18,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 15,
+      "max": 19
+    },
     "start_effects": [
       {
         "op": "power",
@@ -8759,7 +10135,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8771,6 +10151,11 @@
     "name": "TrackerRubyRaider",
     "min_hp": 21,
     "max_hp": 25,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 22,
+      "max": 26
+    },
     "initial_state": "TRACK_MOVE",
     "moves": {
       "TRACK_MOVE": {
@@ -8807,7 +10192,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 1
+            "amount": {
+              "base": 1,
+              "ascension": 1,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8819,6 +10208,11 @@
     "name": "Tunneler",
     "min_hp": 87,
     "max_hp": 87,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 92,
+      "max": 92
+    },
     "initial_state": "BITE_MOVE",
     "moves": {
       "BITE_MOVE": {
@@ -8836,7 +10230,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8863,7 +10261,11 @@
           {
             "op": "block",
             "target": "self",
-            "amount": 32
+            "amount": {
+              "base": 32,
+              "ascension": 37,
+              "level": "TOUGH_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8883,7 +10285,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 23
+            "amount": {
+              "base": 23,
+              "ascension": 26,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8907,6 +10313,11 @@
     "name": "TurretOperator",
     "min_hp": 41,
     "max_hp": 41,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 51,
+      "max": 51
+    },
     "initial_state": "UNLOAD_MOVE",
     "moves": {
       "UNLOAD_MOVE": {
@@ -8924,7 +10335,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8944,7 +10359,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 3
+            "amount": {
+              "base": 3,
+              "ascension": 4,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -8975,6 +10394,11 @@
     "name": "TwigSlimeM",
     "min_hp": 26,
     "max_hp": 28,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 27,
+      "max": 29
+    },
     "initial_state": "STICKY_SHOT_MOVE",
     "moves": {
       "POKEY_POUNCE_MOVE": {
@@ -8992,7 +10416,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 11
+            "amount": {
+              "base": 11,
+              "ascension": 12,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9039,6 +10467,11 @@
     "name": "TwigSlimeS",
     "min_hp": 7,
     "max_hp": 11,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 8,
+      "max": 12
+    },
     "initial_state": "TACKLE_MOVE",
     "moves": {
       "TACKLE_MOVE": {
@@ -9056,7 +10489,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 4
+            "amount": {
+              "base": 4,
+              "ascension": 5,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9068,6 +10505,11 @@
     "name": "TwoTailedRat",
     "min_hp": 17,
     "max_hp": 21,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 18,
+      "max": 22
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": null,
@@ -9092,7 +10534,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9112,7 +10558,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9176,12 +10626,21 @@
     "name": "Vantom",
     "min_hp": 173,
     "max_hp": 173,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 183,
+      "max": 183
+    },
     "start_effects": [
       {
         "op": "power",
         "target": "self",
         "power": "POWER.SLIPPERY_POWER",
-        "amount": 8
+        "amount": {
+          "base": 8,
+          "ascension": 9,
+          "level": "TOUGH_ENEMIES"
+        }
       }
     ],
     "start_effect_complete": true,
@@ -9202,7 +10661,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 7
+            "amount": {
+              "base": 7,
+              "ascension": 8,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9222,7 +10685,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9246,7 +10713,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 26
+            "amount": {
+              "base": 26,
+              "ascension": 30,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "add_card",
@@ -9283,6 +10754,11 @@
     "name": "VineShambler",
     "min_hp": 61,
     "max_hp": 61,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 64,
+      "max": 64
+    },
     "initial_state": "SWIPE_MOVE",
     "moves": {
       "GRASPING_VINES_MOVE": {
@@ -9303,7 +10779,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 8
+            "amount": {
+              "base": 8,
+              "ascension": 9,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -9329,7 +10809,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9349,7 +10833,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 16
+            "amount": {
+              "base": 16,
+              "ascension": 18,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9361,6 +10849,11 @@
     "name": "WaterfallGiant",
     "min_hp": 240,
     "max_hp": 240,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 250,
+      "max": 250
+    },
     "start_effects": null,
     "start_effect_complete": true,
     "initial_state": "PRESSURIZE_MOVE",
@@ -9379,7 +10872,11 @@
             "op": "power",
             "target": "self",
             "power": "POWER.STEAM_ERUPTION_POWER",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 20,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9405,7 +10902,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 15
+            "amount": {
+              "base": 15,
+              "ascension": 16,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -9440,7 +10941,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 10
+            "amount": {
+              "base": 10,
+              "ascension": 11,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -9529,7 +11034,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 13
+            "amount": {
+              "base": 13,
+              "ascension": 14,
+              "level": "DEADLY_ENEMIES"
+            }
           },
           {
             "op": "power",
@@ -9581,6 +11090,11 @@
     "name": "Wriggler",
     "min_hp": 17,
     "max_hp": 21,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 18,
+      "max": 22
+    },
     "initial_state": null,
     "moves": {
       "NASTY_BITE_MOVE": {
@@ -9598,7 +11112,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 6
+            "amount": {
+              "base": 6,
+              "ascension": 7,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true
@@ -9678,6 +11196,11 @@
     "name": "Zapbot",
     "min_hp": 18,
     "max_hp": 23,
+    "hp_ascension": {
+      "level": "TOUGH_ENEMIES",
+      "min": 19,
+      "max": 24
+    },
     "start_effects": [
       {
         "op": "power",
@@ -9704,7 +11227,11 @@
           {
             "op": "damage",
             "target": "player",
-            "amount": 14
+            "amount": {
+              "base": 14,
+              "ascension": 15,
+              "level": "DEADLY_ENEMIES"
+            }
           }
         ],
         "effect_complete": true

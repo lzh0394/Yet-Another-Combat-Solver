@@ -67,6 +67,11 @@ public static class Snapshots
         if (intent.Type == "Attack")
         {
             decimal baseDamage = intent.Damage ?? 0;
+            Data.EffectDef? effect = monster.State.Effects?.FirstOrDefault(e => e.Op == "damage");
+            if (effect is not null)
+            {
+                baseDamage = Rules.Ascension.Amount(effect.Amount, combat.Scenario.Ascension);
+            }
             decimal modified = Damage.Modify(combat, monster, combat.Player, baseDamage);
             int repeats = intent.Repeats ?? 1;
             view.Damage = Math.Max(0, (int)modified) * repeats;
@@ -90,7 +95,8 @@ public static class Snapshots
         {
             Id = card.Entry,
             Upgrade = card.Upgrade,
-            Cost = card.Cost,
+            // The game clamps displayed energy cost at 0; -1 only means "unplayable".
+            Cost = Math.Max(0, card.Cost),
             CostsX = card.CostsX,
             StarCost = card.StarCost,
             Target = card.Def.Target,
@@ -98,7 +104,7 @@ public static class Snapshots
         };
         if (combat is not null)
         {
-            view.CanPlay = card.Cost < 0 || card.CostsX ? combat.Player.Energy > 0 : combat.Player.Energy >= card.Cost;
+            view.CanPlay = card.Cost >= 0 && (card.CostsX ? combat.Player.Energy > 0 : combat.Player.Energy >= card.Cost);
         }
         return view;
     }

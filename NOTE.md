@@ -199,3 +199,37 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
   引擎测试里也有一条同样的自包含断言（9 checks）。
 - 注意：`HtmlView` 只依赖 `Sts2.Contracts`，自己的 `JsonOptions` 用 snake_case，
   不要引用 `Sts2.Engine`（会形成 View→Engine 的反向依赖，构建会失败）。
+
+## 15. 进阶（A1–A10）与原生 AOT（M7）
+
+导出器把 `AscensionHelper.GetValueIfAscension(level, asc, base)` 的两侧都留下：
+怪物 `min_hp`/`max_hp` 是 A0 值，另有 `hp_ascension {level, min, max}`；招式效果的
+`amount` 是 `{base, ascension, level}` 对象。引擎 `Rules/Ascension.cs` 用枚举声明顺序
+（`SwarmingElites=1 … ToughEnemies=8, DeadlyEnemies=9, DoubleBoss=10`）判定
+`ascension >= level`，选对应一侧——等价于游戏里的 `RunManager.HasAscension`。
+
+引擎侧另外复刻了两处进阶对**运行**的影响（`AscensionManager.ApplyEffectsTo`）：
+- A4 `TightBelt`：最大药水槽 −1；
+- A5 `AscendersBane`：起始牌组加入 `CARD.ASCENDERS_BANE`。这张诅咒带 `Ethereal`，
+  所以回合结束弃手牌时 Ethereal 进消耗堆而不是弃牌堆，这是 A5 以后轨迹能对上的前提。
+- 快照里的 `cost` 按游戏口径钳到 0（`-1` 只表示“不可打出”），`can_play` 对不可打出的卡为 false。
+
+已录制并对齐：`ironclad_nibbits_a4/a5/a9/a10`（A10 = ToughEnemies + DeadlyEnemies 同时生效：
+HP 44–48、猛击 13、斩击 7 伤害 + 6 格挡、嘶鸣 +3 力量）。A1 只差“胜利结算后剩余能量”
+一项，已移到 `known_gaps`。
+
+**AOT**：`dotnet publish src/Sts2.Cli -c Release -r win-x64 -p:PublishAot=true`。
+反射式 `JsonSerializer` 在 AOT 下被禁用，因此数据包、场景、快照都改成
+`JsonSerializerContext` 源生成（`Sts2.Engine/Data/PackJsonContext.cs`、
+`Sts2.View/ViewJsonContext.cs`），读取一律走 `PackJsonContext.Default.X` /
+`ViewJsonContext.Default.X`，不传 `JsonSerializerOptions`。
+
+两个坑：
+1. 不要在 context 类**自己的静态初始化**里引用 `Default`（`Options` 属性放在同一个类中），
+   会拿到 resolver 为 null 的半成品；单独建 `JsonDefaults`/`ViewJsonDefaults`。
+2. `[JsonExtensionData]` 只能是 `IDictionary<string, object>`（或 `JsonElement`），
+   因此 `RngView.Streams` 保持 `Dictionary<string, object>`，并在 context 上补
+   `[JsonSerializable(typeof(JsonElement))]`。
+
+本机实测（win-x64 AOT）：单场 `ironclad_nibbits` 约 **21.6 µs/场、46k 场/秒**；
+JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布与冒烟测试。

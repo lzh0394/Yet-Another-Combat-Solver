@@ -18,13 +18,8 @@ public sealed class Scenario
     public List<DeckCard>? Deck { get; set; }
     public List<ScenarioAction> Actions { get; set; } = new();
 
-    public static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.SnakeCaseLower,
-        PropertyNameCaseInsensitive = true,
-        ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip,
-        AllowTrailingCommas = true,
-    };
+    /// <summary>Source-generated options so the CLI keeps working under native AOT.</summary>
+    public static JsonSerializerOptions JsonOptions => Data.JsonDefaults.Options;
 }
 
 public sealed class DeckCard

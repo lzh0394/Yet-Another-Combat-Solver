@@ -22,3 +22,4 @@ python tools/compare_snapshots.py \
 | `ironclad_flyconid` | 同上（Frail/Weak 在玩家侧的持续时间），以及 Flyconid 的孢子能力层数增长 |
 | `ironclad_strangler` | 同上（玩家侧 Debuff 持续时间导致伤害差异） |
 | `ironclad_ovicopter` | Ovicopter 的召唤（ToughEgg）与 `Rng.Niche` 消耗顺序 |
+| `ironclad_nibbits_a1` | 胜利结算时的能量：真机保留击杀后剩余 1 点，引擎按 A4/A5/A9/A10 的样本清零；A1 之外所有样本都恰好花光能量，无法区分两种口径 |

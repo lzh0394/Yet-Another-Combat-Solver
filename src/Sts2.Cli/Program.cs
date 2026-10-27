@@ -76,19 +76,16 @@ if (args.Length > 0 && args[0] == "run")
         return 2;
     }
 
-    Scenario scenario = JsonSerializer.Deserialize<Scenario>(File.ReadAllText(scenarioPath), Scenario.JsonOptions)
+    Scenario scenario = JsonSerializer.Deserialize(File.ReadAllText(scenarioPath), PackJsonContext.Default.Scenario)
         ?? throw new InvalidOperationException("scenario is empty");
     DataPack pack = DataPack.Load(packDir);
     Combat combat = new(pack, scenario);
 
-    JsonSerializerOptions options = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-    };
+
 
     Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(outPath))!);
     using StreamWriter writer = new(outPath);
-    void Emit(ActionInfo action) => writer.WriteLine(JsonSerializer.Serialize(Snapshots.Build(combat, action), options));
+    void Emit(ActionInfo action) => writer.WriteLine(JsonSerializer.Serialize(Snapshots.Build(combat, action), Sts2.View.ViewJsonContext.Default.Snapshot));
 
     Emit(new ActionInfo { Type = "start" });
     int actionIndex = 0;
@@ -123,6 +120,69 @@ if (args.Length > 0 && args[0] == "run")
             break;
         }
     }
+    return 0;
+}
+
+if (args.Length > 0 && args[0] == "bench")
+{
+    string? scenarioPath = null;
+    string packDir = Path.Combine("data", "sts2");
+    int iterations = 1000;
+    for (int i = 1; i < args.Length; i++)
+    {
+        switch (args[i])
+        {
+            case "--scenario": scenarioPath = args[++i]; break;
+            case "--pack": packDir = args[++i]; break;
+            case "--iterations": iterations = int.Parse(args[++i]); break;
+            default: Console.Error.WriteLine($"unknown option {args[i]}"); return 2;
+        }
+    }
+    if (scenarioPath is null)
+    {
+        Console.Error.WriteLine("usage: sts2 bench --scenario <file> [--pack <dir>] [--iterations <n>]");
+        return 2;
+    }
+
+    Scenario scenario = JsonSerializer.Deserialize(File.ReadAllText(scenarioPath), PackJsonContext.Default.Scenario)
+        ?? throw new InvalidOperationException("scenario is empty");
+    DataPack pack = DataPack.Load(packDir);
+
+    void Simulate()
+    {
+        Combat combat = new(pack, scenario);
+        foreach (ScenarioAction action in scenario.Actions)
+        {
+            switch (action.Type)
+            {
+                case "play": combat.PlayCard(action.Slot, action.Card, action.Target, action.Index); break;
+                case "end_turn": combat.EndTurn(action.Index); break;
+                case "auto_turn": combat.AutoTurn(action.Index); break;
+                default: throw new InvalidOperationException($"action type not implemented: {action.Type}");
+            }
+            if (combat.CombatOver)
+            {
+                break;
+            }
+        }
+    }
+
+    for (int i = 0; i < 50; i++)
+    {
+        Simulate();
+    }
+    var watch = System.Diagnostics.Stopwatch.StartNew();
+    for (int i = 0; i < iterations; i++)
+    {
+        Simulate();
+    }
+    watch.Stop();
+    double perSim = watch.Elapsed.TotalMicroseconds / iterations;
+    Console.WriteLine($"scenario: {Path.GetFileNameWithoutExtension(scenarioPath)}");
+    Console.WriteLine($"iterations: {iterations}");
+    Console.WriteLine($"total: {watch.Elapsed.TotalSeconds:F3}s");
+    Console.WriteLine($"per simulation: {perSim:F1} us");
+    Console.WriteLine($"throughput: {1_000_000.0 / perSim:F0} sims/s");
     return 0;
 }
 
@@ -171,7 +231,7 @@ if (args.Length > 0 && args[0] == "tui")
         return 2;
     }
 
-    Scenario scenario = JsonSerializer.Deserialize<Scenario>(File.ReadAllText(scenarioPath), Scenario.JsonOptions)
+    Scenario scenario = JsonSerializer.Deserialize(File.ReadAllText(scenarioPath), PackJsonContext.Default.Scenario)
         ?? throw new InvalidOperationException("scenario is empty");
     Combat combat = new(DataPack.Load(packDir), scenario);
     int actionIndex = 0;

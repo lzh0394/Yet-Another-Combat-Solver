@@ -46,6 +46,24 @@ jobs:
           done
           exit $fail
 
+      - name: Ascension parity (A4/A5/A9/A10)
+        run: |
+          # Nibbit stats change at ToughEnemies (A8) and DeadlyEnemies (A9); A4 loses a potion
+          # slot, A5 adds Ascender's Bane; A10 adds the double-boss flag (no combat effect here).
+          for a in 4 5 9 10; do
+            name="ironclad_nibbits_a$a"
+            dotnet run --project src/Sts2.Cli -c Release --no-build -- run --scenario "harness/scenarios/$name.json" --pack data/sts2 --out "artifacts/engine/$name.jsonl"
+            python tools/compare_snapshots.py --a "tests/vectors/real/$name.jsonl" --b "artifacts/engine/$name.jsonl"
+          done
+
+      - name: Native AOT publish and smoke test
+        run: |
+          dotnet publish src/Sts2.Cli -c Release -r linux-x64 -p:PublishAot=true -p:InvariantGlobalization=true -o artifacts/aot
+          artifacts/aot/Sts2.Cli rng-verify
+          artifacts/aot/Sts2.Cli bench --scenario harness/scenarios/ironclad_nibbits.json --iterations 2000
+          artifacts/aot/Sts2.Cli run --scenario harness/scenarios/ironclad_nibbits.json --pack data/sts2 --out artifacts/engine/aot_nibbits.jsonl
+          python tools/compare_snapshots.py --a tests/vectors/real/ironclad_nibbits.jsonl --b artifacts/engine/aot_nibbits.jsonl
+
       - name: Render single-file HTML replays
         run: |
           mkdir -p artifacts/replay

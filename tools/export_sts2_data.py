@@ -28,7 +28,7 @@ from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 CATEGORY_DIRS = {
     "cards": ("Models/Cards", "CardModel"),
@@ -606,7 +606,8 @@ class Exporter:
         expr = info.prop_expr("CanonicalKeywords")
         if not expr:
             return []
-        return sorted(set(re.findall(r"CardKeyword\.([A-Za-z_]\w*)", expr)))
+        # Keep declaration order: the real game exposes keywords in the order the card lists them.
+        return list(dict.fromkeys(re.findall(r"CardKeyword\.([A-Za-z_]\w*)", expr)))
 
     def parse_upgrade(self, info: ClassInfo, scope: str) -> dict:
         body = info.method_body("OnUpgrade") or ""
@@ -824,8 +825,16 @@ class Exporter:
 
     def monster(self, info: ClassInfo, mid: str) -> dict:
         entry = {"id": mid, "name": info.name}
-        entry["min_hp"] = self._entry_value(self._int_prop(info, "MinInitialHp"))
-        entry["max_hp"] = self._entry_value(self._int_prop(info, "MaxInitialHp"))
+        min_hp = self._int_prop(info, "MinInitialHp")
+        max_hp = self._int_prop(info, "MaxInitialHp")
+        entry["min_hp"] = self._entry_value(min_hp)
+        entry["max_hp"] = self._entry_value(max_hp)
+        if "level" in min_hp and "ascension" in min_hp:
+            entry["hp_ascension"] = {
+                "level": camel_to_screaming(min_hp["level"]),
+                "min": min_hp["ascension"],
+                "max": max_hp.get("ascension", max_hp.get("base")),
+            }
 
         owner, body = self._find_method(info, "GenerateMoveStateMachine")
         if body is None:
@@ -1365,6 +1374,13 @@ class Exporter:
                 return -inner
             return inner
         resolved = self.resolver.resolve(e, info)
+        if "level" in resolved and "ascension" in resolved:
+            # Keep both sides: the game picks by run ascension level, the engine mirrors that.
+            return {
+                "base": resolved["base"],
+                "ascension": resolved["ascension"],
+                "level": camel_to_screaming(resolved["level"]),
+            }
         if "base" in resolved and isinstance(resolved["base"], (int, float)):
             return resolved["base"]
         if "value" in resolved and isinstance(resolved["value"], (int, float)):
