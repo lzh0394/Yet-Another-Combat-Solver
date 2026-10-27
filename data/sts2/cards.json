@@ -15759,7 +15759,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15770,7 +15770,16 @@
       },
       {
         "op": "draw",
-        "amount": 1
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "discard_drawn",
+        "count": {
+          "var": "Cards"
+        },
+        "filter": "nonzero_cost"
       }
     ],
     "calc": null
@@ -17956,18 +17965,19 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
-        "op": "upgrade",
-        "target": "all",
-        "count": 9999
+        "op": "discard_hand"
       },
       {
         "op": "add_card",
         "card": "CARD.SHIV",
         "pile": "Hand",
-        "count": 1
+        "count": {
+          "discarded": true
+        },
+        "upgrade": false
       }
     ],
     "calc": null

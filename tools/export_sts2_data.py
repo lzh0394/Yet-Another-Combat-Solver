@@ -1809,6 +1809,32 @@ class Exporter:
         if not ops and re.fullmatch(r"\s*return\s+Task\.CompletedTask\s*;\s*", body):
             return [], True
 
+        # Post-pass: whole-hand discard (Storm of Steel) and draw-then-discard (Scrape).
+        hand_decl = re.search(
+            r"IEnumerable<CardModel>\s+(\w+)\s*=\s*PileType\.Hand\.GetPile\([^;]*\.Cards\.ToList\(\);",
+            body,
+        )
+        if hand_decl is not None:
+            hvar = hand_decl.group(1)
+            disc = re.search(r"CardCmd\.Discard\s*\([^,]*,\s*" + re.escape(hvar) + r"\s*\)", body)
+            if disc is not None:
+                handled.append((disc.start(), match_paren(body, disc.end() - 1)))
+                ops[:] = [op for op in ops if not (op.get("op") == "upgrade" and op.get("count") == 9999)]
+                ops.insert(0, {"op": "discard_hand"})
+                for opx in ops:
+                    if opx.get("op") == "add_card" and opx.get("card") == "CARD.SHIV":
+                        opx["count"] = {"discarded": True}
+                        opx["upgrade"] = bool(re.search(r"if\s*\(\s*base\.IsUpgraded\s*\)[^}]{0,120}Upgrade\(", body))
+        scraped = re.search(
+            r"\.Where\(\(CardModel\s+\w+\)\s*=>\s*\w+\.EnergyCost\.GetWithModifiers\([^)]*\)\s*!=\s*0", body
+        )
+        if scraped is not None:
+            mark(r"CardCmd\.Discard\s*\(")
+            for opx in ops:
+                if opx.get("op") == "draw":
+                    opx["amount"] = {"var": "Cards"}
+            ops.append({"op": "discard_drawn", "count": {"var": "Cards"}, "filter": "nonzero_cost"})
+
         unsupported: list[str] = []
         for m in re.finditer(r"(\w+Cmd)\s*\.\s*(\w+)\s*(?:<[^<>]*>)?\s*\(", body):
             cmd = m.group(1)

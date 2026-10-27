@@ -630,8 +630,9 @@ public sealed class Combat
         }
     }
 
-    public void DrawCards(int count)
+    public List<CardInstance> DrawCards(int count)
     {
+        List<CardInstance> drawn = [];
         for (int i = 0; i < count; i++)
         {
             if (Player.DrawPile.Count == 0)
@@ -640,12 +641,14 @@ public sealed class Combat
             }
             if (Player.DrawPile.Count == 0)
             {
-                return;
+                return drawn;
             }
             CardInstance card = Player.DrawPile[0];
             Player.DrawPile.RemoveAt(0);
             Player.Hand.Add(card);
+            drawn.Add(card);
         }
+        return drawn;
     }
 
     private void ReshuffleDiscardIntoDraw()
@@ -1061,6 +1064,9 @@ public sealed class Combat
 
     /// <summary>Cards removed by the most recent whole-hand exhaust (Fiend Fire / Second Wind / Flak Cannon).</summary>
     public int LastExhaustedCount { get; set; }
+
+    /// <summary>Cards removed by the most recent whole-hand discard (Storm of Steel).</summary>
+    public int LastDiscardedCount { get; set; }
 
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;

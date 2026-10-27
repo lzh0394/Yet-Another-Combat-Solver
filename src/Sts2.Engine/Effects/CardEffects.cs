@@ -61,6 +61,37 @@ public static class CardEffects
                 Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "discard_hand":
+            {
+                int discarded = combat.Player.Hand.Count;
+                while (combat.Player.Hand.Count > 0)
+                {
+                    CardInstance tossed = combat.Player.Hand[0];
+                    combat.Player.Hand.RemoveAt(0);
+                    combat.Player.DiscardPile.Add(tossed);
+                }
+                combat.LastDiscardedCount = discarded;
+                break;
+            }
+
+            case "discard_drawn":
+            {
+                int count = Amount(combat, card, effect.Count, target);
+                List<CardInstance> drawn = combat.DrawCards(count);
+                foreach (CardInstance pulled in drawn.ToList())
+                {
+                    if (pulled.Cost == 0)
+                    {
+                        continue;
+                    }
+                    if (combat.Player.Hand.Remove(pulled))
+                    {
+                        combat.Player.DiscardPile.Add(pulled);
+                    }
+                }
+                break;
+            }
+
             case "exhaust_hand":
             {
                 int count = 0;
@@ -480,10 +511,17 @@ public static class CardEffects
 
             case "add_card":
             {
-                int count = effect.Count is null ? Amount(combat, card, effect.Amount, target)
-                    : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
+                int count = effect.Count is null
+                    ? Amount(combat, card, effect.Amount, target)
+                    : Rules.Ascension.IsAscensionObject(effect.Count)
+                        ? (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension)
+                        : Amount(combat, card, effect.Count, target);
                 CardInstance added = effect.Card == "SELF" ? new CardInstance(card.Def, card.Upgrade)
                     : new CardInstance(combat.Data.Card(effect.Card ?? throw new CombatException($"{card.Entry}: add_card without id")));
+                if (effect.Upgrade == true)
+                {
+                    added = new CardInstance(added.Def, Math.Max(1, added.Upgrade));
+                }
                 combat.AddCardToPile(added, effect.Pile, count);
                 break;
             }
@@ -646,6 +684,12 @@ public static class CardEffects
             value.TryGetProperty("exhausted", out System.Text.Json.JsonElement exhausted) && exhausted.ValueKind == System.Text.Json.JsonValueKind.True)
         {
             return combat.LastExhaustedCount;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("discarded", out System.Text.Json.JsonElement discardedFlag) &&
+            discardedFlag.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            return combat.LastDiscardedCount;
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("per_exhausted", out System.Text.Json.JsonElement perExhausted) && perExhausted.ValueKind == System.Text.Json.JsonValueKind.True)
