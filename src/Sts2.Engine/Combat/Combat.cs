@@ -22,6 +22,7 @@ public sealed class Combat
 {
     public const string VulnerablePower = "VULNERABLE_POWER";
     public const string WeakPower = "WEAK_POWER";
+    public const string FrailPower = "FRAIL_POWER";
     public const string StrengthPower = "STRENGTH_POWER";
     public const string ShrinkPower = "SHRINK_POWER";
     public const string RitualPower = "RITUAL_POWER";
@@ -1167,7 +1168,9 @@ public sealed class Combat
                 }
                 ICombatant target = effect.Target == "player" ? Player : monster;
                 target.AddPower(power, amount);
-                if (_side == CombatSide.Enemy)
+                // PowerCmd.Apply sets SkipNextDurationTick when a Debuff lands on a player-side
+                // creature, regardless of whose turn it is.
+                if (target is PlayerState)
                 {
                     string normalized = PowerIds.Normalize(power);
                     PowerInstance? applied = target.Powers.FirstOrDefault(p => p.Id == normalized);
@@ -1191,7 +1194,7 @@ public sealed class Combat
     {
         foreach (PowerInstance power in monster.Powers.ToList())
         {
-            if (power.Id is VulnerablePower or WeakPower)
+            if (power.Id is VulnerablePower or WeakPower or FrailPower)
             {
                 if (power.Fresh)
                 {
