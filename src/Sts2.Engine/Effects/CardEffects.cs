@@ -142,6 +142,21 @@ public static class CardEffects
                 combat.Player.Energy += Amount(combat, card, effect.Amount);
                 break;
 
+            case "hp_loss":
+                // Unblockable self-damage (Bloodletting et al.); power hooks do not apply.
+                combat.Player.Hp = Math.Max(0, combat.Player.Hp - Amount(combat, card, effect.Amount));
+                break;
+
+            case "add_card":
+            {
+                int count = effect.Count is null ? Amount(combat, card, effect.Amount)
+                    : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
+                CardInstance added = effect.Card == "SELF" ? new CardInstance(card.Def, card.Upgrade)
+                    : new CardInstance(combat.Data.Card(effect.Card ?? throw new CombatException($"{card.Entry}: add_card without id")));
+                combat.AddCardToPile(added, effect.Pile, count);
+                break;
+            }
+
             default:
                 throw new CombatException($"{card.Entry}: unsupported card effect op {effect.Op}");
         }

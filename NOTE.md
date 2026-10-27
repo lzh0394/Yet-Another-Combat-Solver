@@ -327,6 +327,9 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 
 ### 20. 遭遇覆盖与条件谓词（M5，进行中）
 
+新支持的 op：`hp_loss`（Bloodletting 式不可格挡自伤）、`add_card`（Anger 式克隆本卡入堆）、
+`CardSelectCmd.FromHand` 的弃牌/消耗（按提示词区分）。
+
 `sts2 smoke --pack data/sts2` 会遍历所有 `RoomType == Monster` 的遭遇：建场、跑 12 个随机动作，
 捕获异常。当前 **64 个可启动 / 0 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`
 与 `DEPRECATED_ENCOUNTER` 属于事件/废弃内容，已在冒烟里显式排除）。

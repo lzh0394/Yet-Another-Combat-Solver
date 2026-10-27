@@ -1006,6 +1006,30 @@ public sealed class Combat
         return max + 1;
     }
 
+    /// <summary>Places a copy of a card in one of the player's piles.</summary>
+    public void AddCardToPile(CardInstance card, string? pile, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            CardInstance added = new(card.Def, card.Upgrade);
+            switch (pile ?? "Discard")
+            {
+                case "Hand":
+                    Player.Hand.Add(added);
+                    break;
+                case "Draw":
+                    Player.DrawPile.Add(added);
+                    break;
+                case "Exhaust":
+                    Player.ExhaustPile.Add(added);
+                    break;
+                default:
+                    Player.DiscardPile.Add(added);
+                    break;
+            }
+        }
+    }
+
     private void ApplyEffect(MonsterInstance monster, EffectDef effect)
     {
         int amount = (int)Rules.Ascension.Amount(effect.Amount, Scenario.Ascension);
@@ -1025,25 +1049,7 @@ public sealed class Combat
             {
                 string cardId = effect.Card ?? throw new CombatException($"add_card without card id on {monster.Def.Entry}");
                 int count = effect.Count is { ValueKind: System.Text.Json.JsonValueKind.Number } c ? c.GetInt32() : 0;
-                for (int i = 0; i < count; i++)
-                {
-                    CardInstance added = new(_data.Card(cardId));
-                    switch (effect.Pile ?? "Discard")
-                    {
-                        case "Hand":
-                            Player.Hand.Add(added);
-                            break;
-                        case "Draw":
-                            Player.DrawPile.Add(added);
-                            break;
-                        case "Exhaust":
-                            Player.ExhaustPile.Add(added);
-                            break;
-                        default:
-                            Player.DiscardPile.Add(added);
-                            break;
-                    }
-                }
+                AddCardToPile(new CardInstance(_data.Card(cardId)), effect.Pile, count);
                 break;
             }
             case "power":

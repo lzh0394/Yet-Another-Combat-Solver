@@ -64,7 +64,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.ACCELERANT": {
     "id": "CARD.ACCELERANT",
@@ -181,7 +188,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -189,6 +196,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -424,7 +437,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -432,6 +445,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -1255,7 +1274,13 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.BELIEVE_IN_YOU": {
     "id": "CARD.BELIEVE_IN_YOU",
@@ -1573,8 +1598,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
       {
         "op": "energy",
         "amount": {
@@ -1605,8 +1637,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
       {
         "op": "block",
         "target": "self",
@@ -1875,7 +1914,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -1883,6 +1922,12 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -2018,8 +2063,20 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
+      {
+        "op": "exhaust",
+        "count": 1,
+        "pick": "first"
+      },
       {
         "op": "power",
         "target": "self",
@@ -2094,8 +2151,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
       {
         "op": "damage",
         "target": "all_enemies",
@@ -2372,8 +2436,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.BURN": {
     "id": "CARD.BURN",
@@ -2419,8 +2490,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "exhaust",
+        "count": 1,
+        "pick": "first"
+      },
       {
         "op": "draw",
         "amount": {
@@ -2760,8 +2836,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "hp_loss",
+        "target": "unknown",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CASCADE": {
     "id": "CARD.CASCADE",
@@ -3239,7 +3323,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -3247,6 +3331,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
       }
     ]
   },
@@ -4626,6 +4716,11 @@
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -5030,6 +5125,13 @@
     "effect_complete": false,
     "effect": [
       {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
+      {
         "op": "block",
         "target": "self",
         "amount": {
@@ -5206,7 +5308,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.DISINTEGRATION": {
     "id": "CARD.DISINTEGRATION",
@@ -5280,8 +5389,15 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.DODGE_AND_ROLL": {
     "id": "CARD.DODGE_AND_ROLL",
@@ -5618,8 +5734,20 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.DYING_STAR": {
     "id": "CARD.DYING_STAR",
@@ -5686,8 +5814,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "hp_loss",
+        "target": "unknown",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ECHO_FORM": {
     "id": "CARD.ECHO_FORM",
@@ -6758,7 +6894,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -6766,6 +6902,12 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -7844,6 +7986,11 @@
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -8124,7 +8271,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -8177,7 +8324,13 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "discard",
+        "count": 0,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.GUIDING_STAR": {
     "id": "CARD.GUIDING_STAR",
@@ -8268,7 +8421,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -8279,6 +8432,12 @@
         "hits": {
           "var": "Repeat"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -8398,6 +8557,11 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -8660,7 +8824,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -8668,6 +8832,17 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
       }
     ]
   },
@@ -8785,8 +8960,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
       {
         "op": "damage",
         "target": "target",
@@ -9326,8 +9508,15 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.INFERNO": {
     "id": "CARD.INFERNO",
@@ -9649,6 +9838,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
       }
     ]
   },
@@ -9675,8 +9870,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.JUGGERNAUT": {
     "id": "CARD.JUGGERNAUT",
@@ -9986,7 +10188,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.LEADING_STRIKE": {
     "id": "CARD.LEADING_STRIKE",
@@ -10561,6 +10770,12 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
       }
     ]
   },
@@ -10773,8 +10988,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Draw",
+        "count": 1
+      }
+    ]
   },
   "CARD.METEOR_SHOWER": {
     "id": "CARD.METEOR_SHOWER",
@@ -11654,8 +11876,13 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      },
       {
         "op": "power",
         "target": "self",
@@ -11930,8 +12157,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "hp_loss",
+        "target": "self",
+        "amount": {
+          "var": "HpLoss"
+        }
+      },
       {
         "op": "energy",
         "amount": {
@@ -11966,7 +12200,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "hp_loss",
+        "target": "unknown",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "hp_loss",
+        "target": "unknown",
+        "amount": {
+          "expr": "damageResult.TotalDamage + damageResult.OverkillDamage"
+        }
+      }
+    ]
   },
   "CARD.ONE_FOR_ALL": {
     "id": "CARD.ONE_FOR_ALL",
@@ -12141,7 +12390,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -12149,6 +12398,12 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -12171,13 +12426,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -12633,6 +12894,11 @@
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -13400,8 +13666,14 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "discard",
+        "count": 0,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.PUTREFY": {
     "id": "CARD.PUTREFY",
@@ -13519,7 +13791,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.RADIATE": {
     "id": "CARD.RADIATE",
@@ -14633,8 +14912,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      },
       {
         "op": "power",
         "target": "self",
@@ -14782,6 +15066,11 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -15097,7 +15386,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15105,6 +15394,24 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Draw",
+        "count": 1
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
       }
     ]
   },
@@ -15877,6 +16184,11 @@
         "amount": {
           "var": "OstyDamage"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -16338,7 +16650,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.SPOILS_MAP": {
     "id": "CARD.SPOILS_MAP",
@@ -17996,6 +18315,11 @@
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -18303,8 +18627,14 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.TRASH_TO_TREASURE": {
     "id": "CARD.TRASH_TO_TREASURE",
@@ -18384,7 +18714,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -18392,6 +18722,11 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "exhaust",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -18414,13 +18749,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "energy",
         "amount": {
           "var": "Energy"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -18577,7 +18918,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -18585,6 +18926,12 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Discard",
+        "count": 1
       }
     ]
   },
@@ -19198,8 +19545,15 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "add_card",
+        "card": "SELF",
+        "pile": "Hand",
+        "count": 1
+      }
+    ]
   },
   "CARD.WISH": {
     "id": "CARD.WISH",

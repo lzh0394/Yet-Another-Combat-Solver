@@ -1394,6 +1394,25 @@ class Exporter:
                     ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})
                 elif cmd == "PlayerCmd" and name == "GainStars" and args:
                     ops.append({"op": "stars", "amount": amount(args[0])})
+                elif cmd == "CardSelectCmd" and name == "FromHand" and args:
+                    # Named-argument form: FromHand(prefs: new CardSelectorPrefs(..., N), context: ...).
+                    count = 1
+                    pm = re.search(r"CardSelectorPrefs\([^,]*,\s*(\d+)", args[0])
+                    if pm:
+                        count = int(pm.group(1))
+                    kind = "exhaust" if "ExhaustSelectionPrompt" in args[0] else "discard"
+                    ops.append({"op": kind, "count": count, "pick": "first"})
+                elif cmd == "CreatureCmd" and name == "Damage" and len(args) >= 3:
+                    # Direct self damage (Bloodletting and friends): unblockable HP loss.
+                    target = "self" if any("base.Owner.Creature" in a for a in args[:3]) else "unknown"
+                    ops.append({"op": "hp_loss", "target": target, "amount": amount(args[2])})
+                elif cmd == "CardPileCmd" and name == "AddGeneratedCardToCombat" and len(args) >= 2:
+                    # The generated card is a clone of the played card (Anger).
+                    pile = "Discard"
+                    for a in args:
+                        if "PileType." in a:
+                            pile = a.split("PileType.")[-1].strip()
+                    ops.append({"op": "add_card", "card": "SELF", "pile": pile, "count": 1})
                 elif cmd == "CardSelectCmd" and name in ("FromHandForDiscard", "FromHandForExhaust") and len(args) >= 3:
                     # CardSelectorPrefs(<prompt>, N) -- N cards picked; the harness always picks the
                     # first eligible card, so the op just needs the count.
@@ -1403,6 +1422,12 @@ class Exporter:
                         count = int(pm.group(1))
                     ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
                 elif cmd == "CreatureCmd" and name in ("TriggerAnim", "PlayVfx", "PlaySound", "TriggerAnimations"):
+                    # Presentation-only commands; they carry no combat state.
+                    pass
+                elif cmd == "CardCmd" and name == "PreviewCardPileAdd":
+                    # Presentation-only: the pile add itself is the preceding add_card op.
+                    pass
+                elif cmd == "VfxCmd":
                     # Presentation-only commands; they carry no combat state.
                     pass
                 elif cmd == "Cmd" and name == "CustomScaledWait":
