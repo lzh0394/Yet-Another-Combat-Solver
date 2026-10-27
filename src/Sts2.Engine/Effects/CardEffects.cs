@@ -667,6 +667,11 @@ public static class CardEffects
             return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target));
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("scale", out System.Text.Json.JsonElement scaleName))
+        {
+            return (int)CalcMultiplier(combat, card, scaleName.GetString() ?? "", target);
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("block", out System.Text.Json.JsonElement blockFlag) && blockFlag.ValueKind == System.Text.Json.JsonValueKind.True)
         {
             return combat.Player.Block;

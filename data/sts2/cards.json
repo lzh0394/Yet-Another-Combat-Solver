@@ -727,13 +727,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "exhaust"
         }
       }
     ],
@@ -2520,13 +2520,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "target_vulnerable"
         }
       }
     ],
@@ -8571,13 +8571,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "attacks_played"
         }
       }
     ],
@@ -11813,13 +11813,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "draw"
         }
       }
     ],
@@ -13509,13 +13509,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "strikes_in_all_piles"
         }
       }
     ],
@@ -13966,13 +13966,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "hand"
         }
       }
     ],
@@ -17206,13 +17206,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "draw"
         }
       }
     ],
@@ -19428,13 +19428,13 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "scale": "target_doom"
         }
       }
     ],

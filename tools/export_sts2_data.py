@@ -741,6 +741,11 @@ class Exporter:
             for op in effects or []:
                 if op.get("op") == "damage" and isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage":
                     op["amount"] = {"block": True}
+        calc_mult = calc.get("CalculatedDamage", {}).get("mult") if isinstance(calc.get("CalculatedDamage"), dict) else None
+        if calc_mult and calc_mult != "owner_block":
+            for op in effects or []:
+                if op.get("op") == "damage" and isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage":
+                    op["amount"] = {"scale": calc_mult}
         if any(isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage"
                for op in effects or []) and camel_to_screaming(info.name) not in osty_formulas:
             effects_complete = False

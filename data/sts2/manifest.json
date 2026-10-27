@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T15:08:37.369685+00:00"
+    "exported_at": "2026-10-27T15:14:01.762424+00:00"
   },
   "counts": {
     "cards": 596,
@@ -58,9 +58,6 @@
     "CARD.ALCHEMIZE": [
       "PotionCmd.TryToProcure"
     ],
-    "CARD.ASHEN_STRIKE": [
-      "unknown"
-    ],
     "CARD.BEAT_DOWN": [
       "CardCmd.AutoPlay",
       "CardCmd.AutoPlay"
@@ -77,9 +74,6 @@
     ],
     "CARD.BONE_SHARDS": [
       "CreatureCmd.Kill"
-    ],
-    "CARD.BULLY": [
-      "unknown"
     ],
     "CARD.CATASTROPHE": [
       "CardCmd.AutoPlay"
@@ -150,9 +144,6 @@
     "CARD.GLITTERSTREAM": [
       "unresolved-amount"
     ],
-    "CARD.GOLD_AXE": [
-      "unknown"
-    ],
     "CARD.GUARDS": [
       "CardSelectCmd.FromHand",
       "CardCmd.Transform"
@@ -182,9 +173,6 @@
     "CARD.MEMENTO_MORI": [
       "unknown"
     ],
-    "CARD.MIND_BLAST": [
-      "unknown"
-    ],
     "CARD.MIRAGE": [
       "unknown"
     ],
@@ -202,15 +190,9 @@
     "CARD.OMNISLICE": [
       "unresolved-amount"
     ],
-    "CARD.PERFECTED_STRIKE": [
-      "unknown"
-    ],
     "CARD.PHOTON_CUT": [
       "CardPileCmd.Add",
       "CardSelectCmd.FromHand"
-    ],
-    "CARD.PRECISE_CUT": [
-      "unknown"
     ],
     "CARD.PRIMAL_FORCE": [
       "CardCmd.Transform"
@@ -240,9 +222,6 @@
     "CARD.SEANCE": [
       "CardCmd.TransformTo"
     ],
-    "CARD.SOUL_STORM": [
-      "unknown"
-    ],
     "CARD.SOVEREIGN_BLADE": [
       "unknown"
     ],
@@ -270,9 +249,6 @@
     "CARD.THINKING_AHEAD": [
       "CardSelectCmd.FromHand",
       "CardPileCmd.Add"
-    ],
-    "CARD.TIMES_UP": [
-      "unknown"
     ],
     "CARD.TRANSFIGURE": [
       "CardSelectCmd.FromHand"
