@@ -190,7 +190,9 @@ Ovicopter 已做到“三只 `ToughEgg` 的生成顺序、初始 HP 与 `Rng.Nic
 说明它在该敌方回合攻击时易伤仍在；而引擎按“玩家侧 Debuff 在玩家回合结束递减”的规则，攻击时易伤已掉光。
 但把玩家侧的递减整体挪回敌方回合结束，会让 corpse_slugs（Frail）与 punch_off 回归失败；
 按“Frail/Weak 玩家回合末、Vulnerable 敌方回合末”拆分，又会让 Ovicopter 差 32 处。
-结论：三个 Power 的 `AfterSideTurnEnd` 判据并不一致，需要逐个读实现，不能用一个统一规则概括。
+结论已澄清（见第 19/23 轮）：三个 Power 的判据其实一致（都是 `side == Enemy`），上面第三种拆分
+基于错误假设；真正的差别在 `SkipNextDurationTick` 只在“新建实例”时置位。按这个模型重跑，corpse_slugs、
+punch_off、flyconid 与五条会话全部保持 0 差异，ovicopter 的伤害差异也消失，只剩新召唤物的 RNG 顺序差。
 
 Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里对**玩家侧**的 Debuff 置
 `SkipNextDurationTick`，而 `FrailPower` 和 Weak/Vulnerable 一样在敌方回合结束时递减——
