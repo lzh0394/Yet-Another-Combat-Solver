@@ -26,17 +26,32 @@ jobs:
       - name: RNG vector check
         run: dotnet run --project src/Sts2.Cli -c Release --no-build -- rng-verify
 
-      - name: Replay recorded scenario with the engine
+      - name: Replay recorded scenarios with the engine and diff snapshots
         run: |
-          dotnet run --project src/Sts2.Cli -c Release --no-build -- \
-            run --scenario harness/scenarios/ironclad_nibbits.json \
-            --pack data/sts2 --out artifacts/engine/ironclad_nibbits.jsonl
-
-      - name: Snapshot parity against the real game recording
-        run: |
-          python tools/compare_snapshots.py \
-            --a tests/vectors/real/ironclad_nibbits.jsonl \
-            --b artifacts/engine/ironclad_nibbits.jsonl
+          # Every recorded transcript in tests/vectors/real/ is replayed by the
+          # engine and compared field-by-field against the real game recording.
+          # Known gaps are listed in KNOWN_GAPS and reported, not silently skipped.
+          KNOWN_GAPS="ironclad_thieving_hopper_weak"
+          fail=0
+          for scenario in harness/scenarios/*.json; do
+            name=$(basename "$scenario" .json)
+            case " $KNOWN_GAPS " in
+              *" $name "*)
+                echo "known gap (not compared): $name"
+                continue
+                ;;
+            esac
+            dotnet run --project src/Sts2.Cli -c Release --no-build -- \
+              run --scenario "$scenario" --pack data/sts2 \
+              --out "artifacts/engine/$name.jsonl"
+            if ! python tools/compare_snapshots.py \
+              --a "tests/vectors/real/$name.jsonl" \
+              --b "artifacts/engine/$name.jsonl"; then
+              echo "::error::snapshot parity failed for $name"
+              fail=1
+            fi
+          done
+          exit $fail
 
       - name: Data package vs value oracle
         run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors

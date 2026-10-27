@@ -26,7 +26,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEXTERITY_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THORNS_POWER",
+        "amount": {
+          "var": "ThornsPower"
+        }
+      }
+    ]
   },
   "CARD.ABUNDANCE": {
     "id": "CARD.ABUNDANCE",
@@ -69,7 +86,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ACCELERANT_POWER",
+        "amount": {
+          "var": "Accelerant"
+        }
+      }
+    ]
   },
   "CARD.ACCURACY": {
     "id": "CARD.ACCURACY",
@@ -91,7 +117,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ACCURACY_POWER",
+        "amount": {
+          "var": "AccuracyPower"
+        }
+      }
+    ]
   },
   "CARD.ACROBATICS": {
     "id": "CARD.ACROBATICS",
@@ -113,7 +148,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.ADAPTIVE_STRIKE": {
     "id": "CARD.ADAPTIVE_STRIKE",
@@ -135,7 +177,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ADRENALINE": {
     "id": "CARD.ADRENALINE",
@@ -163,8 +213,21 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.AFTERIMAGE": {
     "id": "CARD.AFTERIMAGE",
@@ -187,7 +250,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.AFTERIMAGE_POWER",
+        "amount": {
+          "var": "AfterimagePower"
+        }
+      }
+    ]
   },
   "CARD.AFTERLIFE": {
     "id": "CARD.AFTERLIFE",
@@ -232,7 +304,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.AGGRESSION_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.ALCHEMIZE": {
     "id": "CARD.ALCHEMIZE",
@@ -275,7 +354,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.ALL_FOR_ONE": {
     "id": "CARD.ALL_FOR_ONE",
@@ -297,7 +383,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ANGER": {
     "id": "CARD.ANGER",
@@ -319,7 +413,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ANOINTED": {
     "id": "CARD.ANOINTED",
@@ -363,7 +465,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ANTICIPATE_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      }
+    ]
   },
   "CARD.APOTHEOSIS": {
     "id": "CARD.APOTHEOSIS",
@@ -412,7 +523,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.INTANGIBLE_POWER",
+        "amount": {
+          "var": "IntangiblePower"
+        }
+      }
+    ]
   },
   "CARD.ARMAMENTS": {
     "id": "CARD.ARMAMENTS",
@@ -433,7 +553,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.ARSENAL": {
     "id": "CARD.ARSENAL",
@@ -456,7 +584,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ARSENAL_POWER",
+        "amount": {
+          "var": "ArsenalPower"
+        }
+      }
+    ]
   },
   "CARD.ASCENDERS_BANE": {
     "id": "CARD.ASCENDERS_BANE",
@@ -480,7 +617,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.ASHEN_STRIKE": {
@@ -508,8 +645,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.ASSASSINATE": {
     "id": "CARD.ASSASSINATE",
@@ -540,8 +685,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.ASTRAL_PULSE": {
     "id": "CARD.ASTRAL_PULSE",
@@ -562,8 +723,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.AUTOMATION": {
     "id": "CARD.AUTOMATION",
@@ -583,8 +753,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.AUTOMATION_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.BACKFLIP": {
     "id": "CARD.BACKFLIP",
@@ -608,8 +787,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.BACKSTAB": {
     "id": "CARD.BACKSTAB",
@@ -636,8 +829,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BAD_LUCK": {
     "id": "CARD.BAD_LUCK",
@@ -663,7 +864,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.BALL_LIGHTNING": {
@@ -685,8 +886,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BANSHEES_CRY": {
     "id": "CARD.BANSHEES_CRY",
@@ -709,8 +918,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BARRAGE": {
     "id": "CARD.BARRAGE",
@@ -741,7 +958,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.BARRICADE": {
     "id": "CARD.BARRICADE",
@@ -758,7 +986,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BARRICADE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.BASH": {
     "id": "CARD.BASH",
@@ -783,8 +1018,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.BATTLE_TRANCE": {
     "id": "CARD.BATTLE_TRANCE",
@@ -805,8 +1056,21 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NO_DRAW_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.BEACON_OF_HOPE": {
     "id": "CARD.BEACON_OF_HOPE",
@@ -825,7 +1089,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BEACON_OF_HOPE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.BEAM_CELL": {
     "id": "CARD.BEAM_CELL",
@@ -850,8 +1121,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.BEAT_DOWN": {
     "id": "CARD.BEAT_DOWN",
@@ -905,8 +1192,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BECKON": {
     "id": "CARD.BECKON",
@@ -926,7 +1221,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.BEGONE": {
@@ -965,8 +1260,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.BIASED_COGNITION": {
     "id": "CARD.BIASED_COGNITION",
@@ -991,7 +1293,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FOCUS_POWER",
+        "amount": {
+          "var": "FocusPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BIASED_COGNITION_POWER",
+        "amount": {
+          "var": "BiasedCognitionPower"
+        }
+      }
+    ]
   },
   "CARD.BIG_BANG": {
     "id": "CARD.BIG_BANG",
@@ -1026,7 +1345,20 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.BLACK_HOLE": {
     "id": "CARD.BLACK_HOLE",
@@ -1048,7 +1380,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BLACK_HOLE_POWER",
+        "amount": {
+          "var": "BlackHolePower"
+        }
+      }
+    ]
   },
   "CARD.BLADE_DANCE": {
     "id": "CARD.BLADE_DANCE",
@@ -1138,8 +1479,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.BLIGHT_STRIKE": {
     "id": "CARD.BLIGHT_STRIKE",
@@ -1161,7 +1511,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage)"
+        }
+      }
+    ]
   },
   "CARD.BLOODLETTING": {
     "id": "CARD.BLOODLETTING",
@@ -1186,7 +1552,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.BLOOD_WALL": {
     "id": "CARD.BLOOD_WALL",
@@ -1211,7 +1584,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.BLUDGEON": {
     "id": "CARD.BLUDGEON",
@@ -1232,8 +1613,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BLUR": {
     "id": "CARD.BLUR",
@@ -1257,8 +1646,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BLUR_POWER",
+        "amount": {
+          "var": "Blur"
+        }
+      }
+    ]
   },
   "CARD.BODYGUARD": {
     "id": "CARD.BODYGUARD",
@@ -1306,8 +1711,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.BOLAS": {
     "id": "CARD.BOLAS",
@@ -1328,8 +1741,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BOMBARDMENT": {
     "id": "CARD.BOMBARDMENT",
@@ -1354,8 +1775,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BONE_SHARDS": {
     "id": "CARD.BONE_SHARDS",
@@ -1381,7 +1810,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      },
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.BOOST_AWAY": {
     "id": "CARD.BOOST_AWAY",
@@ -1403,7 +1847,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.BOOT_SEQUENCE": {
     "id": "CARD.BOOT_SEQUENCE",
@@ -1430,8 +1882,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.BORROWED_TIME": {
     "id": "CARD.BORROWED_TIME",
@@ -1456,7 +1916,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BORROWED_TIME_POWER",
+        "amount": {
+          "var": "ExtraCost"
+        }
+      }
+    ]
   },
   "CARD.BOUNCING_FLASK": {
     "id": "CARD.BOUNCING_FLASK",
@@ -1481,7 +1956,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.BRAND": {
     "id": "CARD.BRAND",
@@ -1506,7 +1990,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.BREAK": {
     "id": "CARD.BREAK",
@@ -1531,8 +2024,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.BREAKTHROUGH": {
     "id": "CARD.BREAKTHROUGH",
@@ -1557,7 +2066,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BRIGHTEST_FLAME": {
     "id": "CARD.BRIGHTEST_FLAME",
@@ -1586,7 +2103,20 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.BUBBLE_BUBBLE": {
     "id": "CARD.BUBBLE_BUBBLE",
@@ -1608,7 +2138,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.BUFFER": {
     "id": "CARD.BUFFER",
@@ -1630,7 +2169,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BUFFER_POWER",
+        "amount": {
+          "var": "BufferPower"
+        }
+      }
+    ]
   },
   "CARD.BULK_UP": {
     "id": "CARD.BULK_UP",
@@ -1659,7 +2207,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEXTERITY_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      }
+    ]
   },
   "CARD.BULLET_TIME": {
     "id": "CARD.BULLET_TIME",
@@ -1676,7 +2241,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NO_DRAW_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.BULLY": {
     "id": "CARD.BULLY",
@@ -1703,8 +2275,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.BULWARK": {
     "id": "CARD.BULWARK",
@@ -1730,7 +2310,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.BUNDLE_OF_JOY": {
     "id": "CARD.BUNDLE_OF_JOY",
@@ -1780,7 +2368,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.BURNING_PACT": {
@@ -1803,7 +2391,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.BURST": {
     "id": "CARD.BURST",
@@ -1825,7 +2420,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BURST_POWER",
+        "amount": {
+          "var": "Skills"
+        }
+      }
+    ]
   },
   "CARD.BURY": {
     "id": "CARD.BURY",
@@ -1846,8 +2450,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.BYRDONIS_EGG": {
     "id": "CARD.BYRDONIS_EGG",
@@ -1867,7 +2479,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.BYRD_SWOOP": {
@@ -1889,8 +2501,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CACOPHONY": {
     "id": "CARD.CACOPHONY",
@@ -1914,8 +2534,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CACOPHONY_POWER",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CALAMITY": {
     "id": "CARD.CALAMITY",
@@ -1931,8 +2560,15 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CALAMITY_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.CALCIFY": {
     "id": "CARD.CALCIFY",
@@ -1954,7 +2590,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CALCIFY_POWER",
+        "amount": {
+          "var": "CalcifyPower"
+        }
+      }
+    ]
   },
   "CARD.CALCULATED_GAMBLE": {
     "id": "CARD.CALCULATED_GAMBLE",
@@ -1999,7 +2644,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CALL_OF_THE_VOID_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.CALTROPS": {
     "id": "CARD.CALTROPS",
@@ -2021,7 +2675,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THORNS_POWER",
+        "amount": {
+          "var": "ThornsPower"
+        }
+      }
+    ]
   },
   "CARD.CAPACITOR": {
     "id": "CARD.CAPACITOR",
@@ -2132,8 +2795,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.CHAOS": {
     "id": "CARD.CHAOS",
@@ -2201,7 +2875,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.CHILD_OF_THE_STARS": {
     "id": "CARD.CHILD_OF_THE_STARS",
@@ -2223,7 +2913,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CHILD_OF_THE_STARS_POWER",
+        "amount": {
+          "var": "BlockForStars"
+        }
+      }
+    ]
   },
   "CARD.CHILL": {
     "id": "CARD.CHILL",
@@ -2264,7 +2963,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CLASH": {
     "id": "CARD.CLASH",
@@ -2285,8 +2992,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CLAW": {
     "id": "CARD.CLAW",
@@ -2311,8 +3026,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CLEANSE": {
     "id": "CARD.CLEANSE",
@@ -2358,8 +3081,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.CLOAK_OF_STARS": {
     "id": "CARD.CLOAK_OF_STARS",
@@ -2380,8 +3111,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.CLUMSY": {
     "id": "CARD.CLUMSY",
@@ -2403,7 +3142,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.COLD_SNAP": {
@@ -2425,8 +3164,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.COLLISION_COURSE": {
     "id": "CARD.COLLISION_COURSE",
@@ -2448,7 +3195,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.COLOSSUS": {
     "id": "CARD.COLOSSUS",
@@ -2473,7 +3228,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.COLOSSUS_POWER",
+        "amount": {
+          "var": "Colossus"
+        }
+      }
+    ]
   },
   "CARD.COMET": {
     "id": "CARD.COMET",
@@ -2501,7 +3272,31 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.COMPACT": {
     "id": "CARD.COMPACT",
@@ -2523,7 +3318,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.COMPILE_DRIVER": {
     "id": "CARD.COMPILE_DRIVER",
@@ -2554,7 +3357,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedCards\"]).Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.CONCOCT": {
     "id": "CARD.CONCOCT",
@@ -2576,7 +3393,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.CONCOCT_POWER",
+        "amount": {
+          "var": "ConcoctPower"
+        }
+      }
+    ]
   },
   "CARD.CONFLAGRATION": {
     "id": "CARD.CONFLAGRATION",
@@ -2600,8 +3426,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.CONQUEROR": {
     "id": "CARD.CONQUEROR",
@@ -2623,7 +3460,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.CONQUEROR_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.CONSTELLATION": {
     "id": "CARD.CONSTELLATION",
@@ -2651,7 +3495,27 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.CONSUMING_SHADOW": {
     "id": "CARD.CONSUMING_SHADOW",
@@ -2676,7 +3540,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CONSUMING_SHADOW_POWER",
+        "amount": {
+          "var": "ConsumingShadowPower"
+        }
+      }
+    ]
   },
   "CARD.CONVERGENCE": {
     "id": "CARD.CONVERGENCE",
@@ -2701,7 +3574,30 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RETAIN_HAND_POWER",
+        "amount": 1
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STAR_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Stars"
+        }
+      }
+    ]
   },
   "CARD.COOLANT": {
     "id": "CARD.COOLANT",
@@ -2723,7 +3619,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.COOLANT_POWER",
+        "amount": {
+          "var": "CoolantPower"
+        }
+      }
+    ]
   },
   "CARD.COOLHEADED": {
     "id": "CARD.COOLHEADED",
@@ -2745,7 +3650,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.COORDINATE": {
     "id": "CARD.COORDINATE",
@@ -2766,8 +3678,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.COORDINATE_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.CORROSIVE_WAVE": {
     "id": "CARD.CORROSIVE_WAVE",
@@ -2789,7 +3710,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CORROSIVE_WAVE_POWER",
+        "amount": {
+          "var": "CorrosiveWave"
+        }
+      }
+    ]
   },
   "CARD.CORRUPTION": {
     "id": "CARD.CORRUPTION",
@@ -2810,7 +3740,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CORRUPTION_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.COSMIC_INDIFFERENCE": {
     "id": "CARD.COSMIC_INDIFFERENCE",
@@ -2832,7 +3771,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.COUNTDOWN": {
     "id": "CARD.COUNTDOWN",
@@ -2854,7 +3801,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.COUNTDOWN_POWER",
+        "amount": {
+          "var": "CountdownPower"
+        }
+      }
+    ]
   },
   "CARD.CRASH_LANDING": {
     "id": "CARD.CRASH_LANDING",
@@ -2876,7 +3832,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.CREATIVE_AI": {
     "id": "CARD.CREATIVE_AI",
@@ -2897,7 +3861,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CREATIVE_AI_POWER",
+        "amount": {
+          "var": "CreativeAi"
+        }
+      }
+    ]
   },
   "CARD.CRESCENT_SPEAR": {
     "id": "CARD.CRESCENT_SPEAR",
@@ -2924,8 +3897,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.CRIMSON_MANTLE": {
     "id": "CARD.CRIMSON_MANTLE",
@@ -2947,7 +3928,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CRIMSON_MANTLE_POWER",
+        "amount": {
+          "var": "CrimsonMantlePower"
+        }
+      }
+    ]
   },
   "CARD.CRUELTY": {
     "id": "CARD.CRUELTY",
@@ -2969,7 +3959,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.CRUELTY_POWER",
+        "amount": {
+          "var": "CrueltyPower"
+        }
+      }
+    ]
   },
   "CARD.CRUSH_UNDER": {
     "id": "CARD.CRUSH_UNDER",
@@ -2995,7 +3994,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.CRUSH_UNDER_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.CURSE_OF_THE_BELL": {
     "id": "CARD.CURSE_OF_THE_BELL",
@@ -3017,7 +4032,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DAGGER_SPRAY": {
@@ -3039,8 +4054,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.DAGGER_THROW": {
     "id": "CARD.DAGGER_THROW",
@@ -3062,7 +4086,19 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": 1
+      }
+    ]
   },
   "CARD.DANSE_MACABRE": {
     "id": "CARD.DANSE_MACABRE",
@@ -3087,7 +4123,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DANSE_MACABRE_POWER",
+        "amount": {
+          "var": "DanseMacabrePower"
+        }
+      }
+    ]
   },
   "CARD.DARKNESS": {
     "id": "CARD.DARKNESS",
@@ -3121,7 +4166,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DARK_EMBRACE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.DARK_SHACKLES": {
     "id": "CARD.DARK_SHACKLES",
@@ -3147,7 +4199,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.DARK_SHACKLES_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.DASH": {
     "id": "CARD.DASH",
@@ -3172,8 +4233,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.DAZED": {
     "id": "CARD.DAZED",
@@ -3195,7 +4271,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DEADLY_POISON": {
@@ -3218,7 +4294,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.DEATHBRINGER": {
     "id": "CARD.DEATHBRINGER",
@@ -3243,7 +4328,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "var": "DoomPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.DEATHS_DOOR": {
     "id": "CARD.DEATHS_DOOR",
@@ -3268,7 +4370,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEATH_MARCH": {
     "id": "CARD.DEATH_MARCH",
@@ -3296,8 +4406,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.DEBILITATE": {
     "id": "CARD.DEBILITATE",
@@ -3322,8 +4440,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.DEBILITATE_POWER",
+        "amount": {
+          "var": "DebilitatePower"
+        }
+      }
+    ]
   },
   "CARD.DEBRIS": {
     "id": "CARD.DEBRIS",
@@ -3368,7 +4502,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DECAY": {
@@ -3393,7 +4527,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DECISIONS_DECISIONS": {
@@ -3423,7 +4557,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.DEFEND_DEFECT": {
     "id": "CARD.DEFEND_DEFECT",
@@ -3444,8 +4585,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFEND_IRONCLAD": {
     "id": "CARD.DEFEND_IRONCLAD",
@@ -3466,8 +4615,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFEND_NECROBINDER": {
     "id": "CARD.DEFEND_NECROBINDER",
@@ -3488,8 +4645,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFEND_REGENT": {
     "id": "CARD.DEFEND_REGENT",
@@ -3510,8 +4675,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFEND_SILENT": {
     "id": "CARD.DEFEND_SILENT",
@@ -3532,8 +4705,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFILE": {
     "id": "CARD.DEFILE",
@@ -3558,8 +4739,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.DEFLECT": {
     "id": "CARD.DEFLECT",
@@ -3580,8 +4769,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.DEFRAGMENT": {
     "id": "CARD.DEFRAGMENT",
@@ -3603,7 +4800,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FOCUS_POWER",
+        "amount": {
+          "var": "FocusPower"
+        }
+      }
+    ]
   },
   "CARD.DEFY": {
     "id": "CARD.DEFY",
@@ -3632,7 +4838,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.DELAY": {
     "id": "CARD.DELAY",
@@ -3658,7 +4880,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.DEMESNE": {
     "id": "CARD.DEMESNE",
@@ -3686,7 +4924,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEMESNE_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.DEMONIC_SHIELD": {
     "id": "CARD.DEMONIC_SHIELD",
@@ -3718,7 +4965,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.DEMON_FORM": {
     "id": "CARD.DEMON_FORM",
@@ -3740,7 +4995,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEMON_FORM_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.DEPRECATED_CARD": {
     "id": "CARD.DEPRECATED_CARD",
@@ -3761,7 +5025,12 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": 1
+      }
+    ]
   },
   "CARD.DEVASTATE": {
     "id": "CARD.DEVASTATE",
@@ -3782,8 +5051,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.DEVOUR_LIFE": {
     "id": "CARD.DEVOUR_LIFE",
@@ -3805,7 +5082,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEVOUR_LIFE_POWER",
+        "amount": {
+          "var": "DevourLifePower"
+        }
+      }
+    ]
   },
   "CARD.DIRGE": {
     "id": "CARD.DIRGE",
@@ -3870,7 +5156,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DISMANTLE": {
@@ -3893,7 +5179,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "((!cardPlay.Target.HasPower<VulnerablePower>()) ? 1 : 2)"
+        }
+      }
+    ]
   },
   "CARD.DISTRACTION": {
     "id": "CARD.DISTRACTION",
@@ -3936,7 +5233,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BLOCK_NEXT_TURN_POWER",
+        "amount": {
+          "expr": "await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay)"
+        }
+      }
+    ]
   },
   "CARD.DOMINATE": {
     "id": "CARD.DOMINATE",
@@ -3965,7 +5278,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "expr": "cardPlay.Target.GetPower<VulnerablePower>()?.Amount ?? 0"
+        }
+      }
+    ]
   },
   "CARD.DOUBLE_ENERGY": {
     "id": "CARD.DOUBLE_ENERGY",
@@ -3986,7 +5316,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "expr": "base.Owner.PlayerCombatState.Energy"
+        }
+      }
+    ]
   },
   "CARD.DOUBT": {
     "id": "CARD.DOUBT",
@@ -4010,7 +5347,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DOWSING": {
@@ -4035,7 +5372,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.DRAIN_POWER": {
@@ -4062,7 +5399,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.DRAMATIC_ENTRANCE": {
     "id": "CARD.DRAMATIC_ENTRANCE",
@@ -4090,7 +5435,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.DREDGE": {
     "id": "CARD.DREDGE",
@@ -4140,8 +5493,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.DUALCAST": {
     "id": "CARD.DUALCAST",
@@ -4210,7 +5570,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.DYING_STAR_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.ECHOING_SLASH": {
     "id": "CARD.ECHOING_SLASH",
@@ -4255,7 +5631,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ECHO_FORM_POWER",
+        "amount": {
+          "var": "EchoForm"
+        }
+      }
+    ]
   },
   "CARD.EIDOLON": {
     "id": "CARD.EIDOLON",
@@ -4298,7 +5683,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "var": "DoomPower"
+        }
+      }
+    ]
   },
   "CARD.ENERGY_SURGE": {
     "id": "CARD.ENERGY_SURGE",
@@ -4324,7 +5718,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.ENFEEBLING_TOUCH": {
     "id": "CARD.ENFEEBLING_TOUCH",
@@ -4350,7 +5751,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.ENFEEBLING_TOUCH_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.ENLIGHTENMENT": {
     "id": "CARD.ENLIGHTENMENT",
@@ -4391,7 +5801,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.ENTRENCH": {
@@ -4409,7 +5819,15 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.Owner.Creature.Block"
+        }
+      }
+    ]
   },
   "CARD.ENTROPY": {
     "id": "CARD.ENTROPY",
@@ -4431,8 +5849,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENTROPY_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.ENVENOM": {
     "id": "CARD.ENVENOM",
@@ -4454,7 +5881,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENVENOM_POWER",
+        "amount": {
+          "var": "EnvenomPower"
+        }
+      }
+    ]
   },
   "CARD.EQUILIBRIUM": {
     "id": "CARD.EQUILIBRIUM",
@@ -4478,8 +5914,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RETAIN_HAND_POWER",
+        "amount": {
+          "var": "Equilibrium"
+        }
+      }
+    ]
   },
   "CARD.ERADICATE": {
     "id": "CARD.ERADICATE",
@@ -4505,7 +5957,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveEnergyXValue("
+        }
+      }
+    ]
   },
   "CARD.ESCAPE_PLAN": {
     "id": "CARD.ESCAPE_PLAN",
@@ -4526,8 +5989,20 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": 1
+      },
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.ETERNAL_ARMOR": {
     "id": "CARD.ETERNAL_ARMOR",
@@ -4548,8 +6023,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": {
+          "var": "PlatingPower"
+        }
+      }
+    ]
   },
   "CARD.EVIL_EYE": {
     "id": "CARD.EVIL_EYE",
@@ -4571,7 +6055,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.EXPECT_A_FIGHT": {
     "id": "CARD.EXPECT_A_FIGHT",
@@ -4600,7 +6092,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.EXPERTISE": {
     "id": "CARD.EXPERTISE",
@@ -4622,7 +6122,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.EXPOSE": {
     "id": "CARD.EXPOSE",
@@ -4648,7 +6155,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.EXTERMINATE": {
     "id": "CARD.EXTERMINATE",
@@ -4672,8 +6188,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.FADE": {
     "id": "CARD.FADE",
@@ -4698,8 +6225,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.FADE_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      }
+    ]
   },
   "CARD.FALLING_STAR": {
     "id": "CARD.FALLING_STAR",
@@ -4726,8 +6262,32 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.FAN_OF_KNIVES": {
     "id": "CARD.FAN_OF_KNIVES",
@@ -4748,8 +6308,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FAN_OF_KNIVES_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.FASTEN": {
     "id": "CARD.FASTEN",
@@ -4770,8 +6337,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FASTEN_POWER",
+        "amount": {
+          "var": "ExtraBlock"
+        }
+      }
+    ]
   },
   "CARD.FEAR": {
     "id": "CARD.FEAR",
@@ -4801,7 +6377,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.FEED": {
     "id": "CARD.FEED",
@@ -4831,7 +6423,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.FEEDING_FRENZY": {
     "id": "CARD.FEEDING_FRENZY",
@@ -4853,7 +6453,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FEEDING_FRENZY_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.FEEL_NO_PAIN": {
     "id": "CARD.FEEL_NO_PAIN",
@@ -4874,8 +6483,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FEEL_NO_PAIN_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.FERAL": {
     "id": "CARD.FERAL",
@@ -4896,7 +6514,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FERAL_POWER",
+        "amount": {
+          "var": "FeralPower"
+        }
+      }
+    ]
   },
   "CARD.FETCH": {
     "id": "CARD.FETCH",
@@ -4920,8 +6547,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.FIEND_FIRE": {
     "id": "CARD.FIEND_FIRE",
@@ -4947,7 +6588,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "list.Count"
+        }
+      }
+    ]
   },
   "CARD.FIGHT_ME": {
     "id": "CARD.FIGHT_ME",
@@ -4978,8 +6630,35 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "EnemyStrength"
+        }
+      }
+    ]
   },
   "CARD.FIGHT_THROUGH": {
     "id": "CARD.FIGHT_THROUGH",
@@ -5001,7 +6680,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.FINESSE": {
     "id": "CARD.FINESSE",
@@ -5025,8 +6712,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.FINISHER": {
     "id": "CARD.FINISHER",
@@ -5057,7 +6758,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.FISTICUFFS": {
     "id": "CARD.FISTICUFFS",
@@ -5079,7 +6791,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage + r.OverkillDamage)"
+        }
+      }
+    ]
   },
   "CARD.FLAK_CANNON": {
     "id": "CARD.FLAK_CANNON",
@@ -5110,7 +6837,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.FLAME_BARRIER": {
     "id": "CARD.FLAME_BARRIER",
@@ -5135,8 +6873,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FLAME_BARRIER_POWER",
+        "amount": {
+          "var": "DamageBack"
+        }
+      }
+    ]
   },
   "CARD.FLANKING": {
     "id": "CARD.FLANKING",
@@ -5153,7 +6907,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.FLANKING_POWER",
+        "amount": 2
+      }
+    ]
   },
   "CARD.FLASH_OF_STEEL": {
     "id": "CARD.FLASH_OF_STEEL",
@@ -5177,8 +6938,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.FLATTEN": {
     "id": "CARD.FLATTEN",
@@ -5199,8 +6974,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      }
+    ]
   },
   "CARD.FLECHETTES": {
     "id": "CARD.FLECHETTES",
@@ -5231,7 +7014,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.FLICK_FLACK": {
     "id": "CARD.FLICK_FLACK",
@@ -5257,7 +7051,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.FOCUSED_STRIKE": {
     "id": "CARD.FOCUSED_STRIKE",
@@ -5282,8 +7084,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FOCUSED_STRIKE_POWER",
+        "amount": {
+          "var": "FocusPower"
+        }
+      }
+    ]
   },
   "CARD.FOLLY": {
     "id": "CARD.FOLLY",
@@ -5309,7 +7127,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.FOOTWORK": {
@@ -5332,7 +7150,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEXTERITY_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      }
+    ]
   },
   "CARD.FORBIDDEN_GRIMOIRE": {
     "id": "CARD.FORBIDDEN_GRIMOIRE",
@@ -5353,7 +7180,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FORBIDDEN_GRIMOIRE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.FOREGONE_CONCLUSION": {
     "id": "CARD.FOREGONE_CONCLUSION",
@@ -5375,7 +7209,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FOREGONE_CONCLUSION_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.FORGOTTEN_RITUAL": {
     "id": "CARD.FORGOTTEN_RITUAL",
@@ -5401,7 +7244,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.FRANTIC_ESCAPE": {
     "id": "CARD.FRANTIC_ESCAPE",
@@ -5443,7 +7293,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FRIENDSHIP_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.FTL": {
     "id": "CARD.FTL",
@@ -5471,8 +7338,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.FUEL": {
     "id": "CARD.FUEL",
@@ -5497,8 +7378,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.FURNACE": {
     "id": "CARD.FURNACE",
@@ -5520,7 +7408,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FURNACE_POWER",
+        "amount": {
+          "var": "Forge"
+        }
+      }
+    ]
   },
   "CARD.FUSION": {
     "id": "CARD.FUSION",
@@ -5566,8 +7463,32 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.GANG_UP": {
     "id": "CARD.GANG_UP",
@@ -5594,8 +7515,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.GATHER_LIGHT": {
     "id": "CARD.GATHER_LIGHT",
@@ -5620,7 +7549,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.GENESIS": {
     "id": "CARD.GENESIS",
@@ -5642,7 +7579,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.GENESIS_POWER",
+        "amount": {
+          "var": "StarsPerTurn"
+        }
+      }
+    ]
   },
   "CARD.GENETIC_ALGORITHM": {
     "id": "CARD.GENETIC_ALGORITHM",
@@ -5670,8 +7616,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.GIANT_ROCK": {
     "id": "CARD.GIANT_ROCK",
@@ -5692,8 +7646,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.GLACIER": {
     "id": "CARD.GLACIER",
@@ -5715,7 +7677,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.GLASSWORK": {
     "id": "CARD.GLASSWORK",
@@ -5737,7 +7707,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.GLIMMER": {
     "id": "CARD.GLIMMER",
@@ -5762,7 +7740,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.GLIMPSE_BEYOND": {
     "id": "CARD.GLIMPSE_BEYOND",
@@ -5814,7 +7799,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.BLOCK_NEXT_TURN_POWER",
+        "amount": {
+          "expr": "Hook.ModifyBlock(base.CombatState, base.Owner.Creature, blockVar.BaseValue, blockVar.Props, this, cardPlay, out modifiers)"
+        }
+      }
+    ]
   },
   "CARD.GLOW": {
     "id": "CARD.GLOW",
@@ -5839,7 +7840,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.GOLD_AXE": {
     "id": "CARD.GOLD_AXE",
@@ -5867,8 +7883,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.GO_FOR_THE_EYES": {
     "id": "CARD.GO_FOR_THE_EYES",
@@ -5893,8 +7917,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.GRAND_FINALE": {
     "id": "CARD.GRAND_FINALE",
@@ -5915,8 +7955,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.GRAVEBLAST": {
     "id": "CARD.GRAVEBLAST",
@@ -5940,7 +7988,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.GRAVE_WARDEN": {
     "id": "CARD.GRAVE_WARDEN",
@@ -5965,7 +8021,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.GREED": {
     "id": "CARD.GREED",
@@ -5987,7 +8051,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.GUARDS": {
@@ -6035,7 +8099,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.GUILTY": {
     "id": "CARD.GUILTY",
@@ -6059,7 +8139,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.GUNK_UP": {
@@ -6085,7 +8165,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.HAILSTORM": {
     "id": "CARD.HAILSTORM",
@@ -6107,7 +8198,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HAILSTORM_POWER",
+        "amount": {
+          "var": "HailstormPower"
+        }
+      }
+    ]
   },
   "CARD.HAMMER_TIME": {
     "id": "CARD.HAMMER_TIME",
@@ -6124,7 +8224,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HAMMER_TIME_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.HAND_OF_GREED": {
     "id": "CARD.HAND_OF_GREED",
@@ -6150,7 +8257,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.HAND_TRICK": {
     "id": "CARD.HAND_TRICK",
@@ -6172,7 +8287,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.HANG": {
     "id": "CARD.HANG",
@@ -6194,7 +8317,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.HANG_POWER",
+        "amount": {
+          "expr": "Math.Max(2, powerAmount)"
+        }
+      }
+    ]
   },
   "CARD.HAUNT": {
     "id": "CARD.HAUNT",
@@ -6216,7 +8355,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HAUNT_POWER",
+        "amount": {
+          "var": "HpLoss"
+        }
+      }
+    ]
   },
   "CARD.HAVOC": {
     "id": "CARD.HAVOC",
@@ -6259,7 +8407,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.HEADBUTT": {
     "id": "CARD.HEADBUTT",
@@ -6281,7 +8446,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.HEAVENLY_DRILL": {
     "id": "CARD.HEAVENLY_DRILL",
@@ -6306,7 +8479,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveEnergyXValue()"
+        }
+      }
+    ]
   },
   "CARD.HEGEMONY": {
     "id": "CARD.HEGEMONY",
@@ -6331,8 +8515,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.HEIRLOOM_HAMMER": {
     "id": "CARD.HEIRLOOM_HAMMER",
@@ -6357,7 +8557,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.HELIX_DRILL": {
     "id": "CARD.HELIX_DRILL",
@@ -6388,7 +8596,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.HELLO_WORLD": {
     "id": "CARD.HELLO_WORLD",
@@ -6407,7 +8626,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HELLO_WORLD_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.HELLRAISER": {
     "id": "CARD.HELLRAISER",
@@ -6423,8 +8649,15 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HELLRAISER_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.HEMOKINESIS": {
     "id": "CARD.HEMOKINESIS",
@@ -6449,7 +8682,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.HIBERNATE": {
     "id": "CARD.HIBERNATE",
@@ -6470,8 +8711,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HIBERNATE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.HIDDEN_CACHE": {
     "id": "CARD.HIDDEN_CACHE",
@@ -6496,7 +8744,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STAR_NEXT_TURN_POWER",
+        "amount": {
+          "var": "StarNextTurnPower"
+        }
+      }
+    ]
   },
   "CARD.HIDDEN_DAGGERS": {
     "id": "CARD.HIDDEN_DAGGERS",
@@ -6567,8 +8824,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.HOLOGRAM": {
     "id": "CARD.HOLOGRAM",
@@ -6592,7 +8865,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.HOTFIX": {
     "id": "CARD.HOTFIX",
@@ -6615,7 +8896,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HOTFIX_POWER",
+        "amount": {
+          "var": "FocusPower"
+        }
+      }
+    ]
   },
   "CARD.HOWL_FROM_BEYOND": {
     "id": "CARD.HOWL_FROM_BEYOND",
@@ -6636,8 +8926,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.HUDDLE_UP": {
     "id": "CARD.HUDDLE_UP",
@@ -6687,8 +8985,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.HYPERBEAM_FOCUS_DOWN_POWER",
+        "amount": {
+          "var": "FocusPower"
+        }
+      }
+    ]
   },
   "CARD.ICE_LANCE": {
     "id": "CARD.ICE_LANCE",
@@ -6712,8 +9026,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.IGNITION": {
     "id": "CARD.IGNITION",
@@ -6758,7 +9080,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.IMITATION_LEARNING_POWER",
+        "amount": {
+          "var": "ImitationLearningPower"
+        }
+      }
+    ]
   },
   "CARD.IMPATIENCE": {
     "id": "CARD.IMPATIENCE",
@@ -6779,8 +9110,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.IMPERVIOUS": {
     "id": "CARD.IMPERVIOUS",
@@ -6805,8 +9143,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.INFECTION": {
     "id": "CARD.INFECTION",
@@ -6830,7 +9176,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.INFERNAL_BLADE": {
@@ -6874,7 +9220,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.INFERNO_POWER",
+        "amount": {
+          "var": "InfernoPower"
+        }
+      }
+    ]
   },
   "CARD.INFINITE_BLADES": {
     "id": "CARD.INFINITE_BLADES",
@@ -6893,7 +9248,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.INFINITE_BLADES_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.INFLAME": {
     "id": "CARD.INFLAME",
@@ -6914,8 +9276,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.INJURY": {
     "id": "CARD.INJURY",
@@ -6935,7 +9306,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.INTERCEPT": {
@@ -6957,8 +9328,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.COVERED_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.INVOKE": {
     "id": "CARD.INVOKE",
@@ -6984,7 +9369,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SUMMON_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Summon"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.IRON_WAVE": {
     "id": "CARD.IRON_WAVE",
@@ -7009,8 +9411,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ITERATION": {
     "id": "CARD.ITERATION",
@@ -7032,7 +9449,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ITERATION_POWER",
+        "amount": {
+          "var": "IterationPower"
+        }
+      }
+    ]
   },
   "CARD.I_AM_INVINCIBLE": {
     "id": "CARD.I_AM_INVINCIBLE",
@@ -7053,8 +9479,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.JACKPOT": {
     "id": "CARD.JACKPOT",
@@ -7079,7 +9513,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.JACK_OF_ALL_TRADES": {
     "id": "CARD.JACK_OF_ALL_TRADES",
@@ -7127,7 +9569,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.JUGGERNAUT_POWER",
+        "amount": {
+          "var": "JuggernautPower"
+        }
+      }
+    ]
   },
   "CARD.JUGGLING": {
     "id": "CARD.JUGGLING",
@@ -7146,7 +9597,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.JUGGLING_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.KINGLY_KICK": {
     "id": "CARD.KINGLY_KICK",
@@ -7167,8 +9625,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.KINGLY_PUNCH": {
     "id": "CARD.KINGLY_PUNCH",
@@ -7193,8 +9659,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.KNIFE_TRAP": {
     "id": "CARD.KNIFE_TRAP",
@@ -7246,8 +9720,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.KNOCKDOWN_POWER",
+        "amount": {
+          "var": "KnockdownPower"
+        }
+      }
+    ]
   },
   "CARD.KNOCKOUT_BLOW": {
     "id": "CARD.KNOCKOUT_BLOW",
@@ -7272,7 +9762,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.KNOW_THY_PLACE": {
     "id": "CARD.KNOW_THY_PLACE",
@@ -7298,7 +9796,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.LANTERN_KEY": {
     "id": "CARD.LANTERN_KEY",
@@ -7318,7 +9833,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.LARGESSE": {
@@ -7360,8 +9875,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.LEAP": {
     "id": "CARD.LEAP",
@@ -7382,8 +9905,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.LEGION_OF_BONE": {
     "id": "CARD.LEGION_OF_BONE",
@@ -7431,7 +9962,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.LETHALITY": {
     "id": "CARD.LETHALITY",
@@ -7457,7 +10004,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.LETHALITY_POWER",
+        "amount": {
+          "var": "LethalityPower"
+        }
+      }
+    ]
   },
   "CARD.LIFT": {
     "id": "CARD.LIFT",
@@ -7478,8 +10034,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.LIGHTNING_ROD": {
     "id": "CARD.LIGHTNING_ROD",
@@ -7504,7 +10068,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.LIGHTNING_ROD_POWER",
+        "amount": {
+          "var": "LightningRodPower"
+        }
+      }
+    ]
   },
   "CARD.LOOP": {
     "id": "CARD.LOOP",
@@ -7526,7 +10106,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.LOOP_POWER",
+        "amount": {
+          "var": "Loop"
+        }
+      }
+    ]
   },
   "CARD.LUMINESCE": {
     "id": "CARD.LUMINESCE",
@@ -7554,7 +10143,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.LUNAR_BLAST": {
     "id": "CARD.LUNAR_BLAST",
@@ -7585,7 +10181,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.MACHINE_LEARNING": {
     "id": "CARD.MACHINE_LEARNING",
@@ -7608,7 +10215,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MACHINE_LEARNING_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.MAD_SCIENCE": {
     "id": "CARD.MAD_SCIENCE",
@@ -7685,8 +10301,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.MALAISE": {
     "id": "CARD.MALAISE",
@@ -7707,7 +10331,24 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "expr": "powerAmount"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "expr": "ResolveEnergyXValue()"
+        }
+      }
+    ]
   },
   "CARD.MANGLE": {
     "id": "CARD.MANGLE",
@@ -7732,8 +10373,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.MANGLE_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.MANIFEST_AUTHORITY": {
     "id": "CARD.MANIFEST_AUTHORITY",
@@ -7755,7 +10412,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.MASTER_OF_STRATEGY": {
     "id": "CARD.MASTER_OF_STRATEGY",
@@ -7780,8 +10445,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.MASTER_PLANNER": {
     "id": "CARD.MASTER_PLANNER",
@@ -7798,7 +10470,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MASTER_PLANNER_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.MAUL": {
     "id": "CARD.MAUL",
@@ -7823,8 +10502,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.MAYHEM": {
     "id": "CARD.MAYHEM",
@@ -7840,8 +10528,15 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MAYHEM_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.MELANCHOLY": {
     "id": "CARD.MELANCHOLY",
@@ -7865,8 +10560,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.MEMENTO_MORI": {
     "id": "CARD.MEMENTO_MORI",
@@ -7894,8 +10597,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.METAMORPHOSIS": {
     "id": "CARD.METAMORPHOSIS",
@@ -7948,8 +10659,32 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.METEOR_STRIKE": {
     "id": "CARD.METEOR_STRIKE",
@@ -7970,8 +10705,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.MIDNIGHT": {
     "id": "CARD.MIDNIGHT",
@@ -7992,8 +10735,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.MIMIC": {
     "id": "CARD.MIMIC",
@@ -8022,7 +10773,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.MIND_BLAST": {
     "id": "CARD.MIND_BLAST",
@@ -8052,8 +10811,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.MIND_ROT": {
     "id": "CARD.MIND_ROT",
@@ -8073,7 +10840,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.MINION_DIVE_BOMB": {
@@ -8099,8 +10866,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.MINION_SACRIFICE": {
     "id": "CARD.MINION_SACRIFICE",
@@ -8125,8 +10900,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.MINION_STRIKE": {
     "id": "CARD.MINION_STRIKE",
@@ -8154,8 +10937,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.MIRAGE": {
     "id": "CARD.MIRAGE",
@@ -8184,7 +10981,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.MISERY": {
     "id": "CARD.MISERY",
@@ -8208,7 +11013,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.",
+        "amount": {
+          "expr": "enemy"
+        }
+      }
+    ]
   },
   "CARD.MODDED": {
     "id": "CARD.MODDED",
@@ -8233,7 +11054,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.MOLTEN_FIST": {
     "id": "CARD.MOLTEN_FIST",
@@ -8259,7 +11087,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "expr": "(cardPlay.Target.IsAlive ? cardPlay.Target.GetPowerAmount<VulnerablePower>() : 0)"
+        }
+      }
+    ]
   },
   "CARD.MOMENTUM_STRIKE": {
     "id": "CARD.MOMENTUM_STRIKE",
@@ -8280,8 +11124,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.MONARCHS_GAZE": {
     "id": "CARD.MONARCHS_GAZE",
@@ -8302,7 +11154,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MONARCHS_GAZE_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.MONOLOGUE": {
     "id": "CARD.MONOLOGUE",
@@ -8325,7 +11186,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.MONOLOGUE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.MULTI_CAST": {
     "id": "CARD.MULTI_CAST",
@@ -8368,8 +11236,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.NECRO_MASTERY": {
     "id": "CARD.NECRO_MASTERY",
@@ -8391,7 +11267,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NECRO_MASTERY_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.NEGATIVE_PULSE": {
     "id": "CARD.NEGATIVE_PULSE",
@@ -8417,7 +11300,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "var": "DoomPower"
+        }
+      }
+    ]
   },
   "CARD.NEOWS_FURY": {
     "id": "CARD.NEOWS_FURY",
@@ -8447,7 +11346,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.NEUROSURGE": {
     "id": "CARD.NEUROSURGE",
@@ -8475,7 +11382,28 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NEUROSURGE_POWER",
+        "amount": {
+          "var": "NeurosurgePower"
+        }
+      }
+    ]
   },
   "CARD.NEUTRALIZE": {
     "id": "CARD.NEUTRALIZE",
@@ -8500,8 +11428,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.NEUTRON_AEGIS": {
     "id": "CARD.NEUTRON_AEGIS",
@@ -8522,8 +11466,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": {
+          "var": "PlatingPower"
+        }
+      }
+    ]
   },
   "CARD.NIGHTMARE": {
     "id": "CARD.NIGHTMARE",
@@ -8544,7 +11497,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NIGHTMARE_POWER",
+        "amount": 3
+      }
+    ]
   },
   "CARD.NORMALITY": {
     "id": "CARD.NORMALITY",
@@ -8574,7 +11534,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.NOSTALGIA": {
@@ -8591,8 +11551,15 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NOSTALGIA_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.NOT_YET": {
     "id": "CARD.NOT_YET",
@@ -8618,7 +11585,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "heal",
+        "target": "self",
+        "amount": {
+          "var": "Heal"
+        }
+      }
+    ]
   },
   "CARD.NOXIOUS_FUMES": {
     "id": "CARD.NOXIOUS_FUMES",
@@ -8640,7 +11615,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NOXIOUS_FUMES_POWER",
+        "amount": {
+          "var": "PoisonPerTurn"
+        }
+      }
+    ]
   },
   "CARD.NO_ESCAPE": {
     "id": "CARD.NO_ESCAPE",
@@ -8671,7 +11655,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedDoom\"]).Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.NULL": {
     "id": "CARD.NULL",
@@ -8696,8 +11689,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.OBLIVION": {
     "id": "CARD.OBLIVION",
@@ -8719,7 +11728,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.OBLIVION_POWER",
+        "amount": {
+          "var": "DoomPower"
+        }
+      }
+    ]
   },
   "CARD.OFFERING": {
     "id": "CARD.OFFERING",
@@ -8751,7 +11769,20 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.OMNISLICE": {
     "id": "CARD.OMNISLICE",
@@ -8795,7 +11826,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.ONE_FOR_ALL_POWER",
+        "amount": {
+          "var": "OneForAllPower"
+        }
+      }
+    ]
   },
   "CARD.ONE_TWO_PUNCH": {
     "id": "CARD.ONE_TWO_PUNCH",
@@ -8816,8 +11856,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ONE_TWO_PUNCH_POWER",
+        "amount": {
+          "var": "Attacks"
+        }
+      }
+    ]
   },
   "CARD.ORBIT": {
     "id": "CARD.ORBIT",
@@ -8838,7 +11887,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ORBIT_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.OUTBREAK": {
     "id": "CARD.OUTBREAK",
@@ -8860,7 +11918,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.OUTMANEUVER": {
     "id": "CARD.OUTMANEUVER",
@@ -8881,8 +11948,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.OUTRAGE": {
     "id": "CARD.OUTRAGE",
@@ -8904,7 +11980,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.OVERCLOCK": {
     "id": "CARD.OVERCLOCK",
@@ -8926,7 +12010,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PACTS_END": {
     "id": "CARD.PACTS_END",
@@ -8950,8 +12041,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.PAGESTORM": {
     "id": "CARD.PAGESTORM",
@@ -8972,7 +12071,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PAGESTORM_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PALE_BLUE_DOT": {
     "id": "CARD.PALE_BLUE_DOT",
@@ -8997,7 +12105,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PALE_BLUE_DOT_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PANACHE": {
     "id": "CARD.PANACHE",
@@ -9018,8 +12135,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PANACHE_POWER",
+        "amount": {
+          "var": "PanacheDamage"
+        }
+      }
+    ]
   },
   "CARD.PANIC_BUTTON": {
     "id": "CARD.PANIC_BUTTON",
@@ -9047,8 +12173,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.NO_BLOCK_POWER",
+        "amount": {
+          "var": "Turns"
+        }
+      }
+    ]
   },
   "CARD.PARRY": {
     "id": "CARD.PARRY",
@@ -9070,7 +12212,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PARRY_POWER",
+        "amount": {
+          "var": "ParryPower"
+        }
+      }
+    ]
   },
   "CARD.PARSE": {
     "id": "CARD.PARSE",
@@ -9095,8 +12246,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PARTICLE_WALL": {
     "id": "CARD.PARTICLE_WALL",
@@ -9117,8 +12275,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.PATTER": {
     "id": "CARD.PATTER",
@@ -9144,7 +12310,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VIGOR_POWER",
+        "amount": {
+          "var": "VigorPower"
+        }
+      }
+    ]
   },
   "CARD.PECK": {
     "id": "CARD.PECK",
@@ -9168,8 +12350,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.PERFECTED_STRIKE": {
     "id": "CARD.PERFECTED_STRIKE",
@@ -9196,8 +12389,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.PHANTOM_BLADES": {
     "id": "CARD.PHANTOM_BLADES",
@@ -9219,7 +12420,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PHANTOM_BLADES_POWER",
+        "amount": {
+          "var": "PhantomBladesPower"
+        }
+      }
+    ]
   },
   "CARD.PHOTON_CUT": {
     "id": "CARD.PHOTON_CUT",
@@ -9248,7 +12458,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PIERCING_WAIL": {
     "id": "CARD.PIERCING_WAIL",
@@ -9274,7 +12498,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.PIERCING_WAIL_POWER",
+        "amount": {
+          "var": "StrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.PILLAGE": {
     "id": "CARD.PILLAGE",
@@ -9296,7 +12529,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "expr": "base.Owner"
+        }
+      }
+    ]
   },
   "CARD.PILLAR_OF_CREATION": {
     "id": "CARD.PILLAR_OF_CREATION",
@@ -9317,8 +12564,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PILLAR_OF_CREATION_POWER",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.PINPOINT": {
     "id": "CARD.PINPOINT",
@@ -9339,8 +12595,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.PLOT": {
     "id": "CARD.PLOT",
@@ -9361,8 +12625,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.POISONED_STAB": {
     "id": "CARD.POISONED_STAB",
@@ -9387,8 +12660,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.POKE": {
     "id": "CARD.POKE",
@@ -9409,8 +12698,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      }
+    ]
   },
   "CARD.POMMEL_STRIKE": {
     "id": "CARD.POMMEL_STRIKE",
@@ -9435,8 +12732,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.POOR_SLEEP": {
     "id": "CARD.POOR_SLEEP",
@@ -9458,7 +12769,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.POUNCE": {
@@ -9480,8 +12791,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FREE_SKILL_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.PRECISE_CUT": {
     "id": "CARD.PRECISE_CUT",
@@ -9508,8 +12833,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.PREDATOR": {
     "id": "CARD.PREDATOR",
@@ -9530,8 +12863,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+        "amount": 2
+      }
+    ]
   },
   "CARD.PREPARED": {
     "id": "CARD.PREPARED",
@@ -9553,7 +12900,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PREP_TIME": {
     "id": "CARD.PREP_TIME",
@@ -9574,8 +12928,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PREP_TIME_POWER",
+        "amount": {
+          "var": "PrepTimePower"
+        }
+      }
+    ]
   },
   "CARD.PRIMAL_FORCE": {
     "id": "CARD.PRIMAL_FORCE",
@@ -9617,8 +12980,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.PROLONG": {
     "id": "CARD.PROLONG",
@@ -9637,7 +13007,16 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.BLOCK_NEXT_TURN_POWER",
+        "amount": {
+          "expr": "creature.Block"
+        }
+      }
+    ]
   },
   "CARD.PROPHESIZE": {
     "id": "CARD.PROPHESIZE",
@@ -9659,7 +13038,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.PROTECTOR": {
     "id": "CARD.PROTECTOR",
@@ -9686,8 +13072,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.PROWESS": {
     "id": "CARD.PROWESS",
@@ -9712,8 +13106,25 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DEXTERITY_POWER",
+        "amount": {
+          "var": "DexterityPower"
+        }
+      }
+    ]
   },
   "CARD.PULL_AGGRO": {
     "id": "CARD.PULL_AGGRO",
@@ -9739,7 +13150,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.PULL_FROM_BELOW": {
     "id": "CARD.PULL_FROM_BELOW",
@@ -9770,7 +13189,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.PURITY": {
     "id": "CARD.PURITY",
@@ -9824,7 +13254,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.PYRE": {
     "id": "CARD.PYRE",
@@ -9845,8 +13292,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PYRE_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.QUADCAST": {
     "id": "CARD.QUADCAST",
@@ -9918,7 +13374,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.RAGE": {
     "id": "CARD.RAGE",
@@ -9940,7 +13407,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RAGE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.RAINBOW": {
     "id": "CARD.RAINBOW",
@@ -9980,8 +13456,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.RAMPAGE": {
     "id": "CARD.RAMPAGE",
@@ -10005,8 +13489,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.RATTLE": {
     "id": "CARD.RATTLE",
@@ -10037,7 +13529,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.REANIMATE": {
     "id": "CARD.REANIMATE",
@@ -10088,8 +13591,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.REAPER_FORM": {
     "id": "CARD.REAPER_FORM",
@@ -10108,7 +13619,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REAPER_FORM_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.REAVE": {
     "id": "CARD.REAVE",
@@ -10133,7 +13651,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.REBOOT": {
     "id": "CARD.REBOOT",
@@ -10159,7 +13685,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.REBOUND": {
     "id": "CARD.REBOUND",
@@ -10180,8 +13713,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REBOUND_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.REFINE_BLADE": {
     "id": "CARD.REFINE_BLADE",
@@ -10206,7 +13753,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.REFLECT": {
     "id": "CARD.REFLECT",
@@ -10228,7 +13784,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.REFLECT_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.REFLEX": {
     "id": "CARD.REFLEX",
@@ -10254,7 +13824,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.REFRACT": {
     "id": "CARD.REFRACT",
@@ -10278,8 +13855,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.REGRET": {
     "id": "CARD.REGRET",
@@ -10299,7 +13885,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.RELAX": {
@@ -10334,7 +13920,31 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.REND": {
     "id": "CARD.REND",
@@ -10362,8 +13972,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.RESONANCE": {
     "id": "CARD.RESONANCE",
@@ -10385,7 +14003,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": -1
+      }
+    ]
   },
   "CARD.RESTLESSNESS": {
     "id": "CARD.RESTLESSNESS",
@@ -10415,7 +14048,20 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "expr": "base.Owner"
+        }
+      },
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.RICOCHET": {
     "id": "CARD.RICOCHET",
@@ -10443,8 +14089,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.RIGHT_HAND_HAND": {
     "id": "CARD.RIGHT_HAND_HAND",
@@ -10468,8 +14125,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      }
+    ]
   },
   "CARD.RIP_AND_TEAR": {
     "id": "CARD.RIP_AND_TEAR",
@@ -10490,8 +14155,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.ROCKET_PUNCH": {
     "id": "CARD.ROCKET_PUNCH",
@@ -10516,8 +14190,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.ROLLING_BOULDER": {
     "id": "CARD.ROLLING_BOULDER",
@@ -10541,8 +14229,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ROLLING_BOULDER_POWER",
+        "amount": {
+          "var": "RollingBoulderPower"
+        }
+      }
+    ]
   },
   "CARD.ROYALTIES": {
     "id": "CARD.ROYALTIES",
@@ -10564,7 +14261,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ROYALTIES_POWER",
+        "amount": {
+          "var": "Gold"
+        }
+      }
+    ]
   },
   "CARD.ROYAL_GAMBLE": {
     "id": "CARD.ROYAL_GAMBLE",
@@ -10611,8 +14317,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RUPTURE_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.SACRIFICE": {
     "id": "CARD.SACRIFICE",
@@ -10643,7 +14358,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.SALVO": {
     "id": "CARD.SALVO",
@@ -10664,8 +14387,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.RETAIN_HAND_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.SCAVENGE": {
     "id": "CARD.SCAVENGE",
@@ -10687,7 +14424,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.SCOURGE": {
     "id": "CARD.SCOURGE",
@@ -10713,7 +14459,22 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.DOOM_POWER",
+        "amount": {
+          "var": "DoomPower"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SCRAPE": {
     "id": "CARD.SCRAPE",
@@ -10739,7 +14500,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SCRAWL": {
     "id": "CARD.SCRAWL",
@@ -10761,7 +14536,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "expr": "CardPile.MaxCardsInHand - base.Owner.PlayerCombatState.Hand.Cards.Count"
+        }
+      }
+    ]
   },
   "CARD.SCULPTING_STRIKE": {
     "id": "CARD.SCULPTING_STRIKE",
@@ -10783,7 +14565,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SEANCE": {
     "id": "CARD.SEANCE",
@@ -10830,7 +14620,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.SECRET_TECHNIQUE": {
     "id": "CARD.SECRET_TECHNIQUE",
@@ -10893,7 +14691,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SEEKING_EDGE": {
     "id": "CARD.SEEKING_EDGE",
@@ -10915,7 +14721,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SEEKING_EDGE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.SENTRY_MODE": {
     "id": "CARD.SENTRY_MODE",
@@ -10936,7 +14749,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SENTRY_MODE_POWER",
+        "amount": {
+          "var": "SentryModePower"
+        }
+      }
+    ]
   },
   "CARD.SERPENT_FORM": {
     "id": "CARD.SERPENT_FORM",
@@ -10958,7 +14780,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SERPENT_FORM_POWER",
+        "amount": {
+          "var": "SerpentFormPower"
+        }
+      }
+    ]
   },
   "CARD.SETUP_STRIKE": {
     "id": "CARD.SETUP_STRIKE",
@@ -10983,8 +14814,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SETUP_STRIKE_POWER",
+        "amount": {
+          "var": "StrengthPower"
+        }
+      }
+    ]
   },
   "CARD.SEVEN_STARS": {
     "id": "CARD.SEVEN_STARS",
@@ -11007,8 +14854,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.SEVERANCE": {
     "id": "CARD.SEVERANCE",
@@ -11030,7 +14888,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SHADOWMELD": {
     "id": "CARD.SHADOWMELD",
@@ -11051,7 +14917,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SHADOWMELD_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.SHADOW_SHIELD": {
     "id": "CARD.SHADOW_SHIELD",
@@ -11073,7 +14948,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.SHADOW_STEP": {
     "id": "CARD.SHADOW_STEP",
@@ -11094,7 +14977,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SHADOW_STEP_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.SHAME": {
     "id": "CARD.SHAME",
@@ -11118,7 +15008,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.SHARED_FATE": {
@@ -11148,7 +15038,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "PlayerStrengthLoss"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.STRENGTH_POWER",
+        "amount": {
+          "var": "EnemyStrengthLoss"
+        }
+      }
+    ]
   },
   "CARD.SHATTER": {
     "id": "CARD.SHATTER",
@@ -11174,7 +15081,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SHINING_STRIKE": {
     "id": "CARD.SHINING_STRIKE",
@@ -11199,7 +15114,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SHIV": {
     "id": "CARD.SHIV",
@@ -11224,8 +15147,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SHOCKWAVE": {
     "id": "CARD.SHOCKWAVE",
@@ -11251,7 +15182,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      },
+      {
+        "op": "power",
+        "target": "unknown",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.SHROUD": {
     "id": "CARD.SHROUD",
@@ -11273,7 +15221,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SHROUD_POWER",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.SHRUG_IT_OFF": {
     "id": "CARD.SHRUG_IT_OFF",
@@ -11297,8 +15254,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SIC_EM": {
     "id": "CARD.SIC_EM",
@@ -11323,8 +15294,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.SIC_EM_POWER",
+        "amount": {
+          "var": "SicEmPower"
+        }
+      }
+    ]
   },
   "CARD.SIDESTEP": {
     "id": "CARD.SIDESTEP",
@@ -11345,8 +15332,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.ENERGY_NEXT_TURN_POWER",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.SIGNAL_BOOST": {
     "id": "CARD.SIGNAL_BOOST",
@@ -11371,7 +15367,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SIGNAL_BOOST_POWER",
+        "amount": {
+          "var": "SignalBoostPower"
+        }
+      }
+    ]
   },
   "CARD.SKEWER": {
     "id": "CARD.SKEWER",
@@ -11393,7 +15398,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveEnergyXValue("
+        }
+      }
+    ]
   },
   "CARD.SKIM": {
     "id": "CARD.SKIM",
@@ -11414,8 +15430,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SLEIGHT_OF_FLESH": {
     "id": "CARD.SLEIGHT_OF_FLESH",
@@ -11437,7 +15460,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SLEIGHT_OF_FLESH_POWER",
+        "amount": {
+          "var": "SleightOfFleshPower"
+        }
+      }
+    ]
   },
   "CARD.SLICE": {
     "id": "CARD.SLICE",
@@ -11458,8 +15490,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SLIMED": {
     "id": "CARD.SLIMED",
@@ -11483,8 +15523,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SLOTH": {
     "id": "CARD.SLOTH",
@@ -11504,7 +15551,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.SMOKESTACK": {
@@ -11527,7 +15574,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SMOKESTACK_POWER",
+        "amount": {
+          "var": "SmokestackPower"
+        }
+      }
+    ]
   },
   "CARD.SNAKEBITE": {
     "id": "CARD.SNAKEBITE",
@@ -11553,7 +15609,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.POISON_POWER",
+        "amount": {
+          "var": "PoisonPower"
+        }
+      }
+    ]
   },
   "CARD.SNAP": {
     "id": "CARD.SNAP",
@@ -11575,7 +15640,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      }
+    ]
   },
   "CARD.SNEAKY": {
     "id": "CARD.SNEAKY",
@@ -11601,7 +15674,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SNEAKY_POWER",
+        "amount": {
+          "var": "SneakyPower"
+        }
+      }
+    ]
   },
   "CARD.SOLAR_STRIKE": {
     "id": "CARD.SOLAR_STRIKE",
@@ -11627,7 +15709,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SOOT": {
     "id": "CARD.SOOT",
@@ -11647,7 +15737,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.SOUL": {
@@ -11673,8 +15763,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SOULBOUND": {
     "id": "CARD.SOULBOUND",
@@ -11693,7 +15790,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.SOULBOUND_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.SOUL_STORM": {
     "id": "CARD.SOUL_STORM",
@@ -11720,8 +15824,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.SOVEREIGN_BLADE": {
     "id": "CARD.SOVEREIGN_BLADE",
@@ -11758,7 +15870,25 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      },
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.SOW": {
     "id": "CARD.SOW",
@@ -11783,8 +15913,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SPECTRUM_SHIFT": {
     "id": "CARD.SPECTRUM_SHIFT",
@@ -11805,7 +15943,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SPECTRUM_SHIFT_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SPEEDSTER": {
     "id": "CARD.SPEEDSTER",
@@ -11827,8 +15974,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SPEEDSTER_POWER",
+        "amount": {
+          "var": "SpeedsterPower"
+        }
+      }
+    ]
   },
   "CARD.SPINNER": {
     "id": "CARD.SPINNER",
@@ -11849,7 +16005,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SPINNER_POWER",
+        "amount": {
+          "var": "SpinnerPower"
+        }
+      }
+    ]
   },
   "CARD.SPIRIT_OF_ASH": {
     "id": "CARD.SPIRIT_OF_ASH",
@@ -11871,7 +16036,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SPIRIT_OF_ASH_POWER",
+        "amount": {
+          "var": "BlockOnExhaust"
+        }
+      }
+    ]
   },
   "CARD.SPITE": {
     "id": "CARD.SPITE",
@@ -11896,7 +16070,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "((!LostHpThisTurn(base.Owner.Creature)) ? 1 : base.DynamicVars.Repeat.IntValue)"
+        }
+      }
+    ]
   },
   "CARD.SPLASH": {
     "id": "CARD.SPLASH",
@@ -11937,7 +16122,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.SPOILS_OF_BATTLE": {
@@ -11962,8 +16147,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SPORE_MIND": {
     "id": "CARD.SPORE_MIND",
@@ -11983,7 +16175,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.SPUR": {
@@ -12014,7 +16206,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "heal",
+        "target": "self",
+        "amount": {
+          "var": "Heal"
+        }
+      }
+    ]
   },
   "CARD.SQUASH": {
     "id": "CARD.SQUASH",
@@ -12039,8 +16239,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.SQUEEZE": {
     "id": "CARD.SQUEEZE",
@@ -12068,8 +16284,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.STACK": {
     "id": "CARD.STACK",
@@ -12097,7 +16321,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.STAMPEDE": {
     "id": "CARD.STAMPEDE",
@@ -12117,8 +16349,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STAMPEDE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.STARDUST": {
     "id": "CARD.STARDUST",
@@ -12140,7 +16381,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveStarXValue("
+        }
+      }
+    ]
   },
   "CARD.STOKE": {
     "id": "CARD.STOKE",
@@ -12179,7 +16431,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.STONE_ARMOR": {
     "id": "CARD.STONE_ARMOR",
@@ -12200,8 +16460,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.PLATING_POWER",
+        "amount": {
+          "var": "PlatingPower"
+        }
+      }
+    ]
   },
   "CARD.STORM": {
     "id": "CARD.STORM",
@@ -12223,7 +16492,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STORM_POWER",
+        "amount": {
+          "var": "StormPower"
+        }
+      }
+    ]
   },
   "CARD.STORM_OF_STEEL": {
     "id": "CARD.STORM_OF_STEEL",
@@ -12265,8 +16543,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.STRANGLE_POWER",
+        "amount": {
+          "var": "StranglePower"
+        }
+      }
+    ]
   },
   "CARD.STRATAGEM": {
     "id": "CARD.STRATAGEM",
@@ -12282,8 +16576,15 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.STRATAGEM_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.STRIKE_DEFECT": {
     "id": "CARD.STRIKE_DEFECT",
@@ -12304,8 +16605,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.STRIKE_IRONCLAD": {
     "id": "CARD.STRIKE_IRONCLAD",
@@ -12326,8 +16635,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.STRIKE_NECROBINDER": {
     "id": "CARD.STRIKE_NECROBINDER",
@@ -12348,8 +16665,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.STRIKE_REGENT": {
     "id": "CARD.STRIKE_REGENT",
@@ -12370,8 +16695,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.STRIKE_SILENT": {
     "id": "CARD.STRIKE_SILENT",
@@ -12392,8 +16725,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.SUBROUTINE": {
     "id": "CARD.SUBROUTINE",
@@ -12410,7 +16751,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SUBROUTINE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.SUCKER_PUNCH": {
     "id": "CARD.SUCKER_PUNCH",
@@ -12435,8 +16783,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.SUMMON_FORTH": {
     "id": "CARD.SUMMON_FORTH",
@@ -12482,8 +16846,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.SUPERCRITICAL": {
     "id": "CARD.SUPERCRITICAL",
@@ -12509,7 +16887,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.SUPERMASSIVE": {
     "id": "CARD.SUPERMASSIVE",
@@ -12536,8 +16921,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.SUPPRESS": {
     "id": "CARD.SUPPRESS",
@@ -12566,8 +16959,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "WeakPower"
+        }
+      }
+    ]
   },
   "CARD.SURVIVOR": {
     "id": "CARD.SURVIVOR",
@@ -12589,7 +16998,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.SWEEPING_BEAM": {
     "id": "CARD.SWEEPING_BEAM",
@@ -12614,7 +17031,21 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.SWEEPING_GAZE": {
     "id": "CARD.SWEEPING_GAZE",
@@ -12641,8 +17072,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "OstyDamage"
+        }
+      }
+    ]
   },
   "CARD.SWORD_BOOMERANG": {
     "id": "CARD.SWORD_BOOMERANG",
@@ -12666,8 +17105,19 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "var": "Repeat"
+        }
+      }
+    ]
   },
   "CARD.SWORD_SAGE": {
     "id": "CARD.SWORD_SAGE",
@@ -12688,7 +17138,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SWORD_SAGE_POWER",
+        "amount": {
+          "var": "SwordSagePower"
+        }
+      }
+    ]
   },
   "CARD.SYNCHRONIZE": {
     "id": "CARD.SYNCHRONIZE",
@@ -12716,7 +17175,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.SYNCHRONIZE_POWER",
+        "amount": {
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedFocus\"]).Calculate(cardPlay.Target)"
+        }
+      }
+    ]
   },
   "CARD.SYNTHESIS": {
     "id": "CARD.SYNTHESIS",
@@ -12737,8 +17205,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FREE_POWER_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.TACTICIAN": {
     "id": "CARD.TACTICIAN",
@@ -12763,8 +17245,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.TAG_TEAM": {
     "id": "CARD.TAG_TEAM",
@@ -12785,8 +17274,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.TAG_TEAM_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.TANK": {
     "id": "CARD.TANK",
@@ -12810,7 +17313,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TANK_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.TAUNT": {
     "id": "CARD.TAUNT",
@@ -12836,7 +17346,23 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.TEAR_ASUNDER": {
     "id": "CARD.TEAR_ASUNDER",
@@ -12870,7 +17396,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "(int"
+        }
+      }
+    ]
   },
   "CARD.TEMPEST": {
     "id": "CARD.TEMPEST",
@@ -12908,8 +17445,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VIGOR_POWER",
+        "amount": {
+          "var": "VigorPower"
+        }
+      }
+    ]
   },
   "CARD.TESLA_COIL": {
     "id": "CARD.TESLA_COIL",
@@ -12931,7 +17477,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.THE_BALL": {
     "id": "CARD.THE_BALL",
@@ -12955,8 +17509,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.THE_BOMB": {
     "id": "CARD.THE_BOMB",
@@ -12980,8 +17542,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THE_BOMB_POWER",
+        "amount": {
+          "var": "Turns"
+        }
+      }
+    ]
   },
   "CARD.THE_GAMBIT": {
     "id": "CARD.THE_GAMBIT",
@@ -13002,8 +17573,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THE_GAMBIT_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.THE_HUNT": {
     "id": "CARD.THE_HUNT",
@@ -13028,8 +17613,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THE_HUNT_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.THE_SCYTHE": {
     "id": "CARD.THE_SCYTHE",
@@ -13057,8 +17656,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.THE_SEALED_THRONE": {
     "id": "CARD.THE_SEALED_THRONE",
@@ -13075,7 +17682,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THE_SEALED_THRONE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.THE_SMITH": {
     "id": "CARD.THE_SMITH",
@@ -13120,7 +17734,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "draw",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.THRASH": {
     "id": "CARD.THRASH",
@@ -13142,7 +17763,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.THRUMMING_HATCHET": {
     "id": "CARD.THRUMMING_HATCHET",
@@ -13163,8 +17793,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.THUNDER": {
     "id": "CARD.THUNDER",
@@ -13186,7 +17824,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.THUNDER_POWER",
+        "amount": {
+          "var": "ThunderPower"
+        }
+      }
+    ]
   },
   "CARD.THUNDERCLAP": {
     "id": "CARD.THUNDERCLAP",
@@ -13210,8 +17857,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "all_enemies",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.TIMES_UP": {
     "id": "CARD.TIMES_UP",
@@ -13239,8 +17902,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.TOOLS_OF_THE_TRADE": {
     "id": "CARD.TOOLS_OF_THE_TRADE",
@@ -13257,7 +17928,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TOOLS_OF_THE_TRADE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.TORIC_TOUGHNESS": {
     "id": "CARD.TORIC_TOUGHNESS",
@@ -13281,8 +17959,24 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TORIC_TOUGHNESS_POWER",
+        "amount": {
+          "var": "Turns"
+        }
+      }
+    ]
   },
   "CARD.TOXIC": {
     "id": "CARD.TOXIC",
@@ -13306,7 +18000,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.TRACKING": {
@@ -13324,7 +18018,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TRACKING_POWER",
+        "amount": 50
+      }
+    ]
   },
   "CARD.TRANSFIGURE": {
     "id": "CARD.TRANSFIGURE",
@@ -13364,7 +18065,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TRASH_TO_TREASURE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.TREMBLE": {
     "id": "CARD.TREMBLE",
@@ -13390,7 +18098,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "VulnerablePower"
+        }
+      }
+    ]
   },
   "CARD.TRUE_GRIT": {
     "id": "CARD.TRUE_GRIT",
@@ -13412,7 +18129,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.TURBO": {
     "id": "CARD.TURBO",
@@ -13434,7 +18159,14 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.TUTOR": {
     "id": "CARD.TUTOR",
@@ -13472,8 +18204,17 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.TYRANNY": {
     "id": "CARD.TYRANNY",
@@ -13492,7 +18233,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.TYRANNY_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.ULTIMATE_DEFEND": {
     "id": "CARD.ULTIMATE_DEFEND",
@@ -13513,8 +18261,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.ULTIMATE_STRIKE": {
     "id": "CARD.ULTIMATE_STRIKE",
@@ -13535,8 +18291,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.UNDEATH": {
     "id": "CARD.UNDEATH",
@@ -13558,7 +18322,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.UNDERWORLD": {
     "id": "CARD.UNDERWORLD",
@@ -13577,7 +18349,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.UNDERWORLD_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.UNLEASH": {
     "id": "CARD.UNLEASH",
@@ -13604,8 +18383,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "CalculatedDamage"
+        }
+      }
+    ]
   },
   "CARD.UNMOVABLE": {
     "id": "CARD.UNMOVABLE",
@@ -13622,7 +18409,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.UNMOVABLE_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.UNRELENTING": {
     "id": "CARD.UNRELENTING",
@@ -13643,8 +18437,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.FREE_ATTACK_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.UNTOUCHABLE": {
     "id": "CARD.UNTOUCHABLE",
@@ -13669,8 +18477,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "block",
+        "target": "self",
+        "amount": {
+          "var": "Block"
+        }
+      }
+    ]
   },
   "CARD.UPPERCUT": {
     "id": "CARD.UPPERCUT",
@@ -13694,8 +18510,32 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.WEAK_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      },
+      {
+        "op": "power",
+        "target": "target",
+        "power": "POWER.VULNERABLE_POWER",
+        "amount": {
+          "var": "Power"
+        }
+      }
+    ]
   },
   "CARD.UPROAR": {
     "id": "CARD.UPROAR",
@@ -13717,7 +18557,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": 2
+      }
+    ]
   },
   "CARD.UP_MY_SLEEVE": {
     "id": "CARD.UP_MY_SLEEVE",
@@ -13760,8 +18609,22 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VEILPIERCER_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.VENERATE": {
     "id": "CARD.VENERATE",
@@ -13805,7 +18668,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VICIOUS_POWER",
+        "amount": {
+          "var": "Cards"
+        }
+      }
+    ]
   },
   "CARD.VOID": {
     "id": "CARD.VOID",
@@ -13831,7 +18703,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.VOID_FORM": {
@@ -13855,7 +18727,16 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.VOID_FORM_POWER",
+        "amount": {
+          "var": "VoidFormPower"
+        }
+      }
+    ]
   },
   "CARD.VOLLEY": {
     "id": "CARD.VOLLEY",
@@ -13877,7 +18758,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveEnergyXValue("
+        }
+      }
+    ]
   },
   "CARD.VOLTAIC": {
     "id": "CARD.VOLTAIC",
@@ -13926,7 +18818,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.WELL_LAID_PLANS": {
@@ -13944,7 +18836,14 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.WELL_LAID_PLANS_POWER",
+        "amount": 1
+      }
+    ]
   },
   "CARD.WHIRLWIND": {
     "id": "CARD.WHIRLWIND",
@@ -13966,7 +18865,18 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "all_enemies",
+        "amount": {
+          "var": "Damage"
+        },
+        "hits": {
+          "expr": "ResolveEnergyXValue()"
+        }
+      }
+    ]
   },
   "CARD.WHISTLE": {
     "id": "CARD.WHISTLE",
@@ -13992,7 +18902,15 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.WHITE_NOISE": {
     "id": "CARD.WHITE_NOISE",
@@ -14060,8 +18978,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "energy",
+        "amount": {
+          "var": "Energy"
+        }
+      }
+    ]
   },
   "CARD.WITHER": {
     "id": "CARD.WITHER",
@@ -14085,7 +19010,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.WOUND": {
@@ -14106,7 +19031,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.WRAITH_FORM": {
@@ -14132,7 +19057,24 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.INTANGIBLE_POWER",
+        "amount": {
+          "var": "IntangiblePower"
+        }
+      },
+      {
+        "op": "power",
+        "target": "self",
+        "power": "POWER.WRAITH_FORM_POWER",
+        "amount": {
+          "var": "WraithFormPower"
+        }
+      }
+    ]
   },
   "CARD.WRITHE": {
     "id": "CARD.WRITHE",
@@ -14154,7 +19096,7 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": []
   },
   "CARD.WROUGHT_IN_WAR": {
@@ -14180,8 +19122,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "damage",
+        "target": "target",
+        "amount": {
+          "var": "Damage"
+        }
+      }
+    ]
   },
   "CARD.ZAP": {
     "id": "CARD.ZAP",

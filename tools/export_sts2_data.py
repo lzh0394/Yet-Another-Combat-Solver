@@ -716,6 +716,7 @@ class Exporter:
         keywords_up.difference_update(upgrade["remove_keywords"])
 
         star_cost = self._star_cost(info)
+        effects, effects_complete = self._card_effects(info)
 
         entry = {
             "id": cid,
@@ -731,8 +732,8 @@ class Exporter:
             "keywords_upgraded": sorted(keywords_up),
             "vars": vars_ or None,
             "multimodal": multimodal,
-            "effect_complete": False,
-            "effect": [],
+            "effect_complete": effects_complete,
+            "effect": effects or [],
         }
         for name, value in vars_upgraded.items():
             if name in entry["vars"]:
@@ -1126,6 +1127,8 @@ class Exporter:
         "SummonCmd",
         "OrbCmd",
         "PotionCmd",
+        "CardCmd",
+        "CardSelectCmd",
     }
 
     def _move_effects(self, info: ClassInfo, method: str) -> tuple[list | None, bool]:
@@ -1134,14 +1137,19 @@ class Exporter:
             return None, False
         ops: list[dict] = []
         handled: list[tuple[int, int]] = []
-        pat = re.compile(r"\b(DamageCmd|CreatureCmd|PowerCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        locals_: dict[str, object] = {}
+        for lm in re.finditer(r"(?:int|decimal|var)\s+(\w+)\s*=\s*([^;]+);", body):
+            try:
+                locals_[lm.group(1)] = self._effect_amount(lm.group(2), owner or info)
+            except Exception:
+                pass
+        pat = re.compile(r"\b(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
         for m in pat.finditer(body):
             cmd, name = m.group(1), m.group(2)
             open_pos = m.end() - 1
             close = match_paren(body, open_pos)
             if close < 0:
                 continue
-            handled.append((m.start(), close))
             args = split_top(body[open_pos + 1 : close])
             try:
                 if cmd == "DamageCmd" and name == "Attack" and args:
@@ -1155,6 +1163,34 @@ class Exporter:
                 elif cmd == "CreatureCmd" and name == "Heal" and len(args) >= 2:
                     ops.append(
                         {"op": "heal", "target": "self", "amount": self._effect_amount(args[1], owner)}
+                    )
+                elif cmd == "CardPileCmd" and name in ("AddToCombatAndPreview", "AddToCombat") and len(args) >= 3:
+                    card_type = (m.group(3) or "").strip("<> ")
+                    pile = "Discard"
+                    for a in args:
+                        if "PileType." in a:
+                            pile = a.split("PileType.")[-1].strip()
+                    ops.append(
+                        {
+                            "op": "add_card",
+                            "card": "CARD." + camel_to_screaming(card_type),
+                            "pile": pile,
+                            "count": self._effect_amount(args[2], owner),
+                        }
+                    )
+                elif cmd == "CardPileCmd" and name in ("AddToCombatAndPreview", "AddToCombat") and len(args) >= 3:
+                    card_type = (m.group(3) or "").strip("<> ")
+                    pile = "Discard"
+                    for a in args:
+                        if "PileType." in a:
+                            pile = a.split("PileType.")[-1].strip()
+                    ops.append(
+                        {
+                            "op": "add_card",
+                            "card": "CARD." + camel_to_screaming(card_type),
+                            "pile": pile,
+                            "count": self._effect_amount(args[2], owner),
+                        }
                     )
                 elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
                     power = (m.group(3) or "").strip("<> ")
@@ -1173,8 +1209,9 @@ class Exporter:
                             "amount": self._effect_amount(args[2], owner),
                         }
                     )
+                handled.append((m.start(), close))
             except Exception:
-                ops.append({"op": f"{cmd}.{name}", "unresolved": True})
+                ops.append({"op": f"{cmd}.{name}", "unresolved": True, "error": str(sys.exc_info()[1])})
 
         unsupported: list[str] = []
         for m in re.finditer(r"\b(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
@@ -1187,8 +1224,130 @@ class Exporter:
         complete = not unsupported
         return ops or None, complete
 
+    def _card_effects(self, info: ClassInfo) -> tuple[list | None, bool]:
+        owner, body = self._find_method(info, "OnPlay")
+        if body is None:
+            return None, True
+        ctx = owner or info
+        local_amounts: dict[str, object] = {}
+        for lm in re.finditer(r"(?:int|decimal|var)\s+(\w+)\s*=\s*([^;]+);", body):
+            try:
+                local_amounts[lm.group(1)] = self._effect_amount(lm.group(2), ctx)
+            except Exception:
+                pass
+
+        def amount(arg: str):
+            key = arg.strip()
+            if key in local_amounts:
+                return local_amounts[key]
+            return self._effect_amount(arg, ctx)
+
+        ops: list[dict] = []
+        handled: list[tuple[int, int]] = []
+        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        for m in pat.finditer(body):
+            cmd, name = m.group(1), m.group(2)
+            open_pos = m.end() - 1
+            close = match_paren(body, open_pos)
+            if close < 0:
+                continue
+            args = split_top(body[open_pos + 1 : close])
+            semi = body.find(";", close)
+            tail = body[close : semi if semi > 0 else close]
+            try:
+                if cmd == "DamageCmd" and name == "Attack" and args:
+                    op = {
+                        "op": "damage",
+                        "target": "all_enemies" if "TargetingAllOpponents" in tail else "target",
+                        "amount": amount(args[0]),
+                    }
+                    hm = re.search(r"\.WithHitCount\(([^)]*)\)", tail)
+                    if hm:
+                        op["hits"] = amount(hm.group(1))
+                    ops.append(op)
+                elif cmd == "CreatureCmd" and name == "GainBlock" and len(args) >= 2:
+                    ops.append({"op": "block", "target": "self", "amount": amount(args[1])})
+                elif cmd == "CreatureCmd" and name == "Heal" and len(args) >= 2:
+                    ops.append({"op": "heal", "target": "self", "amount": amount(args[1])})
+                elif cmd == "CardPileCmd" and name in ("AddToCombatAndPreview", "AddToCombat") and len(args) >= 3:
+                    card_type = (m.group(3) or "").strip("<> ")
+                    pile = "Discard"
+                    for a in args:
+                        if "PileType." in a:
+                            pile = a.split("PileType.")[-1].strip()
+                    ops.append(
+                        {
+                            "op": "add_card",
+                            "card": "CARD." + camel_to_screaming(card_type),
+                            "pile": pile,
+                            "count": self._effect_amount(args[2], owner),
+                        }
+                    )
+                elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
+                    power = (m.group(3) or "").strip("<> ")
+                    tgt_expr = args[1]
+                    if "cardPlay.Target" in tgt_expr:
+                        tgt = "target"
+                    elif "base.Owner.Creature" in tgt_expr or "this.Creature" in tgt_expr:
+                        tgt = "self"
+                    elif "HittableEnemies" in tgt_expr or "Enemies" in tgt_expr:
+                        tgt = "all_enemies"
+                    else:
+                        tgt = "unknown"
+                    ops.append(
+                        {
+                            "op": "power",
+                            "target": tgt,
+                            "power": "POWER." + camel_to_screaming(power.split(".")[-1]),
+                            "amount": amount(args[2]),
+                        }
+                    )
+                elif cmd == "CardPileCmd" and name == "Draw" and len(args) >= 2:
+                    ops.append({"op": "draw", "amount": amount(args[1])})
+                elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
+                    ops.append({"op": "energy", "amount": amount(args[0])})
+                else:
+                    continue
+                handled.append((m.start(), close))
+            except Exception:
+                ops.append({"op": f"{cmd}.{name}", "unresolved": True})
+
+        unsupported: list[str] = []
+        for m in re.finditer(r"(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
+            cmd = m.group(1)
+            if cmd not in self.EFFECT_CMDS:
+                continue
+            if any(start <= m.start() <= end for start, end in handled):
+                continue
+            unsupported.append(f"{cmd}.{m.group(2)}")
+        for op in ops:
+            for field in ("amount", "hits"):
+                val = op.get(field)
+                if isinstance(val, dict) and "expr" in val:
+                    unsupported.append(f"unresolved-{field}")
+        if not ops and not unsupported:
+            residue = re.sub(r"ArgumentNullException[^;]*;", "", body)
+            residue = re.sub(r"//.*", "", residue).strip()
+            if residue:
+                unsupported.append("unparsed-body")
+        return ops or None, not unsupported
+
     def _effect_amount(self, expr: str, info: ClassInfo):
         e = expr.strip()
+        e = re.sub(r"(\d+)*", lambda mm: '"' + str(info.src.literals.get(int(mm.group(1)), mm.group(0))) + '"', e)
+        e = re.sub(r"^\((?:int|decimal|float)\)\s*", "", e)
+        vm = re.fullmatch(
+            r"(?:base\.)?DynamicVars(?:\[\s*\"(\w+)\"\s*\]|\.(\w+))", e
+        )
+        if vm:
+            name = vm.group(1) or vm.group(2)
+            return {"var": POWER_VAR_ALIASES.get(name, name)}
+        vm = re.fullmatch(
+            r"base\.DynamicVars(?:\[\s*\"(\w+)\"\s*\]|\.(\w+))\.(?:BaseValue|IntValue|Value)", e
+        )
+        if vm:
+            name = vm.group(1) or vm.group(2)
+            return {"var": POWER_VAR_ALIASES.get(name, name)}
         if e.startswith("-"):
             inner = self._effect_amount(e[1:].strip(), info)
             if isinstance(inner, (int, float)):
@@ -1404,7 +1563,7 @@ class Exporter:
         offsets: dict[str, int] = {base_var: 0}
         for m in re.finditer(r"(\w+)\.StarterMoveIdx\s*=\s*\(\s*num\s*\+\s*(\d+)\s*\)\s*%\s*(\d+)\s*;", body):
             offsets[m.group(1)] = int(m.group(2))
-        nums = re.findall(r"num\s*=\s*\(\s*(\w+)\.StarterMoveIdx", body)
+        nums = re.findall(r"\bnum\s*=\s*\(\s*(\w+)\.StarterMoveIdx", body)
         if nums:
             offsets[nums[0]] = 0
         return {"range": size, "offsets": list(offsets.values())}

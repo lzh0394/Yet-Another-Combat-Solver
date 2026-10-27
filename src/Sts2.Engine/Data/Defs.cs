@@ -20,7 +20,7 @@ public sealed class CardDef
     public Dictionary<string, VarDef>? Vars { get; set; }
     public bool Multimodal { get; set; }
     public bool EffectComplete { get; set; }
-    public List<JsonElement> Effect { get; set; } = new();
+    public List<EffectDef> Effect { get; set; } = new();
 
     [JsonIgnore]
     public string Entry => Id.StartsWith("CARD.", StringComparison.Ordinal) ? Id["CARD.".Length..] : Id;
@@ -78,6 +78,10 @@ public sealed class EffectDef
     public string Target { get; set; } = "self";
     public JsonElement? Amount { get; set; }
     public string? Power { get; set; }
+    public JsonElement? Hits { get; set; }
+    public string? Card { get; set; }
+    public string? Pile { get; set; }
+    public JsonElement? Count { get; set; }
 
     public int IntAmount =>
         Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;

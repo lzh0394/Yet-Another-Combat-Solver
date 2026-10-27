@@ -133,3 +133,26 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 - 怪物 `SkipNextTurn`（Burrowed 破盾后眩晕一回合）。
 
 已 0 差异的对拍向量（`tests/vectors/real/` ↔ `artifacts/engine/`）：nibbits（脚本 10 行）、nibbits_auto、seapunk、fuzzy_wurm_crawler、exoskeletons、toadpoles、devoted_sculptor、sludge_spinner、turret_operator、shrinker_beetle、scrolls_of_biting、tunneler。`thieving_hopper` 仍缺偷牌（CardDebuffIntent）实现。
+
+## 12. 卡牌 effects 数据驱动（M5，进行中）
+
+- `tools/export_sts2_data.py` 的 `_card_effects(info)` 扫描 `OnPlay` 方法体，把命令按源码顺序转成 op 列表：
+  `DamageCmd.Attack`（damage，`.WithHitCount` → hits，`TargetingAllOpponents` → all_enemies）、
+  `CreatureCmd.GainBlock`（block/self）、`CreatureCmd.Heal`（heal/self）、`PowerCmd.Apply<T>`
+  （power；目标由第二参判定 target/self/all_enemies）、`CardPileCmd.Draw`（draw）、
+  `PlayerCmd.GainEnergy`（energy）。金额里的 `base.DynamicVars.X.BaseValue` / `["X"].IntValue`
+  写成 `{"var": "X"}`，由引擎在运行时取升级后的值；局部变量（`int amount = …`）先查再解析。
+- 覆盖：596 张卡中 239 张 `effect_complete=true`；35 张 complete 但 effect 为空（诅咒/状态/Unplayable）；
+  其余 322 张因 `CardSelectCmd`/`OrbCmd`/`SummonCmd`/复杂表达式未解析，`effect_complete=false`。
+  白名单外的命令不会静默：未转换的白名单命令、`{"expr"}` 金额、或“ops 为空但方法体有实质代码”
+  一律置 `effect_complete=false`。
+- 引擎 `src/Sts2.Engine/Effects/CardEffects.cs` 按 `CardDef.Effect` 执行；`effect_complete=false`
+  时抛 `CombatException("card effect not implemented: …")`，绝不静默 no-op。`EffectDef` 支持
+  `amount`/`var`、`hits`、`count`（`add_card` 用 `count`，不是 `amount`）。
+- 怪物招式同样支持 `CardPileCmd.AddToCombat*` → `add_card`（如 Leaf Slime 的 Slimed 入弃牌堆）。
+- 动态遭遇：`src/Sts2.Engine/Combat/EncounterGenerators.cs` 目前实现 `SLIMES_WEAK`
+  （小史莱姆 A/B 在 Leaf/Twig 中按顺序 NextItem，中史莱姆在 LeafM/TwigM 中 NextItem）；其余
+  14 个 `monsters=null` 的遭遇待实现。
+- 新增 0 差异向量：`ironclad_cards_showcase`（Iron Wave/Pommel Strike/Uppercut/Thunderclap/Shrug It Off）、
+  `ironclad_slimes_weak_auto`（动态生成 + Slimed）。CI 现在重放 `harness/scenarios/` 下全部场景，
+  跳过 `KNOWN_GAPS` 中的 `ironclad_thieving_hopper_weak`（缺 CardDebuff 偷牌）。

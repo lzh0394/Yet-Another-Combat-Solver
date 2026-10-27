@@ -73,9 +73,12 @@ public sealed class Combat
         Rng.Shuffle.Shuffle(Player.DrawPile);
 
         EncounterDef encounter = data.Encounter(scenario.Encounter);
-        List<(string Id, string? Slot)> spawns = encounter.Monsters?.Select(m => (m[0] ?? throw new CombatException("monster id missing"), m.Count > 1 ? m[1] : null)).ToList()
-            ?? throw new CombatException($"encounter {encounter.Id} has no monster list (only all_possible_monsters)");
         Rng encounterRng = new(unchecked(Rng.Seed + 1UL + StringHash.Deterministic(encounter.Entry)));
+        List<(string Id, string? Slot)>? spawns = encounter.Monsters?
+            .Select(m => (m[0] ?? throw new CombatException("monster id missing"), m.Count > 1 ? m[1] : null))
+            .ToList();
+        spawns ??= EncounterGenerators.Generate(encounter.Entry, data, encounterRng)
+            ?? throw new CombatException($"encounter {encounter.Id} has no monster list and no generator");
         int? starterBase = encounter.StarterRng is { } starterRng ? encounterRng.NextInt(starterRng.Range) : null;
         int combatId = 1;
         int spawnIndex = 0;
@@ -736,6 +739,31 @@ public sealed class Combat
             case "heal":
                 monster.Hp = Math.Min(monster.Hp + amount, monster.MaxHp);
                 break;
+            case "add_card":
+            {
+                string cardId = effect.Card ?? throw new CombatException($"add_card without card id on {monster.Def.Entry}");
+                int count = effect.Count is { ValueKind: System.Text.Json.JsonValueKind.Number } c ? c.GetInt32() : 0;
+                for (int i = 0; i < count; i++)
+                {
+                    CardInstance added = new(_data.Card(cardId));
+                    switch (effect.Pile ?? "Discard")
+                    {
+                        case "Hand":
+                            Player.Hand.Add(added);
+                            break;
+                        case "Draw":
+                            Player.DrawPile.Add(added);
+                            break;
+                        case "Exhaust":
+                            Player.ExhaustPile.Add(added);
+                            break;
+                        default:
+                            Player.DiscardPile.Add(added);
+                            break;
+                    }
+                }
+                break;
+            }
             case "power":
             {
                 string power = effect.Power ?? throw new CombatException($"power effect without id on {monster.Def.Entry}");

@@ -1,42 +1,125 @@
 using Sts2.Engine.Combat;
+using Sts2.Engine.Data;
 using Sts2.Engine.Model;
 using Sts2.Engine.Rules;
 
 namespace Sts2.Engine.Effects;
 
 /// <summary>
-/// Play effects for the vertical slice. The data package does not carry effect opcodes yet, so the
-/// three Ironclad basics are hand-coded from _research/decompiled-v0.111.0/.../Cards/.
+/// Card play resolution. The data package now carries effect opcodes for the cards whose
+/// OnPlay bodies the exporter could resolve statically (239 of 596 at the time of writing);
+/// cards with unresolved effects are rejected instead of being silently played as no-ops.
 /// </summary>
 public static class CardEffects
 {
     public static void Resolve(Combat.Combat combat, CardInstance card, MonsterInstance? target)
     {
-        switch (card.Entry)
+        if (card.Def.EffectComplete)
         {
-            case "STRIKE_IRONCLAD":
-                Damage.Attack(combat, combat.Player, RequireTarget(card, target), card.Var("Damage"));
-                break;
+            foreach (EffectDef effect in card.Def.Effect)
+            {
+                Apply(combat, card, effect, target);
+            }
+            return;
+        }
 
-            case "DEFEND_IRONCLAD":
-                Damage.GainBlock(combat.Player, card.Var("Block"));
-                break;
+        throw new CombatException($"card effect not implemented: {card.Entry}");
+    }
 
-            case "BASH":
-                // Bash.cs: await DamageCmd.Attack(...).Execute(); then PowerCmd.Apply<VulnerablePower>.
-                MonsterInstance bashTarget = RequireTarget(card, target);
-                Damage.Attack(combat, combat.Player, bashTarget, card.Var("Damage"));
-                if (bashTarget.IsAlive)
+    private static void Apply(Combat.Combat combat, CardInstance card, EffectDef effect, MonsterInstance? target)
+    {
+        switch (effect.Op)
+        {
+            case "damage":
+            {
+                int amount = Amount(card, effect.Amount);
+                int hits = effect.Hits is null ? 1 : Amount(card, effect.Hits);
+                foreach (MonsterInstance monster in DamageTargets(combat, card, effect, target))
                 {
-                    bashTarget.AddPower(Combat.Combat.VulnerablePower, (int)card.Var("VulnerablePower"));
+                    for (int i = 0; i < hits && monster.IsAlive; i++)
+                    {
+                        Damage.Attack(combat, combat.Player, monster, amount);
+                    }
                 }
+                break;
+            }
+
+            case "block":
+                Damage.GainBlock(combat.Player, Amount(card, effect.Amount));
+                break;
+
+            case "heal":
+                combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(card, effect.Amount));
+                break;
+
+            case "power":
+            {
+                string power = effect.Power ?? throw new CombatException($"{card.Entry}: power op without id");
+                int amount = Amount(card, effect.Amount);
+                if (effect.Target == "self")
+                {
+                    combat.Player.AddPower(power, amount);
+                }
+                else if (effect.Target == "all_enemies")
+                {
+                    foreach (MonsterInstance monster in combat.Enemies.Where(m => m.IsAlive))
+                    {
+                        monster.AddPower(power, amount);
+                    }
+                }
+                else
+                {
+                    MonsterInstance single = target ?? throw new CombatException($"{card.Entry} needs an enemy target");
+                    single.AddPower(power, amount);
+                }
+                break;
+            }
+
+            case "draw":
+                combat.DrawCards(Amount(card, effect.Amount));
+                break;
+
+            case "energy":
+                combat.Player.Energy += Amount(card, effect.Amount);
                 break;
 
             default:
-                throw new CombatException($"card effect not implemented: {card.Entry}");
+                throw new CombatException($"{card.Entry}: unsupported card effect op {effect.Op}");
         }
     }
 
-    private static MonsterInstance RequireTarget(CardInstance card, MonsterInstance? target) =>
-        target ?? throw new CombatException($"{card.Entry} needs an enemy target");
+    private static IEnumerable<MonsterInstance> DamageTargets(
+        Combat.Combat combat,
+        CardInstance card,
+        EffectDef effect,
+        MonsterInstance? target)
+    {
+        bool all = effect.Target == "all_enemies" || card.TargetType is "AllEnemies";
+        if (all)
+        {
+            return combat.Enemies.Where(m => m.IsAlive);
+        }
+        MonsterInstance single = target ?? throw new CombatException($"{card.Entry} needs an enemy target");
+        return new[] { single };
+    }
+
+    private static int Amount(CardInstance card, System.Text.Json.JsonElement? element)
+    {
+        if (element is null)
+        {
+            return 0;
+        }
+
+        System.Text.Json.JsonElement value = element.Value;
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Number)
+        {
+            return value.GetInt32();
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("var", out System.Text.Json.JsonElement varName))
+        {
+            return (int)card.Var(varName.GetString() ?? "");
+        }
+        throw new CombatException($"{card.Entry}: unresolved effect amount {value}");
+    }
 }

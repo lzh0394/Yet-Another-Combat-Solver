@@ -1,0 +1,76 @@
+{
+  "character": "IRONCLAD",
+  "seed": "PARITY-2",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 80,
+  "hp": 80,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "BURNING_BLOOD"
+  ],
+  "deck": [
+    {
+      "id": "IRON_WAVE",
+      "upgrade": 0
+    },
+    {
+      "id": "IRON_WAVE",
+      "upgrade": 0
+    },
+    {
+      "id": "POMMEL_STRIKE",
+      "upgrade": 0
+    },
+    {
+      "id": "POMMEL_STRIKE",
+      "upgrade": 0
+    },
+    {
+      "id": "UPPERCUT",
+      "upgrade": 0
+    },
+    {
+      "id": "UPPERCUT",
+      "upgrade": 0
+    },
+    {
+      "id": "THUNDERCLAP",
+      "upgrade": 0
+    },
+    {
+      "id": "THUNDERCLAP",
+      "upgrade": 0
+    },
+    {
+      "id": "SHRUG_IT_OFF",
+      "upgrade": 0
+    },
+    {
+      "id": "SHRUG_IT_OFF",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

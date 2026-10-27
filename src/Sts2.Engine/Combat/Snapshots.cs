@@ -63,7 +63,7 @@ public static class Snapshots
 
     private static IntentView Intent(Combat combat, MonsterInstance monster, Data.IntentDef intent)
     {
-        IntentView view = new() { Type = intent.Type, Cards = intent.Cards };
+        IntentView view = new() { Type = intent.Type };
         if (intent.Type == "Attack")
         {
             decimal baseDamage = intent.Damage ?? 0;

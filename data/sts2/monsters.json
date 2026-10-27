@@ -86,6 +86,12 @@
         "must_perform_once": false,
         "effects": [
           {
+            "op": "add_card",
+            "card": "CARD.WITHER",
+            "pile": "Discard",
+            "count": 1
+          },
+          {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
@@ -1093,7 +1099,14 @@
         ],
         "follow_up": "CLAMP_MOVE",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.DAZED",
+            "pile": "Discard",
+            "count": 3
+          }
+        ],
         "effect_complete": true
       }
     }
@@ -2241,7 +2254,14 @@
         ],
         "follow_up": "DISTRACT_MOVE",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.DAZED",
+            "pile": "Discard",
+            "count": 3
+          }
+        ],
         "effect_complete": true
       }
     }
@@ -3450,6 +3470,12 @@
             "target": "player",
             "power": "POWER.WEAK_POWER",
             "amount": 3
+          },
+          {
+            "op": "add_card",
+            "card": "CARD.DAZED",
+            "pile": "Discard",
+            "count": 5
           }
         ],
         "effect_complete": true
@@ -4234,7 +4260,14 @@
         ],
         "follow_up": "CLUMP_SHOT",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.SLIMED",
+            "pile": "Discard",
+            "count": 2
+          }
+        ],
         "effect_complete": true
       }
     }
@@ -4276,7 +4309,14 @@
         ],
         "follow_up": "RAND",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.SLIMED",
+            "pile": "Discard",
+            "count": 1
+          }
+        ],
         "effect_complete": true
       },
       "RAND": {
@@ -4813,6 +4853,12 @@
             "op": "damage",
             "target": "player",
             "amount": 8
+          },
+          {
+            "op": "add_card",
+            "card": "CARD.BURN",
+            "pile": "Hand",
+            "count": 4
           }
         ],
         "effect_complete": true
@@ -5013,7 +5059,14 @@
         ],
         "follow_up": "BITE_MOVE",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.TOXIC",
+            "pile": "Hand",
+            "count": 2
+          }
+        ],
         "effect_complete": true
       },
       "BITE_MOVE": {
@@ -5619,7 +5672,14 @@
         ],
         "follow_up": "LASH_MOVE",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.INFECTION",
+            "pile": "Discard",
+            "count": 3
+          }
+        ],
         "effect_complete": true
       },
       "LASH_MOVE": {
@@ -6503,7 +6563,14 @@
         ],
         "follow_up": "FURIOUS_PUMMELING_MOVE",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.SLIMED",
+            "pile": "Discard",
+            "count": 10
+          }
+        ],
         "effect_complete": true
       },
       "LEECHING_HUG_MOVE": {
@@ -7643,6 +7710,12 @@
         "must_perform_once": false,
         "effects": [
           {
+            "op": "add_card",
+            "card": "CARD.BURN",
+            "pile": "Discard",
+            "count": 3
+          },
+          {
             "op": "power",
             "target": "self",
             "power": "POWER.STRENGTH_POWER",
@@ -8337,7 +8410,7 @@
             "amount": 17
           }
         ],
-        "effect_complete": false
+        "effect_complete": true
       },
       "NAB_MOVE": {
         "kind": "MoveState",
@@ -8914,7 +8987,14 @@
         ],
         "follow_up": "RAND",
         "must_perform_once": false,
-        "effects": null,
+        "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.SLIMED",
+            "pile": "Discard",
+            "count": 1
+          }
+        ],
         "effect_complete": true
       },
       "RAND": {
@@ -9142,6 +9222,12 @@
             "op": "damage",
             "target": "player",
             "amount": 26
+          },
+          {
+            "op": "add_card",
+            "card": "CARD.WOUND",
+            "pile": "Discard",
+            "count": 3
           }
         ],
         "effect_complete": true
@@ -9506,6 +9592,12 @@
         "follow_up": "NASTY_BITE_MOVE",
         "must_perform_once": false,
         "effects": [
+          {
+            "op": "add_card",
+            "card": "CARD.INFECTION",
+            "pile": "Discard",
+            "count": 1
+          },
           {
             "op": "power",
             "target": "self",
