@@ -14,6 +14,10 @@ if (args.Length > 0 && args[0] == "rng-verify")
 {
     // Expected states come from tests/vectors/real/ironclad_nibbits.jsonl (seed "PARITY-1",
     // combat setup completed: one 10-card shuffle, one niche roll for monster HP).
+    if (Environment.GetEnvironmentVariable("STS2_DUMP_SEED") is { Length: > 0 } dumpSeed)
+    {
+        Console.WriteLine($"seed {new RunRngSet(dumpSeed).Seed}");
+    }
     var run = new RunRngSet("PARITY-1");
 
     var deck = Enumerable.Range(0, 10).ToList();

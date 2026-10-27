@@ -989,7 +989,9 @@ public sealed class Combat
         else if (e.Contains("CanLay", StringComparison.Ordinal)
             && System.Text.RegularExpressions.Regex.IsMatch(e, "^(CanLay|!CanLay)$"))
         {
-            result = Enemies.Count(m => m.IsAlive && !ReferenceEquals(m, monster)) <= 3;
+            // Ovicopter.CanLay counts every alive teammate *including itself*: with three eggs on
+            // the board (4 alive) it stops laying and falls through to Nutritional Paste instead.
+            result = Enemies.Count(m => m.IsAlive) <= 3;
         }
         else if (System.Text.RegularExpressions.Regex.Match(e, @"HasPower<\s*(\w+)\s*>") is { Success: true } hasPower)
         {
@@ -1096,6 +1098,17 @@ public sealed class Combat
                 }
                 case "Summon":
                 {
+                    if (monster.Def.Entry == "TOUGH_EGG" && monster.CurrentState == "HATCH_MOVE")
+                    {
+                        // ToughEgg.HatchMove: drop Hatching, clear non-minion powers and reroll HP as a
+                        // hatchling (Niche 19..22), then continue from NIBBLE_MOVE.
+                        monster.Powers.RemoveAll(p => p.Id == "HATCH_POWER");
+                        int hp = Rng.Niche.NextInt(19, 23);
+                        monster.MaxHp = hp;
+                        monster.Hp = hp;
+                        monster.CurrentState = "NIBBLE_MOVE";
+                        break;
+                    }
                     // Approximation: the game picks a bot from a per-monster set via
                     // Rng.MonsterAi.NextItem; the data pack only carries the encounter's
                     // possible monsters, so summon the first one not already on the board.
@@ -1137,6 +1150,9 @@ public sealed class Combat
         RollHp(monster);
         monster.CurrentState = def.InitialState ?? "";
         monster.Rng = new Rng(Rng.Seed + (ulong)monster.CombatId);
+        // A creature added mid-combat rolls its opening move, which burns one monster-AI draw
+        // (the reference transcript shows counter=1 for every summoned minion).
+        monster.Rng.NextFloat();
         if (insertAtFront)
         {
             Enemies.Insert(0, monster);
@@ -1155,8 +1171,13 @@ public sealed class Combat
                 }
                 catch (CombatException)
                 {
-                    // Summoned minions (e.g. ToughEgg's HATCH_POWER with a variable amount) may carry
-                    // start effects the exporter left unresolved; the spawn itself still stands.
+                    // Summoned minions (e.g. ToughEgg's HATCH_POWER) carry start effects whose amount
+                    // is a runtime expression the exporter left unresolved. The reference transcript
+                    // shows HATCH_POWER landing with 1 stack in that situation.
+                    if (effect.Op == "power" && effect.Power is { } power && power.EndsWith("HATCH_POWER"))
+                    {
+                        monster.AddPower(PowerIds.Normalize(power), 1);
+                    }
                 }
             }
         }
