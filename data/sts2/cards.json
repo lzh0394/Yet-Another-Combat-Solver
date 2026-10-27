@@ -167,9 +167,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "discard",
@@ -252,9 +250,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -894,9 +890,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -1168,9 +1162,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "power",
@@ -1472,9 +1464,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "stars",
@@ -2344,9 +2334,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "max_hp",
@@ -2667,9 +2655,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -3748,7 +3734,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -3759,9 +3745,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "expr": "calculated:CalculatedCards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -3894,9 +3878,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "energy",
@@ -4061,9 +4043,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -5020,9 +5000,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -6036,9 +6014,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -6401,13 +6377,13 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.Owner.Creature.Block"
+          "block": true
         }
       }
     ],
@@ -6723,9 +6699,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -7180,9 +7154,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -7355,9 +7327,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -7587,9 +7557,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -8007,9 +7975,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -8433,9 +8399,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -8542,9 +8506,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "power",
@@ -9967,9 +9929,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -11420,9 +11380,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -11958,9 +11916,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -12083,9 +12039,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -12113,7 +12067,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -12127,7 +12081,8 @@
         "target": "target",
         "power": "POWER.VULNERABLE_POWER",
         "amount": {
-          "expr": "(cardPlay.Target.IsAlive ? cardPlay.Target.GetPowerAmount<VulnerablePower>() : 0)"
+          "power_amount": "POWER.VULNERABLE_POWER",
+          "target": "target"
         }
       }
     ],
@@ -12446,9 +12401,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "power",
@@ -12855,9 +12808,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -13119,9 +13070,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "add_card",
@@ -13369,9 +13318,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -13593,9 +13540,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -13874,9 +13819,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -14045,9 +13988,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       },
       {
         "op": "discard",
@@ -14163,14 +14104,14 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "power",
         "target": "unknown",
         "power": "POWER.BLOCK_NEXT_TURN_POWER",
         "amount": {
-          "expr": "creature.Block"
+          "block": true
         }
       }
     ],
@@ -14199,9 +14140,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -14922,9 +14861,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -15065,9 +15002,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -15295,12 +15230,12 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
         "amount": {
-          "expr": "base.Owner"
+          "var": "Cards"
         }
       },
       {
@@ -15453,9 +15388,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -15742,9 +15675,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -15783,9 +15714,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -15812,8 +15741,8 @@
     "effect_complete": true,
     "effect": [
       {
-        "op": "draw_to",
-        "amount": 10
+        "op": "draw",
+        "amount": 1
       }
     ],
     "calc": null
@@ -16629,9 +16558,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -16803,9 +16730,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -16899,9 +16824,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -17157,9 +17080,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -17571,9 +17492,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -18524,9 +18443,7 @@
       },
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null
@@ -19258,9 +19175,7 @@
     "effect": [
       {
         "op": "draw",
-        "amount": {
-          "var": "Cards"
-        }
+        "amount": 1
       }
     ],
     "calc": null

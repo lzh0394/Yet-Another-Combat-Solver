@@ -533,6 +533,8 @@ class Exporter:
         self.table = ClassTable(tree)
         self.resolver = ExprResolver(self.table)
         self.errors: list[dict] = []
+        self.last_unsupported: list[str] = []
+        self.unstructured: dict[str, list[str]] = {}
 
     # -- helpers ---------------------------------------------------------
 
@@ -650,7 +652,9 @@ class Exporter:
                 continue
             cid = "CARD." + camel_to_screaming(info.name)
             try:
-                out[cid] = self.card(info, cid)
+                entry = out[cid] = self.card(info, cid)
+                if not entry.get("effect_complete"):
+                    self.unstructured[cid] = list(self.last_unsupported) or ["unknown"]
             except Exception as e:  # keep exporting the rest
                 self.error(cid, f"{type(e).__name__}: {e}")
                 out[cid] = {"id": cid, "name": info.name, "export_error": f"{type(e).__name__}: {e}"}
@@ -1295,7 +1299,13 @@ class Exporter:
                         continue
                     offset = 0 if (m.group(3) or "").strip("<> ") else 1
                     target = args[1 + offset]
-                    if "base.Creature" in target or "this.Creature" in target:
+                    local_owner = re.search(r"Creature\s+" + re.escape(target.strip()) + r"\s*=\s*base\.Owner\.Creature", body)
+                    if (
+                        "base.Creature" in target
+                        or "this.Creature" in target
+                        or "base.Owner.Creature" in target
+                        or local_owner
+                    ):
                         tgt = "self"
                     elif "targets" in target or "Player" in target:
                         tgt = "player"
@@ -1488,7 +1498,7 @@ class Exporter:
                     if filt:
                         op["filter"] = filt.group(1)
                     ops.append(op)
-                elif cmd == "CardPileCmd" and name == "Draw" and len(args) == 1:
+                elif cmd == "CardPileCmd" and name == "Draw" and len(args) >= 1:
                     # Single-argument overload: draw one card (often inside a `for` over DynamicVars.Cards).
                     count: object = 1
                     window = body[max(0, m.start() - 300) : m.start()]
@@ -1766,6 +1776,7 @@ class Exporter:
             residue = re.sub(r"//.*", "", residue).strip()
             if residue:
                 unsupported.append("unparsed-body")
+        self.last_unsupported = list(unsupported)
         return ops or None, not unsupported
 
     def _conditional_hits(self, body: str, name: str) -> dict | None:
@@ -1807,6 +1818,14 @@ class Exporter:
             cm = re.search(r'DynamicVars\.(Calculated\w+)\.Calculate\(', e)
         if cm:
             return {"calc": cm.group(1)}
+        if re.fullmatch(r"(?:base\.Owner\.Creature|creature|base\.Creature)\.Block", e):
+            return {"block": True}
+        pm = re.search(r"GetPowerAmount<(\w+Power)>", e)
+        if pm:
+            return {
+                "power_amount": "POWER." + camel_to_screaming(pm.group(1)),
+                "target": "target" if "cardPlay.Target" in e or "target" in e.split("GetPowerAmount")[0] else "self",
+            }
         if e.startswith("ResolveEnergyXValue"):
             return {"x": "energy"}
         if e.startswith("ResolveStarXValue"):
@@ -2246,6 +2265,7 @@ def main(argv: list[str] | None = None) -> int:
             "assembly_counts": assembly_counts,
             "mock_counts": mock_counts,
             "errors": exporter.errors,
+            "unstructured_cards": exporter.unstructured,
         }
         write_json(out_dir / "manifest.json", manifest)
     for category, data in payload.items():

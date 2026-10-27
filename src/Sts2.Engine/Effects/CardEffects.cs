@@ -69,6 +69,12 @@ public static class CardEffects
             {
                 string power = effect.Power ?? throw new CombatException($"{card.Entry}: power op without id");
                 int amount = Amount(combat, card, effect.Amount, target);
+                if (amount <= 0)
+                {
+                    // Zero or negative stacks are a no-op (Malaise-style reductions are exported as
+                    // negated amounts on the same target and handled by RemovePower).
+                    break;
+                }
                 if (effect.Target == "self")
                 {
                     combat.Player.AddPower(power, amount);
@@ -584,6 +590,15 @@ public static class CardEffects
             value.TryGetProperty("block", out System.Text.Json.JsonElement blockFlag) && blockFlag.ValueKind == System.Text.Json.JsonValueKind.True)
         {
             return combat.Player.Block;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("power_amount", out System.Text.Json.JsonElement powerAmount))
+        {
+            string power = PowerIds.Normalize(powerAmount.GetString() ?? "");
+            ICombatant? who = value.TryGetProperty("target", out System.Text.Json.JsonElement tgt) && tgt.GetString() == "target"
+                ? target
+                : combat.Player;
+            return who?.PowerAmount(power) ?? 0;
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("negate", out System.Text.Json.JsonElement negated))

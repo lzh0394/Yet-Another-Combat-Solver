@@ -4,10 +4,10 @@
 
 ## 卡牌
 
-- 总数 596，结构化（`effect_complete: true`）**506**
-- 其中可打出 475、不可打出 31
-- 引擎冒烟：475 张可打出、31 张不可打出、0 张失败
-- op 分布：`power` 252、`damage` 156、`block` 68、`draw` 37、`add_card` 30、`channel` 24、`energy` 20、`move_card` 11、`stars` 9、`hp_loss` 9、`summon` 8、`upgrade` 8、`evoke` 6、`discard` 5、`exhaust_random` 4、`exhaust` 3、`orb_passive` 3、`max_hp` 2、`orb_slots` 2、`play_top` 2、`duplicate_pick` 2、`heal` 2、`apply_keyword` 2、`return_from_discard` 1、`add_from_draw` 1、`orb_remove` 1、`discard_hand_draw` 1、`energy_current` 1、`gold` 1、`draw_until` 1、`draw_to` 1、`discard_all` 1、`stun` 1
+- 总数 596，结构化（`effect_complete: true`）**511**
+- 其中可打出 480、不可打出 31
+- 引擎冒烟：480 张可打出、31 张不可打出、0 张失败
+- op 分布：`power` 254、`damage` 158、`block` 69、`draw` 40、`add_card` 30、`channel` 24、`energy` 21、`move_card` 11、`stars` 9、`hp_loss` 9、`summon` 8、`upgrade` 8、`evoke` 6、`discard` 5、`exhaust_random` 4、`exhaust` 3、`orb_passive` 3、`max_hp` 2、`orb_slots` 2、`play_top` 2、`duplicate_pick` 2、`heal` 2、`apply_keyword` 2、`return_from_discard` 1、`add_from_draw` 1、`orb_remove` 1、`discard_hand_draw` 1、`energy_current` 1、`gold` 1、`draw_until` 1、`discard_all` 1、`stun` 1
 
 ## 怪物招式
 
