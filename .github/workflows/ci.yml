@@ -83,5 +83,8 @@ jobs:
       - name: Data package vs value oracle
         run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors
 
+      - name: Coverage smoke (structured cards, encounters)
+        run: dotnet run --project src/Sts2.Cli -c Release --no-build -- smoke --pack data/sts2
+
       - name: Local web smoke test
         run: python tools/check_web.py

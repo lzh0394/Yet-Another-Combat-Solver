@@ -142,14 +142,16 @@ if (args.Length > 0 && args[0] == "run")
 if (args.Length > 0 && args[0] == "smoke")
 {
     string smokePack = Path.Combine("data", "sts2");
-    for (int i = 1; i + 1 < args.Length; i += 2)
+    bool strict = false;
+    for (int i = 1; i < args.Length; i++)
     {
-        if (args[i] == "--pack")
+        switch (args[i])
         {
-            smokePack = args[i + 1];
+            case "--pack" when i + 1 < args.Length: smokePack = args[++i]; break;
+            case "--strict": strict = true; break;
         }
     }
-    return Smoke.Run(smokePack);
+    return Smoke.Run(smokePack, strict);
 }
 
 if (args.Length > 0 && args[0] == "web")

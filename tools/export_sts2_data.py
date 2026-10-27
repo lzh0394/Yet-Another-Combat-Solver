@@ -732,7 +732,7 @@ class Exporter:
             # (the engine has no ally targets); keep them unstructured instead of mis-resolving.
             effects_complete = False
         if any(isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage"
-               for op in effects or []) and info.name not in osty_formulas:
+               for op in effects or []) and camel_to_screaming(info.name) not in osty_formulas:
             effects_complete = False
 
         entry = {

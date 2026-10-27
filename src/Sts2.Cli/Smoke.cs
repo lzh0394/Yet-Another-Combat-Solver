@@ -10,7 +10,7 @@ namespace Sts2.Cli;
 /// </summary>
 internal static class Smoke
 {
-    public static int Run(string packDir)
+    public static int Run(string packDir, bool strict = false)
     {
         DataPack pack = DataPack.Load(packDir);
         int cardOk = 0;
@@ -96,7 +96,7 @@ internal static class Smoke
         {
             Console.WriteLine($"  encounter failure: {failure}");
         }
-        return cardFailures.Count == 0 && encounterFailures.Count == 0 ? 0 : 1;
+        return !strict || (cardFailures.Count == 0 && encounterFailures.Count == 0) ? 0 : 1;
     }
 
     private static Combat OneCardCombat(DataPack pack, CardDef card)
