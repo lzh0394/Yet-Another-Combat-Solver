@@ -23,6 +23,8 @@ public sealed class Combat
     public const string VulnerablePower = "VULNERABLE_POWER";
     public const string WeakPower = "WEAK_POWER";
     public const string StrengthPower = "STRENGTH_POWER";
+    public const string ShrinkPower = "SHRINK_POWER";
+    public const string RitualPower = "RITUAL_POWER";
 
     private readonly DataPack _data;
 
@@ -160,6 +162,78 @@ public sealed class Combat
         Invariants.Check(this);
     }
 
+    /// <summary>
+    /// Greedy policy shared with the parity mod ("auto_turn"): play the first hand slot that is
+    /// playable (first alive enemy for enemy-targeted cards), then end the turn. The whole turn is
+    /// one action, so the caller emits a single snapshot afterwards.
+    /// </summary>
+    public void AutoTurn(int? actionIndex)
+    {
+        if (CombatOver)
+        {
+            throw new CombatException("combat is over");
+        }
+
+        while (TryPickPlayable(out int slot, out string? target))
+        {
+            PlayCard(slot, null, target, null);
+            if (CombatOver)
+            {
+                // The real game finishes EndCombatInternal before the auto loop's next frame:
+                // piles are cleared and out-of-combat relic hooks (Burning Blood) already healed.
+                SettleAfterVictory();
+                return;
+            }
+        }
+        EndTurn(actionIndex);
+    }
+
+    private void SettleAfterVictory()
+    {
+        Player.Hand.Clear();
+        Player.DrawPile.Clear();
+        Player.DiscardPile.Clear();
+        Player.PlayPile.Clear();
+        Player.ExhaustPile.Clear();
+        Player.Energy = 0;
+        foreach (RelicInstance relic in Player.Relics)
+        {
+            if (relic.Id == "RELIC.BURNING_BLOOD" || relic.Id == "BURNING_BLOOD")
+            {
+                Player.Hp = Math.Min(Player.Hp + 6, Player.MaxHp);
+            }
+        }
+    }
+
+    private bool TryPickPlayable(out int slot, out string? target)
+    {
+        for (int i = 0; i < Player.Hand.Count; i++)
+        {
+            CardInstance card = Player.Hand[i];
+            int cost = card.Cost;
+            if (cost < 0 || (card.CostsX ? Player.Energy < 1 : Player.Energy < cost))
+            {
+                continue;
+            }
+            string? resolved = card.TargetType switch
+            {
+                "AnyEnemy" => Enemies.Any(e => e.IsAlive) ? "0" : null,
+                "AnyPlayer" => "player",
+                _ => null,
+            };
+            if (card.TargetType == "AnyEnemy" && resolved is null)
+            {
+                continue;
+            }
+            slot = i;
+            target = resolved;
+            return true;
+        }
+        slot = -1;
+        target = null;
+        return false;
+    }
+
     public void EndTurn(int? actionIndex)
     {
         if (CombatOver)
@@ -185,10 +259,25 @@ public sealed class Combat
 
         if (!CombatOver)
         {
-            // Vulnerable/Weak tick only at the end of the enemy side's turn.
+            // Vulnerable/Weak tick at the end of the enemy side's turn, for both sides' creatures.
             foreach (MonsterInstance monster in Enemies)
             {
                 TickDurations(monster);
+            }
+            TickDurations(Player);
+            foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive))
+            {
+                int ritual = monster.PowerAmount(RitualPower);
+                if (ritual <= 0)
+                {
+                    continue;
+                }
+                if (monster.JustAppliedRitual)
+                {
+                    monster.JustAppliedRitual = false;
+                    continue;
+                }
+                monster.AddPower(StrengthPower, ritual);
             }
         }
 
@@ -367,6 +456,13 @@ public sealed class Combat
         }
 
         List<string> branches = state.Branches ?? new List<string>();
+        if (state.Kind == "RandomBranchState" && branches.Count > 0)
+        {
+            float total = branches.Count;
+            float value = Rng.MonsterAi.NextFloat(total);
+            int index = Math.Clamp((int)value, 0, branches.Count - 1);
+            return branches[index];
+        }
         if (state.Kind == "ConditionalBranchState" && monster.Def.Entry == "NIBBIT")
         {
             // Nibbit.cs: alone => BUTT_MOVE; otherwise front => SLICE_MOVE, back => HISS_MOVE.
@@ -402,6 +498,23 @@ public sealed class Combat
 
     private void ExecuteMonsterTurn(MonsterInstance monster)
     {
+        MoveDef state = monster.State;
+        if (state.Effects is { Count: > 0 } effects && state.EffectComplete)
+        {
+            int damageOps = effects.Count(e => e.Op == "damage");
+            int repeats = damageOps == 1
+                ? Math.Max(1, monster.Intents.Where(i => i.Type == "Attack").Sum(i => i.Repeats ?? 1))
+                : 1;
+            foreach (EffectDef effect in effects)
+            {
+                int times = effect.Op == "damage" ? repeats : 1;
+                for (int i = 0; i < times; i++)
+                {
+                    ApplyEffect(monster, effect);
+                }
+            }
+            return;
+        }
         foreach (IntentDef intent in monster.Intents)
         {
             switch (intent.Type)
@@ -439,7 +552,41 @@ public sealed class Combat
         }
     }
 
-    private static void TickDurations(MonsterInstance monster)
+    private void ApplyEffect(MonsterInstance monster, EffectDef effect)
+    {
+        int amount = effect.IntAmount;
+        switch (effect.Op)
+        {
+            case "damage":
+                Rules.Damage.Attack(this, monster, Player, amount);
+                if (Player.Hp <= 0)
+                {
+                    throw new CombatException("player died (defeat handling not implemented)");
+                }
+                break;
+            case "block":
+                monster.Block = (int)Math.Min(monster.Block + amount, 999999999m);
+                break;
+            case "heal":
+                monster.Hp = Math.Min(monster.Hp + amount, monster.MaxHp);
+                break;
+            case "power":
+            {
+                string power = effect.Power ?? throw new CombatException($"power effect without id on {monster.Def.Entry}");
+                ICombatant target = effect.Target == "player" ? Player : monster;
+                target.AddPower(power, amount);
+                if (power == RitualPower && target == monster)
+                {
+                    monster.JustAppliedRitual = true;
+                }
+                break;
+            }
+            default:
+                throw new CombatException($"effect {effect.Op} not implemented");
+        }
+    }
+
+    private static void TickDurations(ICombatant monster)
     {
         foreach (PowerInstance power in monster.Powers.ToList())
         {

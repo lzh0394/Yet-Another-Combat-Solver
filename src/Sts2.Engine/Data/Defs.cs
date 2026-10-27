@@ -56,6 +56,19 @@ public sealed class MoveDef
 
     /// <summary>Either a list of conditional branch ids or a boolean "unresolved".</summary>
     public JsonElement? BranchesConditional { get; set; }
+    public List<EffectDef>? Effects { get; set; }
+    public bool EffectComplete { get; set; }
+}
+
+public sealed class EffectDef
+{
+    public string Op { get; set; } = "";
+    public string Target { get; set; } = "self";
+    public JsonElement? Amount { get; set; }
+    public string? Power { get; set; }
+
+    public int IntAmount =>
+        Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;
 }
 
 public sealed class IntentDef

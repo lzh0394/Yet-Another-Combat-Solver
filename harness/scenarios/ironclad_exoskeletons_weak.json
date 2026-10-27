@@ -1,0 +1,82 @@
+{
+  "character": "IRONCLAD",
+  "seed": "PARITY-1",
+  "ascension": 0,
+  "encounter": "EXOSKELETONS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 80,
+  "hp": 80,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "BURNING_BLOOD"
+  ],
+  "deck": [
+    {
+      "id": "STRIKE_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_IRONCLAD",
+      "upgrade": 0
+    },
+    {
+      "id": "BASH",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

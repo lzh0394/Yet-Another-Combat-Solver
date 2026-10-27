@@ -94,3 +94,25 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
   - `python tools/compare_snapshots.py --a tests/vectors/real/ironclad_nibbits.jsonl --b artifacts/engine/x.jsonl` → `ok: 10 snapshots identical`。
   - `dotnet run --project src/Sts2.Cli -- tui --scenario harness/scenarios/ironclad_nibbits.json`：`play <slot> [target]` / `end` / `map` / `quit` 单步。
 - **对拍细节**：快照字段名与真机 mod 完全一致；`action` 里只有非空字段输出（`start` 无 `index`），卡牌里的 `enchantment`/`affliction` 即使是 null 也保留；RNG 的七条流平铺在 `rng` 对象上，`monsters` 数组在旁。数值比较用 1e-9 容差、结构逐键比较。
+
+## 10. 怪物招式 effects 与 auto 对拍（M5 进行中）
+
+- `tools/export_sts2_data.py` 的 `_move_effects()` 从每个 MoveState 的招式方法体按源码顺序解析
+  `DamageCmd.Attack(expr)`、`CreatureCmd.GainBlock(creature, expr, ...)`、`CreatureCmd.Heal(...)`、
+  `PowerCmd.Apply<T>(ctx, target, expr, ...)`，写成 move 的 `effects`（op/target/amount/power）与
+  `effect_complete`；无法识别的 Cmd 调用记入 unsupported 并置 `effect_complete=false`。
+  覆盖 346 个 MoveState 中的 333 个。
+- `effect_complete` 为真时引擎按 effects 执行，否则回退旧的 intent 分支；多段攻击用
+  `effects` 里唯一的 damage op 按 `intents` 的 repeats 重复。
+- 真机 mod 新增 `auto_turn` 动作：贪心打出手牌（最低槽位、AnyEnemy 打第一个存活敌人）后结束回合；
+  引擎 `Combat.AutoTurn` 实现同一策略，整回合算一个 action，只产出一行快照。
+  战斗在 auto 过程中结束时，真机的 EndCombatInternal 已经跑完（清空牌堆、Burning Blood 回 6 血），
+  引擎用 `SettleAfterVictory()` 对齐这个状态；脚本动作击杀仍保留“卡在 Play 堆”的中间态。
+- 意图伤害按真机 `AttackIntent.GetTotalDamage`：`GetSingleDamage`（截断到 int）再乘 `Repeats`。
+- 已支持的力量/易伤/虚弱/Shrink/Ritual 在 `Hooks.PowerDamageModifier` 与 `Combat` 里；
+  Weak/Vulnerable 在敌方回合结束时对双方生物一起递减，Ritual 在敌方回合结束时加力量
+  （应用当回合跳过，对应 `WasJustAppliedByEnemy`）。
+- 对拍通过（0 差异）：`ironclad_nibbits`（脚本动作）、`ironclad_nibbits_auto`、`ironclad_seapunk_weak`、
+  `ironclad_fuzzy_wurm_crawler_weak`。`ironclad_exoskeletons_weak` 起暴露已知缺口：条件分支谓词
+  （SlotName/IsAlone 等）没有导出，引擎目前对所有条件分支取第一个分支；RandomBranchState 用
+  `Rng.MonsterAi.NextFloat(total)` 且默认权重相等（权重未导出）。后续需要把条件表达式与权重写进数据包。

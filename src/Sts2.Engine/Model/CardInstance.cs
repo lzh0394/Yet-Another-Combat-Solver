@@ -25,6 +25,8 @@ public sealed class CardInstance
 
     public int StarCost => Def.StarCost ?? -1;
 
+    public string TargetType => Def.Target ?? "None";
+
     public IReadOnlyList<string> Keywords => Upgrade > 0 ? Def.KeywordsUpgraded : Def.Keywords;
 
     public decimal Var(string name)

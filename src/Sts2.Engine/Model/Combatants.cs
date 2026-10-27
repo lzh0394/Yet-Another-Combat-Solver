@@ -60,6 +60,7 @@ public sealed class PlayerState : ICombatant
 
     public void AddPower(string id, int amount)
     {
+        id = PowerIds.Normalize(id);
         PowerInstance? existing = Powers.FirstOrDefault(p => p.Id == id);
         if (existing is null)
         {
@@ -85,6 +86,9 @@ public sealed class MonsterInstance : ICombatant
     public MonsterDef Def { get; }
     public string Id => Def.Id;
     public int CombatId { get; }
+
+    /// <summary>RitualPower skips the first end-of-side tick after it is applied.</summary>
+    public bool JustAppliedRitual { get; set; }
     public int Hp { get; set; }
     public int MaxHp { get; set; }
     public int Block { get; set; }
@@ -105,6 +109,7 @@ public sealed class MonsterInstance : ICombatant
 
     public void AddPower(string id, int amount)
     {
+        id = PowerIds.Normalize(id);
         PowerInstance? existing = Powers.FirstOrDefault(p => p.Id == id);
         if (existing is null)
         {
@@ -124,4 +129,11 @@ public sealed class MonsterInstance : ICombatant
 
     /// <summary>Intents that will be executed on the monster's next turn (branch states resolve to nothing).</summary>
     public IReadOnlyList<IntentDef> Intents => State.Kind == "MoveState" ? State.Intents : Array.Empty<IntentDef>();
+}
+
+/// <summary>Model ids carry a category prefix ("POWER.STRENGTH_POWER"); runtime state uses the entry.</summary>
+public static class PowerIds
+{
+    public static string Normalize(string id) =>
+        id.StartsWith("POWER.", StringComparison.Ordinal) ? id["POWER.".Length..] : id;
 }

@@ -866,6 +866,10 @@ class Exporter:
                 if fm:
                     state["follow_up"] = self._literal_str(owner or info, fm.group(1))
                 state["must_perform_once"] = "MustPerformOnceBeforeTransitioning = true" in tail
+                move_name = args[1].strip() if len(args) > 1 else ""
+                effects, complete = self._move_effects(owner or info, move_name)
+                state["effects"] = effects
+                state["effect_complete"] = complete
             else:
                 state["branches"] = []
             states[sid] = state
@@ -1019,6 +1023,86 @@ class Exporter:
         elif cls == "DebuffIntent" and args and args[0].split(":")[-1].strip() == "true":
             it["type"] = "DebuffStrong"
         return it
+
+    # -- monster move effects -------------------------------------------
+
+    EFFECT_CMDS = {
+        "DamageCmd",
+        "CreatureCmd",
+        "PowerCmd",
+        "CardPileCmd",
+        "PlayerCmd",
+        "SummonCmd",
+        "OrbCmd",
+        "PotionCmd",
+    }
+
+    def _move_effects(self, info: ClassInfo, method: str) -> tuple[list | None, bool]:
+        owner, body = self._find_method(info, method) if method else (None, None)
+        if body is None:
+            return None, False
+        ops: list[dict] = []
+        handled: list[tuple[int, int]] = []
+        pat = re.compile(r"\b(DamageCmd|CreatureCmd|PowerCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        for m in pat.finditer(body):
+            cmd, name = m.group(1), m.group(2)
+            open_pos = m.end() - 1
+            close = match_paren(body, open_pos)
+            if close < 0:
+                continue
+            handled.append((m.start(), close))
+            args = split_top(body[open_pos + 1 : close])
+            try:
+                if cmd == "DamageCmd" and name == "Attack" and args:
+                    ops.append(
+                        {"op": "damage", "target": "player", "amount": self._effect_amount(args[0], owner)}
+                    )
+                elif cmd == "CreatureCmd" and name == "GainBlock" and len(args) >= 2:
+                    ops.append(
+                        {"op": "block", "target": "self", "amount": self._effect_amount(args[1], owner)}
+                    )
+                elif cmd == "CreatureCmd" and name == "Heal" and len(args) >= 2:
+                    ops.append(
+                        {"op": "heal", "target": "self", "amount": self._effect_amount(args[1], owner)}
+                    )
+                elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
+                    power = (m.group(3) or "").strip("<> ")
+                    target = args[1]
+                    if "base.Creature" in target or "this.Creature" in target:
+                        tgt = "self"
+                    elif "targets" in target or "Player" in target:
+                        tgt = "player"
+                    else:
+                        tgt = "unknown"
+                    ops.append(
+                        {
+                            "op": "power",
+                            "target": tgt,
+                            "power": "POWER." + camel_to_screaming(power.split(".")[-1]),
+                            "amount": self._effect_amount(args[2], owner),
+                        }
+                    )
+            except Exception:
+                ops.append({"op": f"{cmd}.{name}", "unresolved": True})
+
+        unsupported: list[str] = []
+        for m in re.finditer(r"\b(\w+Cmd)\s*\.\s*(\w+)\s*\(", body):
+            cmd = m.group(1)
+            if cmd not in self.EFFECT_CMDS:
+                continue
+            if any(start <= m.start() <= end for start, end in handled):
+                continue
+            unsupported.append(f"{cmd}.{m.group(2)}")
+        complete = not unsupported
+        return ops or None, complete
+
+    def _effect_amount(self, expr: str, info: ClassInfo):
+        resolved = self.resolver.resolve(expr, info)
+        if "base" in resolved and isinstance(resolved["base"], (int, float)):
+            return resolved["base"]
+        if "value" in resolved and isinstance(resolved["value"], (int, float)):
+            return resolved["value"]
+        return resolved
 
     # -- powers ----------------------------------------------------------
 

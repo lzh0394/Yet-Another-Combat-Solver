@@ -39,7 +39,7 @@ public static class Damage
         decimal amount = Modify(combat, source, target, baseDamage);
         int loss = Apply(target.Block, target.Hp, amount, out int block);
         target.Block = block;
-        target.Hp -= loss;
+        target.Hp = Math.Max(0, target.Hp - loss);
     }
 
     /// <summary>CreatureCmd.GainBlock after ModifyBlock (no block powers in the slice).</summary>

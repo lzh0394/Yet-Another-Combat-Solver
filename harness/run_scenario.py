@@ -169,14 +169,15 @@ def validate_transcript(out: Path, scenario: dict) -> int:
         die("transcript has no snapshots")
     if snapshots[0].get("action", {}).get("type") != "start":
         die("first snapshot is not the start state")
-    if len(snapshots) != len(scenario.get("actions", [])) + 1:
-        die(
-            f"expected {len(scenario.get('actions', [])) + 1} snapshots, got {len(snapshots)} "
-            "(driver stopped early)"
-        )
     last = snapshots[-1]
     if not last.get("combat_over"):
         die("scenario did not finish the combat; the last snapshot is not combat_over")
+    expected = len(scenario.get("actions", [])) + 1
+    if len(snapshots) > expected:
+        die(f"expected at most {expected} snapshots, got {len(snapshots)}")
+    # Combat may end before every trailing action runs ("auto_turn" keeps playing until lethal).
+    # The engine stops at the same snapshot, so a shorter transcript is fine as long as it ends
+    # with combat_over.
     return len(snapshots)
 
 

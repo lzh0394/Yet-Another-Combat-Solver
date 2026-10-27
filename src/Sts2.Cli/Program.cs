@@ -97,6 +97,9 @@ if (args.Length > 0 && args[0] == "run")
             case "end_turn":
                 combat.EndTurn(index);
                 break;
+            case "auto_turn":
+                combat.AutoTurn(index);
+                break;
             default:
                 throw new InvalidOperationException($"action type not implemented: {action.Type}");
         }

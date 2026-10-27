@@ -206,6 +206,35 @@ internal sealed class ParityDriver
                     "next player turn after " + turn);
                 break;
             }
+            case "auto_turn":
+            {
+                while (TryPickPlayable(player, combatState, out var autoCard, out var autoTarget))
+                {
+                    Log.Info("[parity] auto playing " + autoCard!.Id.Entry);
+                    var (energy, stars) = await autoCard.SpendResources();
+                    var resources = new ResourceInfo
+                    {
+                        EnergySpent = energy,
+                        EnergyValue = energy,
+                        StarsSpent = stars,
+                        StarValue = stars,
+                    };
+                    await autoCard.OnPlayWrapper(new BlockingPlayerChoiceContext(), autoTarget, isAutoPlay: false, resources);
+                    await Frame();
+                    await Frame();
+                    if (!CombatManager.Instance.IsInProgress)
+                    {
+                        return;
+                    }
+                    combatState = CombatManager.Instance.DebugOnlyGetState() ?? combatState;
+                }
+                int turn = player.PlayerCombatState!.TurnNumber;
+                PlayerCmd.EndTurn(player, canBackOut: false);
+                await WaitUntil(() => !CombatManager.Instance.IsInProgress
+                    || (player.PlayerCombatState is { Phase: PlayerTurnPhase.Play } pcs && pcs.TurnNumber > turn),
+                    "next player turn after auto " + turn);
+                break;
+            }
             case "potion":
                 throw new NotSupportedException("potion actions are not implemented yet");
             default:
@@ -280,8 +309,40 @@ internal sealed class ParityDriver
         }
     }
 
-    private static CardModel FindCard(Player player, JsonObject action)
+    /// <summary>
+    /// Greedy policy used by "auto_turn": play the first hand slot that is playable, targeting the
+    /// first alive enemy for enemy-targeted cards. Both the engine and this mod implement it.
+    /// </summary>
+    private static bool TryPickPlayable(Player player, CombatState combatState, out CardModel? card, out Creature? target)
     {
+        var hand = PileType.Hand.GetPile(player).Cards;
+        for (int i = 0; i < hand.Count; i++)
+        {
+            var candidate = hand[i];
+            if (!candidate.CanPlay(out _, out _))
+            {
+                continue;
+            }
+            Creature? resolved = candidate.TargetType switch
+            {
+                TargetType.AnyEnemy => combatState.Enemies.FirstOrDefault(c => c.IsAlive),
+                TargetType.AnyPlayer => player.Creature,
+                _ => null,
+            };
+            if (candidate.TargetType == TargetType.AnyEnemy && resolved == null)
+            {
+                continue;
+            }
+            card = candidate;
+            target = resolved;
+            return true;
+        }
+        card = null;
+        target = null;
+        return false;
+    }
+
+    private static CardModel FindCard(Player player, JsonObject action)    {
         var hand = PileType.Hand.GetPile(player).Cards;
         if (action["slot"] is JsonNode slotNode)
         {

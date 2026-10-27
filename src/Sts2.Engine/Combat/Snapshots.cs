@@ -68,8 +68,9 @@ public static class Snapshots
         {
             decimal baseDamage = intent.Damage ?? 0;
             decimal modified = Damage.Modify(combat, monster, combat.Player, baseDamage);
-            view.Damage = Math.Max(0, (int)modified);
-            view.Repeats = intent.Repeats ?? 1;
+            int repeats = intent.Repeats ?? 1;
+            view.Damage = Math.Max(0, (int)modified) * repeats;
+            view.Repeats = repeats;
         }
         return view;
     }

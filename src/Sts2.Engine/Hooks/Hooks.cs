@@ -39,5 +39,9 @@ public sealed class PowerDamageModifier : IDamageModifier
         {
             multiplier *= 0.75m;
         }
+        if (source.PowerAmount(Combat.Combat.ShrinkPower) > 0)
+        {
+            multiplier *= 0.7m;
+        }
     }
 }
