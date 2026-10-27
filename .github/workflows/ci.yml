@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test-parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build
+        run: dotnet build Sts2.slnx -c Release --nologo
+
+      - name: Engine tests (L1 + L3 + L5)
+        run: dotnet run --project tests/Sts2.Engine.Tests -c Release --no-build
+
+      - name: RNG vector check
+        run: dotnet run --project src/Sts2.Cli -c Release --no-build -- rng-verify
+
+      - name: Replay recorded scenario with the engine
+        run: |
+          dotnet run --project src/Sts2.Cli -c Release --no-build -- \
+            run --scenario harness/scenarios/ironclad_nibbits.json \
+            --pack data/sts2 --out artifacts/engine/ironclad_nibbits.jsonl
+
+      - name: Snapshot parity against the real game recording
+        run: |
+          python tools/compare_snapshots.py \
+            --a tests/vectors/real/ironclad_nibbits.jsonl \
+            --b artifacts/engine/ironclad_nibbits.jsonl
+
+      - name: Data package vs value oracle
+        run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors
