@@ -178,8 +178,7 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 `ironclad_raiders`（5 选 3、三个不同 raider 的招式）。
 
 **已知缺口**（轨迹与场景在 `harness/scenarios/known_gaps/`，不参与 CI）：
-`RavenousPower`（同侧死亡 +力量并眩晕）、Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌、
-A1 胜利后的能量口径。
+Ovicopter 召唤与 `Rng.Niche` 顺序、Thieving Hopper 偷牌、A1 胜利后的能量口径。
 
 Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里对**玩家侧**的 Debuff 置
 `SkipNextDurationTick`，而 `FrailPower` 和 Weak/Vulnerable 一样在敌方回合结束时递减——
@@ -188,6 +187,15 @@ Flyconid 已在第 18 轮修好并移回顶层：真机在 `PowerCmd.Apply` 里�
 Strangler 的 `ConstrictPower` 也在第 19 轮补上：`AfterSideTurnEnd` 只在**拥有者自己一侧**结束回合时
 结算（玩家侧回合结束→玩家回合末结算），伤害是 Unpowered、可被格挡、由拥有者对自己结算；
 `AfterDeath` 里施加者死亡时移除该 Debuff（引擎在 `PowerInstance.Applier` 记录施加者 entry）。
+
+同轮修正了两条更基础的口径：
+
+- 玩家身上的 Weak/Vulnerable/Frail 在**玩家自己回合结束**时递减；真机的 `SkipNextDurationTick`
+  只抵消“施加当回合（敌方回合）结束”的那一次，玩家回合末仍照常递减。此前引擎在敌方回合末
+  统一递减，导致玩家侧 Debuff 的持续轮数整体偏长。
+- `FrailPower.ModifyBlock`：携带 Frail 的生物获得的格挡 ×0.75，然后由 `GainBlockInternal`
+  截断成 int（5 → 3）。
+- `RavenousPower.AfterDeath`：同侧怪物死亡时，存活且带 Ravenous 的怪物 +4 力量并眩晕一回合。
 
 计划口径（成功标准 3）允许“未结构化/未实现”显式报错；这些缺口目前表现为对拍差异或
 `CombatException`，不会静默通过。

@@ -19,6 +19,7 @@ public sealed class PowerInstance
 
     /// <summary>Monster entry that applied this debuff, when it matters (ConstrictPower).</summary>
     public string? Applier { get; set; }
+
 }
 
 public sealed class RelicInstance
@@ -87,6 +88,9 @@ public sealed class PlayerState : ICombatant
 
 public sealed class MonsterInstance : ICombatant
 {
+    /// <summary>RavenousPower bookkeeping: one death is handled exactly once.</summary>
+    public bool DeathProcessed { get; set; }
+
     public MonsterInstance(MonsterDef def, int combatId)
     {
         Def = def;

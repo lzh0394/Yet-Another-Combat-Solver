@@ -17,7 +17,6 @@ python tools/compare_snapshots.py \
 | 场景 | 缺失机制 |
 |---|---|
 | `ironclad_thieving_hopper_weak` | `CardDebuffIntent` 偷牌（按稀有度从抽/弃牌堆选卡移出战斗），逃脱时带走 |
-| `ironclad_corpse_slugs_weak` | `RavenousPower`：同侧怪物死亡时存活者 +4 力量并眩晕一回合（`CreatureCmd.Stun`） |
 | `ironclad_punch_off` | 玩家侧 Debuff 的层数递减时机（真机在玩家回合结束时递减，引擎目前在敌方回合结束统一递减） |
 | `ironclad_ovicopter` | Ovicopter 的召唤（ToughEgg）与 `Rng.Niche` 消耗顺序 |
 | `ironclad_nibbits_a1` | 胜利结算时的能量：真机保留击杀后剩余 1 点，引擎按 A4/A5/A9/A10 的样本清零；A1 之外所有样本都恰好花光能量，无法区分两种口径 |
@@ -28,3 +27,8 @@ python tools/compare_snapshots.py \
 
 > `ironclad_strangler` 已在第 19 轮修复：`ConstrictPower.AfterSideTurnEnd` 在**拥有者自己一侧**回合结束时
 > 造成等量 Unpowered 伤害（可被格挡，由拥有者对自己结算），施加者死亡时移除该 Debuff。
+
+> `ironclad_corpse_slugs_weak` 已在第 19 轮修复：`RavenousPower.AfterDeath` 在同侧怪物死亡时给存活者
+> +4 力量并眩晕一回合（引擎 `Combat.TriggerRavenousOnDeaths`，每次死亡只结算一次）。同轮还发现
+> 玩家身上的 Weak/Vulnerable/Frail 是**在自己回合结束**递减（`SkipNextDurationTick` 只抵消施加当
+> 回合的那次），且 Frail 让格挡收益 ×0.75（`FrailPower.ModifyBlock`）。

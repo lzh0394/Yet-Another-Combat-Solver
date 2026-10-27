@@ -69,8 +69,17 @@ public static class CardEffects
             }
 
             case "block":
-                Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
+            {
+                // FrailPower.ModifyBlock: block gained by the frail creature is scaled by 0.75 before
+                // GainBlockInternal truncates to int.
+                decimal block = Amount(combat, card, effect.Amount, target);
+                if (combat.Player.PowerAmount(Combat.Combat.FrailPower) > 0)
+                {
+                    block *= 0.75m;
+                }
+                Damage.GainBlock(combat.Player, block);
                 break;
+            }
 
             case "put_back":
             {

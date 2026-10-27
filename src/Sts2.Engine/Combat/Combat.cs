@@ -31,6 +31,7 @@ public sealed class Combat
     public const string PaperCutsPower = "PAPER_CUTS_POWER";
     public const string BurrowedPower = "BURROWED_POWER";
     public const string ConstrictPower = "CONSTRICT_POWER";
+    public const string RavenousPower = "RAVENOUS_POWER";
 
     private readonly DataPack _data;
     private readonly EncounterDef _encounter;
@@ -230,6 +231,7 @@ public sealed class Combat
         {
             AttacksPlayedThisTurn++;
         }
+        TriggerRavenousOnDeaths();
         Enemies.RemoveAll(e => !e.IsAlive);
 
         LastActionType = "play";
@@ -242,6 +244,7 @@ public sealed class Combat
         {
             // Combat ended during OnPlay: the card stays in the Play pile and piles are cleared later
             // by PlayerCombatState.AfterCombatEnd, so the final snapshot still shows it there.
+            TriggerRavenousOnDeaths();
             Enemies.RemoveAll(e => !e.IsAlive);
             Invariants.Check(this);
             return;
@@ -435,6 +438,31 @@ public sealed class Combat
         Enemies.RemoveAll(e => !e.IsAlive);
     }
 
+    /// <summary>
+    /// RavenousPower.AfterDeath: when a monster on the owner's side dies, every living Ravenous
+    /// monster gains Strength equal to its stack and is stunned for a turn.
+    /// </summary>
+    private void TriggerRavenousOnDeaths()
+    {
+        List<MonsterInstance> dead = Enemies.Where(e => !e.IsAlive && !e.DeathProcessed).ToList();
+        if (dead.Count == 0)
+        {
+            return;
+        }
+        foreach (MonsterInstance d in dead)
+        {
+            d.DeathProcessed = true;
+        }
+        foreach (MonsterInstance owner in Enemies.Where(e => e.IsAlive && e.PowerAmount(RavenousPower) > 0).ToList())
+        {
+            foreach (MonsterInstance _ in dead)
+            {
+                owner.AddPower(StrengthPower, owner.PowerAmount(RavenousPower));
+                owner.SkipNextTurn = true;
+            }
+        }
+    }
+
     private bool HasRelic(string entry)
         => Player.Relics.Any(r => r.Id == entry || r.Id == "RELIC." + entry);
 
@@ -519,6 +547,11 @@ public sealed class Combat
         Player.Hand.Clear();
         Player.Hand.AddRange(retained);
 
+        // Duration debuffs on the player tick at the end of the player's own turn. The real game's
+        // SkipNextDurationTick only suppresses the tick that would otherwise run in the same
+        // enemy turn as the application; the player's end-of-turn tick still decrements.
+        TickDurations(Player, honorFresh: false);
+
         // ConstrictPower.AfterSideTurnEnd fires when the owner's own side ends its turn. It is
         // Unpowered damage from the owner to itself, so block absorbs it and no powers modify it.
         int constrict = Player.PowerAmount(ConstrictPower);
@@ -556,7 +589,8 @@ public sealed class Combat
                 continue;
             }
             ExecuteMonsterTurn(monster);
-            int removed = Enemies.RemoveAll(e => !e.IsAlive);
+            TriggerRavenousOnDeaths();
+        int removed = Enemies.RemoveAll(e => !e.IsAlive);
             if (removed > 0)
             {
                 // ConstrictPower.AfterDeath: the debuff goes away with the monster that applied it.
@@ -577,7 +611,6 @@ public sealed class Combat
             {
                 TickDurations(monster);
             }
-            TickDurations(Player);
             foreach (MonsterInstance monster in Enemies.Where(e => e.IsAlive))
             {
                 int ritual = monster.PowerAmount(RitualPower);
@@ -615,6 +648,7 @@ public sealed class Combat
         }
         if (CombatOver)
         {
+            TriggerRavenousOnDeaths();
             Enemies.RemoveAll(e => !e.IsAlive);
             // The real game runs EndCombatInternal while the driver waits for the next turn, so the
             // snapshot after this action already shows cleared piles and out-of-combat relic hooks.
@@ -1218,13 +1252,13 @@ public sealed class Combat
         }
     }
 
-    private static void TickDurations(ICombatant monster)
+    private static void TickDurations(ICombatant monster, bool honorFresh = true)
     {
         foreach (PowerInstance power in monster.Powers.ToList())
         {
             if (power.Id is VulnerablePower or WeakPower or FrailPower)
             {
-                if (power.Fresh)
+                if (honorFresh && power.Fresh)
                 {
                     power.Fresh = false;
                     continue;
