@@ -485,10 +485,15 @@ public sealed class Combat
 
         TriggerOrbPassives();
 
-        // discard hand; Ethereal cards exhaust instead
+        // discard hand; Ethereal cards exhaust, Retain cards stay in hand
+        List<CardInstance> retained = new();
         foreach (CardInstance card in Player.Hand)
         {
-            if (card.Keywords.Contains("Ethereal"))
+            if (card.HasKeyword("Retain"))
+            {
+                retained.Add(card);
+            }
+            else if (card.HasKeyword("Ethereal"))
             {
                 Player.ExhaustPile.Add(card);
             }
@@ -498,6 +503,7 @@ public sealed class Combat
             }
         }
         Player.Hand.Clear();
+        Player.Hand.AddRange(retained);
 
         // enemy turn
         foreach (MonsterInstance monster in Enemies)

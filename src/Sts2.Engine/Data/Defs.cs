@@ -91,6 +91,7 @@ public sealed class EffectDef
     public bool? Exhaust { get; set; }
     public string? Filter { get; set; }
     public string? Rarity { get; set; }
+    public string? Keyword { get; set; }
     public JsonElement? HitsIf { get; set; }
     public int? ExtraIfUpgraded { get; set; }
 

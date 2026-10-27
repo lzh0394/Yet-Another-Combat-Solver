@@ -27,7 +27,36 @@ public sealed class CardInstance
 
     public string TargetType => Def.Target ?? "None";
 
-    public IReadOnlyList<string> Keywords => Upgrade > 0 ? Def.KeywordsUpgraded : Def.Keywords;
+    private readonly HashSet<string> _extraKeywords = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>Combat-only keyword added by effects such as Sculpting Strike (Ethereal) or Snap (Retain).</summary>
+    public void AddKeyword(string keyword) => _extraKeywords.Add(keyword);
+
+    public bool HasKeyword(string keyword)
+    {
+        if (_extraKeywords.Contains(keyword))
+        {
+            return true;
+        }
+        foreach (string k in Upgrade > 0 ? Def.KeywordsUpgraded : Def.Keywords)
+        {
+            if (string.Equals(k, keyword, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public IReadOnlyList<string> Keywords
+    {
+        get
+        {
+            List<string> keywords = new(Upgrade > 0 ? Def.KeywordsUpgraded : Def.Keywords);
+            keywords.AddRange(_extraKeywords);
+            return keywords;
+        }
+    }
 
     public decimal Var(string name)
     {

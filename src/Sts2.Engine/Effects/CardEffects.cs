@@ -93,6 +93,35 @@ public static class CardEffects
                 break;
             }
 
+            case "apply_keyword":
+            {
+                string keyword = effect.Keyword ?? throw new CombatException($"{card.Entry}: apply_keyword without keyword");
+                foreach (CardInstance candidate in combat.Player.Hand)
+                {
+                    if (candidate.HasKeyword(keyword))
+                    {
+                        continue;
+                    }
+                    candidate.AddKeyword(keyword);
+                    break;
+                }
+                break;
+            }
+
+            case "duplicate_pick":
+            {
+                CardInstance? cloneSource = combat.Player.Hand.FirstOrDefault(c => !ReferenceEquals(c, card));
+                if (cloneSource is not null)
+                {
+                    int copies = effect.Count is null ? 1 : Amount(combat, card, effect.Count);
+                    for (int i = 0; i < copies; i++)
+                    {
+                        combat.Player.Hand.Add(new CardInstance(cloneSource.Def, cloneSource.Upgrade));
+                    }
+                }
+                break;
+            }
+
             case "draw":
                 combat.DrawCards(Amount(combat, card, effect.Amount, target));
                 break;

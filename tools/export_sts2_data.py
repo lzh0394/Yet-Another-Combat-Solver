@@ -1554,6 +1554,8 @@ class Exporter:
                 elif cmd == "OrbCmd" and name == "EvokeNext" and args:
                     dequeue = "dequeue: false" not in body[open_pos:close]
                     ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})
+                elif cmd == "CardCmd" and name == "ApplyKeyword" and len(args) >= 2:
+                    ops.append({"op": "apply_keyword", "keyword": args[1].strip().split(".")[-1]})
                 elif cmd == "PlayerCmd" and name == "GainStars" and args:
                     ops.append({"op": "stars", "amount": amount(args[0])})
                 elif cmd == "CardPileCmd" and name == "Add" and args and "FromCombatPile" in args[0]:
@@ -1586,8 +1588,20 @@ class Exporter:
                 elif cmd == "PowerCmd" and name == "ModifyAmount":
                     pm2 = re.search(r"ModifyAmount<\s*(\w+)\s*>", body[open_pos - 60 : close + 1])
                     ops.append({"op": "power_modify", "power": "POWER." + camel_to_screaming(pm2.group(1)) if pm2 else "POWER.UNRESOLVED", "amount": amount(args[-1])})
-                elif cmd == "CardSelectCmd" and name == "FromHand" and args:
+                elif cmd == "CardSelectCmd" and name == "FromHand" and args and "AddGeneratedCardToCombat(" in body:
+                    # Dual Wield / Heirloom Hammer: clone a chosen hand card back into the hand.
+                    loop = re.search(r"for\s*\(\s*int\s+\w+\s*=\s*0\s*;\s*\w+\s*<\s*base\.DynamicVars\.(\w+)\.", body)
+                    count = {"var": loop.group(1)} if loop else 1
+                    ops.append({"op": "duplicate_pick", "count": count})
+                elif cmd == "CardSelectCmd" and name == "FromHand" and args and "CardCmd.ApplyKeyword(" in body:
+                    # Selection feeds ApplyKeyword (Sculpting Strike / Snap): no pile move of its own.
+                    pass
+                elif cmd == "CardSelectCmd" and name == "FromHand" and args and (
+                    "CardCmd.Discard(" in body or "CardCmd.Exhaust(" in body
+                ):
                     # Named-argument form: FromHand(prefs: new CardSelectorPrefs(..., N), context: ...).
+                    # Only a discard/exhaust selection when the picked card is actually discarded or
+                    # exhausted afterwards; Sculpting Strike / Snap only add a keyword to it.
                     count = 1
                     pm = re.search(r"CardSelectorPrefs\([^,]*,\s*(\d+)", args[0])
                     if pm:

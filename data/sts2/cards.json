@@ -1349,11 +1349,6 @@
     "effect_complete": false,
     "effect": [
       {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
-      },
-      {
         "op": "upgrade",
         "target": "hand",
         "count": 1,
@@ -5010,11 +5005,6 @@
         "amount": {
           "var": "Cards"
         }
-      },
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
       }
     ],
     "calc": null
@@ -6086,9 +6076,10 @@
     "effect_complete": true,
     "effect": [
       {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
+        "op": "duplicate_pick",
+        "count": {
+          "var": "Cards"
+        }
       },
       {
         "op": "add_card",
@@ -8427,11 +8418,6 @@
         "amount": {
           "var": "Cards"
         }
-      },
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
       }
     ],
     "calc": null
@@ -8784,11 +8770,6 @@
     "effect_complete": false,
     "effect": [
       {
-        "op": "discard",
-        "count": 0,
-        "pick": "first"
-      },
-      {
         "op": "upgrade",
         "target": "all",
         "count": 9999
@@ -9033,11 +9014,6 @@
         "amount": {
           "var": "Block"
         }
-      },
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
       }
     ],
     "calc": null
@@ -9331,9 +9307,10 @@
         }
       },
       {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
+        "op": "duplicate_pick",
+        "count": {
+          "var": "Repeat"
+        }
       },
       {
         "op": "add_card",
@@ -12553,13 +12530,8 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
-      },
       {
         "op": "power",
         "target": "self",
@@ -13600,11 +13572,6 @@
         "amount": {
           "var": "Cards"
         }
-      },
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
       }
     ],
     "calc": null
@@ -15840,7 +15807,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15850,9 +15817,8 @@
         }
       },
       {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
+        "op": "apply_keyword",
+        "keyword": "Ethereal"
       }
     ],
     "calc": null
@@ -17019,7 +16985,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -17029,9 +16995,8 @@
         }
       },
       {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
+        "op": "apply_keyword",
+        "keyword": "Retain"
       }
     ],
     "calc": null
@@ -19266,11 +19231,6 @@
         "amount": {
           "var": "Cards"
         }
-      },
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
       }
     ],
     "calc": null
@@ -19593,14 +19553,8 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
-    "effect": [
-      {
-        "op": "discard",
-        "count": 1,
-        "pick": "first"
-      }
-    ],
+    "effect_complete": false,
+    "effect": [],
     "calc": null
   },
   "CARD.TRASH_TO_TREASURE": {
