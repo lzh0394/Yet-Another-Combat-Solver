@@ -483,6 +483,7 @@ W2 = sansb 的 `ironclad_toadpoles_uniform_v1`（68/80 HP、无遗物、两个 T
 | 会话/长序列（M5） | `… run --scenario harness/scenarios/ironclad_session.json …` | 5 角色 × 16 场（4 个弱遭遇 × 4 轮），每局 204 个动作、220 帧 |
 | 覆盖冒烟（M5） | `… smoke --pack data/sts2` | 380 张结构化卡全部可打出、怪物房遭遇逐场启动 |
 | 随机策略（M5） | `… run --scenario harness/scenarios/defect_random_toadpoles.json …` | 5 角色 × 4 弱遭遇共 20 个随机序列场景，逐字段 0 差异 |
+| 会话对拍（M5） | `… run --scenario harness/scenarios/necrobinder_session.json …` | 5 角色各 16 场连续遭遇，200–380 动作/局，逐字段 0 差异 |
 | 本地 Web（M8） | `dotnet run --project src/Sts2.Cli -- web --port 5080` | 浏览器人机对弈；`python tools/check_web.py` 冒烟 7 项 |
 
 回放页只读快照：回合/HP/格挡/能量、敌人意图、手牌与五牌堆、逐步动作日志；方向键翻页，

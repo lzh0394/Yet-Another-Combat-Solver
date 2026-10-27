@@ -350,6 +350,7 @@ GREMLIN_MERC/THIEVING_HOPPER 的未解析 power 效果。它们会以 `NotSuppor
 | silent_session | 396 | 380 | 逐字段一致 |
 | regent_session | 216 | 200 | 逐字段一致 |
 | defect_session | 288 | 272 | 逐字段一致 |
+| necrobinder_session | 316 | 300 | 逐字段一致 |
 
-会话都是 16 场（4 个弱遭遇 × 4 轮），每场 40 个 `random_play` 上限。defect/necrobinder 两个会话
-的录制脚本仍在后台跑，完成后补进来。
+会话都是 16 场（4 个弱遭遇 × 4 轮），每场 40 个 `random_play` 上限；五个角色全部逐字段一致，
+每条会话的动作数都 ≥ 200，成功标准 2 的“每局 ≥ 200 步”因此达成。
