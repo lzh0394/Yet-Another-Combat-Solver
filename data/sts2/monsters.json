@@ -12,8 +12,9 @@
     "start_effects": [
       {
         "op": "power",
-        "unresolved": true,
-        "error": "generic power type not literal"
+        "target": "self",
+        "power": "POWER.WITHERING_PRESENCE_POWER",
+        "amount": 6
       },
       {
         "op": "power",
@@ -3796,8 +3797,9 @@
       },
       {
         "op": "power",
-        "unresolved": true,
-        "error": "generic power type not literal"
+        "target": "self",
+        "power": "POWER.THIEVERY_POWER",
+        "amount": 20
       }
     ],
     "start_effect_complete": true,
@@ -5409,8 +5411,9 @@
         "effects": [
           {
             "op": "power",
-            "unresolved": true,
-            "error": "generic power type not literal"
+            "target": "unknown",
+            "power": "POWER.DAMPEN_POWER",
+            "amount": 1
           }
         ],
         "effect_complete": true
@@ -9398,8 +9401,9 @@
         "effects": [
           {
             "op": "power",
-            "unresolved": true,
-            "error": "generic power type not literal"
+            "target": "self",
+            "power": "POWER.SANDPIT_POWER",
+            "amount": 4
           }
         ],
         "effect_complete": false
@@ -9745,8 +9749,9 @@
         "effects": [
           {
             "op": "power",
-            "unresolved": true,
-            "error": "generic power type not literal"
+            "target": "self",
+            "power": "POWER.SWIPE_POWER",
+            "amount": 1
           },
           {
             "op": "damage",

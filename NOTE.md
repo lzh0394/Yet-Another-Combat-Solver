@@ -328,8 +328,14 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 ### 20. 遭遇覆盖与条件谓词（M5，进行中）
 
 `sts2 smoke --pack data/sts2` 会遍历所有 `RoomType == Monster` 的遭遇：建场、跑 12 个随机动作，
-捕获异常。当前 **58 个可启动 / 6 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`
+捕获异常。当前 **64 个可启动 / 0 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`
 与 `DEPRECATED_ENCOUNTER` 属于事件/废弃内容，已在冒烟里显式排除）。
+
+最后几个硬骨头：4 个 `SummonIntent` 遭遇（FABRICATOR/FOGMOG/THE_OBSCURA/TWO_TAILED_RAT）与
+GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型重载。前者按“召唤该遭遇
+`all_possible_monsters` 里尚未出场的第一个”近似（真机是从各怪物自己的候选集合里用
+`Rng.MonsterAi.NextItem` 抽，数据包没有这份集合）；后者在导出器里从局部变量声明
+（`SwipePower swipe = …`）反推 power 类型，不再产出 `{"op":"power","unresolved":true}`。
 
 为让这批遭遇能起步，引擎补了几条**近似谓词**（`Combat.EvalCondition`）：
 
@@ -339,8 +345,8 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 - `base.Creature.HasPower<XPower>()` → `PowerAmount(X_POWER) > 0`。
 - `Sleep`/`Hidden` 意图 → 空过一回合。
 
-仍显式不支持的 6 个：4 个 `Summon` 意图（FABRICATOR、FOGMOG、THE_OBSCURA、TWO_TAILED_RAT）与
-GREMLIN_MERC/THIEVING_HOPPER 的未解析 power 效果。它们会以 `NotSupportedException` 报出，不静默。
+`SummonIntent` 的近似与 power 实例解析都不是逐字段对拍过的语义（没有对应真机轨迹），只保证
+“遭遇能跑通、不静默失败”；`harness/scenarios/known_gaps/` 里仍保留 thieving_hopper 的偷牌缺口。
 
 ### 21. 会话级对拍结果（M5，进行中）
 

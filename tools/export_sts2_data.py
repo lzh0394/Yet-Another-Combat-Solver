@@ -1262,7 +1262,7 @@ class Exporter:
                         # Non-generic overload: Apply(ctx, powerInstance, target, amount, ...).
                         instance = args[1].strip() if len(args) > 1 else args[0].strip()
                         decl = re.search(
-                            r"(\w+)\s+" + re.escape(instance) + r"\s*=", body
+                            r"(\w+)\s+" + re.escape(instance) + r"\s*=", body
                         )
                         if decl:
                             power = decl.group(1)

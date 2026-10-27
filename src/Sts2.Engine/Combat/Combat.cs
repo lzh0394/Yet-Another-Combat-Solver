@@ -31,6 +31,7 @@ public sealed class Combat
     public const string BurrowedPower = "BURROWED_POWER";
 
     private readonly DataPack _data;
+    private readonly EncounterDef _encounter;
 
     public Combat(DataPack data, Scenario scenario)
     {
@@ -84,6 +85,7 @@ public sealed class Combat
         Rng.Shuffle.Shuffle(Player.DrawPile);
 
         EncounterDef encounter = data.Encounter(scenario.Encounter);
+        _encounter = encounter;
         Rng encounterRng = new(unchecked(Rng.Seed + 1UL + StringHash.Deterministic(encounter.Entry)));
         // Recipes win over the packaged list: some encounters need per-spawn starter indices or
         // fixed initial states that the flat JSON list cannot express (e.g. the fourth Scroll of Biting).
@@ -949,6 +951,14 @@ public sealed class Combat
                     }
                     break;
                 }
+                case "Summon":
+                {
+                    // Approximation: the game picks a bot from a per-monster set via
+                    // Rng.MonsterAi.NextItem; the data pack only carries the encounter's
+                    // possible monsters, so summon the first one not already on the board.
+                    SpawnSummonedMonster();
+                    break;
+                }
                 case "Sleep":
                 case "Hidden":
                     // Sleep/Hidden turns are pure no-ops for the board state.
@@ -957,6 +967,43 @@ public sealed class Combat
                     throw new CombatException($"intent {intent.Type} not implemented for {monster.Def.Entry}");
             }
         }
+    }
+
+
+    /// <summary>Spawns the first encounter monster that is not already present (SummonIntent).</summary>
+    private void SpawnSummonedMonster()
+    {
+        string? candidate = _encounter.AllPossibleMonsters
+            .FirstOrDefault(id => Enemies.All(e => e.Def.Id != id));
+        if (candidate is null)
+        {
+            return;
+        }
+        MonsterDef def = _data.Monster(candidate);
+        MonsterInstance monster = new(def, NextCombatId())
+        {
+            Slot = _encounter.Monsters?
+                .Select(m => m.Count > 1 ? m[1] : null)
+                .FirstOrDefault(s => !string.IsNullOrEmpty(s) && Enemies.All(e => e.Slot != s)),
+        };
+        RollHp(monster);
+        monster.CurrentState = def.InitialState ?? "";
+        monster.Rng = new Rng(Rng.Seed + (ulong)monster.CombatId);
+        Enemies.Add(monster);
+        if (def.StartEffectComplete)
+        {
+            foreach (EffectDef effect in def.StartEffects ?? new List<EffectDef>())
+            {
+                ApplyEffect(monster, effect);
+            }
+        }
+        RollMove(monster);
+    }
+
+    private int NextCombatId()
+    {
+        int max = Enemies.Count == 0 ? 0 : Enemies.Max(e => e.CombatId);
+        return max + 1;
     }
 
     private void ApplyEffect(MonsterInstance monster, EffectDef effect)
