@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Sts2.Cli;
 using Sts2.Contracts;
 using Sts2.Engine.Combat;
 using Sts2.Engine.Data;
@@ -121,6 +122,24 @@ if (args.Length > 0 && args[0] == "run")
         }
     }
     return 0;
+}
+
+if (args.Length > 0 && args[0] == "web")
+{
+    int port = 5080;
+    string packDir = Path.Combine("data", "sts2");
+    string scenarioPath = Path.Combine("harness", "scenarios", "ironclad_nibbits.json");
+    for (int i = 1; i + 1 < args.Length; i += 2)
+    {
+        switch (args[i])
+        {
+            case "--port": port = int.Parse(args[i + 1]); break;
+            case "--pack": packDir = args[i + 1]; break;
+            case "--scenario": scenarioPath = args[i + 1]; break;
+            default: Console.Error.WriteLine($"unknown option {args[i]}"); return 2;
+        }
+    }
+    return WebServer.Run(port, packDir, scenarioPath);
 }
 
 if (args.Length > 0 && args[0] == "bench")

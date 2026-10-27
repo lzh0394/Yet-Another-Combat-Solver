@@ -233,3 +233,14 @@ HP 44–48、猛击 13、斩击 7 伤害 + 6 格挡、嘶鸣 +3 力量）。A1 �
 
 本机实测（win-x64 AOT）：单场 `ironclad_nibbits` 约 **21.6 µs/场、46k 场/秒**；
 JIT 下约 57.7 µs/场、17k 场/秒。CI 在 linux-x64 上做同样的发布与冒烟测试。
+
+## 16. 本地 Web 人机对弈（M8）
+
+`sts2 web --port 5080 --pack data/sts2 --scenario harness/scenarios/ironclad_nibbits.json` 起一个只监听 127.0.0.1 的对弈服务：引擎是唯一真相，浏览器只渲染快照并 POST 动作。
+
+- 传输层用 `TcpListener` 手写最小 HTTP/1.1，不用 `HttpListener`：后者在非交互/无 URL ACL 的会话里直接抛 `HttpListenerException (6): 句柄无效`（http.sys 需要 URL 预留）。
+- 端点：`GET /`（内嵌单页）、`POST /api/new`（按 scenario 建一场 Combat，返回 8 位 session id）、`GET /api/state?id=`、`POST /api/play {slot,target}`、`POST /api/end`。响应统一 `{state, log, over}`，错误 `{error}` + 400/404/500。
+- 快照直接复用 `ViewJsonContext` 的源生成序列化，页面不需要知道引擎内部结构；非法出牌由引擎抛 `CombatException`，服务转 400 并把消息显示在页面上。
+- 页面零外部依赖（内联 CSS/JS），展示玩家 HP/格挡/能量/能力、敌人意图与血条、手牌（费用、X 费、不可打出置灰）、五牌堆计数与动作日志；点手牌即出牌，`end turn` 结束回合，战斗结束禁用结束按钮。
+- `python tools/check_web.py` 起服务并跑 7 项断言（页面、建局 5 张起手、出牌生效、结束回合进入第 2 回合、状态一致、未知 session 404），CI 中作为独立步骤执行。
+- 限制：单进程内存 session、无鉴权/持久化/存档，仅适合本地手动体验；AOT 发布未验证 `TcpListener` 路径（CI 的 AOT 冒烟只覆盖 `run`/`bench`）。

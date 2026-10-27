@@ -82,3 +82,6 @@ jobs:
 
       - name: Data package vs value oracle
         run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors
+
+      - name: Local web smoke test
+        run: python tools/check_web.py
