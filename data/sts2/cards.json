@@ -7188,8 +7188,12 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "exhaust_hand",
+        "filter": null
+      },
       {
         "op": "damage",
         "target": "target",
@@ -7197,7 +7201,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "list.Count"
+          "exhausted": true
         }
       }
     ],
@@ -7453,8 +7457,12 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "exhaust_hand",
+        "filter": "status"
+      },
       {
         "op": "damage",
         "target": "target",
@@ -7462,7 +7470,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "calculated:CalculatedHits"
+          "exhausted": true
         }
       }
     ],
@@ -15875,8 +15883,12 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "exhaust_hand",
+        "filter": "non_attack"
+      },
       {
         "op": "block",
         "target": "self",
@@ -17823,6 +17835,10 @@
     "multimodal": false,
     "effect_complete": false,
     "effect": [
+      {
+        "op": "exhaust_hand",
+        "filter": null
+      },
       {
         "op": "upgrade",
         "target": "all",

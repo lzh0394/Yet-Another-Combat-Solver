@@ -1059,6 +1059,9 @@ public sealed class Combat
     /// <summary>Attack cards played (and finished) during the current player turn.</summary>
     public int AttacksPlayedThisTurn { get; set; }
 
+    /// <summary>Cards removed by the most recent whole-hand exhaust (Fiend Fire / Second Wind / Flak Cannon).</summary>
+    public int LastExhaustedCount { get; set; }
+
     /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
     public int LastStarXValue => 0;
 

@@ -61,6 +61,29 @@ public static class CardEffects
                 Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "exhaust_hand":
+            {
+                int count = 0;
+                foreach (CardInstance candidate in combat.Player.Hand.ToList())
+                {
+                    bool take = effect.Filter switch
+                    {
+                        "non_attack" => candidate.Def.Type != "Attack",
+                        "status" => candidate.Def.Type == "Status",
+                        _ => true,
+                    };
+                    if (!take)
+                    {
+                        continue;
+                    }
+                    combat.Player.Hand.Remove(candidate);
+                    combat.Player.ExhaustPile.Add(candidate);
+                    count++;
+                }
+                combat.LastExhaustedCount = count;
+                break;
+            }
+
             case "heal":
                 combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(combat, card, effect.Amount, target));
                 break;
@@ -618,6 +641,17 @@ public static class CardEffects
                 ? target
                 : combat.Player;
             return who?.PowerAmount(power) ?? 0;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("exhausted", out System.Text.Json.JsonElement exhausted) && exhausted.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            return combat.LastExhaustedCount;
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("per_exhausted", out System.Text.Json.JsonElement perExhausted) && perExhausted.ValueKind == System.Text.Json.JsonValueKind.True)
+        {
+            int per = (int)card.Var(value.GetProperty("var").GetString() ?? "Block");
+            return per * combat.LastExhaustedCount;
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("negate", out System.Text.Json.JsonElement negated))

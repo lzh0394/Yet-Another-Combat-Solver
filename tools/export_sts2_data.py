@@ -1692,6 +1692,41 @@ class Exporter:
             except Exception:
                 ops.append({"op": f"{cmd}.{name}", "unresolved": True})
 
+        # Whole-hand exhaust (Fiend Fire / Second Wind / Flak Cannon): the loop body exhausts
+        # every card the loop variable yields, and the follow-up damage/block scales with it.
+        hand_loop = None
+        hand_source = ""
+        for mloop in re.finditer(r"foreach\s*\(\s*CardModel\s+(\w+)\s+in\s+((?:[^()]|\([^()]*\))*)\)", body):
+            source = mloop.group(2)
+            ident = source.split(".")[0].strip()
+            decl = re.search(r"List<CardModel>\s+" + re.escape(ident) + r"\s*=\s*([^;]+);", body)
+            if decl is not None:
+                source = source + "|" + decl.group(1)
+            if "Hand" in source or "GetCards()" in source or "GetStatuses(" in source:
+                hand_loop = mloop
+                hand_source = source
+                break
+        if hand_loop is not None and "CardCmd.Exhaust(" in body:
+            loop_var = hand_loop.group(1)
+            exh = re.search(r"CardCmd\.Exhaust\s*\([^)]*\b" + re.escape(loop_var) + r"\b", body)
+            if exh is not None:
+                handled.append((exh.start(), match_paren(body, exh.end() - 1)))
+                flt = None
+                if "GetStatuses(" in hand_source or "CardType.Status" in body:
+                    flt = "status"
+                elif "GetCards()" in hand_source or "Type != CardType.Attack" in body:
+                    flt = "non_attack"
+                ops.insert(0, {"op": "exhaust_hand", "filter": flt})
+                for opx in ops:
+                    if opx["op"] != "damage" or not isinstance(opx.get("hits"), dict):
+                        continue
+                    hits = opx["hits"]
+                    if "expr" in hits or hits.get("calc") in ("CalculatedHits", "CalculatedDamage"):
+                        opx["hits"] = {"exhausted": True}
+                    if opx["op"] == "block" and isinstance(opx.get("amount"), dict) and set(opx["amount"]) == {"var"}:
+                        if body.find("CreatureCmd.GainBlock", hand_loop.end()) >= 0:
+                            opx["amount"] = {"per_exhausted": True, "var": opx["amount"]["var"]}
+
         # Calculated Gamble: discard the whole hand, then draw as many cards.
         gamble = re.search(r"CardCmd\.DiscardAndDraw\s*\(", body)
         if gamble:

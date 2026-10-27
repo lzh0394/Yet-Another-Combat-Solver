@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T14:49:36.344770+00:00"
+    "exported_at": "2026-10-27T14:58:04.374394+00:00"
   },
   "counts": {
     "cards": 596,
@@ -131,15 +131,8 @@
       "CreatureCmd.LoseBlock",
       "PowerCmd.Remove"
     ],
-    "CARD.FIEND_FIRE": [
-      "CardCmd.Exhaust",
-      "unresolved-hits"
-    ],
     "CARD.FISTICUFFS": [
       "unresolved-amount"
-    ],
-    "CARD.FLAK_CANNON": [
-      "CardCmd.Exhaust"
     ],
     "CARD.FRANTIC_ESCAPE": [
       "unresolved-amount"
@@ -250,9 +243,6 @@
     "CARD.SEANCE": [
       "CardCmd.TransformTo"
     ],
-    "CARD.SECOND_WIND": [
-      "CardCmd.Exhaust"
-    ],
     "CARD.SOUL_STORM": [
       "unknown"
     ],
@@ -263,7 +253,6 @@
       "CardSelectCmd.FromChooseACardScreen"
     ],
     "CARD.STOKE": [
-      "CardCmd.Exhaust",
       "CardPileCmd.AddGeneratedCardsToCombat"
     ],
     "CARD.STORM_OF_STEEL": [
