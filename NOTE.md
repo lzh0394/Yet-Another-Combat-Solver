@@ -330,7 +330,8 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 新支持的 op：`hp_loss`（Bloodletting 式不可格挡自伤）、`add_card`（Anger 式克隆本卡入堆）、
 `CardSelectCmd.FromHand` 的弃牌/消耗（按提示词区分）、`upgrade`（Armaments/Apotheosis 式手牌升级）、
 `move_card`（Dredge 式从弃牌堆挑牌回手）、`{"x":"energy"}`（X 费卡的 X 值）、`discard_all`（弃整手）、
-`orb_slots`（Capacitor 式扩球位）、`power_modify`、以及 `<Type>.CreateInHand` 生成的衍生卡（Shiv 系列）。
+`orb_slots`（Capacitor 式扩球位）、`power_modify`、`<Type>.CreateInHand` 生成的衍生卡（Shiv 系列），
+以及 `calc`（`CalculatedVar`：导出 `{base, extra, mult}`，引擎按 `owner_block/orbs/hand/draw/discard/exhaust/target_*` 求值）。
 
 `sts2 smoke --pack data/sts2` 会遍历所有 `RoomType == Monster` 的遭遇：建场、跑 12 个随机动作，
 捕获异常。当前 **64 个可启动 / 0 个显式不支持 / 0 个崩溃**（`DENSE_VEGETATION_EVENT_ENCOUNTER`
@@ -356,7 +357,7 @@ GREMLIN_MERC/THIEVING_HOPPER 的 `PowerCmd.Apply(powerInstance, …)` 非泛型�
 ### 22. 覆盖报告（M5）
 
 `tools/coverage_report.py` 把 `data/sts2/*.json` 的静态覆盖与 `sts2 smoke` 的运行覆盖合并成
-`docs/coverage.md`：卡牌 596 张里结构化 466（可打出 435、不可打出 31，冒烟 0 失败）、
+`docs/coverage.md`：卡牌 596 张里结构化 470（可打出 439、不可打出 31，冒烟 0 失败）、
 怪物招式 389 条里完整解析 334、能力 265、遗物 299、遭遇 90（冒烟 64 个可启动）。
 CI 在冒烟之后刷新这份报告。
 

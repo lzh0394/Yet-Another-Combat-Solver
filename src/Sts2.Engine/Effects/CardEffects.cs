@@ -40,8 +40,8 @@ public static class CardEffects
         {
             case "damage":
             {
-                int amount = Amount(combat, card, effect.Amount);
-                int hits = effect.Hits is null ? 1 : Amount(combat, card, effect.Hits);
+                int amount = Amount(combat, card, effect.Amount, target);
+                int hits = effect.Hits is null ? 1 : Amount(combat, card, effect.Hits, target);
                 foreach (MonsterInstance monster in DamageTargets(combat, card, effect, target))
                 {
                     for (int i = 0; i < hits && monster.IsAlive; i++)
@@ -53,17 +53,17 @@ public static class CardEffects
             }
 
             case "block":
-                Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount));
+                Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
                 break;
 
             case "heal":
-                combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(combat, card, effect.Amount));
+                combat.Player.Hp = Math.Min(combat.Player.MaxHp, combat.Player.Hp + Amount(combat, card, effect.Amount, target));
                 break;
 
             case "power":
             {
                 string power = effect.Power ?? throw new CombatException($"{card.Entry}: power op without id");
-                int amount = Amount(combat, card, effect.Amount);
+                int amount = Amount(combat, card, effect.Amount, target);
                 if (effect.Target == "self")
                 {
                     combat.Player.AddPower(power, amount);
@@ -89,7 +89,7 @@ public static class CardEffects
             }
 
             case "draw":
-                combat.DrawCards(Amount(combat, card, effect.Amount));
+                combat.DrawCards(Amount(combat, card, effect.Amount, target));
                 break;
 
             case "discard":
@@ -131,20 +131,20 @@ public static class CardEffects
             }
 
             case "summon":
-                combat.SummonOsty(Amount(combat, card, effect.Amount));
+                combat.SummonOsty(Amount(combat, card, effect.Amount, target));
                 break;
 
             case "stars":
-                combat.Player.Stars += Amount(combat, card, effect.Amount);
+                combat.Player.Stars += Amount(combat, card, effect.Amount, target);
                 break;
 
             case "energy":
-                combat.Player.Energy += Amount(combat, card, effect.Amount);
+                combat.Player.Energy += Amount(combat, card, effect.Amount, target);
                 break;
 
             case "upgrade":
             {
-                int count = effect.Count is null ? Amount(combat, card, effect.Amount)
+                int count = effect.Count is null ? Amount(combat, card, effect.Amount, target)
                     : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
                 IReadOnlyList<CardInstance> pool = effect.Target == "all"
                     ? combat.Player.Hand.ToList()
@@ -190,7 +190,7 @@ public static class CardEffects
                 break;
 
             case "orb_slots":
-                combat.OrbCapacity += Amount(combat, card, effect.Amount);
+                combat.OrbCapacity += Amount(combat, card, effect.Amount, target);
                 break;
 
             case "power_modify":
@@ -198,17 +198,17 @@ public static class CardEffects
                 {
                     throw new CombatException($"{card.Entry}: unresolved power_modify");
                 }
-                combat.Player.AddPower(effect.Power, Amount(combat, card, effect.Amount));
+                combat.Player.AddPower(effect.Power, Amount(combat, card, effect.Amount, target));
                 break;
 
             case "hp_loss":
                 // Unblockable self-damage (Bloodletting et al.); power hooks do not apply.
-                combat.Player.Hp = Math.Max(0, combat.Player.Hp - Amount(combat, card, effect.Amount));
+                combat.Player.Hp = Math.Max(0, combat.Player.Hp - Amount(combat, card, effect.Amount, target));
                 break;
 
             case "add_card":
             {
-                int count = effect.Count is null ? Amount(combat, card, effect.Amount)
+                int count = effect.Count is null ? Amount(combat, card, effect.Amount, target)
                     : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
                 CardInstance added = effect.Card == "SELF" ? new CardInstance(card.Def, card.Upgrade)
                     : new CardInstance(combat.Data.Card(effect.Card ?? throw new CombatException($"{card.Entry}: add_card without id")));
@@ -257,6 +257,21 @@ public static class CardEffects
         };
     }
 
+    private static decimal CalcMultiplier(Combat.Combat combat, CardInstance card, string mult, MonsterInstance? target) => mult switch
+    {
+        "owner_block" => combat.Player.Block,
+        "orbs" => combat.Player.Orbs.Count,
+        "hand" => combat.Player.Hand.Count,
+        "draw" => combat.Player.DrawPile.Count,
+        "discard" => combat.Player.DiscardPile.Count,
+        "exhaust" => combat.Player.ExhaustPile.Count,
+        "target_block" => target?.Block ?? 0,
+        "target_vulnerable" => target?.PowerAmount("VULNERABLE_POWER") ?? 0,
+        "target_doom" => target?.PowerAmount("DOOM_POWER") ?? 0,
+        "owner_strength" => combat.Player.PowerAmount("STRENGTH_POWER"),
+        _ => throw new CombatException($"{card.Entry}: unsupported calc multiplier {mult}"),
+    };
+
     private static List<CardInstance> Pile(PlayerState player, string pile) => pile switch
     {
         "Hand" => player.Hand,
@@ -266,7 +281,7 @@ public static class CardEffects
         _ => player.DiscardPile,
     };
 
-    private static int Amount(Combat.Combat combat, CardInstance card, System.Text.Json.JsonElement? element)
+    private static int Amount(Combat.Combat combat, CardInstance card, System.Text.Json.JsonElement? element, MonsterInstance? target = null)
     {
         if (element is null)
         {
@@ -287,6 +302,18 @@ public static class CardEffects
                 return CalculatedDamage(combat, card);
             }
             return (int)card.Var(name);
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("calc", out System.Text.Json.JsonElement calcName))
+        {
+            string name = calcName.GetString() ?? "";
+            if (card.Def.Calc is null || !card.Def.Calc.TryGetValue(name, out CalcDef? calc))
+            {
+                throw new CombatException($"{card.Entry}: no calculated var {name}");
+            }
+            decimal baseValue = card.Var(calc.Base);
+            decimal extra = card.Var(calc.Extra);
+            return (int)(baseValue + extra * CalcMultiplier(combat, card, calc.Mult, target));
         }
         if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
             value.TryGetProperty("x", out System.Text.Json.JsonElement which))

@@ -43,7 +43,8 @@
           "var": "ThornsPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ABUNDANCE": {
     "id": "CARD.ABUNDANCE",
@@ -76,7 +77,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ACCELERANT": {
     "id": "CARD.ACCELERANT",
@@ -107,7 +109,8 @@
           "var": "Accelerant"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ACCURACY": {
     "id": "CARD.ACCURACY",
@@ -138,7 +141,8 @@
           "var": "AccuracyPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ACROBATICS": {
     "id": "CARD.ACROBATICS",
@@ -172,7 +176,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ADAPTIVE_STRIKE": {
     "id": "CARD.ADAPTIVE_STRIKE",
@@ -208,7 +213,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ADRENALINE": {
     "id": "CARD.ADRENALINE",
@@ -250,7 +256,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.AFTERIMAGE": {
     "id": "CARD.AFTERIMAGE",
@@ -282,7 +289,8 @@
           "var": "AfterimagePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.AFTERLIFE": {
     "id": "CARD.AFTERLIFE",
@@ -315,7 +323,8 @@
           "var": "Summon"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.AGGRESSION": {
     "id": "CARD.AGGRESSION",
@@ -341,7 +350,8 @@
         "power": "POWER.AGGRESSION_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ALCHEMIZE": {
     "id": "CARD.ALCHEMIZE",
@@ -362,7 +372,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.ALIGNMENT": {
     "id": "CARD.ALIGNMENT",
@@ -391,7 +402,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ALL_FOR_ONE": {
     "id": "CARD.ALL_FOR_ONE",
@@ -421,7 +433,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ANGER": {
     "id": "CARD.ANGER",
@@ -457,7 +470,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ANOINTED": {
     "id": "CARD.ANOINTED",
@@ -479,7 +493,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.ANTICIPATE": {
     "id": "CARD.ANTICIPATE",
@@ -510,7 +525,8 @@
           "var": "DexterityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.APOTHEOSIS": {
     "id": "CARD.APOTHEOSIS",
@@ -539,7 +555,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.APPARITION": {
     "id": "CARD.APPARITION",
@@ -574,7 +591,8 @@
           "var": "IntangiblePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ARMAMENTS": {
     "id": "CARD.ARMAMENTS",
@@ -614,7 +632,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ARSENAL": {
     "id": "CARD.ARSENAL",
@@ -646,7 +665,8 @@
           "var": "ArsenalPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ASCENDERS_BANE": {
     "id": "CARD.ASCENDERS_BANE",
@@ -671,7 +691,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.ASHEN_STRIKE": {
     "id": "CARD.ASHEN_STRIKE",
@@ -707,7 +728,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ASSASSINATE": {
     "id": "CARD.ASSASSINATE",
@@ -755,7 +777,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ASTRAL_PULSE": {
     "id": "CARD.ASTRAL_PULSE",
@@ -786,7 +809,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.AUTOMATION": {
     "id": "CARD.AUTOMATION",
@@ -816,7 +840,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BACKFLIP": {
     "id": "CARD.BACKFLIP",
@@ -855,7 +880,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BACKSTAB": {
     "id": "CARD.BACKSTAB",
@@ -891,7 +917,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BAD_LUCK": {
     "id": "CARD.BAD_LUCK",
@@ -918,7 +945,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BALL_LIGHTNING": {
     "id": "CARD.BALL_LIGHTNING",
@@ -952,7 +980,8 @@
         "op": "channel",
         "orb": "LIGHTNING"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BANSHEES_CRY": {
     "id": "CARD.BANSHEES_CRY",
@@ -984,7 +1013,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BARRAGE": {
     "id": "CARD.BARRAGE",
@@ -1023,10 +1053,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BARRICADE": {
     "id": "CARD.BARRICADE",
@@ -1050,7 +1081,8 @@
         "power": "POWER.BARRICADE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BASH": {
     "id": "CARD.BASH",
@@ -1092,7 +1124,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BATTLE_TRANCE": {
     "id": "CARD.BATTLE_TRANCE",
@@ -1127,7 +1160,8 @@
         "power": "POWER.NO_DRAW_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BEACON_OF_HOPE": {
     "id": "CARD.BEACON_OF_HOPE",
@@ -1153,7 +1187,8 @@
         "power": "POWER.BEACON_OF_HOPE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BEAM_CELL": {
     "id": "CARD.BEAM_CELL",
@@ -1195,7 +1230,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BEAT_DOWN": {
     "id": "CARD.BEAT_DOWN",
@@ -1217,7 +1253,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BEAT_INTO_SHAPE": {
     "id": "CARD.BEAT_INTO_SHAPE",
@@ -1258,7 +1295,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BECKON": {
     "id": "CARD.BECKON",
@@ -1279,7 +1317,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BEGONE": {
     "id": "CARD.BEGONE",
@@ -1308,7 +1347,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BELIEVE_IN_YOU": {
     "id": "CARD.BELIEVE_IN_YOU",
@@ -1337,7 +1377,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BIASED_COGNITION": {
     "id": "CARD.BIASED_COGNITION",
@@ -1379,7 +1420,8 @@
           "var": "BiasedCognitionPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BIG_BANG": {
     "id": "CARD.BIG_BANG",
@@ -1433,7 +1475,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLACK_HOLE": {
     "id": "CARD.BLACK_HOLE",
@@ -1464,7 +1507,8 @@
           "var": "BlackHolePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLADE_DANCE": {
     "id": "CARD.BLADE_DANCE",
@@ -1490,7 +1534,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BLADE_OF_INK": {
     "id": "CARD.BLADE_OF_INK",
@@ -1512,7 +1557,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BLADE_SYMPHONY": {
     "id": "CARD.BLADE_SYMPHONY",
@@ -1533,7 +1579,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BLAZE": {
     "id": "CARD.BLAZE",
@@ -1564,7 +1611,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLIGHT_STRIKE": {
     "id": "CARD.BLIGHT_STRIKE",
@@ -1602,7 +1650,8 @@
           "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLOODLETTING": {
     "id": "CARD.BLOODLETTING",
@@ -1641,7 +1690,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLOOD_WALL": {
     "id": "CARD.BLOOD_WALL",
@@ -1681,7 +1731,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLUDGEON": {
     "id": "CARD.BLUDGEON",
@@ -1711,7 +1762,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BLUR": {
     "id": "CARD.BLUR",
@@ -1752,7 +1804,8 @@
           "var": "Blur"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BODYGUARD": {
     "id": "CARD.BODYGUARD",
@@ -1781,7 +1834,8 @@
           "var": "Summon"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BODY_SLAM": {
     "id": "CARD.BODY_SLAM",
@@ -1816,7 +1870,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BOLAS": {
     "id": "CARD.BOLAS",
@@ -1846,7 +1901,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BOMBARDMENT": {
     "id": "CARD.BOMBARDMENT",
@@ -1880,7 +1936,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BONE_SHARDS": {
     "id": "CARD.BONE_SHARDS",
@@ -1921,7 +1978,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BOOST_AWAY": {
     "id": "CARD.BOOST_AWAY",
@@ -1957,7 +2015,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BOOT_SEQUENCE": {
     "id": "CARD.BOOT_SEQUENCE",
@@ -1993,7 +2052,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BORROWED_TIME": {
     "id": "CARD.BORROWED_TIME",
@@ -2033,7 +2093,8 @@
           "var": "ExtraCost"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BOUNCING_FLASK": {
     "id": "CARD.BOUNCING_FLASK",
@@ -2067,7 +2128,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BRAND": {
     "id": "CARD.BRAND",
@@ -2113,7 +2175,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BREAK": {
     "id": "CARD.BREAK",
@@ -2155,7 +2218,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BREAKTHROUGH": {
     "id": "CARD.BREAKTHROUGH",
@@ -2195,7 +2259,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BRIGHTEST_FLAME": {
     "id": "CARD.BRIGHTEST_FLAME",
@@ -2237,7 +2302,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BUBBLE_BUBBLE": {
     "id": "CARD.BUBBLE_BUBBLE",
@@ -2268,7 +2334,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BUFFER": {
     "id": "CARD.BUFFER",
@@ -2299,7 +2366,8 @@
           "var": "BufferPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BULK_UP": {
     "id": "CARD.BULK_UP",
@@ -2345,7 +2413,8 @@
           "var": "DexterityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BULLET_TIME": {
     "id": "CARD.BULLET_TIME",
@@ -2369,7 +2438,8 @@
         "power": "POWER.NO_DRAW_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BULLY": {
     "id": "CARD.BULLY",
@@ -2405,7 +2475,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BULWARK": {
     "id": "CARD.BULWARK",
@@ -2439,7 +2510,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BUNDLE_OF_JOY": {
     "id": "CARD.BUNDLE_OF_JOY",
@@ -2472,7 +2544,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BURN": {
     "id": "CARD.BURN",
@@ -2497,7 +2570,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BURNING_PACT": {
     "id": "CARD.BURNING_PACT",
@@ -2531,7 +2605,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BURST": {
     "id": "CARD.BURST",
@@ -2562,7 +2637,8 @@
           "var": "Skills"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BURY": {
     "id": "CARD.BURY",
@@ -2592,7 +2668,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.BYRDONIS_EGG": {
     "id": "CARD.BYRDONIS_EGG",
@@ -2613,7 +2690,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.BYRD_SWOOP": {
     "id": "CARD.BYRD_SWOOP",
@@ -2643,7 +2721,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CACOPHONY": {
     "id": "CARD.CACOPHONY",
@@ -2677,7 +2756,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CALAMITY": {
     "id": "CARD.CALAMITY",
@@ -2701,7 +2781,8 @@
         "power": "POWER.CALAMITY_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CALCIFY": {
     "id": "CARD.CALCIFY",
@@ -2732,7 +2813,8 @@
           "var": "CalcifyPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CALCULATED_GAMBLE": {
     "id": "CARD.CALCULATED_GAMBLE",
@@ -2754,7 +2836,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.CALL_OF_THE_VOID": {
     "id": "CARD.CALL_OF_THE_VOID",
@@ -2786,7 +2869,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CALTROPS": {
     "id": "CARD.CALTROPS",
@@ -2817,7 +2901,8 @@
           "var": "ThornsPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CAPACITOR": {
     "id": "CARD.CAPACITOR",
@@ -2846,7 +2931,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CAPTURE_SPIRIT": {
     "id": "CARD.CAPTURE_SPIRIT",
@@ -2880,7 +2966,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CASCADE": {
     "id": "CARD.CASCADE",
@@ -2897,7 +2984,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.CATASTROPHE": {
     "id": "CARD.CATASTROPHE",
@@ -2919,7 +3007,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.CELESTIAL_MIGHT": {
     "id": "CARD.CELESTIAL_MIGHT",
@@ -2955,7 +3044,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CHAOS": {
     "id": "CARD.CHAOS",
@@ -2977,7 +3067,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.CHARGE": {
     "id": "CARD.CHARGE",
@@ -3004,7 +3095,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CHARGE_BATTERY": {
     "id": "CARD.CHARGE_BATTERY",
@@ -3045,7 +3137,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CHILD_OF_THE_STARS": {
     "id": "CARD.CHILD_OF_THE_STARS",
@@ -3076,7 +3169,8 @@
           "var": "BlockForStars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CHILL": {
     "id": "CARD.CHILL",
@@ -3100,7 +3194,8 @@
         "op": "channel",
         "orb": "FROST"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CINDER": {
     "id": "CARD.CINDER",
@@ -3130,7 +3225,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLASH": {
     "id": "CARD.CLASH",
@@ -3160,7 +3256,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLAW": {
     "id": "CARD.CLAW",
@@ -3194,7 +3291,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLEANSE": {
     "id": "CARD.CLEANSE",
@@ -3223,7 +3321,8 @@
           "var": "Summon"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLOAK_AND_DAGGER": {
     "id": "CARD.CLOAK_AND_DAGGER",
@@ -3256,7 +3355,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLOAK_OF_STARS": {
     "id": "CARD.CLOAK_OF_STARS",
@@ -3286,7 +3386,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CLUMSY": {
     "id": "CARD.CLUMSY",
@@ -3309,7 +3410,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.COLD_SNAP": {
     "id": "CARD.COLD_SNAP",
@@ -3343,7 +3445,8 @@
         "op": "channel",
         "orb": "FROST"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COLLISION_COURSE": {
     "id": "CARD.COLLISION_COURSE",
@@ -3379,7 +3482,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COLOSSUS": {
     "id": "CARD.COLOSSUS",
@@ -3420,7 +3524,8 @@
           "var": "Colossus"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COMET": {
     "id": "CARD.COMET",
@@ -3472,7 +3577,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COMPACT": {
     "id": "CARD.COMPACT",
@@ -3507,7 +3613,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COMPILE_DRIVER": {
     "id": "CARD.COMPILE_DRIVER",
@@ -3549,10 +3656,11 @@
       {
         "op": "draw",
         "amount": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedCards\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedCards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONCOCT": {
     "id": "CARD.CONCOCT",
@@ -3583,7 +3691,8 @@
           "var": "ConcoctPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONFLAGRATION": {
     "id": "CARD.CONFLAGRATION",
@@ -3619,7 +3728,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONQUEROR": {
     "id": "CARD.CONQUEROR",
@@ -3648,7 +3758,8 @@
         "power": "POWER.CONQUEROR_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONSTELLATION": {
     "id": "CARD.CONSTELLATION",
@@ -3696,7 +3807,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONSUMING_SHADOW": {
     "id": "CARD.CONSUMING_SHADOW",
@@ -3734,7 +3846,8 @@
           "var": "ConsumingShadowPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CONVERGENCE": {
     "id": "CARD.CONVERGENCE",
@@ -3782,7 +3895,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COOLANT": {
     "id": "CARD.COOLANT",
@@ -3813,7 +3927,8 @@
           "var": "CoolantPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COOLHEADED": {
     "id": "CARD.COOLHEADED",
@@ -3846,7 +3961,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COORDINATE": {
     "id": "CARD.COORDINATE",
@@ -3877,7 +3993,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CORROSIVE_WAVE": {
     "id": "CARD.CORROSIVE_WAVE",
@@ -3908,7 +4025,8 @@
           "var": "CorrosiveWave"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CORRUPTION": {
     "id": "CARD.CORRUPTION",
@@ -3938,7 +4056,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COSMIC_INDIFFERENCE": {
     "id": "CARD.COSMIC_INDIFFERENCE",
@@ -3968,7 +4087,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.COUNTDOWN": {
     "id": "CARD.COUNTDOWN",
@@ -3999,7 +4119,8 @@
           "var": "CountdownPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CRASH_LANDING": {
     "id": "CARD.CRASH_LANDING",
@@ -4029,7 +4150,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CREATIVE_AI": {
     "id": "CARD.CREATIVE_AI",
@@ -4059,7 +4181,8 @@
           "var": "CreativeAi"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CRESCENT_SPEAR": {
     "id": "CARD.CRESCENT_SPEAR",
@@ -4095,7 +4218,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CRIMSON_MANTLE": {
     "id": "CARD.CRIMSON_MANTLE",
@@ -4126,7 +4250,8 @@
           "var": "CrimsonMantlePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CRUELTY": {
     "id": "CARD.CRUELTY",
@@ -4157,7 +4282,8 @@
           "var": "CrueltyPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CRUSH_UNDER": {
     "id": "CARD.CRUSH_UNDER",
@@ -4199,7 +4325,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.CURSE_OF_THE_BELL": {
     "id": "CARD.CURSE_OF_THE_BELL",
@@ -4222,7 +4349,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DAGGER_SPRAY": {
     "id": "CARD.DAGGER_SPRAY",
@@ -4253,7 +4381,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DAGGER_THROW": {
     "id": "CARD.DAGGER_THROW",
@@ -4292,7 +4421,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DANSE_MACABRE": {
     "id": "CARD.DANSE_MACABRE",
@@ -4326,7 +4456,8 @@
           "var": "DanseMacabrePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DARKNESS": {
     "id": "CARD.DARKNESS",
@@ -4348,7 +4479,8 @@
         "op": "channel",
         "orb": "DARK"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DARK_EMBRACE": {
     "id": "CARD.DARK_EMBRACE",
@@ -4372,7 +4504,8 @@
         "power": "POWER.DARK_EMBRACE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DARK_SHACKLES": {
     "id": "CARD.DARK_SHACKLES",
@@ -4407,7 +4540,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DASH": {
     "id": "CARD.DASH",
@@ -4448,7 +4582,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DAZED": {
     "id": "CARD.DAZED",
@@ -4471,7 +4606,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DEADLY_POISON": {
     "id": "CARD.DEADLY_POISON",
@@ -4502,7 +4638,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEATHBRINGER": {
     "id": "CARD.DEATHBRINGER",
@@ -4544,7 +4681,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEATHS_DOOR": {
     "id": "CARD.DEATHS_DOOR",
@@ -4577,7 +4715,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEATH_MARCH": {
     "id": "CARD.DEATH_MARCH",
@@ -4614,7 +4753,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEBILITATE": {
     "id": "CARD.DEBILITATE",
@@ -4656,7 +4796,8 @@
           "var": "DebilitatePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEBRIS": {
     "id": "CARD.DEBRIS",
@@ -4677,7 +4818,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DEBT": {
     "id": "CARD.DEBT",
@@ -4702,7 +4844,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DECAY": {
     "id": "CARD.DECAY",
@@ -4727,7 +4870,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DECISIONS_DECISIONS": {
     "id": "CARD.DECISIONS_DECISIONS",
@@ -4768,7 +4912,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFEND_DEFECT": {
     "id": "CARD.DEFEND_DEFECT",
@@ -4798,7 +4943,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFEND_IRONCLAD": {
     "id": "CARD.DEFEND_IRONCLAD",
@@ -4828,7 +4974,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFEND_NECROBINDER": {
     "id": "CARD.DEFEND_NECROBINDER",
@@ -4858,7 +5005,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFEND_REGENT": {
     "id": "CARD.DEFEND_REGENT",
@@ -4888,7 +5036,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFEND_SILENT": {
     "id": "CARD.DEFEND_SILENT",
@@ -4918,7 +5067,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFILE": {
     "id": "CARD.DEFILE",
@@ -4952,7 +5102,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFLECT": {
     "id": "CARD.DEFLECT",
@@ -4982,7 +5133,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFRAGMENT": {
     "id": "CARD.DEFRAGMENT",
@@ -5013,7 +5165,8 @@
           "var": "FocusPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEFY": {
     "id": "CARD.DEFY",
@@ -5058,7 +5211,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DELAY": {
     "id": "CARD.DELAY",
@@ -5100,7 +5254,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEMESNE": {
     "id": "CARD.DEMESNE",
@@ -5137,7 +5292,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEMONIC_SHIELD": {
     "id": "CARD.DEMONIC_SHIELD",
@@ -5168,7 +5324,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "hp_loss",
@@ -5181,10 +5337,17 @@
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "calc": "CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": {
+      "CalculatedBlock": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "owner_block"
+      }
+    }
   },
   "CARD.DEMON_FORM": {
     "id": "CARD.DEMON_FORM",
@@ -5215,7 +5378,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEPRECATED_CARD": {
     "id": "CARD.DEPRECATED_CARD",
@@ -5241,7 +5405,8 @@
         "op": "draw",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEVASTATE": {
     "id": "CARD.DEVASTATE",
@@ -5271,7 +5436,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DEVOUR_LIFE": {
     "id": "CARD.DEVOUR_LIFE",
@@ -5302,7 +5468,8 @@
           "var": "DevourLifePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DIRGE": {
     "id": "CARD.DIRGE",
@@ -5340,7 +5507,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DISCOVERY": {
     "id": "CARD.DISCOVERY",
@@ -5366,7 +5534,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DISINTEGRATION": {
     "id": "CARD.DISINTEGRATION",
@@ -5387,7 +5556,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DISMANTLE": {
     "id": "CARD.DISMANTLE",
@@ -5420,7 +5590,8 @@
           "expr": "((!cardPlay.Target.HasPower<VulnerablePower>()) ? 1 : 2)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DISTRACTION": {
     "id": "CARD.DISTRACTION",
@@ -5448,7 +5619,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DODGE_AND_ROLL": {
     "id": "CARD.DODGE_AND_ROLL",
@@ -5486,7 +5658,8 @@
           "expr": "await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DOMINATE": {
     "id": "CARD.DOMINATE",
@@ -5530,7 +5703,8 @@
         "power": "POWER.STRENGTH_POWER",
         "amount": 0
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DOUBLE_ENERGY": {
     "id": "CARD.DOUBLE_ENERGY",
@@ -5558,7 +5732,8 @@
           "expr": "base.Owner.PlayerCombatState.Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DOUBT": {
     "id": "CARD.DOUBT",
@@ -5583,7 +5758,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DOWSING": {
     "id": "CARD.DOWSING",
@@ -5608,7 +5784,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.DRAIN_POWER": {
     "id": "CARD.DRAIN_POWER",
@@ -5647,7 +5824,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DRAMATIC_ENTRANCE": {
     "id": "CARD.DRAMATIC_ENTRANCE",
@@ -5683,7 +5861,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DREDGE": {
     "id": "CARD.DREDGE",
@@ -5717,7 +5896,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DRUM_OF_BATTLE": {
     "id": "CARD.DRUM_OF_BATTLE",
@@ -5749,7 +5929,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DUALCAST": {
     "id": "CARD.DUALCAST",
@@ -5777,7 +5958,8 @@
         "count": 1,
         "dequeue": true
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DUAL_WIELD": {
     "id": "CARD.DUAL_WIELD",
@@ -5811,7 +5993,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.DYING_STAR": {
     "id": "CARD.DYING_STAR",
@@ -5857,7 +6040,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ECHOING_SLASH": {
     "id": "CARD.ECHOING_SLASH",
@@ -5887,7 +6071,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ECHO_FORM": {
     "id": "CARD.ECHO_FORM",
@@ -5919,7 +6104,8 @@
           "var": "EchoForm"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EIDOLON": {
     "id": "CARD.EIDOLON",
@@ -5940,7 +6126,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.END_OF_DAYS": {
     "id": "CARD.END_OF_DAYS",
@@ -5971,7 +6158,8 @@
           "var": "DoomPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ENERGY_SURGE": {
     "id": "CARD.ENERGY_SURGE",
@@ -6004,7 +6192,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ENFEEBLING_TOUCH": {
     "id": "CARD.ENFEEBLING_TOUCH",
@@ -6039,7 +6228,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ENLIGHTENMENT": {
     "id": "CARD.ENLIGHTENMENT",
@@ -6060,7 +6250,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.ENTHRALLED": {
     "id": "CARD.ENTHRALLED",
@@ -6081,7 +6272,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.ENTRENCH": {
     "id": "CARD.ENTRENCH",
@@ -6106,7 +6298,8 @@
           "expr": "base.Owner.Creature.Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ENTROPY": {
     "id": "CARD.ENTROPY",
@@ -6138,7 +6331,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ENVENOM": {
     "id": "CARD.ENVENOM",
@@ -6169,7 +6363,8 @@
           "var": "EnvenomPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EQUILIBRIUM": {
     "id": "CARD.EQUILIBRIUM",
@@ -6210,7 +6405,8 @@
           "var": "Equilibrium"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ERADICATE": {
     "id": "CARD.ERADICATE",
@@ -6247,7 +6443,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ESCAPE_PLAN": {
     "id": "CARD.ESCAPE_PLAN",
@@ -6281,7 +6478,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ETERNAL_ARMOR": {
     "id": "CARD.ETERNAL_ARMOR",
@@ -6312,7 +6510,8 @@
           "var": "PlatingPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EVIL_EYE": {
     "id": "CARD.EVIL_EYE",
@@ -6342,7 +6541,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EXPECT_A_FIGHT": {
     "id": "CARD.EXPECT_A_FIGHT",
@@ -6370,16 +6570,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "calc": "CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": {
+      "CalculatedBlock": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "owner_strength"
+      }
+    }
   },
   "CARD.EXPERTISE": {
     "id": "CARD.EXPERTISE",
@@ -6408,7 +6615,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EXPOSE": {
     "id": "CARD.EXPOSE",
@@ -6443,7 +6651,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.EXTERMINATE": {
     "id": "CARD.EXTERMINATE",
@@ -6479,7 +6688,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FADE": {
     "id": "CARD.FADE",
@@ -6514,7 +6724,8 @@
           "var": "DexterityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FALLING_STAR": {
     "id": "CARD.FALLING_STAR",
@@ -6566,7 +6777,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FAN_OF_KNIVES": {
     "id": "CARD.FAN_OF_KNIVES",
@@ -6595,7 +6807,8 @@
         "power": "POWER.FAN_OF_KNIVES_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FASTEN": {
     "id": "CARD.FASTEN",
@@ -6626,7 +6839,8 @@
           "var": "ExtraBlock"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FEAR": {
     "id": "CARD.FEAR",
@@ -6672,7 +6886,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FEED": {
     "id": "CARD.FEED",
@@ -6710,7 +6925,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FEEDING_FRENZY": {
     "id": "CARD.FEEDING_FRENZY",
@@ -6741,7 +6957,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FEEL_NO_PAIN": {
     "id": "CARD.FEEL_NO_PAIN",
@@ -6772,7 +6989,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FERAL": {
     "id": "CARD.FERAL",
@@ -6802,7 +7020,8 @@
           "var": "FeralPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FETCH": {
     "id": "CARD.FETCH",
@@ -6841,7 +7060,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FIEND_FIRE": {
     "id": "CARD.FIEND_FIRE",
@@ -6878,7 +7098,8 @@
           "expr": "list.Count"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FIGHT_ME": {
     "id": "CARD.FIGHT_ME",
@@ -6937,7 +7158,8 @@
           "var": "EnemyStrength"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FIGHT_THROUGH": {
     "id": "CARD.FIGHT_THROUGH",
@@ -6973,7 +7195,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FINESSE": {
     "id": "CARD.FINESSE",
@@ -7012,7 +7235,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FINISHER": {
     "id": "CARD.FINISHER",
@@ -7051,10 +7275,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FISTICUFFS": {
     "id": "CARD.FISTICUFFS",
@@ -7091,7 +7316,8 @@
           "expr": "attackCommand.Results.SelectMany((List<DamageResult> r) => r).Sum((DamageResult r) => r.TotalDamage + r.OverkillDamage)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLAK_CANNON": {
     "id": "CARD.FLAK_CANNON",
@@ -7130,10 +7356,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLAME_BARRIER": {
     "id": "CARD.FLAME_BARRIER",
@@ -7175,7 +7402,8 @@
           "var": "DamageBack"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLANKING": {
     "id": "CARD.FLANKING",
@@ -7199,7 +7427,8 @@
         "power": "POWER.FLANKING_POWER",
         "amount": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLASH_OF_STEEL": {
     "id": "CARD.FLASH_OF_STEEL",
@@ -7238,7 +7467,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLATTEN": {
     "id": "CARD.FLATTEN",
@@ -7268,7 +7498,8 @@
           "var": "OstyDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLECHETTES": {
     "id": "CARD.FLECHETTES",
@@ -7307,10 +7538,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FLICK_FLACK": {
     "id": "CARD.FLICK_FLACK",
@@ -7344,7 +7576,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FOCUSED_STRIKE": {
     "id": "CARD.FOCUSED_STRIKE",
@@ -7386,7 +7619,8 @@
           "var": "FocusPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FOLLY": {
     "id": "CARD.FOLLY",
@@ -7413,7 +7647,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.FOOTWORK": {
     "id": "CARD.FOOTWORK",
@@ -7444,7 +7679,8 @@
           "var": "DexterityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FORBIDDEN_GRIMOIRE": {
     "id": "CARD.FORBIDDEN_GRIMOIRE",
@@ -7472,7 +7708,8 @@
         "power": "POWER.FORBIDDEN_GRIMOIRE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FOREGONE_CONCLUSION": {
     "id": "CARD.FOREGONE_CONCLUSION",
@@ -7503,7 +7740,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FORGOTTEN_RITUAL": {
     "id": "CARD.FORGOTTEN_RITUAL",
@@ -7536,7 +7774,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FRANTIC_ESCAPE": {
     "id": "CARD.FRANTIC_ESCAPE",
@@ -7561,7 +7800,8 @@
           "expr": "this"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FRIENDSHIP": {
     "id": "CARD.FRIENDSHIP",
@@ -7603,7 +7843,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FTL": {
     "id": "CARD.FTL",
@@ -7646,7 +7887,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FUEL": {
     "id": "CARD.FUEL",
@@ -7679,7 +7921,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FURNACE": {
     "id": "CARD.FURNACE",
@@ -7710,7 +7953,8 @@
           "var": "Forge"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.FUSION": {
     "id": "CARD.FUSION",
@@ -7734,7 +7978,8 @@
         "op": "channel",
         "orb": "PLASMA"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GAMMA_BLAST": {
     "id": "CARD.GAMMA_BLAST",
@@ -7786,7 +8031,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GANG_UP": {
     "id": "CARD.GANG_UP",
@@ -7822,7 +8068,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GATHER_LIGHT": {
     "id": "CARD.GATHER_LIGHT",
@@ -7861,7 +8108,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GENESIS": {
     "id": "CARD.GENESIS",
@@ -7892,7 +8140,8 @@
           "var": "StarsPerTurn"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GENETIC_ALGORITHM": {
     "id": "CARD.GENETIC_ALGORITHM",
@@ -7929,7 +8178,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GIANT_ROCK": {
     "id": "CARD.GIANT_ROCK",
@@ -7959,7 +8209,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GLACIER": {
     "id": "CARD.GLACIER",
@@ -7993,7 +8244,8 @@
         "op": "channel",
         "orb": "FROST"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GLASSWORK": {
     "id": "CARD.GLASSWORK",
@@ -8027,7 +8279,8 @@
         "op": "channel",
         "orb": "GLASS"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GLIMMER": {
     "id": "CARD.GLIMMER",
@@ -8064,7 +8317,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GLIMPSE_BEYOND": {
     "id": "CARD.GLIMPSE_BEYOND",
@@ -8090,7 +8344,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.GLITTERSTREAM": {
     "id": "CARD.GLITTERSTREAM",
@@ -8132,7 +8387,8 @@
           "expr": "Hook.ModifyBlock(base.CombatState, base.Owner.Creature, blockVar.BaseValue, blockVar.Props, this, cardPlay, out modifiers)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GLOW": {
     "id": "CARD.GLOW",
@@ -8178,7 +8434,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GOLD_AXE": {
     "id": "CARD.GOLD_AXE",
@@ -8215,7 +8472,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GO_FOR_THE_EYES": {
     "id": "CARD.GO_FOR_THE_EYES",
@@ -8257,7 +8515,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GRAND_FINALE": {
     "id": "CARD.GRAND_FINALE",
@@ -8287,7 +8546,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GRAVEBLAST": {
     "id": "CARD.GRAVEBLAST",
@@ -8319,7 +8579,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GRAVE_WARDEN": {
     "id": "CARD.GRAVE_WARDEN",
@@ -8352,7 +8613,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GREED": {
     "id": "CARD.GREED",
@@ -8375,7 +8637,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.GUARDS": {
     "id": "CARD.GUARDS",
@@ -8407,7 +8670,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GUIDING_STAR": {
     "id": "CARD.GUIDING_STAR",
@@ -8449,7 +8713,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.GUILTY": {
     "id": "CARD.GUILTY",
@@ -8474,7 +8739,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.GUNK_UP": {
     "id": "CARD.GUNK_UP",
@@ -8516,7 +8782,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAILSTORM": {
     "id": "CARD.HAILSTORM",
@@ -8547,7 +8814,8 @@
           "var": "HailstormPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAMMER_TIME": {
     "id": "CARD.HAMMER_TIME",
@@ -8571,7 +8839,8 @@
         "power": "POWER.HAMMER_TIME_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAND_OF_GREED": {
     "id": "CARD.HAND_OF_GREED",
@@ -8605,7 +8874,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAND_TRICK": {
     "id": "CARD.HAND_TRICK",
@@ -8640,7 +8910,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HANG": {
     "id": "CARD.HANG",
@@ -8678,7 +8949,8 @@
           "expr": "Math.Max(2, powerAmount)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAUNT": {
     "id": "CARD.HAUNT",
@@ -8709,7 +8981,8 @@
           "var": "HpLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HAVOC": {
     "id": "CARD.HAVOC",
@@ -8726,7 +8999,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.HAZE": {
     "id": "CARD.HAZE",
@@ -8769,7 +9043,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HEADBUTT": {
     "id": "CARD.HEADBUTT",
@@ -8799,7 +9074,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HEAVENLY_DRILL": {
     "id": "CARD.HEAVENLY_DRILL",
@@ -8835,7 +9111,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HEGEMONY": {
     "id": "CARD.HEGEMONY",
@@ -8877,7 +9154,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HEIRLOOM_HAMMER": {
     "id": "CARD.HEIRLOOM_HAMMER",
@@ -8921,7 +9199,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HELIX_DRILL": {
     "id": "CARD.HELIX_DRILL",
@@ -8960,10 +9239,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HELLO_WORLD": {
     "id": "CARD.HELLO_WORLD",
@@ -8989,7 +9269,8 @@
         "power": "POWER.HELLO_WORLD_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HELLRAISER": {
     "id": "CARD.HELLRAISER",
@@ -9013,7 +9294,8 @@
         "power": "POWER.HELLRAISER_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HEMOKINESIS": {
     "id": "CARD.HEMOKINESIS",
@@ -9053,7 +9335,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HIBERNATE": {
     "id": "CARD.HIBERNATE",
@@ -9086,7 +9369,8 @@
         "op": "channel",
         "orb": "FROST"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HIDDEN_CACHE": {
     "id": "CARD.HIDDEN_CACHE",
@@ -9126,7 +9410,8 @@
           "var": "StarNextTurnPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HIDDEN_DAGGERS": {
     "id": "CARD.HIDDEN_DAGGERS",
@@ -9161,7 +9446,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HIDDEN_GEM": {
     "id": "CARD.HIDDEN_GEM",
@@ -9183,7 +9469,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.HIGH_FIVE": {
     "id": "CARD.HIGH_FIVE",
@@ -9225,7 +9512,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HOLOGRAM": {
     "id": "CARD.HOLOGRAM",
@@ -9257,7 +9545,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HOTFIX": {
     "id": "CARD.HOTFIX",
@@ -9289,7 +9578,8 @@
           "var": "FocusPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HOWL_FROM_BEYOND": {
     "id": "CARD.HOWL_FROM_BEYOND",
@@ -9319,7 +9609,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.HUDDLE_UP": {
     "id": "CARD.HUDDLE_UP",
@@ -9345,7 +9636,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.HYPERBEAM": {
     "id": "CARD.HYPERBEAM",
@@ -9386,7 +9678,8 @@
           "var": "FocusPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ICE_LANCE": {
     "id": "CARD.ICE_LANCE",
@@ -9423,7 +9716,8 @@
         "op": "channel",
         "orb": "FROST"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.IGNITION": {
     "id": "CARD.IGNITION",
@@ -9447,7 +9741,8 @@
         "op": "channel",
         "orb": "PLASMA"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.IMITATION_LEARNING": {
     "id": "CARD.IMITATION_LEARNING",
@@ -9489,7 +9784,8 @@
           "var": "ImitationLearningPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.IMPATIENCE": {
     "id": "CARD.IMPATIENCE",
@@ -9518,7 +9814,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.IMPERVIOUS": {
     "id": "CARD.IMPERVIOUS",
@@ -9552,7 +9849,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INFECTION": {
     "id": "CARD.INFECTION",
@@ -9577,7 +9875,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.INFERNAL_BLADE": {
     "id": "CARD.INFERNAL_BLADE",
@@ -9605,7 +9904,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INFERNO": {
     "id": "CARD.INFERNO",
@@ -9636,7 +9936,8 @@
           "var": "InfernoPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INFINITE_BLADES": {
     "id": "CARD.INFINITE_BLADES",
@@ -9662,7 +9963,8 @@
         "power": "POWER.INFINITE_BLADES_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INFLAME": {
     "id": "CARD.INFLAME",
@@ -9693,7 +9995,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INJURY": {
     "id": "CARD.INJURY",
@@ -9714,7 +10017,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.INTERCEPT": {
     "id": "CARD.INTERCEPT",
@@ -9750,7 +10054,8 @@
         "power": "POWER.COVERED_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.INVOKE": {
     "id": "CARD.INVOKE",
@@ -9793,7 +10098,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.IRON_WAVE": {
     "id": "CARD.IRON_WAVE",
@@ -9834,7 +10140,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ITERATION": {
     "id": "CARD.ITERATION",
@@ -9865,7 +10172,8 @@
           "var": "IterationPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.I_AM_INVINCIBLE": {
     "id": "CARD.I_AM_INVINCIBLE",
@@ -9895,7 +10203,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.JACKPOT": {
     "id": "CARD.JACKPOT",
@@ -9939,7 +10248,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.JACK_OF_ALL_TRADES": {
     "id": "CARD.JACK_OF_ALL_TRADES",
@@ -9972,7 +10282,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.JUGGERNAUT": {
     "id": "CARD.JUGGERNAUT",
@@ -10003,7 +10314,8 @@
           "var": "JuggernautPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.JUGGLING": {
     "id": "CARD.JUGGLING",
@@ -10029,7 +10341,8 @@
         "power": "POWER.JUGGLING_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KINGLY_KICK": {
     "id": "CARD.KINGLY_KICK",
@@ -10059,7 +10372,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KINGLY_PUNCH": {
     "id": "CARD.KINGLY_PUNCH",
@@ -10093,7 +10407,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KNIFE_TRAP": {
     "id": "CARD.KNIFE_TRAP",
@@ -10126,7 +10441,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KNOCKDOWN": {
     "id": "CARD.KNOCKDOWN",
@@ -10168,7 +10484,8 @@
           "var": "KnockdownPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KNOCKOUT_BLOW": {
     "id": "CARD.KNOCKOUT_BLOW",
@@ -10207,7 +10524,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.KNOW_THY_PLACE": {
     "id": "CARD.KNOW_THY_PLACE",
@@ -10250,7 +10568,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LANTERN_KEY": {
     "id": "CARD.LANTERN_KEY",
@@ -10271,7 +10590,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.LARGESSE": {
     "id": "CARD.LARGESSE",
@@ -10301,7 +10621,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LEADING_STRIKE": {
     "id": "CARD.LEADING_STRIKE",
@@ -10334,7 +10655,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LEAP": {
     "id": "CARD.LEAP",
@@ -10364,7 +10686,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LEGION_OF_BONE": {
     "id": "CARD.LEGION_OF_BONE",
@@ -10393,7 +10716,8 @@
           "var": "Summon"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LEG_SWEEP": {
     "id": "CARD.LEG_SWEEP",
@@ -10435,7 +10759,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LETHALITY": {
     "id": "CARD.LETHALITY",
@@ -10470,7 +10795,8 @@
           "var": "LethalityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LIFT": {
     "id": "CARD.LIFT",
@@ -10500,7 +10826,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LIGHTNING_ROD": {
     "id": "CARD.LIGHTNING_ROD",
@@ -10541,7 +10868,8 @@
           "var": "LightningRodPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LOOP": {
     "id": "CARD.LOOP",
@@ -10572,7 +10900,8 @@
           "var": "Loop"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LUMINESCE": {
     "id": "CARD.LUMINESCE",
@@ -10607,7 +10936,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.LUNAR_BLAST": {
     "id": "CARD.LUNAR_BLAST",
@@ -10646,10 +10976,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MACHINE_LEARNING": {
     "id": "CARD.MACHINE_LEARNING",
@@ -10681,7 +11012,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MAD_SCIENCE": {
     "id": "CARD.MAD_SCIENCE",
@@ -10734,7 +11066,8 @@
     },
     "multimodal": true,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.MAKE_IT_SO": {
     "id": "CARD.MAKE_IT_SO",
@@ -10767,7 +11100,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MALAISE": {
     "id": "CARD.MALAISE",
@@ -10805,7 +11139,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MANGLE": {
     "id": "CARD.MANGLE",
@@ -10847,7 +11182,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MANIFEST_AUTHORITY": {
     "id": "CARD.MANIFEST_AUTHORITY",
@@ -10889,7 +11225,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MASTER_OF_STRATEGY": {
     "id": "CARD.MASTER_OF_STRATEGY",
@@ -10922,7 +11259,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MASTER_PLANNER": {
     "id": "CARD.MASTER_PLANNER",
@@ -10946,7 +11284,8 @@
         "power": "POWER.MASTER_PLANNER_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MAUL": {
     "id": "CARD.MAUL",
@@ -10981,7 +11320,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MAYHEM": {
     "id": "CARD.MAYHEM",
@@ -11005,7 +11345,8 @@
         "power": "POWER.MAYHEM_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MELANCHOLY": {
     "id": "CARD.MELANCHOLY",
@@ -11038,7 +11379,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MEMENTO_MORI": {
     "id": "CARD.MEMENTO_MORI",
@@ -11075,7 +11417,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.METAMORPHOSIS": {
     "id": "CARD.METAMORPHOSIS",
@@ -11108,7 +11451,8 @@
         "pile": "Draw",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.METEOR_SHOWER": {
     "id": "CARD.METEOR_SHOWER",
@@ -11160,7 +11504,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.METEOR_STRIKE": {
     "id": "CARD.METEOR_STRIKE",
@@ -11194,7 +11539,8 @@
         "op": "channel",
         "orb": "PLASMA"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MIDNIGHT": {
     "id": "CARD.MIDNIGHT",
@@ -11224,7 +11570,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MIMIC": {
     "id": "CARD.MIMIC",
@@ -11252,16 +11599,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "calc": "CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": {
+      "CalculatedBlock": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "target_block"
+      }
+    }
   },
   "CARD.MIND_BLAST": {
     "id": "CARD.MIND_BLAST",
@@ -11300,7 +11654,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MIND_ROT": {
     "id": "CARD.MIND_ROT",
@@ -11321,7 +11676,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.MINION_DIVE_BOMB": {
     "id": "CARD.MINION_DIVE_BOMB",
@@ -11355,7 +11711,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MINION_SACRIFICE": {
     "id": "CARD.MINION_SACRIFICE",
@@ -11389,7 +11746,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MINION_STRIKE": {
     "id": "CARD.MINION_STRIKE",
@@ -11432,7 +11790,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MIRAGE": {
     "id": "CARD.MIRAGE",
@@ -11466,10 +11825,11 @@
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MISERY": {
     "id": "CARD.MISERY",
@@ -11516,7 +11876,8 @@
           "expr": "enemy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MODDED": {
     "id": "CARD.MODDED",
@@ -11554,7 +11915,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MOLTEN_FIST": {
     "id": "CARD.MOLTEN_FIST",
@@ -11596,7 +11958,8 @@
           "expr": "(cardPlay.Target.IsAlive ? cardPlay.Target.GetPowerAmount<VulnerablePower>() : 0)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MOMENTUM_STRIKE": {
     "id": "CARD.MOMENTUM_STRIKE",
@@ -11626,7 +11989,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MONARCHS_GAZE": {
     "id": "CARD.MONARCHS_GAZE",
@@ -11656,7 +12020,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MONOLOGUE": {
     "id": "CARD.MONOLOGUE",
@@ -11686,7 +12051,8 @@
         "power": "POWER.MONOLOGUE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MULTI_CAST": {
     "id": "CARD.MULTI_CAST",
@@ -11709,7 +12075,8 @@
         "count": 1,
         "dequeue": true
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.MURDER": {
     "id": "CARD.MURDER",
@@ -11744,7 +12111,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NECRO_MASTERY": {
     "id": "CARD.NECRO_MASTERY",
@@ -11779,7 +12147,8 @@
         "power": "POWER.NECRO_MASTERY_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NEGATIVE_PULSE": {
     "id": "CARD.NEGATIVE_PULSE",
@@ -11821,7 +12190,8 @@
           "var": "DoomPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NEOWS_FURY": {
     "id": "CARD.NEOWS_FURY",
@@ -11866,7 +12236,8 @@
         "count": 0,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NEUROSURGE": {
     "id": "CARD.NEUROSURGE",
@@ -11915,7 +12286,8 @@
           "var": "NeurosurgePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NEUTRALIZE": {
     "id": "CARD.NEUTRALIZE",
@@ -11957,7 +12329,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NEUTRON_AEGIS": {
     "id": "CARD.NEUTRON_AEGIS",
@@ -11988,7 +12361,8 @@
           "var": "PlatingPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NIGHTMARE": {
     "id": "CARD.NIGHTMARE",
@@ -12021,7 +12395,8 @@
         "power": "POWER.NIGHTMARE_POWER",
         "amount": 3
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NORMALITY": {
     "id": "CARD.NORMALITY",
@@ -12052,7 +12427,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.NOSTALGIA": {
     "id": "CARD.NOSTALGIA",
@@ -12076,7 +12452,8 @@
         "power": "POWER.NOSTALGIA_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NOT_YET": {
     "id": "CARD.NOT_YET",
@@ -12110,7 +12487,8 @@
           "var": "Heal"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NOXIOUS_FUMES": {
     "id": "CARD.NOXIOUS_FUMES",
@@ -12141,7 +12519,8 @@
           "var": "PoisonPerTurn"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NO_ESCAPE": {
     "id": "CARD.NO_ESCAPE",
@@ -12178,10 +12557,11 @@
         "target": "target",
         "power": "POWER.DOOM_POWER",
         "amount": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedDoom\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedDoom"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.NULL": {
     "id": "CARD.NULL",
@@ -12227,7 +12607,8 @@
         "op": "channel",
         "orb": "DARK"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OBLIVION": {
     "id": "CARD.OBLIVION",
@@ -12258,7 +12639,8 @@
           "var": "DoomPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OFFERING": {
     "id": "CARD.OFFERING",
@@ -12310,7 +12692,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OMNISLICE": {
     "id": "CARD.OMNISLICE",
@@ -12347,7 +12730,8 @@
           "expr": "damageResult.TotalDamage + damageResult.OverkillDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ONE_FOR_ALL": {
     "id": "CARD.ONE_FOR_ALL",
@@ -12378,7 +12762,8 @@
           "var": "OneForAllPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ONE_TWO_PUNCH": {
     "id": "CARD.ONE_TWO_PUNCH",
@@ -12409,7 +12794,8 @@
           "var": "Attacks"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ORBIT": {
     "id": "CARD.ORBIT",
@@ -12439,7 +12825,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OUTBREAK": {
     "id": "CARD.OUTBREAK",
@@ -12470,7 +12857,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OUTMANEUVER": {
     "id": "CARD.OUTMANEUVER",
@@ -12501,7 +12889,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OUTRAGE": {
     "id": "CARD.OUTRAGE",
@@ -12537,7 +12926,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.OVERCLOCK": {
     "id": "CARD.OVERCLOCK",
@@ -12572,7 +12962,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PACTS_END": {
     "id": "CARD.PACTS_END",
@@ -12605,7 +12996,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PAGESTORM": {
     "id": "CARD.PAGESTORM",
@@ -12635,7 +13027,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PALE_BLUE_DOT": {
     "id": "CARD.PALE_BLUE_DOT",
@@ -12669,7 +13062,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PANACHE": {
     "id": "CARD.PANACHE",
@@ -12700,7 +13094,8 @@
           "var": "PanacheDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PANIC_BUTTON": {
     "id": "CARD.PANIC_BUTTON",
@@ -12745,7 +13140,8 @@
           "var": "Turns"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PARRY": {
     "id": "CARD.PARRY",
@@ -12776,7 +13172,8 @@
           "var": "ParryPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PARSE": {
     "id": "CARD.PARSE",
@@ -12809,7 +13206,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PARTICLE_WALL": {
     "id": "CARD.PARTICLE_WALL",
@@ -12839,7 +13237,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PATTER": {
     "id": "CARD.PATTER",
@@ -12881,7 +13280,8 @@
           "var": "VigorPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PECK": {
     "id": "CARD.PECK",
@@ -12917,7 +13317,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PERFECTED_STRIKE": {
     "id": "CARD.PERFECTED_STRIKE",
@@ -12953,7 +13354,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PHANTOM_BLADES": {
     "id": "CARD.PHANTOM_BLADES",
@@ -12984,7 +13386,8 @@
           "var": "PhantomBladesPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PHOTON_CUT": {
     "id": "CARD.PHOTON_CUT",
@@ -13032,7 +13435,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PIERCING_WAIL": {
     "id": "CARD.PIERCING_WAIL",
@@ -13067,7 +13471,8 @@
           "var": "StrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PILLAGE": {
     "id": "CARD.PILLAGE",
@@ -13103,7 +13508,8 @@
           "expr": "base.Owner"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PILLAR_OF_CREATION": {
     "id": "CARD.PILLAR_OF_CREATION",
@@ -13134,7 +13540,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PINPOINT": {
     "id": "CARD.PINPOINT",
@@ -13164,7 +13571,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PLOT": {
     "id": "CARD.PLOT",
@@ -13195,7 +13603,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.POISONED_STAB": {
     "id": "CARD.POISONED_STAB",
@@ -13237,7 +13646,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.POKE": {
     "id": "CARD.POKE",
@@ -13267,7 +13677,8 @@
           "var": "OstyDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.POMMEL_STRIKE": {
     "id": "CARD.POMMEL_STRIKE",
@@ -13307,7 +13718,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.POOR_SLEEP": {
     "id": "CARD.POOR_SLEEP",
@@ -13330,7 +13742,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.POUNCE": {
     "id": "CARD.POUNCE",
@@ -13366,7 +13779,8 @@
         "power": "POWER.FREE_SKILL_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PRECISE_CUT": {
     "id": "CARD.PRECISE_CUT",
@@ -13402,7 +13816,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PREDATOR": {
     "id": "CARD.PREDATOR",
@@ -13438,7 +13853,8 @@
         "power": "POWER.DRAW_CARDS_NEXT_TURN_POWER",
         "amount": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PREPARED": {
     "id": "CARD.PREPARED",
@@ -13472,7 +13888,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PREP_TIME": {
     "id": "CARD.PREP_TIME",
@@ -13503,7 +13920,8 @@
           "var": "PrepTimePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PRIMAL_FORCE": {
     "id": "CARD.PRIMAL_FORCE",
@@ -13526,7 +13944,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PRODUCTION": {
     "id": "CARD.PRODUCTION",
@@ -13559,7 +13978,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PROLONG": {
     "id": "CARD.PROLONG",
@@ -13587,7 +14007,8 @@
           "expr": "creature.Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PROPHESIZE": {
     "id": "CARD.PROPHESIZE",
@@ -13616,7 +14037,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PROTECTOR": {
     "id": "CARD.PROTECTOR",
@@ -13652,7 +14074,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PROWESS": {
     "id": "CARD.PROWESS",
@@ -13695,7 +14118,8 @@
           "var": "DexterityPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PULL_AGGRO": {
     "id": "CARD.PULL_AGGRO",
@@ -13735,7 +14159,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PULL_FROM_BELOW": {
     "id": "CARD.PULL_FROM_BELOW",
@@ -13774,10 +14199,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PURITY": {
     "id": "CARD.PURITY",
@@ -13811,7 +14237,8 @@
         "count": 0,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PUTREFY": {
     "id": "CARD.PUTREFY",
@@ -13854,7 +14281,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.PYRE": {
     "id": "CARD.PYRE",
@@ -13885,7 +14313,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.QUADCAST": {
     "id": "CARD.QUADCAST",
@@ -13912,7 +14341,8 @@
         "count": 1,
         "dequeue": true
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.QUASAR": {
     "id": "CARD.QUASAR",
@@ -13942,7 +14372,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RADIATE": {
     "id": "CARD.RADIATE",
@@ -13984,10 +14415,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RAGE": {
     "id": "CARD.RAGE",
@@ -14018,7 +14450,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RAINBOW": {
     "id": "CARD.RAINBOW",
@@ -14050,7 +14483,8 @@
         "op": "channel",
         "orb": "DARK"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RALLY": {
     "id": "CARD.RALLY",
@@ -14080,7 +14514,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RAMPAGE": {
     "id": "CARD.RAMPAGE",
@@ -14113,7 +14548,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RATTLE": {
     "id": "CARD.RATTLE",
@@ -14152,10 +14588,11 @@
           "var": "OstyDamage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REANIMATE": {
     "id": "CARD.REANIMATE",
@@ -14188,7 +14625,8 @@
           "var": "Summon"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REAP": {
     "id": "CARD.REAP",
@@ -14222,7 +14660,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REAPER_FORM": {
     "id": "CARD.REAPER_FORM",
@@ -14248,7 +14687,8 @@
         "power": "POWER.REAPER_FORM_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REAVE": {
     "id": "CARD.REAVE",
@@ -14286,7 +14726,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REBOOT": {
     "id": "CARD.REBOOT",
@@ -14319,7 +14760,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REBOUND": {
     "id": "CARD.REBOUND",
@@ -14355,7 +14797,8 @@
         "power": "POWER.REBOUND_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REFINE_BLADE": {
     "id": "CARD.REFINE_BLADE",
@@ -14389,7 +14832,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REFLECT": {
     "id": "CARD.REFLECT",
@@ -14425,7 +14869,8 @@
         "power": "POWER.REFLECT_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REFLEX": {
     "id": "CARD.REFLEX",
@@ -14458,7 +14903,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REFRACT": {
     "id": "CARD.REFRACT",
@@ -14496,7 +14942,8 @@
         "op": "channel",
         "orb": "GLASS"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REGRET": {
     "id": "CARD.REGRET",
@@ -14517,7 +14964,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.RELAX": {
     "id": "CARD.RELAX",
@@ -14575,7 +15023,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.REND": {
     "id": "CARD.REND",
@@ -14612,7 +15061,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RESONANCE": {
     "id": "CARD.RESONANCE",
@@ -14649,7 +15099,8 @@
         "power": "POWER.STRENGTH_POWER",
         "amount": -1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RESTLESSNESS": {
     "id": "CARD.RESTLESSNESS",
@@ -14692,7 +15143,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RICOCHET": {
     "id": "CARD.RICOCHET",
@@ -14732,7 +15184,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RIGHT_HAND_HAND": {
     "id": "CARD.RIGHT_HAND_HAND",
@@ -14765,7 +15218,8 @@
           "var": "OstyDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RIP_AND_TEAR": {
     "id": "CARD.RIP_AND_TEAR",
@@ -14796,7 +15250,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ROCKET_PUNCH": {
     "id": "CARD.ROCKET_PUNCH",
@@ -14836,7 +15291,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ROLLING_BOULDER": {
     "id": "CARD.ROLLING_BOULDER",
@@ -14870,7 +15326,8 @@
           "var": "RollingBoulderPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ROYALTIES": {
     "id": "CARD.ROYALTIES",
@@ -14901,7 +15358,8 @@
           "var": "Gold"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ROYAL_GAMBLE": {
     "id": "CARD.ROYAL_GAMBLE",
@@ -14934,7 +15392,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.RUPTURE": {
     "id": "CARD.RUPTURE",
@@ -14965,7 +15424,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SACRIFICE": {
     "id": "CARD.SACRIFICE",
@@ -15001,10 +15461,11 @@
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SALVO": {
     "id": "CARD.SALVO",
@@ -15040,7 +15501,8 @@
         "power": "POWER.RETAIN_HAND_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SCAVENGE": {
     "id": "CARD.SCAVENGE",
@@ -15076,7 +15538,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SCOURGE": {
     "id": "CARD.SCOURGE",
@@ -15117,7 +15580,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SCRAPE": {
     "id": "CARD.SCRAPE",
@@ -15157,7 +15621,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SCRAWL": {
     "id": "CARD.SCRAWL",
@@ -15186,7 +15651,8 @@
           "expr": "CardPile.MaxCardsInHand - base.Owner.PlayerCombatState.Hand.Cards.Count"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SCULPTING_STRIKE": {
     "id": "CARD.SCULPTING_STRIKE",
@@ -15221,7 +15687,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SEANCE": {
     "id": "CARD.SEANCE",
@@ -15246,7 +15713,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SECOND_WIND": {
     "id": "CARD.SECOND_WIND",
@@ -15276,7 +15744,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SECRET_TECHNIQUE": {
     "id": "CARD.SECRET_TECHNIQUE",
@@ -15295,7 +15764,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SECRET_WEAPON": {
     "id": "CARD.SECRET_WEAPON",
@@ -15314,7 +15784,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SEEKER_STRIKE": {
     "id": "CARD.SEEKER_STRIKE",
@@ -15347,7 +15818,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SEEKING_EDGE": {
     "id": "CARD.SEEKING_EDGE",
@@ -15376,7 +15848,8 @@
         "power": "POWER.SEEKING_EDGE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SENTRY_MODE": {
     "id": "CARD.SENTRY_MODE",
@@ -15406,7 +15879,8 @@
           "var": "SentryModePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SERPENT_FORM": {
     "id": "CARD.SERPENT_FORM",
@@ -15437,7 +15911,8 @@
           "var": "SerpentFormPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SETUP_STRIKE": {
     "id": "CARD.SETUP_STRIKE",
@@ -15479,7 +15954,8 @@
           "var": "StrengthPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SEVEN_STARS": {
     "id": "CARD.SEVEN_STARS",
@@ -15514,7 +15990,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SEVERANCE": {
     "id": "CARD.SEVERANCE",
@@ -15562,7 +16039,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHADOWMELD": {
     "id": "CARD.SHADOWMELD",
@@ -15592,7 +16070,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHADOW_SHIELD": {
     "id": "CARD.SHADOW_SHIELD",
@@ -15626,7 +16105,8 @@
         "op": "channel",
         "orb": "DARK"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHADOW_STEP": {
     "id": "CARD.SHADOW_STEP",
@@ -15658,7 +16138,8 @@
         "power": "POWER.SHADOW_STEP_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHAME": {
     "id": "CARD.SHAME",
@@ -15683,7 +16164,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SHARED_FATE": {
     "id": "CARD.SHARED_FATE",
@@ -15729,7 +16211,8 @@
           "var": "EnemyStrengthLoss"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHATTER": {
     "id": "CARD.SHATTER",
@@ -15773,7 +16256,8 @@
         "count": 1,
         "dequeue": true
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHINING_STRIKE": {
     "id": "CARD.SHINING_STRIKE",
@@ -15812,7 +16296,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHIV": {
     "id": "CARD.SHIV",
@@ -15846,7 +16331,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHOCKWAVE": {
     "id": "CARD.SHOCKWAVE",
@@ -15889,7 +16375,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHROUD": {
     "id": "CARD.SHROUD",
@@ -15920,7 +16407,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SHRUG_IT_OFF": {
     "id": "CARD.SHRUG_IT_OFF",
@@ -15959,7 +16447,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SIC_EM": {
     "id": "CARD.SIC_EM",
@@ -16001,7 +16490,8 @@
           "var": "SicEmPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SIDESTEP": {
     "id": "CARD.SIDESTEP",
@@ -16032,7 +16522,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SIGNAL_BOOST": {
     "id": "CARD.SIGNAL_BOOST",
@@ -16066,7 +16557,8 @@
           "var": "SignalBoostPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SKEWER": {
     "id": "CARD.SKEWER",
@@ -16099,7 +16591,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SKIM": {
     "id": "CARD.SKIM",
@@ -16128,7 +16621,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SLEIGHT_OF_FLESH": {
     "id": "CARD.SLEIGHT_OF_FLESH",
@@ -16159,7 +16653,8 @@
           "var": "SleightOfFleshPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SLICE": {
     "id": "CARD.SLICE",
@@ -16189,7 +16684,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SLIMED": {
     "id": "CARD.SLIMED",
@@ -16221,7 +16717,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SLOTH": {
     "id": "CARD.SLOTH",
@@ -16242,7 +16739,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SMOKESTACK": {
     "id": "CARD.SMOKESTACK",
@@ -16273,7 +16771,8 @@
           "var": "SmokestackPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SNAKEBITE": {
     "id": "CARD.SNAKEBITE",
@@ -16308,7 +16807,8 @@
           "var": "PoisonPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SNAP": {
     "id": "CARD.SNAP",
@@ -16343,7 +16843,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SNEAKY": {
     "id": "CARD.SNEAKY",
@@ -16378,7 +16879,8 @@
           "var": "SneakyPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOLAR_STRIKE": {
     "id": "CARD.SOLAR_STRIKE",
@@ -16418,7 +16920,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOOT": {
     "id": "CARD.SOOT",
@@ -16439,7 +16942,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SOUL": {
     "id": "CARD.SOUL",
@@ -16472,7 +16976,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOULBOUND": {
     "id": "CARD.SOULBOUND",
@@ -16498,7 +17003,8 @@
         "power": "POWER.SOULBOUND_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOUL_STORM": {
     "id": "CARD.SOUL_STORM",
@@ -16534,7 +17040,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOVEREIGN_BLADE": {
     "id": "CARD.SOVEREIGN_BLADE",
@@ -16586,10 +17093,11 @@
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SOW": {
     "id": "CARD.SOW",
@@ -16623,7 +17131,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPECTRUM_SHIFT": {
     "id": "CARD.SPECTRUM_SHIFT",
@@ -16653,7 +17162,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPEEDSTER": {
     "id": "CARD.SPEEDSTER",
@@ -16685,7 +17195,8 @@
           "var": "SpeedsterPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPINNER": {
     "id": "CARD.SPINNER",
@@ -16719,7 +17230,8 @@
           "var": "SpinnerPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPIRIT_OF_ASH": {
     "id": "CARD.SPIRIT_OF_ASH",
@@ -16750,7 +17262,8 @@
           "var": "BlockOnExhaust"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPITE": {
     "id": "CARD.SPITE",
@@ -16786,7 +17299,8 @@
           "expr": "((!LostHpThisTurn(base.Owner.Creature)) ? 1 : base.DynamicVars.Repeat.IntValue)"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPLASH": {
     "id": "CARD.SPLASH",
@@ -16815,7 +17329,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPOILS_MAP": {
     "id": "CARD.SPOILS_MAP",
@@ -16840,7 +17355,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SPOILS_OF_BATTLE": {
     "id": "CARD.SPOILS_OF_BATTLE",
@@ -16872,7 +17388,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SPORE_MIND": {
     "id": "CARD.SPORE_MIND",
@@ -16893,7 +17410,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SPUR": {
     "id": "CARD.SPUR",
@@ -16937,7 +17455,8 @@
           "var": "Heal"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SQUASH": {
     "id": "CARD.SQUASH",
@@ -16979,7 +17498,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SQUEEZE": {
     "id": "CARD.SQUEEZE",
@@ -17016,7 +17536,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STACK": {
     "id": "CARD.STACK",
@@ -17043,16 +17564,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
         "target": "self",
         "amount": {
-          "expr": "base.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target)"
+          "calc": "CalculatedBlock"
         }
       }
-    ]
+    ],
+    "calc": {
+      "CalculatedBlock": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "discard"
+      }
+    }
   },
   "CARD.STAMPEDE": {
     "id": "CARD.STAMPEDE",
@@ -17082,7 +17610,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STARDUST": {
     "id": "CARD.STARDUST",
@@ -17115,7 +17644,8 @@
           "x": "stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STOKE": {
     "id": "CARD.STOKE",
@@ -17138,7 +17668,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STOMP": {
     "id": "CARD.STOMP",
@@ -17168,7 +17699,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STONE_ARMOR": {
     "id": "CARD.STONE_ARMOR",
@@ -17199,7 +17731,8 @@
           "var": "PlatingPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STORM": {
     "id": "CARD.STORM",
@@ -17230,7 +17763,8 @@
           "var": "StormPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STORM_OF_STEEL": {
     "id": "CARD.STORM_OF_STEEL",
@@ -17253,7 +17787,8 @@
         "target": "all",
         "count": 9999
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRANGLE": {
     "id": "CARD.STRANGLE",
@@ -17295,7 +17830,8 @@
           "var": "StranglePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRATAGEM": {
     "id": "CARD.STRATAGEM",
@@ -17319,7 +17855,8 @@
         "power": "POWER.STRATAGEM_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRIKE_DEFECT": {
     "id": "CARD.STRIKE_DEFECT",
@@ -17349,7 +17886,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRIKE_IRONCLAD": {
     "id": "CARD.STRIKE_IRONCLAD",
@@ -17379,7 +17917,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRIKE_NECROBINDER": {
     "id": "CARD.STRIKE_NECROBINDER",
@@ -17409,7 +17948,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRIKE_REGENT": {
     "id": "CARD.STRIKE_REGENT",
@@ -17439,7 +17979,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.STRIKE_SILENT": {
     "id": "CARD.STRIKE_SILENT",
@@ -17469,7 +18010,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUBROUTINE": {
     "id": "CARD.SUBROUTINE",
@@ -17493,7 +18035,8 @@
         "power": "POWER.SUBROUTINE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUCKER_PUNCH": {
     "id": "CARD.SUCKER_PUNCH",
@@ -17535,7 +18078,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUMMON_FORTH": {
     "id": "CARD.SUMMON_FORTH",
@@ -17557,7 +18101,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.SUNDER": {
     "id": "CARD.SUNDER",
@@ -17596,7 +18141,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUPERCRITICAL": {
     "id": "CARD.SUPERCRITICAL",
@@ -17629,7 +18175,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUPERMASSIVE": {
     "id": "CARD.SUPERMASSIVE",
@@ -17665,7 +18212,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SUPPRESS": {
     "id": "CARD.SUPPRESS",
@@ -17711,7 +18259,8 @@
           "var": "WeakPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SURVIVOR": {
     "id": "CARD.SURVIVOR",
@@ -17746,7 +18295,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SWEEPING_BEAM": {
     "id": "CARD.SWEEPING_BEAM",
@@ -17785,7 +18335,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SWEEPING_GAZE": {
     "id": "CARD.SWEEPING_GAZE",
@@ -17821,7 +18372,8 @@
           "var": "OstyDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SWORD_BOOMERANG": {
     "id": "CARD.SWORD_BOOMERANG",
@@ -17857,7 +18409,8 @@
           "var": "Repeat"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SWORD_SAGE": {
     "id": "CARD.SWORD_SAGE",
@@ -17887,7 +18440,8 @@
           "var": "SwordSagePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SYNCHRONIZE": {
     "id": "CARD.SYNCHRONIZE",
@@ -17921,10 +18475,11 @@
         "target": "self",
         "power": "POWER.SYNCHRONIZE_POWER",
         "amount": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedFocus\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedFocus"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.SYNTHESIS": {
     "id": "CARD.SYNTHESIS",
@@ -17960,7 +18515,8 @@
         "power": "POWER.FREE_POWER_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TACTICIAN": {
     "id": "CARD.TACTICIAN",
@@ -17993,7 +18549,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TAG_TEAM": {
     "id": "CARD.TAG_TEAM",
@@ -18029,7 +18586,8 @@
         "power": "POWER.TAG_TEAM_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TANK": {
     "id": "CARD.TANK",
@@ -18060,7 +18618,8 @@
         "power": "POWER.TANK_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TAUNT": {
     "id": "CARD.TAUNT",
@@ -18102,7 +18661,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TEAR_ASUNDER": {
     "id": "CARD.TEAR_ASUNDER",
@@ -18144,10 +18704,11 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
+          "expr": "calculated:CalculatedHits"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TEMPEST": {
     "id": "CARD.TEMPEST",
@@ -18169,7 +18730,8 @@
         "op": "channel",
         "orb": "LIGHTNING"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TERRAFORMING": {
     "id": "CARD.TERRAFORMING",
@@ -18200,7 +18762,8 @@
           "var": "VigorPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TESLA_COIL": {
     "id": "CARD.TESLA_COIL",
@@ -18230,7 +18793,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_BALL": {
     "id": "CARD.THE_BALL",
@@ -18263,7 +18827,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_BOMB": {
     "id": "CARD.THE_BOMB",
@@ -18297,7 +18862,8 @@
           "var": "Turns"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_GAMBIT": {
     "id": "CARD.THE_GAMBIT",
@@ -18333,7 +18899,8 @@
         "power": "POWER.THE_GAMBIT_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_HUNT": {
     "id": "CARD.THE_HUNT",
@@ -18373,7 +18940,8 @@
         "power": "POWER.THE_HUNT_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_SCYTHE": {
     "id": "CARD.THE_SCYTHE",
@@ -18410,7 +18978,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_SEALED_THRONE": {
     "id": "CARD.THE_SEALED_THRONE",
@@ -18434,7 +19003,8 @@
         "power": "POWER.THE_SEALED_THRONE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THE_SMITH": {
     "id": "CARD.THE_SMITH",
@@ -18456,7 +19026,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.THINKING_AHEAD": {
     "id": "CARD.THINKING_AHEAD",
@@ -18491,7 +19062,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THRASH": {
     "id": "CARD.THRASH",
@@ -18522,7 +19094,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THRUMMING_HATCHET": {
     "id": "CARD.THRUMMING_HATCHET",
@@ -18552,7 +19125,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THUNDER": {
     "id": "CARD.THUNDER",
@@ -18583,7 +19157,8 @@
           "var": "ThunderPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.THUNDERCLAP": {
     "id": "CARD.THUNDERCLAP",
@@ -18624,7 +19199,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TIMES_UP": {
     "id": "CARD.TIMES_UP",
@@ -18661,7 +19237,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TOOLS_OF_THE_TRADE": {
     "id": "CARD.TOOLS_OF_THE_TRADE",
@@ -18685,7 +19262,8 @@
         "power": "POWER.TOOLS_OF_THE_TRADE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TORIC_TOUGHNESS": {
     "id": "CARD.TORIC_TOUGHNESS",
@@ -18726,7 +19304,8 @@
           "var": "Turns"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TOXIC": {
     "id": "CARD.TOXIC",
@@ -18751,7 +19330,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.TRACKING": {
     "id": "CARD.TRACKING",
@@ -18775,7 +19355,8 @@
         "power": "POWER.TRACKING_POWER",
         "amount": 50
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TRANSFIGURE": {
     "id": "CARD.TRANSFIGURE",
@@ -18804,7 +19385,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TRASH_TO_TREASURE": {
     "id": "CARD.TRASH_TO_TREASURE",
@@ -18828,7 +19410,8 @@
         "power": "POWER.TRASH_TO_TREASURE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TREMBLE": {
     "id": "CARD.TREMBLE",
@@ -18863,7 +19446,8 @@
           "var": "VulnerablePower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TRUE_GRIT": {
     "id": "CARD.TRUE_GRIT",
@@ -18898,7 +19482,8 @@
         "count": 1,
         "pick": "first"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TURBO": {
     "id": "CARD.TURBO",
@@ -18933,7 +19518,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TUTOR": {
     "id": "CARD.TUTOR",
@@ -18950,7 +19536,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.TWIN_STRIKE": {
     "id": "CARD.TWIN_STRIKE",
@@ -18981,7 +19568,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.TYRANNY": {
     "id": "CARD.TYRANNY",
@@ -19007,7 +19595,8 @@
         "power": "POWER.TYRANNY_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ULTIMATE_DEFEND": {
     "id": "CARD.ULTIMATE_DEFEND",
@@ -19037,7 +19626,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ULTIMATE_STRIKE": {
     "id": "CARD.ULTIMATE_STRIKE",
@@ -19067,7 +19657,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNDEATH": {
     "id": "CARD.UNDEATH",
@@ -19103,7 +19694,8 @@
         "pile": "Discard",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNDERWORLD": {
     "id": "CARD.UNDERWORLD",
@@ -19129,7 +19721,8 @@
         "power": "POWER.UNDERWORLD_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNLEASH": {
     "id": "CARD.UNLEASH",
@@ -19165,7 +19758,8 @@
           "var": "CalculatedDamage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNMOVABLE": {
     "id": "CARD.UNMOVABLE",
@@ -19189,7 +19783,8 @@
         "power": "POWER.UNMOVABLE_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNRELENTING": {
     "id": "CARD.UNRELENTING",
@@ -19225,7 +19820,8 @@
         "power": "POWER.FREE_ATTACK_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UNTOUCHABLE": {
     "id": "CARD.UNTOUCHABLE",
@@ -19259,7 +19855,8 @@
           "var": "Block"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UPPERCUT": {
     "id": "CARD.UPPERCUT",
@@ -19308,7 +19905,8 @@
           "var": "Power"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UPROAR": {
     "id": "CARD.UPROAR",
@@ -19339,7 +19937,8 @@
         },
         "hits": 2
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.UP_MY_SLEEVE": {
     "id": "CARD.UP_MY_SLEEVE",
@@ -19361,7 +19960,8 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.VEILPIERCER": {
     "id": "CARD.VEILPIERCER",
@@ -19397,7 +19997,8 @@
         "power": "POWER.VEILPIERCER_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.VENERATE": {
     "id": "CARD.VENERATE",
@@ -19426,7 +20027,8 @@
           "var": "Stars"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.VICIOUS": {
     "id": "CARD.VICIOUS",
@@ -19457,7 +20059,8 @@
           "var": "Cards"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.VOID": {
     "id": "CARD.VOID",
@@ -19484,7 +20087,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.VOID_FORM": {
     "id": "CARD.VOID_FORM",
@@ -19516,7 +20120,8 @@
           "var": "VoidFormPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.VOLLEY": {
     "id": "CARD.VOLLEY",
@@ -19549,7 +20154,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.VOLTAIC": {
     "id": "CARD.VOLTAIC",
@@ -19583,7 +20189,8 @@
         "op": "channel",
         "orb": "LIGHTNING"
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WASTE_AWAY": {
     "id": "CARD.WASTE_AWAY",
@@ -19604,7 +20211,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.WELL_LAID_PLANS": {
     "id": "CARD.WELL_LAID_PLANS",
@@ -19628,7 +20236,8 @@
         "power": "POWER.WELL_LAID_PLANS_POWER",
         "amount": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WHIRLWIND": {
     "id": "CARD.WHIRLWIND",
@@ -19661,7 +20270,8 @@
           "x": "energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WHISTLE": {
     "id": "CARD.WHISTLE",
@@ -19695,7 +20305,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WHITE_NOISE": {
     "id": "CARD.WHITE_NOISE",
@@ -19723,7 +20334,8 @@
         "pile": "Hand",
         "count": 1
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WISH": {
     "id": "CARD.WISH",
@@ -19745,7 +20357,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.WISP": {
     "id": "CARD.WISP",
@@ -19778,7 +20391,8 @@
           "var": "Energy"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WITHER": {
     "id": "CARD.WITHER",
@@ -19803,7 +20417,8 @@
     },
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.WOUND": {
     "id": "CARD.WOUND",
@@ -19824,7 +20439,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.WRAITH_FORM": {
     "id": "CARD.WRAITH_FORM",
@@ -19866,7 +20482,8 @@
           "var": "WraithFormPower"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.WRITHE": {
     "id": "CARD.WRITHE",
@@ -19889,7 +20506,8 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": true,
-    "effect": []
+    "effect": [],
+    "calc": null
   },
   "CARD.WROUGHT_IN_WAR": {
     "id": "CARD.WROUGHT_IN_WAR",
@@ -19923,7 +20541,8 @@
           "var": "Damage"
         }
       }
-    ]
+    ],
+    "calc": null
   },
   "CARD.ZAP": {
     "id": "CARD.ZAP",
@@ -19945,6 +20564,7 @@
         "op": "channel",
         "orb": "LIGHTNING"
       }
-    ]
+    ],
+    "calc": null
   }
 }

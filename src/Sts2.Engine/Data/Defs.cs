@@ -21,6 +21,7 @@ public sealed class CardDef
     public bool Multimodal { get; set; }
     public bool EffectComplete { get; set; }
     public List<EffectDef> Effect { get; set; } = new();
+    public Dictionary<string, CalcDef>? Calc { get; set; }
 
     [JsonIgnore]
     public string Entry => Id.StartsWith("CARD.", StringComparison.Ordinal) ? Id["CARD.".Length..] : Id;
@@ -90,6 +91,14 @@ public sealed class EffectDef
 
     public int IntAmount =>
         Amount is { ValueKind: JsonValueKind.Number } a ? a.GetInt32() : 0;
+}
+
+/// <summary>A <c>CalculatedVar</c>: base + extra * multiplier, where the multiplier reads combat state.</summary>
+public sealed class CalcDef
+{
+    public string Base { get; set; } = "CalculationBase";
+    public string Extra { get; set; } = "CalculationExtra";
+    public string Mult { get; set; } = "";
 }
 
 public sealed class HpAscensionDef

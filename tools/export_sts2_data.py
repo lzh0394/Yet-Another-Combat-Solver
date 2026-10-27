@@ -735,6 +735,18 @@ class Exporter:
                for op in effects or []) and camel_to_screaming(info.name) not in osty_formulas:
             effects_complete = False
 
+        calc = self._parse_calc(info.prop_expr("CanonicalVars") or "")
+        for op in effects or []:
+            for field in ("amount", "hits"):
+                value = op.get(field)
+                if isinstance(value, dict) and "calc" in value and value["calc"] not in calc:
+                    if value["calc"] == "CalculatedDamage":
+                        # The engine has a hand-written Osty formula for these three cards.
+                        op[field] = {"var": "CalculatedDamage"}
+                    else:
+                        op[field] = {"expr": "calculated:" + str(value["calc"])}
+                        effects_complete = False
+
         entry = {
             "id": cid,
             "name": info.name,
@@ -751,6 +763,7 @@ class Exporter:
             "multimodal": multimodal,
             "effect_complete": effects_complete,
             "effect": effects or [],
+            "calc": calc or None,
         }
         for name, value in vars_upgraded.items():
             if name in entry["vars"]:
@@ -1310,6 +1323,63 @@ class Exporter:
         complete = not unsupported
         return ops or None, complete
 
+    def _parse_calc(self, expr: str) -> dict:
+        out: dict[str, dict] = {}
+        for m in re.finditer(r"\.WithMultiplier\s*\(", expr):
+            open_pos = m.end() - 1
+            close = match_paren(expr, open_pos)
+            if close < 0:
+                continue
+            lam = expr[open_pos + 1 : close]
+            arrow = lam.find("=>")
+            body = lam[arrow + 2 :] if arrow >= 0 else lam
+            token = self._mult_token(body)
+            if not token:
+                continue
+            start = expr.rfind("new ", 0, m.start())
+            if start < 0:
+                continue
+            ctor = expr[start:]
+            typed = re.match(r"new\s+(\w+)", ctor)
+            if not typed:
+                continue
+            typ = typed.group(1)
+            if typ in ("CalculatedVar", "CalculatedDamageVar"):
+                lit = re.search(r'"(\w+)"', ctor)
+                if not lit:
+                    continue
+                name = lit.group(1)
+            elif typ == "CalculatedBlockVar":
+                name = "CalculatedBlock"
+            else:
+                continue
+            out[name] = {"base": "CalculationBase", "extra": "CalculationExtra", "mult": token}
+        return out
+
+    MULTIPLIERS = {
+        "card.Owner.Creature.Block": "owner_block",
+        "card.Owner.PlayerCombatState.OrbQueue.Orbs.Count": "orbs",
+        "PileType.Hand": "hand",
+        "PileType.Draw": "draw",
+        "PileType.Discard": "discard",
+        "PileType.Exhaust": "exhaust",
+        "target?.Block": "target_block",
+        "target?.GetPowerAmount<VulnerablePower>": "target_vulnerable",
+        "target?.GetPowerAmount<DoomPower>": "target_doom",
+        "GetPowerAmount<StrengthPower>": "owner_strength",
+    }
+
+    @staticmethod
+    def _mult_token(expr: str) -> str | None:
+        if ".Cards.Count" in expr:
+            for pile, token in (("Hand", "hand"), ("Draw", "draw"), ("Discard", "discard"), ("Exhaust", "exhaust")):
+                if f"PileType.{pile}" in expr:
+                    return token
+        for needle, token in Exporter.MULTIPLIERS.items():
+            if needle in expr:
+                return token
+        return None
+
     def _card_effects(self, info: ClassInfo) -> tuple[list | None, bool]:
         owner, body = self._find_method(info, "OnPlay")
         if body is None:
@@ -1522,6 +1592,11 @@ class Exporter:
         if vm:
             name = vm.group(1) or vm.group(2)
             return {"var": POWER_VAR_ALIASES.get(name, name)}
+        cm = re.search(r'DynamicVars\["(\w+)"\]\)\.Calculate\(', e)
+        if not cm:
+            cm = re.search(r'DynamicVars\.(Calculated\w+)\.Calculate\(', e)
+        if cm:
+            return {"calc": cm.group(1)}
         if e.startswith("ResolveEnergyXValue"):
             return {"x": "energy"}
         if e.startswith("ResolveStarXValue"):
