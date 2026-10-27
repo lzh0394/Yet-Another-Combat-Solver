@@ -1828,6 +1828,27 @@ class Exporter:
         if not ops and re.fullmatch(r"\s*return\s+Task\.CompletedTask\s*;\s*", body):
             return [], True
 
+        # Put a card from hand on top of the draw pile (Glimmer / Photon Cut / Thinking Ahead);
+        # a hand selection that is immediately auto-played needs no extra op.
+        hand_sel = re.search(r"CardSelectCmd\.FromHand\s*\(", body)
+        if hand_sel is not None:
+            sel_start = hand_sel.start()
+            sel_close = match_paren(body, hand_sel.end() - 1)
+            if sel_close > 0:
+                rest = body[sel_close:]
+                put_back = re.search(r"CardPileCmd\.Add\s*\([^;]*PileType\.Draw", body[max(0, sel_start - 1500) : sel_close + 400])
+                if put_back is not None:
+                    handled.append((sel_start, sel_close))
+                    mark(r"CardPileCmd\.Add\s*\(")
+                    count: object = 1
+                    prefs = body[sel_start:sel_close]
+                    pm = re.search(r'"?(\w+)"?\s*\.IntValue', prefs)
+                    if pm:
+                        count = {"var": pm.group(1)}
+                    ops.append({"op": "put_back", "count": count})
+                elif "CardCmd.AutoPlay" in rest:
+                    handled.append((sel_start, sel_close))
+
         # Post-pass: whole-hand discard (Storm of Steel) and draw-then-discard (Scrape).
         hand_decl = re.search(
             r"IEnumerable<CardModel>\s+(\w+)\s*=\s*PileType\.Hand\.GetPile\([^;]*\.Cards\.ToList\(\);",

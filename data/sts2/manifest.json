@@ -13,7 +13,7 @@
     "tree": "_research/decompiled-v0.111.0",
     "files": 3538,
     "decompiled_at": "2026-10-27T07:18:17.872971+00:00",
-    "exported_at": "2026-10-27T15:18:51.049209+00:00"
+    "exported_at": "2026-10-27T15:23:28.580552+00:00"
   },
   "counts": {
     "cards": 596,
@@ -89,9 +89,6 @@
     "CARD.DEATH_MARCH": [
       "unknown"
     ],
-    "CARD.DECISIONS_DECISIONS": [
-      "CardSelectCmd.FromHand"
-    ],
     "CARD.DEPRECATED_CARD": [
       "CardPileCmd.RemoveFromDeck"
     ],
@@ -122,10 +119,6 @@
     ],
     "CARD.GANG_UP": [
       "unknown"
-    ],
-    "CARD.GLIMMER": [
-      "CardSelectCmd.FromHand",
-      "CardPileCmd.Add"
     ],
     "CARD.GLIMPSE_BEYOND": [
       "CardPileCmd.AddGeneratedCardsToCombat"
@@ -175,10 +168,6 @@
     ],
     "CARD.OMNISLICE": [
       "unresolved-amount"
-    ],
-    "CARD.PHOTON_CUT": [
-      "CardPileCmd.Add",
-      "CardSelectCmd.FromHand"
     ],
     "CARD.PRIMAL_FORCE": [
       "CardCmd.Transform"
@@ -231,10 +220,6 @@
     ],
     "CARD.THE_SMITH": [
       "unparsed-body"
-    ],
-    "CARD.THINKING_AHEAD": [
-      "CardSelectCmd.FromHand",
-      "CardPileCmd.Add"
     ],
     "CARD.TRANSFIGURE": [
       "CardSelectCmd.FromHand"

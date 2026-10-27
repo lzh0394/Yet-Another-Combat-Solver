@@ -5022,7 +5022,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
@@ -8454,11 +8454,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
         "amount": 1
+      },
+      {
+        "op": "put_back",
+        "count": 1
       }
     ],
     "calc": null
@@ -13624,7 +13628,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -13636,6 +13640,10 @@
       {
         "op": "draw",
         "amount": 1
+      },
+      {
+        "op": "put_back",
+        "count": 1
       }
     ],
     "calc": null
@@ -19290,11 +19298,15 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
         "amount": 1
+      },
+      {
+        "op": "put_back",
+        "count": 1
       }
     ],
     "calc": null

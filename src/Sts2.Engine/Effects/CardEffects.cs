@@ -61,6 +61,18 @@ public static class CardEffects
                 Damage.GainBlock(combat.Player, Amount(combat, card, effect.Amount, target));
                 break;
 
+            case "put_back":
+            {
+                int count = Amount(combat, card, effect.Count, target);
+                for (int i = 0; i < count && combat.Player.Hand.Count > 0; i++)
+                {
+                    CardInstance picked = combat.Player.Hand[0];
+                    combat.Player.Hand.RemoveAt(0);
+                    combat.Player.DrawPile.Insert(0, picked);
+                }
+                break;
+            }
+
             case "auto_play":
             {
                 int count = Amount(combat, card, effect.Count, target);
