@@ -84,6 +84,8 @@ public sealed class EffectDef
     public string? Orb { get; set; }
     public bool? Dequeue { get; set; }
     public string? Pile { get; set; }
+    public string? From { get; set; }
+    public string? To { get; set; }
     public JsonElement? Count { get; set; }
 
     public int IntAmount =>

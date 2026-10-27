@@ -66,6 +66,11 @@
     "effect_complete": false,
     "effect": [
       {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      },
+      {
         "op": "add_card",
         "card": "SELF",
         "pile": "Hand",
@@ -527,8 +532,14 @@
     ],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.APPARITION": {
     "id": "CARD.APPARITION",
@@ -583,7 +594,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -591,6 +602,17 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      },
+      {
+        "op": "upgrade",
+        "target": "hand",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -1001,7 +1023,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -1277,6 +1299,12 @@
     "effect": [
       {
         "op": "discard",
+        "count": 1,
+        "pick": "first"
+      },
+      {
+        "op": "upgrade",
+        "target": "hand",
         "count": 1,
         "pick": "first"
       }
@@ -2963,7 +2991,13 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.CHARGE_BATTERY": {
     "id": "CARD.CHARGE_BATTERY",
@@ -3460,6 +3494,11 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -5281,13 +5320,18 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "summon",
         "amount": {
           "var": "Summon"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -5590,6 +5634,11 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -5652,8 +5701,16 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
-    "effect": []
+    "effect_complete": true,
+    "effect": [
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Hand",
+        "count": 1,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.DRUM_OF_BATTLE": {
     "id": "CARD.DRUM_OF_BATTLE",
@@ -6171,7 +6228,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -6180,7 +6237,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveEnergyXValue("
+          "x": "energy"
         }
       }
     ]
@@ -6987,7 +7044,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -7243,7 +7300,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -8329,6 +8386,11 @@
         "op": "discard",
         "count": 0,
         "pick": "first"
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -8746,7 +8808,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -8755,7 +8817,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveEnergyXValue()"
+          "x": "energy"
         }
       }
     ]
@@ -8883,7 +8945,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -9078,6 +9140,11 @@
         "op": "discard",
         "count": 1,
         "pick": "first"
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -9830,7 +9897,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -9838,6 +9905,11 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       },
       {
         "op": "add_card",
@@ -10026,7 +10098,13 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.KNOCKDOWN": {
     "id": "CARD.KNOCKDOWN",
@@ -10187,8 +10265,14 @@
     "keywords_upgraded": [],
     "vars": null,
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
+      {
+        "op": "upgrade",
+        "target": "hand",
+        "count": 1,
+        "pick": "first"
+      },
       {
         "op": "add_card",
         "card": "SELF",
@@ -10540,7 +10624,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -10696,7 +10780,7 @@
         "target": "target",
         "power": "POWER.WEAK_POWER",
         "amount": {
-          "expr": "ResolveEnergyXValue()"
+          "x": "energy"
         }
       }
     ]
@@ -10762,7 +10846,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -10770,6 +10854,12 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "hand",
+        "count": 1,
+        "pick": "first"
       },
       {
         "op": "add_card",
@@ -11725,7 +11815,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -11733,6 +11823,13 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "move_card",
+        "from": "Discard",
+        "to": "Hand",
+        "count": 0,
+        "pick": "first"
       }
     ]
   },
@@ -13388,7 +13485,13 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.PRODUCTION": {
     "id": "CARD.PRODUCTION",
@@ -13636,7 +13739,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -13793,6 +13896,12 @@
     "effect_complete": false,
     "effect": [
       {
+        "op": "upgrade",
+        "target": "hand",
+        "count": 1,
+        "pick": "first"
+      },
+      {
         "op": "add_card",
         "card": "SELF",
         "pile": "Hand",
@@ -13840,7 +13949,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -14008,7 +14117,7 @@
           "var": "OstyDamage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -14128,7 +14237,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -14136,6 +14245,11 @@
         "amount": {
           "var": "Damage"
         }
+      },
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
       }
     ]
   },
@@ -15934,7 +16048,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -15943,7 +16057,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveEnergyXValue("
+          "x": "energy"
         }
       }
     ]
@@ -16652,6 +16766,11 @@
     "effect_complete": false,
     "effect": [
       {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      },
+      {
         "op": "add_card",
         "card": "SELF",
         "pile": "Hand",
@@ -16945,7 +17064,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -16954,7 +17073,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveStarXValue("
+          "x": "stars"
         }
       }
     ]
@@ -16974,7 +17093,13 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.STOMP": {
     "id": "CARD.STOMP",
@@ -17083,7 +17208,13 @@
     "vars": null,
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "upgrade",
+        "target": "all",
+        "count": 9999
+      }
+    ]
   },
   "CARD.STRANGLE": {
     "id": "CARD.STRANGLE",
@@ -17974,7 +18105,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "(int"
+          "expr": "((CalculatedVar)base.DynamicVars[\"CalculatedHits\"]).Calculate(cardPlay.Target)"
         }
       }
     ]
@@ -19367,7 +19498,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -19376,7 +19507,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveEnergyXValue("
+          "x": "energy"
         }
       }
     ]
@@ -19479,7 +19610,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -19488,7 +19619,7 @@
           "var": "Damage"
         },
         "hits": {
-          "expr": "ResolveEnergyXValue()"
+          "x": "energy"
         }
       }
     ]

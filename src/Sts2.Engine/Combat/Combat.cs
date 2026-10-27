@@ -212,6 +212,7 @@ public sealed class Combat
         MonsterInstance? targetMonster = ResolveTarget(card, target);
 
         _side = CombatSide.Player;
+        LastXValue = card.CostsX ? Player.Energy : 0;
         Player.Energy -= card.CostsX ? Player.Energy : cost;
         if (card.StarCost > 0)
         {
@@ -999,6 +1000,12 @@ public sealed class Combat
         }
         RollMove(monster);
     }
+
+    /// <summary>Energy spent by the most recent X-cost card.</summary>
+    public int LastXValue { get; private set; }
+
+    /// <summary>Stars spent by the most recent X-cost card (star X costs are not modelled yet).</summary>
+    public int LastStarXValue => 0;
 
     private int NextCombatId()
     {

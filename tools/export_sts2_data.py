@@ -1340,9 +1340,11 @@ class Exporter:
                         "target": "all_enemies" if "TargetingAllOpponents" in tail else "target",
                         "amount": amount(args[0]),
                     }
-                    hm = re.search(r"\.WithHitCount\(([^)]*)\)", tail)
+                    hm = re.search(r"\.WithHitCount\(", tail)
                     if hm:
-                        op["hits"] = amount(hm.group(1))
+                        hits_open = close + hm.end()
+                        hits_close = match_paren(body, hits_open - 1)
+                        op["hits"] = amount(body[hits_open : hits_close])
                     ops.append(op)
                 elif cmd == "CreatureCmd" and name == "GainBlock" and len(args) >= 2:
                     ops.append({"op": "block", "target": "self", "amount": amount(args[1])})
@@ -1394,6 +1396,29 @@ class Exporter:
                     ops.append({"op": "evoke", "count": 1, "dequeue": dequeue})
                 elif cmd == "PlayerCmd" and name == "GainStars" and args:
                     ops.append({"op": "stars", "amount": amount(args[0])})
+                elif cmd == "CardPileCmd" and name == "Add" and args and "FromCombatPile" in args[0]:
+                    # CardPileCmd.Add(await CardSelectCmd.FromCombatPile(ctx, <src>, owner, prefs), <dst>).
+                    src = "Discard"
+                    for a in re.findall(r"PileType\.(\w+)", args[0]):
+                        src = a
+                        break
+                    dst = "Hand"
+                    for a in re.findall(r"PileType\.(\w+)", args[1] if len(args) > 1 else ""):
+                        dst = a
+                        break
+                    count = 1
+                    pm = re.search(r"CardSelectorPrefs\([^,]*,\s*(\d+)", args[0])
+                    if pm:
+                        count = int(pm.group(1))
+                    ops.append({"op": "move_card", "from": src, "to": dst, "count": count, "pick": "first"})
+                elif cmd == "CardSelectCmd" and name == "FromHandForUpgrade":
+                    ops.append({"op": "upgrade", "target": "hand", "count": 1, "pick": "first"})
+                elif cmd == "CardCmd" and name == "Upgrade" and not any(op.get("op") == "upgrade" for op in ops):
+                    # Apotheosis style: upgrade every upgradable card (the body loops over AllCards).
+                    if "AllCards" in body or "foreach" in body:
+                        ops.append({"op": "upgrade", "target": "all", "count": 9999})
+                    else:
+                        ops.append({"op": "upgrade", "target": "hand", "count": 1, "pick": "first"})
                 elif cmd == "CardSelectCmd" and name == "FromHand" and args:
                     # Named-argument form: FromHand(prefs: new CardSelectorPrefs(..., N), context: ...).
                     count = 1
@@ -1432,6 +1457,9 @@ class Exporter:
                     pass
                 elif cmd == "Cmd" and name == "CustomScaledWait":
                     # Presentation-only commands; they carry no combat state.
+                    pass
+                elif cmd == "CardCmd" and name == "Upgrade" and any(op.get("op") == "upgrade" for op in ops):
+                    # The upgrade was already emitted by the selection (or loop) above.
                     pass
                 elif cmd == "CardCmd" and name in ("Discard", "Exhaust") and any(
                     op.get("op") in ("discard", "exhaust") for op in ops
@@ -1480,6 +1508,10 @@ class Exporter:
         if vm:
             name = vm.group(1) or vm.group(2)
             return {"var": POWER_VAR_ALIASES.get(name, name)}
+        if e.startswith("ResolveEnergyXValue"):
+            return {"x": "energy"}
+        if e.startswith("ResolveStarXValue"):
+            return {"x": "stars"}
         if e.startswith("-"):
             inner = self._effect_amount(e[1:].strip(), info)
             if isinstance(inner, (int, float)):

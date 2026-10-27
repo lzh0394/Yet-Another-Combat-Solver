@@ -142,6 +142,44 @@ public static class CardEffects
                 combat.Player.Energy += Amount(combat, card, effect.Amount);
                 break;
 
+            case "upgrade":
+            {
+                int count = effect.Count is null ? Amount(combat, card, effect.Amount)
+                    : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
+                IReadOnlyList<CardInstance> pool = effect.Target == "all"
+                    ? combat.Player.Hand.ToList()
+                    : combat.Player.Hand;
+                int done = 0;
+                foreach (CardInstance held in pool.ToList())
+                {
+                    if (done >= count)
+                    {
+                        break;
+                    }
+                    int index = combat.Player.Hand.IndexOf(held);
+                    if (index < 0)
+                    {
+                        continue;
+                    }
+                    combat.Player.Hand[index] = held.Upgraded();
+                    done++;
+                }
+                break;
+            }
+
+            case "move_card":
+            {
+                int count = effect.Count is null ? 1 : (int)Rules.Ascension.Amount(effect.Count, combat.Scenario.Ascension);
+                List<CardInstance> source = Pile(combat.Player, effect.From ?? "Discard");
+                for (int i = 0; i < count && source.Count > 0; i++)
+                {
+                    CardInstance moved = source[0];
+                    source.RemoveAt(0);
+                    Pile(combat.Player, effect.To ?? "Hand").Add(moved);
+                }
+                break;
+            }
+
             case "hp_loss":
                 // Unblockable self-damage (Bloodletting et al.); power hooks do not apply.
                 combat.Player.Hp = Math.Max(0, combat.Player.Hp - Amount(combat, card, effect.Amount));
@@ -198,6 +236,15 @@ public static class CardEffects
         };
     }
 
+    private static List<CardInstance> Pile(PlayerState player, string pile) => pile switch
+    {
+        "Hand" => player.Hand,
+        "Draw" => player.DrawPile,
+        "Discard" => player.DiscardPile,
+        "Exhaust" => player.ExhaustPile,
+        _ => player.DiscardPile,
+    };
+
     private static int Amount(Combat.Combat combat, CardInstance card, System.Text.Json.JsonElement? element)
     {
         if (element is null)
@@ -219,6 +266,11 @@ public static class CardEffects
                 return CalculatedDamage(combat, card);
             }
             return (int)card.Var(name);
+        }
+        if (value.ValueKind == System.Text.Json.JsonValueKind.Object &&
+            value.TryGetProperty("x", out System.Text.Json.JsonElement which))
+        {
+            return which.GetString() == "stars" ? combat.LastStarXValue : combat.LastXValue;
         }
         throw new CombatException($"{card.Entry}: unresolved effect amount {value}");
     }
