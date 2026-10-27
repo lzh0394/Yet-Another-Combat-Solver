@@ -1099,7 +1099,7 @@ public sealed class Combat
                     // Approximation: the game picks a bot from a per-monster set via
                     // Rng.MonsterAi.NextItem; the data pack only carries the encounter's
                     // possible monsters, so summon the first one not already on the board.
-                    SpawnSummonedMonster();
+                    SpawnSummonedMonster(monster);
                     break;
                 }
                 case "Sleep":
@@ -1114,7 +1114,57 @@ public sealed class Combat
 
 
     /// <summary>Spawns the first encounter monster that is not already present (SummonIntent).</summary>
-    private void SpawnSummonedMonster()
+    private void SpawnSummonedMonster(MonsterInstance? summoner = null)
+    {
+        // Ovicopter's LAY_EGGS_MOVE calls CreatureCmd.Add<ToughEgg> three times inside a for loop and
+        // gives each egg MinionPower; the generic call is not covered by the effect exporter yet.
+        if (summoner?.Def.Entry == "OVICOPTER")
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                MonsterInstance egg = SpawnMonster("TOUGH_EGG", null, insertAtFront: true);
+                egg.AddPower("MINION_POWER", 1);
+            }
+            return;
+        }
+        SpawnFirstAbsentEncounterMonster();
+    }
+
+    private MonsterInstance SpawnMonster(string entry, string? slot, bool insertAtFront = false)
+    {
+        MonsterDef def = _data.Monster(entry);
+        MonsterInstance monster = new(def, NextCombatId()) { Slot = slot };
+        RollHp(monster);
+        monster.CurrentState = def.InitialState ?? "";
+        monster.Rng = new Rng(Rng.Seed + (ulong)monster.CombatId);
+        if (insertAtFront)
+        {
+            Enemies.Insert(0, monster);
+        }
+        else
+        {
+            Enemies.Add(monster);
+        }
+        if (def.StartEffectComplete)
+        {
+            foreach (EffectDef effect in def.StartEffects ?? new List<EffectDef>())
+            {
+                try
+                {
+                    ApplyEffect(monster, effect);
+                }
+                catch (CombatException)
+                {
+                    // Summoned minions (e.g. ToughEgg's HATCH_POWER with a variable amount) may carry
+                    // start effects the exporter left unresolved; the spawn itself still stands.
+                }
+            }
+        }
+        RollMove(monster);
+        return monster;
+    }
+
+    private void SpawnFirstAbsentEncounterMonster()
     {
         string? candidate = _encounter.AllPossibleMonsters
             .FirstOrDefault(id => Enemies.All(e => e.Def.Id != id));
@@ -1245,6 +1295,13 @@ public sealed class Combat
                         && !Rules.Ascension.IsAscensionObject(powerAmount)))
                 {
                     throw new CombatException($"unresolved power amount on {monster.Def.Entry}: {power}");
+                }
+                // MinionPower is exported with an unresolved target because the real code applies it to
+                // a creature created inside the same move; the spawn itself carries the intent.
+                if (effect.Target == "unknown" && PowerIds.Normalize(power) == "MINION_POWER")
+                {
+                    SpawnSummonedMonster(monster);
+                    break;
                 }
                 ICombatant target = effect.Target == "player" ? Player : monster;
                 TryApplyPower(target, power, amount);
