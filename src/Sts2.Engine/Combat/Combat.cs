@@ -143,6 +143,11 @@ public sealed class Combat
         Turn = 1;
         Round = 1;
         DrawCards(5);
+        if (HasRelic("RING_OF_THE_SNAKE"))
+        {
+            // Ring of the Snake draws two extra cards on the first turn.
+            DrawCards(2);
+        }
     }
 
     private CombatSide _side = CombatSide.Player;
@@ -246,6 +251,9 @@ public sealed class Combat
         }
         EndTurn(actionIndex);
     }
+
+    private bool HasRelic(string entry)
+        => Player.Relics.Any(r => r.Id == entry || r.Id == "RELIC." + entry);
 
     private void SettleAfterVictory()
     {

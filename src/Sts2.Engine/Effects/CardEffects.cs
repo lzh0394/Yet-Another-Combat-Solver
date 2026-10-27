@@ -79,6 +79,29 @@ public static class CardEffects
                 combat.DrawCards(Amount(card, effect.Amount));
                 break;
 
+            case "discard":
+            case "exhaust":
+            {
+                int count = effect.Count is null ? 1 : Amount(card, effect.Count);
+                bool exhaust = effect.Op == "exhaust";
+                for (int i = 0; i < count && combat.Player.Hand.Count > 0; i++)
+                {
+                    // The harness installs a "first eligible card" selector on the game side, so the
+                    // deterministic mirror is simply the first card in hand order.
+                    CardInstance chosen = combat.Player.Hand[0];
+                    combat.Player.Hand.RemoveAt(0);
+                    if (exhaust)
+                    {
+                        combat.Player.ExhaustPile.Add(chosen);
+                    }
+                    else
+                    {
+                        combat.Player.DiscardPile.Insert(0, chosen);
+                    }
+                }
+                break;
+            }
+
             case "energy":
                 combat.Player.Energy += Amount(card, effect.Amount);
                 break;

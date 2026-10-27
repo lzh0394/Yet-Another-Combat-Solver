@@ -1,0 +1,82 @@
+{
+  "character": "DEFECT",
+  "seed": "PARITY-11",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 75,
+  "hp": 75,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "CRACKED_CORE"
+  ],
+  "deck": [
+    {
+      "id": "STRIKE_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_DEFECT",
+      "upgrade": 0
+    },
+    {
+      "id": "ZAP",
+      "upgrade": 0
+    },
+    {
+      "id": "DUALCAST",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

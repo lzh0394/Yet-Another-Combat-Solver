@@ -1,0 +1,82 @@
+{
+  "character": "REGENT",
+  "seed": "PARITY-13",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 75,
+  "hp": 75,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "DIVINE_RIGHT"
+  ],
+  "deck": [
+    {
+      "id": "STRIKE_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_REGENT",
+      "upgrade": 0
+    },
+    {
+      "id": "FALLING_STAR",
+      "upgrade": 0
+    },
+    {
+      "id": "VENERATE",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

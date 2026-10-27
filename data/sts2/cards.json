@@ -147,13 +147,18 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "draw",
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -4085,7 +4090,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
@@ -4097,6 +4102,11 @@
       {
         "op": "draw",
         "amount": 1
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -8777,7 +8787,13 @@
     },
     "multimodal": false,
     "effect_complete": false,
-    "effect": []
+    "effect": [
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
+      }
+    ]
   },
   "CARD.HIDDEN_GEM": {
     "id": "CARD.HIDDEN_GEM",
@@ -12906,6 +12922,11 @@
         "amount": {
           "var": "Cards"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },
@@ -16997,7 +17018,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "block",
@@ -17005,6 +17026,11 @@
         "amount": {
           "var": "Block"
         }
+      },
+      {
+        "op": "discard",
+        "count": 1,
+        "pick": "first"
       }
     ]
   },

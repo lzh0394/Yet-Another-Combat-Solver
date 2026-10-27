@@ -1,0 +1,82 @@
+{
+  "character": "NECROBINDER",
+  "seed": "PARITY-12",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 66,
+  "hp": 66,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "BOUND_PHYLACTERY"
+  ],
+  "deck": [
+    {
+      "id": "STRIKE_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_NECROBINDER",
+      "upgrade": 0
+    },
+    {
+      "id": "BODYGUARD",
+      "upgrade": 0
+    },
+    {
+      "id": "UNLEASH",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}

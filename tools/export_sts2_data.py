@@ -1264,7 +1264,7 @@ class Exporter:
 
         ops: list[dict] = []
         handled: list[tuple[int, int]] = []
-        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
+        pat = re.compile(r"(DamageCmd|CreatureCmd|PowerCmd|CardPileCmd|PlayerCmd|CardSelectCmd|CardCmd)\s*\.\s*(\w+)\s*(<[^<>]*>)?\s*\(")
         for m in pat.finditer(body):
             cmd, name = m.group(1), m.group(2)
             open_pos = m.end() - 1
@@ -1326,6 +1326,19 @@ class Exporter:
                     ops.append({"op": "draw", "amount": amount(args[1])})
                 elif cmd == "PlayerCmd" and name == "GainEnergy" and args:
                     ops.append({"op": "energy", "amount": amount(args[0])})
+                elif cmd == "CardSelectCmd" and name in ("FromHandForDiscard", "FromHandForExhaust") and len(args) >= 3:
+                    # CardSelectorPrefs(<prompt>, N) -- N cards picked; the harness always picks the
+                    # first eligible card, so the op just needs the count.
+                    count = 1
+                    pm = re.search(r"CardSelectorPrefs\([^,]*,\s*(\d+)", args[2])
+                    if pm:
+                        count = int(pm.group(1))
+                    ops.append({"op": "exhaust" if "Exhaust" in name else "discard", "count": count, "pick": "first"})
+                elif cmd == "CardCmd" and name in ("Discard", "Exhaust") and any(
+                    op.get("op") in ("discard", "exhaust") for op in ops
+                ):
+                    # The selected card is discarded/exhausted by the preceding selection op.
+                    pass
                 else:
                     continue
                 handled.append((m.start(), close))

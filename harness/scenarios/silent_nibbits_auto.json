@@ -1,0 +1,90 @@
+{
+  "character": "SILENT",
+  "seed": "PARITY-10",
+  "ascension": 0,
+  "encounter": "NIBBITS_WEAK",
+  "room_type": "Monster",
+  "max_hp": 70,
+  "hp": 70,
+  "max_energy": 3,
+  "energy": 3,
+  "relics": [
+    "RING_OF_THE_SNAKE"
+  ],
+  "deck": [
+    {
+      "id": "STRIKE_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "STRIKE_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "DEFEND_SILENT",
+      "upgrade": 0
+    },
+    {
+      "id": "NEUTRALIZE",
+      "upgrade": 0
+    },
+    {
+      "id": "SURVIVOR",
+      "upgrade": 0
+    }
+  ],
+  "actions": [
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    },
+    {
+      "type": "auto_turn"
+    }
+  ]
+}
