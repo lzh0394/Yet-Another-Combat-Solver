@@ -1256,12 +1256,23 @@ class Exporter:
                 elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
                     power = (m.group(3) or "").strip("<> ")
                     if not power:
-                        # Generic type came from a helper/local, so the power id is unknown: the
-                        # effect stays unresolved rather than emitting a bogus "POWER." id.
+                        # PowerCmd.Apply(powerInstance, ...) passes a local like
+                        # `ThieveryPower thieveryPower = (ThieveryPower)ModelDb.Power<...>()`.
+                        # Recover the type from the declaration instead of giving up.
+                        # Non-generic overload: Apply(ctx, powerInstance, target, amount, ...).
+                        instance = args[1].strip() if len(args) > 1 else args[0].strip()
+                        decl = re.search(
+                            r"(\w+)\s+" + re.escape(instance) + r"\s*=", body
+                        )
+                        if decl:
+                            power = decl.group(1)
+                    if not power:
+                        # Still unknown: the effect stays unresolved rather than emitting a bogus id.
                         ops.append({"op": "power", "unresolved": True, "error": "generic power type not literal"})
                         handled.append((m.start(), close))
                         continue
-                    target = args[1]
+                    offset = 0 if (m.group(3) or "").strip("<> ") else 1
+                    target = args[1 + offset]
                     if "base.Creature" in target or "this.Creature" in target:
                         tgt = "self"
                     elif "targets" in target or "Player" in target:
@@ -1273,7 +1284,8 @@ class Exporter:
                             "op": "power",
                             "target": tgt,
                             "power": "POWER." + camel_to_screaming(power.split(".")[-1]),
-                            "amount": locals_.get(args[2].strip()) or self._effect_amount(args[2], owner),
+                            "amount": locals_.get(args[2 + offset].strip())
+                            or self._effect_amount(args[2 + offset], owner),
                         }
                     )
                 handled.append((m.start(), close))
