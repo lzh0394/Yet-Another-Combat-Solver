@@ -59,7 +59,10 @@ public static class Invariants
         foreach (PowerInstance power in combatant.Powers)
         {
             // ShrinkPower uses -1 as the "infinite duration" marker.
-            if (power.Amount <= 0 && power.Id != Combat.Combat.ShrinkPower)
+            // Strength/Dexterity go negative on purpose (e.g. Resonance), ShrinkPower uses -1 as
+            // the "infinite duration" marker; everything else must stay positive.
+            bool mayBeNonPositive = power.Id is Combat.Combat.ShrinkPower or "STRENGTH_POWER" or "DEXTERITY_POWER";
+            if (power.Amount <= 0 && !mayBeNonPositive)
             {
                 Fail($"{combatant.Id}: power {power.Id} has amount {power.Amount}");
             }

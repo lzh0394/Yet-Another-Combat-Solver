@@ -18,11 +18,42 @@ public sealed class Scenario
     public List<DeckCard>? Deck { get; set; }
     public List<ScenarioAction> Actions { get; set; } = new();
 
+    /// <summary>
+    /// A session file plays several combats back to back; each entry overrides the session defaults
+    /// (encounter, seed, hp, deck, actions, ...). The parity mod runs the same list in one game process.
+    /// </summary>
+    public List<Scenario>? Encounters { get; set; }
+
     /// <summary>Seed for the deterministic random policy shared by the engine and the parity mod.</summary>
     public ulong PolicySeed { get; set; }
 
     /// <summary>Source-generated options so the CLI keeps working under native AOT.</summary>
     public static JsonSerializerOptions JsonOptions => Data.JsonDefaults.Options;
+
+    /// <summary>
+    /// Session entries only override encounter-scoped fields (encounter, actions, room type, policy
+    /// seed, hp/energy tweaks). Character, deck, relics and ascension stay with the session.
+    /// </summary>
+    public Scenario Merge(Scenario entry)
+    {
+        return new Scenario
+        {
+            Character = Character,
+            Seed = Seed,
+            Ascension = Ascension,
+            Encounter = entry.Encounter,
+            RoomType = entry.RoomType ?? RoomType,
+            MaxHp = entry.MaxHp ?? MaxHp,
+            Hp = entry.Hp ?? Hp,
+            MaxEnergy = entry.MaxEnergy ?? MaxEnergy,
+            Energy = entry.Energy ?? Energy,
+            Relics = Relics,
+            Deck = Deck,
+            Actions = entry.Actions,
+            PolicySeed = entry.PolicySeed != 0 ? entry.PolicySeed : PolicySeed,
+            Encounters = null,
+        };
+    }
 }
 
 public sealed class DeckCard

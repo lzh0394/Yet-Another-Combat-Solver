@@ -956,7 +956,8 @@ public sealed class Combat
             }
             case "power":
             {
-                string power = effect.Power ?? throw new CombatException($"power effect without id on {monster.Def.Entry}");
+                string power = effect.Power
+                    ?? throw new NotSupportedException($"unresolved power effect on {monster.Def.Entry}");
                 if (effect.Amount is not { } powerAmount
                     || (powerAmount.ValueKind != System.Text.Json.JsonValueKind.Number
                         && !Rules.Ascension.IsAscensionObject(powerAmount)))

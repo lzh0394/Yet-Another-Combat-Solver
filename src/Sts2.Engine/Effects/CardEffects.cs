@@ -75,6 +75,11 @@ public static class CardEffects
                         monster.AddPower(power, amount);
                     }
                 }
+                else if (card.TargetType is "AnyAlly" or "AllAllies")
+                {
+                    // Ally-targeted buffs land on the only ally the engine models: the player.
+                    combat.Player.AddPower(power, amount);
+                }
                 else
                 {
                     MonsterInstance single = target ?? throw new CombatException($"{card.Entry} needs an enemy target");

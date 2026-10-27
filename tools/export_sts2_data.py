@@ -515,6 +515,11 @@ class ExprResolver:
                     return a
                 return {"expr": e}
 
+        # `_stockOverrideAmount ?? 2` style: the fallback branch is the A0 default.
+        m = re.fullmatch(r"(.*?)\?\?\s*(-?\d+)", e, re.S)
+        if m:
+            return self.resolve(m.group(2), info, seen)
+
         return {"expr": e}
 
 
@@ -718,6 +723,17 @@ class Exporter:
 
         star_cost = self._star_cost(info)
         effects, effects_complete = self._card_effects(info)
+        # CalculatedDamageVar cards whose multiplier is not one of the modelled Osty formulas stay
+        # unstructured: the engine would have to reimplement arbitrary Java/C# lambdas.
+        osty_formulas = {"UNLEASH", "PROTECTOR", "SQUEEZE"}
+        if target in ("AnyAlly", "AllAllies") and any(
+                op.get("op") == "damage" and op.get("target") == "target" for op in effects or []):
+            # Ally-targeted cards whose damage is routed through the chosen ally are not modelled
+            # (the engine has no ally targets); keep them unstructured instead of mis-resolving.
+            effects_complete = False
+        if any(isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage"
+               for op in effects or []) and info.name not in osty_formulas:
+            effects_complete = False
 
         entry = {
             "id": cid,
@@ -1029,8 +1045,10 @@ class Exporter:
 
     def _initial_state(self, info: ClassInfo, body: str, var_to_id: dict[str, str]) -> str | None:
         returns = list(re.finditer(r"return\s+new\s+MonsterMoveStateMachine\s*\(", body))
-        if len(returns) != 1:
+        if not returns:
             return None
+        # Several returns mean the entry state depends on a runtime branch (e.g. Axebot's boot-up
+        # variant); take the first one so the monster stays playable and document it as approximate.
         rm = returns[0]
         open_pos = rm.end() - 1
         close = match_paren(body, open_pos)
@@ -1216,6 +1234,12 @@ class Exporter:
                     )
                 elif cmd == "PowerCmd" and name == "Apply" and len(args) >= 3:
                     power = (m.group(3) or "").strip("<> ")
+                    if not power:
+                        # Generic type came from a helper/local, so the power id is unknown: the
+                        # effect stays unresolved rather than emitting a bogus "POWER." id.
+                        ops.append({"op": "power", "unresolved": True, "error": "generic power type not literal"})
+                        handled.append((m.start(), close))
+                        continue
                     target = args[1]
                     if "base.Creature" in target or "this.Creature" in target:
                         tgt = "self"

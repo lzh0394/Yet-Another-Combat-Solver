@@ -80,51 +80,76 @@ if (args.Length > 0 && args[0] == "run")
     Scenario scenario = JsonSerializer.Deserialize(File.ReadAllText(scenarioPath), PackJsonContext.Default.Scenario)
         ?? throw new InvalidOperationException("scenario is empty");
     DataPack pack = DataPack.Load(packDir);
-    Combat combat = new(pack, scenario);
 
-
+    List<Scenario> combats = scenario.Encounters is { Count: > 0 } encounters
+        ? encounters.Select(e => scenario.Merge(e)).ToList()
+        : new List<Scenario> { scenario };
 
     Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(outPath))!);
     using StreamWriter writer = new(outPath);
-    void Emit(ActionInfo action) => writer.WriteLine(JsonSerializer.Serialize(Snapshots.Build(combat, action), Sts2.View.ViewJsonContext.Default.Snapshot));
-
-    Emit(new ActionInfo { Type = "start" });
     int actionIndex = 0;
-    foreach (ScenarioAction action in scenario.Actions)
+
+    foreach (Scenario spec in combats)
     {
-        int index = action.Index ?? actionIndex++;
-        ActionInfo info = new()
+        int baseIndex = actionIndex;
+        Combat combat = new(pack, spec);
+        void Emit(ActionInfo action) => writer.WriteLine(JsonSerializer.Serialize(Snapshots.Build(combat, action), Sts2.View.ViewJsonContext.Default.Snapshot));
+
+        Emit(new ActionInfo { Type = "start" });
+        foreach (ScenarioAction action in spec.Actions)
         {
-            Type = action.Type,
-            Index = index,
-            Slot = action.Slot,
-            Card = action.Card,
-            Target = action.Target,
-        };
-        switch (action.Type)
-        {
-            case "play":
-                combat.PlayCard(action.Slot, action.Card, action.Target, index);
+            int index = action.Index ?? actionIndex;
+            actionIndex = index + 1;
+            ActionInfo info = new()
+            {
+                Type = action.Type,
+                Index = index,
+                Slot = action.Slot,
+                Card = action.Card,
+                Target = action.Target,
+            };
+            switch (action.Type)
+            {
+                case "play":
+                    combat.PlayCard(action.Slot, action.Card, action.Target, index);
+                    break;
+                case "end_turn":
+                    combat.EndTurn(index);
+                    break;
+                case "auto_turn":
+                    combat.AutoTurn(index);
+                    break;
+                case "random_play":
+                    combat.RandomPlay(spec.PolicySeed, index - baseIndex, index);
+                    break;
+                default:
+                    throw new InvalidOperationException($"action type not implemented: {action.Type}");
+            }
+            Emit(info);
+            if (combat.CombatOver)
+            {
                 break;
-            case "end_turn":
-                combat.EndTurn(index);
-                break;
-            case "auto_turn":
-                combat.AutoTurn(index);
-                break;
-            case "random_play":
-                combat.RandomPlay(scenario.PolicySeed, index, index);
-                break;
-            default:
-                throw new InvalidOperationException($"action type not implemented: {action.Type}");
+            }
         }
-        Emit(info);
-        if (combat.CombatOver)
-        {
-            break;
-        }
+
+        // The parity mod advances by the number of scripted actions even when a combat ends early, so
+        // the next combat's indices stay in lockstep across both implementations.
+        actionIndex = baseIndex + spec.Actions.Count;
     }
     return 0;
+}
+
+if (args.Length > 0 && args[0] == "smoke")
+{
+    string smokePack = Path.Combine("data", "sts2");
+    for (int i = 1; i + 1 < args.Length; i += 2)
+    {
+        if (args[i] == "--pack")
+        {
+            smokePack = args[i + 1];
+        }
+    }
+    return Smoke.Run(smokePack);
 }
 
 if (args.Length > 0 && args[0] == "web")

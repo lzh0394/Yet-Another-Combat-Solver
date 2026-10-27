@@ -657,7 +657,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -1740,7 +1740,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -2304,7 +2304,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -3950,7 +3950,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -4469,7 +4469,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -5347,7 +5347,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "power",
@@ -5361,9 +5361,7 @@
         "op": "power",
         "target": "self",
         "power": "POWER.STRENGTH_POWER",
-        "amount": {
-          "expr": "cardPlay.Target.GetPower<VulnerablePower>()?.Amount ?? 0"
-        }
+        "amount": 0
       }
     ]
   },
@@ -7601,7 +7599,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -7989,7 +7987,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -10741,7 +10739,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -10959,7 +10957,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -11390,7 +11388,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -12553,7 +12551,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -12997,7 +12995,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -13241,7 +13239,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -14177,7 +14175,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -16062,7 +16060,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -16532,7 +16530,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -17169,7 +17167,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -18160,7 +18158,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",
@@ -18641,7 +18639,7 @@
       }
     },
     "multimodal": false,
-    "effect_complete": true,
+    "effect_complete": false,
     "effect": [
       {
         "op": "damage",

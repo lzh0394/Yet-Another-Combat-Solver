@@ -297,3 +297,30 @@ NIBBITS/SEAPUNK/FUZZY_WURM_CRAWLER/TOADPOLES 四个弱遭遇，`policy_seed` 各
 **仍未满足的部分**：成功标准 2 的“每局 ≥ 200 步”目前没有达到——一个弱遭遇战斗在 15–30 个
 动作内结束，20 个场景合计约 400 帧。要做到单局 200 步，需要让一局连续打多场遭遇
 （每次重新建 `RunState`，玩家 HP 与牌堆不跨场保留），这条还没做。
+
+## 19. 多场连续会话（M5，进行中）
+
+成功标准 2 还要求“每局 ≥ 200 步”。单场弱遭遇只有 13–29 个动作，凑不够，
+因此引入**会话文件**：一个场景里带 `encounters` 数组，按顺序打多场战斗。
+
+**为什么不是一个进程连打**：真机的 `RunManager` 是单例状态机，第二次
+`SetUpNewSingleplayer` 会直接抛 `InvalidOperationException: State is already set`。
+所以会话录制由 `harness/run_session.py` 拆成“每场一次无头启动”，
+每场都用同一份初始状态（同一角色、牌组、遗物、HP），把各场轨迹拼接起来，
+并把动作下标改成全局递增。引擎侧原生支持同一个 `encounters` 数组：
+`Scenario.Merge` 只让每个条目覆盖遭遇相关的字段（encounter/actions/policy_seed 等），
+角色、牌组、遗物、进阶跟会话走。
+
+**索引契约**：会话里的动作下标全局递增；`random_play` 的决策下标是**本场内的下标**
+（`index - baseIndex`），因为真机每场都是独立进程、决策从 0 重新开始。
+每场结束后 `base += len(actions)`（按脚本动作数，不按实际执行数），两侧一致。
+
+**产物**：`harness/scenarios/{character}_session.json` 5 个，每个 16 场（4 个弱遭遇 ×
+4 轮，每场 40 个 `random_play` 上限），真机轨迹 `tests/vectors/real/{character}_session.jsonl`
+（约 220 行、204 个动作，超过 200 步门槛）。
+
+**已知偏差**：每场都从相同的初始状态开始（HP 满、牌组重洗），这与“一次真实爬塔里
+连续打四场”不同——真机的牌堆与 HP 会跨场保留。这个偏差是有意的：引擎按单场建模，
+两侧行为一致即可对拍；如果以后要模拟真实 run 的跨场状态，需要引擎引入 run 级状态。
+
+**录制命令**：`python harness/run_session.py harness/scenarios/ironclad_session.json --no-build`。

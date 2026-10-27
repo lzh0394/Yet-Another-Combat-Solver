@@ -165,12 +165,21 @@ def validate_transcript(out: Path, scenario: dict) -> int:
     if errors:
         die(f"transcript contains a driver error: {errors[0].get('error', '')[:500]}")
     snapshots = [line for line in lines if line.get("type") == "snapshot"]
-    # The game keeps one more action alive while EndCombatInternal unwinds; trim trailing rows so the
-    # transcript ends exactly at the first combat_over snapshot (the engine stops there too).
-    for i, snap in enumerate(snapshots):
+    # The game keeps one more action alive while EndCombatInternal unwinds; trim trailing rows so each
+    # combat ends exactly at its combat_over snapshot (the engine stops there too). A session transcript
+    # then resumes at the next combat's "start" snapshot.
+    kept = []
+    after_over = False
+    for snap in snapshots:
+        action_type = snap.get("action", {}).get("type")
+        if after_over and action_type != "start":
+            continue
+        if action_type == "start":
+            after_over = False
+        kept.append(snap)
         if snap.get("combat_over"):
-            snapshots = snapshots[: i + 1]
-            break
+            after_over = True
+    snapshots = kept
     lines = [line for line in lines if line.get("type") != "snapshot"] + snapshots
     joined = "\n".join(json.dumps(line, ensure_ascii=False, separators=(",", ":")) for line in lines)
     out.write_text(joined + "\n", encoding="utf-8")
@@ -178,10 +187,18 @@ def validate_transcript(out: Path, scenario: dict) -> int:
         die("transcript has no snapshots")
     if snapshots[0].get("action", {}).get("type") != "start":
         die("first snapshot is not the start state")
+    if not snapshots[0].get("action", {}).get("type") == "start":
+        die("first snapshot is not the start state")
+    for index, snap in enumerate(snapshots):
+        if snap.get("combat_over") and index + 1 < len(snapshots):
+            nxt = snapshots[index + 1].get("action", {}).get("type")
+            if nxt != "start":
+                die(f"snapshot {index} ends a combat but the next row is {nxt!r}")
     last = snapshots[-1]
     if not last.get("combat_over"):
         die("scenario did not finish the combat; the last snapshot is not combat_over")
-    expected = len(scenario.get("actions", [])) + 1
+    combats = scenario.get("encounters") or [scenario]
+    expected = sum(len(c.get("actions", [])) + 1 for c in combats)
     if len(snapshots) > expected:
         die(f"expected at most {expected} snapshots, got {len(snapshots)}")
     # Combat may end before every trailing action runs ("auto_turn" keeps playing until lethal).

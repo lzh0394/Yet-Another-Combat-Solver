@@ -78,6 +78,51 @@ internal sealed class ParityDriver
         await game.GameStartupComplete;
         Log.Info("[parity] game startup complete");
 
+        var combats = new List<JsonObject>();
+        if (scenario["encounters"] is JsonArray encounterSpecs)
+        {
+            foreach (var node in encounterSpecs)
+            {
+                var spec = node?.AsObject() ?? throw new InvalidOperationException("encounter entry must be an object");
+                combats.Add(Merge(scenario, spec));
+            }
+        }
+        else
+        {
+            combats.Add(scenario);
+        }
+
+        int actionBase = 0;
+        for (int combatIndex = 0; combatIndex < combats.Count; combatIndex++)
+        {
+            Log.Info("[parity] combat " + (combatIndex + 1) + "/" + combats.Count);
+            if (combatIndex > 0)
+            {
+                // CombatManager keeps reporting IsInProgress while the victory screen unwinds; a new
+                // run bootstrap replaces the scene anyway, so just give the old room a few frames.
+                await Frame();
+                await Frame();
+            }
+            actionBase = await RunCombatAsync(game, combats[combatIndex], actionBase);
+        }
+
+        Log.Info("[parity] scenario complete, " + combats.Count + " combat(s)");
+    }
+
+    /// <summary>Shallow merge: fields in <paramref name="overrides"/> win over the session defaults.</summary>
+    private static JsonObject Merge(JsonObject scenario, JsonObject overrides)
+    {
+        JsonObject merged = scenario.DeepClone().AsObject();
+        merged.Remove("encounters");
+        foreach (var (key, value) in overrides)
+        {
+            merged[key] = value?.DeepClone();
+        }
+        return merged;
+    }
+
+    private async Task<int> RunCombatAsync(NGame game, JsonObject scenario, int actionBase)
+    {
         var character = ModelDb.GetById<CharacterModel>(IdOf(scenario["character"]?.GetValue<string>() ?? "IRONCLAD", "CHARACTER"));
         var player = Player.CreateForNewRun(character, MegaCrit.Sts2.Core.Unlocks.UnlockState.all, 1UL);
 
@@ -153,7 +198,7 @@ internal sealed class ParityDriver
         for (int i = 0; i < actions.Count; i++)
         {
             var action = actions[i]?.AsObject() ?? throw new InvalidOperationException("action must be an object");
-            action["index"] = i;
+            action["index"] = actionBase + i;
             if (!CombatManager.Instance.IsInProgress)
             {
                 Log.Info("[parity] combat ended before action " + i);
@@ -168,7 +213,8 @@ internal sealed class ParityDriver
             WriteLine(Snapshot(combatState, player, action));
         }
 
-        Log.Info("[parity] scenario complete, " + (actions.Count) + " actions requested");
+        Log.Info("[parity] combat complete, " + (actions.Count) + " actions requested");
+        return actionBase + actions.Count;
     }
 
     private ulong _policySeed;

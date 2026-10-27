@@ -12,11 +12,8 @@
     "start_effects": [
       {
         "op": "power",
-        "target": "unknown",
-        "power": "POWER.",
-        "amount": {
-          "expr": "base.Creature"
-        }
+        "unresolved": true,
+        "error": "generic power type not literal"
       },
       {
         "op": "power",
@@ -190,13 +187,11 @@
         "op": "power",
         "target": "self",
         "power": "POWER.STOCK_POWER",
-        "amount": {
-          "expr": "_stockOverrideAmount ?? 2"
-        }
+        "amount": 2
       }
     ],
     "start_effect_complete": true,
-    "initial_state": null,
+    "initial_state": "BOOT_UP_MOVE",
     "moves": {
       "BOOT_UP_MOVE": {
         "kind": "MoveState",
@@ -3801,11 +3796,8 @@
       },
       {
         "op": "power",
-        "target": "unknown",
-        "power": "POWER.",
-        "amount": {
-          "expr": "base.Creature"
-        }
+        "unresolved": true,
+        "error": "generic power type not literal"
       }
     ],
     "start_effect_complete": true,
@@ -5417,11 +5409,8 @@
         "effects": [
           {
             "op": "power",
-            "target": "unknown",
-            "power": "POWER.",
-            "amount": {
-              "expr": "target"
-            }
+            "unresolved": true,
+            "error": "generic power type not literal"
           }
         ],
         "effect_complete": true
@@ -9389,11 +9378,8 @@
         "effects": [
           {
             "op": "power",
-            "target": "unknown",
-            "power": "POWER.",
-            "amount": {
-              "expr": "base.Creature"
-            }
+            "unresolved": true,
+            "error": "generic power type not literal"
           }
         ],
         "effect_complete": false
@@ -9739,11 +9725,8 @@
         "effects": [
           {
             "op": "power",
-            "target": "unknown",
-            "power": "POWER.",
-            "amount": {
-              "expr": "base.Creature"
-            }
+            "unresolved": true,
+            "error": "generic power type not literal"
           },
           {
             "op": "damage",
@@ -10512,7 +10495,7 @@
     },
     "start_effects": null,
     "start_effect_complete": true,
-    "initial_state": null,
+    "initial_state": "RAND",
     "initial_states": [
       "SCRATCH_MOVE",
       "DISEASE_BITE_MOVE",
