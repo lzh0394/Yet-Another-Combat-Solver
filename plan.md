@@ -100,11 +100,13 @@ tests/vectors/          对拍与数值向量
 
 ### M2 真机 harness
 
-- `harness/Sts2.ParityMod`，net9.0（游戏自带 .NET 9），DLL-only mod：`mods/sts2parity/mod_manifest.json` + `sts2parity.dll`，入口 `[ModInitializer]`，不需要 Godot 编辑器。
+- `harness/Sts2.ParityMod`，net9.0（游戏自带 .NET 9），DLL-only mod：`mods/sts2parity/mod_manifest.json` + `sts2parity.dll`，入口 `[ModInitializer]`，不需要 Godot 编辑器。mod 工程没有 Godot 源生成器，所以驱动类**不继承 `Node`**，`[ModInitializer]` 在主线程直接 `async` 跑，用 `SceneTree.ToSignal(ProcessFrame)` 逐帧等待。
 - 输入 `scenario.json`：角色、HP、能量、牌组、遗物、药水、球位、遭遇与 slot、seed、进阶、动作列表。
-- 执行：`CardCmd.AutoPlay`、`PlayerCmd.EndTurn`、药水命令；每步写 `snapshots.jsonl`。
-- 启动固定 `SlayTheSpire2.exe --headless --nomods`；用 `NonInteractiveMode.AutoSlayerCheck` 跳过等待（不要开 `TestMode`）。
-- 三条环境哨兵必须通过：日志含 `skipping mod initialization`、`main_assembly_hash` 等于预期、数据包 manifest 版本一致。
+- 执行：真机路径 `CardModel.TryManualPlay`（真实扣能量、走 `OnPlayWrapper`）与 `PlayerCmd.EndTurn`；`CardCmd.AutoPlay` 会跳过费用，只用于对照测试。每步写 `snapshots.jsonl`。
+- 启动 `SlayTheSpire2.exe --headless`，不由 Steam 拉起；游戏根目录需要 `steam_appid.txt`（2868840），否则 Steamworks 初始化失败。
+- `--nomods` 与"加载 parity mod"互斥：改为把 `steamapps/workshop/content/2868840` 移到 `2868840.disabled-by-parity`，让游戏只加载本 mod。
+- 三条环境哨兵必须通过：日志含 `RUNNING MODDED! Loaded 1 mods`、`main_assembly_hash` 等于预期、数据包 manifest 版本一致；再加 `[parity] scenario complete`。
+- `harness/run_scenario.py` 负责构建、安装、禁工坊、启动、哨兵校验，并把轨迹写到 `tests/vectors/real/`。
 
 ### M3 引擎纵切与 V1 TUI
 

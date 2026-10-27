@@ -49,9 +49,9 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 
 ## 4. 真机环境
 
-- **工坊 mod 会干扰**：正常启动会加载全部工坊 mod（32 个 manifest、16 DLL、11 PCK，日志 `RUNNING MODDED! Loaded 17 mods (26 total)`），其中 CombatSolver 会写 `.combatsolver-precombat/` 目录、改 `sts2.runtimeconfig.json`。必须 `--headless --nomods`。
-- **Steam 初始化失败不致命**：`No appID found` 之后仍能加载存档与本地化，可以继续用。
-- **三条环境哨兵**：日志含 `skipping mod initialization`；`main_assembly_hash` 等于预期；数据包 manifest 与游戏版本一致。任一不满足就中止，不要"先跑跑看"。
+- **工坊 mod 会干扰**：正常启动会加载全部工坊 mod，其中 CombatSolver 会写 `.combatsolver-precombat/` 目录、改 `sts2.runtimeconfig.json`。`--nomods` 能关掉它们，但也会关掉 parity mod；因此改为把 `steamapps/workshop/content/2868840` 整体改名为 `2868840.disabled-by-parity`，Steam 仍会列出订阅，但目录读不到，日志只剩 WARN。
+- **直接启动需要 appid**：不经过 Steam 拉起时 Steamworks 报 `No appID found` 并走错误弹窗、退出；在游戏根目录放 `steam_appid.txt`（内容 `2868840`）即可。`run_scenario.py` 会写这个文件。
+- **`--nomods` 不再是哨兵**；新哨兵是 `RUNNING MODDED! Loaded 1 mods`、`main_assembly_hash` 等于预期、数据包 manifest 与游戏版本一致、`[parity] scenario complete`。任一不满足就中止。
 - **参考实现不能当种子 oracle**：`sts2_env/core/rng.py` 用的是 .NET `System.Random` 兼容实现，同种子轨迹与游戏必分叉。
 
 ## 5. 时序与随机
@@ -71,3 +71,12 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 - 用 bash heredoc 追加超过约 200 行会被截断，曾把文件尾巴整段截掉又"看起来成功了"。大文件一律用 write/edit 工具。
 - 往 Python 脚本里打 JSON 转义补丁时容易静默不生效（转义层数不对，`old_string` 匹配不到却报成功）。改完必须 `grep` 或跑一次验证。
 - plan 模式的计划三次被 dismiss，原因都是"没先回答用户当轮的疑问"。先答问题，再提交计划。
+
+## 8. 真机 harness 实现记录（M2）
+
+- **不能继承 `Node`**：mod 工程只引用 `GodotSharp.dll`，没有 Godot 源生成器，引擎不会回调 `_Ready` 等虚方法（`AddChild` 后一无所获）。驱动写成普通类，在 `[ModInitializer]`（主线程，`SynchronizationContext.Current` 是 `Godot.GodotSynchronizationContext`）里直接开始 async；逐帧等待用 `await tree.ToSignal(tree, SceneTree.SignalName.ProcessFrame)`，收尾 `tree.Quit()`。
+- **启动蓝本**：`Player.CreateForNewRun` → 覆盖牌组/遗物/HP/能量 → `RunState.CreateForNewRun(players, acts, modifiers, GameMode.Standard, ascension, seed)` → `RunManager.SetUpNewSingleplayer(state, shouldSave:false)` → `PreloadManager.LoadRunAssets` → `RunManager.Launch()` → `RootSceneContainer.SetCurrentScene(NRun.Create(state))` → `SetActInternal(0)` → `RunLocationTargetedBuffer/MapSelectionSynchronizer.OnLocationChanged` → `EnterRoomDebug(RoomType.Monster, MapPointType.Unassigned, encounter.ToMutable())`。
+- **真实出牌**用 `CardModel.TryManualPlay(target)`，它入队 `PlayCardAction`；`SpendResources()` 扣能量/星，随后 `OnPlayWrapper` 触发钩子。`CardCmd.AutoPlay` 的 `EnergySpent` 为 0，只适合"不花钱"的对照。
+- **快照**：每行动一行 JSONL，含 `action`、回合/阶段、玩家（HP/格挡/能量/星/能力/遗物/药水）、敌人（HP/格挡/能力/意图）、五个牌堆（手牌带 `can_play`）、七条 RNG 流的 counter 与前四个状态字。RNG counter 是判断随机消耗顺序是否一致的关键。
+- 录制场景：`harness/scenarios/ironclad_nibbits.json`，`tests/vectors/real/ironclad_nibbits.jsonl`（10 行，含击杀收尾）。场景动作的 `slot` 指"动作发生时手牌下标"，比按 id 找牌稳定。
+- 实机行为样本：NibbitsWeak 的 Nibbit 起手 43/43（随机 HP），首招 `Attack 12`；回合 2 变 `Attack 6 + Defend`；Defend 给 5 格挡；Bash 先结算伤害、后上易伤（本体不吃自己的易伤），后续 Strike 6×1.5=9；易伤叠到 3 层时仍只放大 1.5 倍。

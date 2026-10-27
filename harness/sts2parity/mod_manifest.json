@@ -1,0 +1,11 @@
+{
+  "id": "sts2parity",
+  "name": "STS2 Parity Recorder",
+  "author": "yet-another-combat-solver",
+  "description": "Drives one scripted combat and writes JSONL state snapshots for parity testing.",
+  "version": "0.1.0",
+  "has_pck": false,
+  "has_dll": true,
+  "affects_gameplay": true,
+  "min_game_version": "0.111.0"
+}
