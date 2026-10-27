@@ -741,7 +741,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "exhaust"
+      }
+    }
   },
   "CARD.ASSASSINATE": {
     "id": "CARD.ASSASSINATE",
@@ -1895,17 +1901,23 @@
       }
     },
     "multimodal": false,
-    "effect_complete": false,
+    "effect_complete": true,
     "effect": [
       {
         "op": "damage",
         "target": "target",
         "amount": {
-          "var": "CalculatedDamage"
+          "block": true
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "owner_block"
+      }
+    }
   },
   "CARD.BOLAS": {
     "id": "CARD.BOLAS",
@@ -2524,7 +2536,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "target_vulnerable"
+      }
+    }
   },
   "CARD.BULWARK": {
     "id": "CARD.BULWARK",
@@ -11803,7 +11821,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "draw"
+      }
+    }
   },
   "CARD.MIND_ROT": {
     "id": "CARD.MIND_ROT",
@@ -13953,7 +13977,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "hand"
+      }
+    }
   },
   "CARD.PREDATOR": {
     "id": "CARD.PREDATOR",
@@ -19413,7 +19443,13 @@
         }
       }
     ],
-    "calc": null
+    "calc": {
+      "CalculatedDamage": {
+        "base": "CalculationBase",
+        "extra": "CalculationExtra",
+        "mult": "target_doom"
+      }
+    }
   },
   "CARD.TOOLS_OF_THE_TRADE": {
     "id": "CARD.TOOLS_OF_THE_TRADE",

@@ -731,11 +731,15 @@ class Exporter:
             # Ally-targeted cards whose damage is routed through the chosen ally are not modelled
             # (the engine has no ally targets); keep them unstructured instead of mis-resolving.
             effects_complete = False
+        calc = self._parse_calc(info.prop_expr("CanonicalVars") or "")
+        # Body Slam style cards deal damage equal to the player's current block.
+        if isinstance(calc.get("CalculatedDamage"), dict) and calc["CalculatedDamage"].get("mult") == "owner_block":
+            for op in effects or []:
+                if op.get("op") == "damage" and isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage":
+                    op["amount"] = {"block": True}
         if any(isinstance(op.get("amount"), dict) and op["amount"].get("var") == "CalculatedDamage"
                for op in effects or []) and camel_to_screaming(info.name) not in osty_formulas:
             effects_complete = False
-
-        calc = self._parse_calc(info.prop_expr("CanonicalVars") or "")
         for op in effects or []:
             for field in ("amount", "hits"):
                 value = op.get(field)
@@ -1351,9 +1355,12 @@ class Exporter:
             typ = typed.group(1)
             if typ in ("CalculatedVar", "CalculatedDamageVar"):
                 lit = re.search(r'"(\w+)"', ctor)
-                if not lit:
+                if lit:
+                    name = lit.group(1)
+                elif typ == "CalculatedDamageVar":
+                    name = "CalculatedDamage"
+                else:
                     continue
-                name = lit.group(1)
             elif typ == "CalculatedBlockVar":
                 name = "CalculatedBlock"
             else:
