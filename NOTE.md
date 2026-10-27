@@ -417,3 +417,20 @@ CI 在冒烟之后刷新这份报告。
 
 会话都是 16 场（4 个弱遭遇 × 4 轮），每场 40 个 `random_play` 上限；五个角色全部逐字段一致，
 每条会话的动作数都 ≥ 200，成功标准 2 的“每局 ≥ 200 步”因此达成。
+
+## 24. M5 收尾：三个 parity 缺口的定位
+
+### Thieving Hopper（偷牌）
+- `ThievingHopper.THIEVERY_MOVE` 同时带 `SingleAttackIntent(TheftDamage)` 与 `CardDebuffIntent`；`ThieveryMove` 内部**先偷牌、最后才攻击**。
+- 候选 = 玩家抽牌堆 + 弃牌堆里 `DeckVersion != null` 的牌；`_stealPriorities` 四条谓词依次尝试（Uncommon 非 Imbued → Rare → Common → 任意），取第一条非空集合。
+- 选牌用 `RunRng.CombatCardGeneration.NextItem(...)`，随后 `CardPileCmd.RemoveFromCombat(card)`；每偷到 1 张就给怪 `PowerCmd.Apply(SwipePower, +1)`，`SwipePower.StolenCard` 持有该牌（死亡时归还，未建模）。
+- 第 27 轮按上述语义实现后首帧：真机 `SWIPE_POWER` 4、引擎 5；`rng.combat_card_generation.counter` 真机 1、引擎 0；`piles.discard` 长度差 1。说明同一回合会多次进入偷牌路径，`SwipePower` 的持有/归还必须先建模再谈对拍。
+
+### Ovicopter（召唤物的意图展示）
+- `NextCombatId` 已改为单调递增（`d144973`），两批蛋的种子与开局那次 AI 抽取都逐位正确，第 1–7 行已一致。
+- 剩余：蛋孵化后下一回合，真机显示的仍是 `Summon`（`HATCH_MOVE` 的意图），引擎显示 `NIBBLE_MOVE` 的 `Attack 4`。说明快照时刻展示的是孵化前已 Roll 定的意图，`ForceCurrentState` 与 `RollMove` 的先后关系需要按帧再对。
+
+### Nibbits A1（终局能量差 1）
+- 真机与引擎第 4 回合手牌、能量、敌人 HP 完全相同：`[DEFEND, STRIKE, STRIKE, STRIKE, BASH]`、3 能量、敌人 6 HP。
+- 差异只有终局 `player.energy`（真机 1 / 引擎 0）。已排除“胜利结算清零”假设（删掉 `SettleAfterVictory` 的 `Energy = 0` 后仍为 0）。
+- 定位为 `auto_turn` 的选牌顺序：真机选 1 费 `STRIKE`（6 伤刚好击杀），引擎选 2 费 `BASH`（8 伤），两者都能在当回合击杀，只有剩余能量不同。改动策略前需先确认真机 `AutoSlay` 候选排序，否则会引入新差异。
