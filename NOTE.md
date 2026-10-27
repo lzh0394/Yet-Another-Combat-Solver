@@ -183,3 +183,19 @@ M0 的产品（`data/sts2/`、导出器、反编译树）当时都是未跟踪�
 
 计划口径（成功标准 3）允许“未结构化/未实现”显式报错；这些缺口目前表现为对拍差异或
 `CombatException`，不会静默通过。
+
+## 14. 单文件 HTML 回放（M6）
+
+`src/Sts2.View/HtmlView.cs` 把一份快照逐行 JSONL 渲染成单个 HTML：数据以
+`const DATA = [...]` 内嵌，CSS/JS 内联，没有外部字体或 CDN。输入既可以是引擎产物，
+也可以是真机轨迹——两者 schema 相同，所以同一份页面能并排看两边。
+
+- 入口：`dotnet run --project src/Sts2.Cli -- html --transcript <jsonl> --out <html> [--title T]`。
+- 页面内容：玩家（HP 条/格挡/能量/星星/能力/遗物）、敌人（HP 条/格挡/意图/能力）、
+  手牌（费用、升级、是否可打）与五牌堆计数、逐动作日志；`←`/`→`/`Home`/`End` 与滑杆翻页。
+- 只读：页面不做任何规则判断，避免出现“第二个真相来源”。
+- 校验：`tools/check_replay.py <html> <jsonl>` 检查无外部引用、`DATA` 数组存在、内嵌快照数
+  等于轨迹行数；CI 对 `tests/vectors/real/*.jsonl` 全量渲染并上传 `replays` artifact。
+  引擎测试里也有一条同样的自包含断言（9 checks）。
+- 注意：`HtmlView` 只依赖 `Sts2.Contracts`，自己的 `JsonOptions` 用 snake_case，
+  不要引用 `Sts2.Engine`（会形成 View→Engine 的反向依赖，构建会失败）。

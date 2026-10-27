@@ -46,5 +46,21 @@ jobs:
           done
           exit $fail
 
+      - name: Render single-file HTML replays
+        run: |
+          mkdir -p artifacts/replay
+          for transcript in tests/vectors/real/*.jsonl; do
+            name=$(basename "$transcript" .jsonl)
+            dotnet run --project src/Sts2.Cli -c Release --no-build -- html \
+              --transcript "$transcript" --out "artifacts/replay/$name.html" --title "$name"
+            python tools/check_replay.py "artifacts/replay/$name.html" "$transcript"
+          done
+
+      - name: Upload replays
+        uses: actions/upload-artifact@v4
+        with:
+          name: replays
+          path: artifacts/replay
+
       - name: Data package vs value oracle
         run: python tools/compare_values.py --data data/sts2 --oracle tests/vectors

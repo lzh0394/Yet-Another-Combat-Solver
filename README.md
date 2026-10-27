@@ -465,6 +465,22 @@ W2 = sansb 的 `ironclad_toadpoles_uniform_v1`（68/80 HP、无遗物、两个 T
 
 ---
 
+## 5. 实现落地（本仓库）
+
+调研结论已落地为可运行的引擎与真机对拍管线：
+
+| 能力 | 命令 | 产物 |
+|---|---|---|
+| 数据基线（M0） | `python tools/export_sts2_data.py --out data/sts2` | `data/sts2/*.json` + `manifest.json` |
+| 值 oracle（M1） | `dotnet run --project src/Sts2.Oracle -- --probe all` | `tests/vectors/game_values.json` |
+| 真机轨迹（M2） | `python harness/run_scenario.py harness/scenarios/ironclad_nibbits.json` | `tests/vectors/real/*.jsonl` |
+| 引擎重放（M3/M5） | `dotnet run --project src/Sts2.Cli -- run --scenario … --pack data/sts2 --out …` | 与真机逐字段一致 |
+| 对拍门禁（M4） | `python tools/compare_snapshots.py --a real.jsonl --b engine.jsonl` | CI 失败即回归 |
+| 单文件回放（M6） | `dotnet run --project src/Sts2.Cli -- html --transcript real.jsonl --out replay.html` | 内嵌数据的离线 HTML |
+
+回放页只读快照：回合/HP/格挡/能量、敌人意图、手牌与五牌堆、逐步动作日志；方向键翻页，
+无外部 CSS/JS/字体，可直接双击打开或放进静态站点。
+
 ## 附录 A：三条技术线的选型速查
 
 | 你的场景 | 选它 | 代表 |

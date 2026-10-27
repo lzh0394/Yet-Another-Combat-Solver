@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Sts2.Contracts\Sts2.Contracts.csproj" />
     <ProjectReference Include="..\..\src\Sts2.Engine\Sts2.Engine.csproj" />
+    <ProjectReference Include="..\..\src\Sts2.View\Sts2.View.csproj" />
   </ItemGroup>
 
 </Project>

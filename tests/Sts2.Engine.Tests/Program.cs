@@ -136,6 +136,26 @@ internal static class Program
             Equal(0, combat.Player.Block);
         });
 
+        Test("view: html replay is self-contained and embeds every snapshot", () =>
+        {
+            string transcript = Path.Combine(root, "tests", "vectors", "real", "ironclad_cards_showcase.jsonl");
+            List<Snapshot> snapshots = File.ReadAllLines(transcript)
+                .Where(line => line.Length > 0)
+                .Select(line => JsonSerializer.Deserialize<Snapshot>(line, Sts2.View.HtmlView.JsonOptions)!)
+                .ToList();
+            string html = Sts2.View.HtmlView.Render(snapshots, "test");
+            if (!html.StartsWith("<!DOCTYPE html>", StringComparison.Ordinal))
+            {
+                throw new Exception("html does not start with a doctype");
+            }
+            if (html.Contains("<script src=", StringComparison.Ordinal) || html.Contains("<link ", StringComparison.Ordinal))
+            {
+                throw new Exception("html references external assets");
+            }
+            int embedded = html.Split("\"type\":\"snapshot\"").Length - 1;
+            Equal(snapshots.Count, embedded);
+        });
+
         Console.WriteLine(_failures == 0 ? $"{_checks} checks passed" : $"{_failures} failure(s)");
         return _failures == 0 ? 0 : 1;
     }

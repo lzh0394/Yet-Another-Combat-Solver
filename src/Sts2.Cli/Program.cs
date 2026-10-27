@@ -126,6 +126,32 @@ if (args.Length > 0 && args[0] == "run")
     return 0;
 }
 
+if (args.Length > 0 && args[0] == "html")
+{
+    string? transcriptPath = null;
+    string? outputPath = null;
+    string? title = null;
+    for (int i = 1; i + 1 < args.Length; i += 2)
+    {
+        switch (args[i])
+        {
+            case "--transcript": transcriptPath = args[i + 1]; break;
+            case "--out": outputPath = args[i + 1]; break;
+            case "--title": title = args[i + 1]; break;
+            default: Console.Error.WriteLine($"unknown option {args[i]}"); return 2;
+        }
+    }
+    if (transcriptPath is null || outputPath is null)
+    {
+        Console.Error.WriteLine("usage: sts2 html --transcript <jsonl> --out <html> [--title <title>]");
+        return 2;
+    }
+
+    int count = await HtmlView.WriteAsync(transcriptPath, outputPath, title);
+    Console.WriteLine($"[html] {count} snapshots -> {outputPath}");
+    return 0;
+}
+
 if (args.Length > 0 && args[0] == "tui")
 {
     string? scenarioPath = null;
