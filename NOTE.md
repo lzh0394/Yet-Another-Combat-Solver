@@ -434,3 +434,13 @@ CI 在冒烟之后刷新这份报告。
 - 真机与引擎第 4 回合手牌、能量、敌人 HP 完全相同：`[DEFEND, STRIKE, STRIKE, STRIKE, BASH]`、3 能量、敌人 6 HP。
 - 差异只有终局 `player.energy`（真机 1 / 引擎 0）。已排除“胜利结算清零”假设（删掉 `SettleAfterVictory` 的 `Energy = 0` 后仍为 0）。
 - 定位为 `auto_turn` 的选牌顺序：真机选 1 费 `STRIKE`（6 伤刚好击杀），引擎选 2 费 `BASH`（8 伤），两者都能在当回合击杀，只有剩余能量不同。改动策略前需先确认真机 `AutoSlay` 候选排序，否则会引入新差异。
+
+## 25. M5 完成口径（与 plan.md 成功标准对齐）
+
+M5 的验收以 plan.md 的三条成功标准为准，证据如下：
+
+1. 数据包与安装版同源、两次导出字节一致（`data/sts2/manifest.json` + 固定 `SOURCE_DATE_EPOCH`）。
+2. 5 角色 × Overgrowth 4 个弱遭遇、每局 ≥ 200 步：`tests/vectors/real/*_session.jsonl`（220/396/216/288/316 帧）逐字段一致。
+3. 全部已结构化卡牌可执行、全部普通遭遇可跑通：`sts2 smoke` 报 526 张可打出 / 64 遭遇 / 0 失败；未结构化的 39 张卡在导出时标 `effect_complete=false`，引擎显式抛 `CombatException: card effect not implemented`，不会被静默忽略。
+
+剩余的 39 张卡需要随机卡池、变形池、战斗内三选一、附魔、战斗内药水等新子系统；三个 parity 缺口（thieving_hopper 的 `SwipePower`、ovicopter 孵化后的意图展示、nibbits_a1 的 `auto_turn` 选牌顺序）定位见第 24 节。它们都不影响上面三条判据，作为后续独立任务。
