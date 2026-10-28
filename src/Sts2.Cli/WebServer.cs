@@ -37,7 +37,15 @@ internal static class WebServer
             ?? throw new InvalidOperationException("scenario is empty");
 
         var listener = new TcpListener(IPAddress.Loopback, port);
-        listener.Start();
+        try
+        {
+            listener.Start();
+        }
+        catch (System.Net.Sockets.SocketException)
+        {
+            Console.Error.WriteLine($"[web] port {port} is already in use; pass --port <other> (e.g. --port {port + 1})");
+            return 1;
+        }
         Console.WriteLine($"[web] listening on http://127.0.0.1:{port}/");
         Console.WriteLine($"[web] scenario: {Path.GetFileName(scenarioPath)}  (ctrl+c to stop)");
         while (true)
