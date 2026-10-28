@@ -56,6 +56,8 @@ def main() -> int:
             time.sleep(0.4)
         assert status == 200, f"page did not come up (status {status})"
         checks.append("page served")
+        assert 'id="msg"' in page, "page is missing the #msg status element (script aborts before rendering)"
+        checks.append("page declares #msg before first fetch")
         assert "Slay the Spire 2" in page and "<script>" in page, "page is not the replay UI"
         checks.append("page is self-contained HTML")
 
