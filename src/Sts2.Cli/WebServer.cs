@@ -266,6 +266,7 @@ ol{padding-left:18px;color:#a9b1c4;font-size:12px;max-height:160px;overflow:auto
   <section class="panel" id="left"></section>
   <section class="panel" id="right"></section>
 </main>
+<p id="msg" class="muted"></p>
 <script>
 let id = null, state = null, log = [];
 const $ = (x) => document.getElementById(x);
@@ -273,11 +274,15 @@ const title = (s) => (s || "").replace(/^[A-Z]+\./, "").split("_").map(w => w.ch
 async function post(path, body) {
   $("msg").textContent = "";
   const url = path + (path === "/api/new" ? "" : "?id=" + id);
-  const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body || {}) });
-  const data = await res.json();
-  if (data.error) { $("msg").textContent = data.error; return; }
-  if (data.session) id = data.session;
-  apply(data);
+  try {
+    const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body || {}) });
+    const data = await res.json();
+    if (data.error) { $("msg").textContent = data.error; return; }
+    if (data.session) id = data.session;
+    apply(data);
+  } catch (e) {
+    $("msg").textContent = "request failed: " + e;
+  }
 }
 function apply(data) {
   state = data.state;
@@ -302,7 +307,7 @@ function render() {
       + `<div class="bar"><i style="width:${e.max_hp ? 100 * e.hp / e.max_hp : 0}%"></i></div>`
       + `<div class="intent">intent: ${intents(e.intents) || "—"}</div></div>`).join("")
     + (s.combat_over ? `<div class="muted">combat over</div>` : "")
-    + `<h2 style="margin-top:12px">Log</h2><ol>` + log.map(x => `<li>${x}</li>`).join("") + `</ol><div id="msg"></div>`;
+    + `<h2 style="margin-top:12px">Log</h2><ol>` + log.map(x => `<li>${x}</li>`).join("") + `</ol>`;
   document.querySelectorAll(".card[data-slot]").forEach(el => {
     el.onclick = () => el.classList.contains("unplayable") ? null : post("/api/play", { slot: Number(el.dataset.slot), target: "0" });
   });
